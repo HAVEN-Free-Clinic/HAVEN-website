@@ -15,7 +15,7 @@ export function OurMissionContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         {/* ── Our Mission ── */}
         <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Our Mission
           </h2>
 
@@ -53,7 +53,7 @@ export function OurMissionContent() {
 
         {/* ── Our Vision ── */}
         <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Our Vision
           </h2>
 
@@ -86,7 +86,7 @@ export function OurMissionContent() {
 
         {/* ── Who We Serve ── */}
         <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Who We Serve
           </h2>
 
@@ -113,7 +113,7 @@ export function OurMissionContent() {
 
         {/* ── How We Operate ── */}
         <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             How We Operate
           </h2>
 

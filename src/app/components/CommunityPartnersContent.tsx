@@ -103,7 +103,7 @@ export function CommunityPartnersContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         {/* ── Our Partners ── */}
         <div className="mb-16 md:mb-20 max-w-[900px]">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Our Partners
           </h2>
 
@@ -182,7 +182,7 @@ export function CommunityPartnersContent() {
 
         {/* ── HAVEN Steering Committee ── */}
         <div>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-4 md:mb-6">
+          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4 md:mb-6">
             HAVEN Steering Committee
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/70 text-[16px] md:text-[18px] mb-10 md:mb-14 max-w-[700px]">

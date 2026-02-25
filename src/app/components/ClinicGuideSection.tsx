@@ -7,7 +7,7 @@ export function ClinicGuideSection() {
         {/* Divider */}
         <div className="w-full h-px bg-[#00356b]/10 mb-10" />
 
-        <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-4">
+        <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4">
           Clinic Guide
         </h2>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] mb-8 max-w-[900px]">

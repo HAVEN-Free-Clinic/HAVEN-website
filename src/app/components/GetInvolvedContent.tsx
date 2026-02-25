@@ -46,7 +46,7 @@ export function GetInvolvedContent() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] mb-6">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6">
               Make a Difference in Your Community
             </h2>
             <p className="font-['Poppins',sans-serif] text-black/75 text-[16px] md:text-[18px] leading-relaxed mb-6">
@@ -91,7 +91,7 @@ export function GetInvolvedContent() {
       <section className="bg-[#f7f9fb] w-full">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
           <div className="mb-12 md:mb-14">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] mb-4">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4">
               Ways to Volunteer
             </h2>
             <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] md:text-[18px] max-w-[650px]">
@@ -130,7 +130,7 @@ export function GetInvolvedContent() {
                 <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center">
                   <Heart className="w-5 h-5 text-[#00356b]" />
                 </div>
-                <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[26px] sm:text-[30px] md:text-[36px]">
+                <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
                   Become a Volunteer
                 </h2>
               </div>
@@ -198,7 +198,7 @@ export function GetInvolvedContent() {
                 <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
                   <BriefcaseMedical className="w-5 h-5 text-[#00356b]" />
                 </div>
-                <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px]">
+                <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
                   Professional Volunteers
                 </h2>
               </div>
@@ -242,7 +242,7 @@ export function GetInvolvedContent() {
 
       {/* ── Other Ways to Help ── */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
-        <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] mb-10 md:mb-12">
+        <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-10 md:mb-12">
           Other Ways to Support HAVEN
         </h2>
 
@@ -309,7 +309,7 @@ export function GetInvolvedContent() {
       <section className="bg-[#f7f9fb] w-full">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
           <div className="mb-8 md:mb-10">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] mb-4">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4">
               Join Our Newsletter
             </h2>
             <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] md:text-[18px] max-w-[550px]">

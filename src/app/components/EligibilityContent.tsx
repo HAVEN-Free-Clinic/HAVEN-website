@@ -254,7 +254,7 @@ export function EligibilityContent() {
         {/* Intro */}
         <div className="mb-14 md:mb-18">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
               Eligibility
             </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -295,7 +295,7 @@ export function EligibilityContent() {
 
         {/* Checker section */}
         <div className="mb-16 md:mb-20">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[30px] lg:text-[34px] mb-4 text-center">
+          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
             Check Your Eligibility
           </h3>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] text-center mb-10 max-w-[600px] mx-auto">

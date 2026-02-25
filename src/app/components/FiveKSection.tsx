@@ -18,7 +18,7 @@ export function FiveKSection() {
 
         {/* Info Card */}
         <div className="bg-white border border-[#00356b]/10 w-full max-w-[660px] z-10 px-8 md:px-12 py-8 md:py-10 text-center shadow-sm">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[20px] md:text-[26px] lg:text-[30px] leading-snug mb-4 max-w-[560px] mx-auto">
+          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] leading-snug mb-4 max-w-[560px] mx-auto">
             Thank you for your support at the 11th Annual HAVEN
             Free Clinic 5K!
           </h3>
