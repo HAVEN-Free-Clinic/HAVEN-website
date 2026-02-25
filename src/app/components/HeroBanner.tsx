@@ -23,7 +23,7 @@ export function HeroBanner() {
         <span className="inline-block bg-white/15 border border-white/30 px-6 py-2 font-['Poppins',sans-serif] font-medium text-white text-[14px] sm:text-[16px] md:text-[18px] tracking-wide mb-6 md:mb-8">
           HAVEN Free Clinic
         </span>
-        <h1 className="font-['Poppins',sans-serif] font-bold text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
+        <h1 className="font-['Merriweather',serif] font-bold text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
           High-quality health care,
         </h1>
         <h1 className="text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">

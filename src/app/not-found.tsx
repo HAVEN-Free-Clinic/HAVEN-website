@@ -33,12 +33,12 @@ export default function NotFound() {
           </p>
 
           {/* Title */}
-          <h1 className="font-['Poppins',sans-serif] font-bold text-white text-[28px] sm:text-[34px] md:text-[42px] -mt-4 sm:-mt-6 md:-mt-8 mb-4">
+          <h1 className="font-['Merriweather',serif] font-bold text-white text-[28px] sm:text-[34px] md:text-[42px] -mt-4 sm:-mt-6 md:-mt-8 mb-4">
             {title}
           </h1>
 
           {/* Message */}
-          <p className="font-['Merriweather',serif] text-white/80 text-[16px] sm:text-[18px] max-w-[560px] mx-auto leading-relaxed">
+          <p className="font-['Poppins',sans-serif] text-white/80 text-[16px] sm:text-[18px] max-w-[560px] mx-auto leading-relaxed">
             {message}
           </p>
         </div>
@@ -74,10 +74,10 @@ export default function NotFound() {
 
           {/* Helpful links */}
           <div className="text-center mb-10">
-            <h2 className="font-['Poppins',sans-serif] font-bold text-gray-900 text-[22px] sm:text-[26px] mb-2">
+            <h2 className="font-['Merriweather',serif] font-bold text-gray-900 text-[22px] sm:text-[26px] mb-2">
               Helpful Links
             </h2>
-            <p className="font-['Merriweather',serif] text-gray-500 text-[15px]">
+            <p className="font-['Poppins',sans-serif] text-gray-500 text-[15px]">
               Here are some pages that might help you find what you need.
             </p>
           </div>
@@ -123,7 +123,7 @@ export default function NotFound() {
                 <p className="font-['Poppins',sans-serif] font-bold text-gray-900 text-[16px] group-hover:text-[#00356b] transition-colors mb-1">
                   {link.label}
                 </p>
-                <p className="font-['Merriweather',serif] text-gray-500 text-[13px]">
+                <p className="font-['Poppins',sans-serif] text-gray-500 text-[13px]">
                   {link.desc}
                 </p>
               </Link>
@@ -132,10 +132,10 @@ export default function NotFound() {
 
           {/* Contact fallback */}
           <div className="mt-12 bg-white border border-gray-200 p-6 sm:p-8 text-center">
-            <h3 className="font-['Poppins',sans-serif] font-bold text-gray-900 text-[18px] sm:text-[20px] mb-2">
+            <h3 className="font-['Merriweather',serif] font-bold text-gray-900 text-[18px] sm:text-[20px] mb-2">
               Still need help?
             </h3>
-            <p className="font-['Merriweather',serif] text-gray-500 text-[15px] mb-5">
+            <p className="font-['Poppins',sans-serif] text-gray-500 text-[15px] mb-5">
               If you need immediate assistance, don&apos;t hesitate to reach out.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

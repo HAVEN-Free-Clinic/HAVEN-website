@@ -157,7 +157,7 @@ function EligibilityChecker() {
             <div className="w-16 h-16 rounded-full bg-[#00356b]/10 flex items-center justify-center">
               <Icon className="w-8 h-8 text-[#00356b]" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] md:text-[24px] leading-snug">
+            <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] md:text-[24px] leading-snug">
               {criterion.question}
             </h3>
           </div>
@@ -191,7 +191,7 @@ function EligibilityChecker() {
             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Qualify!
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
@@ -217,7 +217,7 @@ function EligibilityChecker() {
             <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center">
               <XCircle className="w-10 h-10 text-amber-500" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Not Qualify
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
@@ -254,7 +254,7 @@ export function EligibilityContent() {
         {/* Intro */}
         <div className="mb-14 md:mb-18">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
               Eligibility
             </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -278,7 +278,7 @@ export function EligibilityContent() {
                   <Icon className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <div>
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1">
+                  <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1">
                     {criterion.title}
                   </h3>
                   <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
@@ -295,7 +295,7 @@ export function EligibilityContent() {
 
         {/* Checker section */}
         <div className="mb-16 md:mb-20">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
             Check Your Eligibility
           </h3>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] text-center mb-10 max-w-[600px] mx-auto">
@@ -307,7 +307,7 @@ export function EligibilityContent() {
 
         {/* Contact callout */}
         <div className="bg-[#00356b] px-8 md:px-12 py-10 md:py-12 text-center">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[20px] md:text-[24px] mb-3">
+          <h3 className="font-['Merriweather',serif] font-bold text-white text-[20px] md:text-[24px] mb-3">
             Have Questions?
           </h3>
           <p className="font-['Poppins',sans-serif] text-white/80 text-[16px] md:text-[18px] mb-6 max-w-[560px] mx-auto">

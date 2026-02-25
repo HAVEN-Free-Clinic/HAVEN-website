@@ -2,7 +2,7 @@ export function MissionSection() {
   return (
     <section className="w-full bg-white py-16 md:py-20 lg:py-24 px-6 md:px-16 lg:px-20">
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-        <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0 md:w-[320px] lg:w-[390px]">
+        <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0 md:w-[320px] lg:w-[390px]">
           Our Mission
         </h2>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[766px]">

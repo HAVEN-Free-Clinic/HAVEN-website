@@ -102,7 +102,7 @@ export function ReferralsContent() {
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
             Referrals
           </h2>
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px] space-y-5">
@@ -143,7 +143,7 @@ export function ReferralsContent() {
       {/* ── Access Medical Referrals CTA ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16 flex justify-center">
         <div className="bg-[#00356b]  px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 w-full max-w-[1000px] flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+          <h3 className="font-['Merriweather',serif] font-bold text-white text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
             Access Medical Referrals
           </h3>
           <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[600px]">

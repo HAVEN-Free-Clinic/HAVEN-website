@@ -531,7 +531,7 @@ function DepartmentSection({ dept }: { dept: Department }) {
         <span className="font-['Poppins',sans-serif] font-bold text-white bg-[#00356b] px-3 py-1 text-[13px] md:text-[14px] tracking-wide">
           {dept.code}
         </span>
-        <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[20px] md:text-[24px]">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[20px] md:text-[24px]">
           {dept.label}
         </h3>
       </div>
@@ -555,7 +555,7 @@ export function LeadershipBoardContent() {
         {/* Intro */}
         <div className="mb-16 md:mb-20">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-            <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
               Leadership
             </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -575,7 +575,7 @@ export function LeadershipBoardContent() {
 
         {/* Medical Directors */}
         <div className="mb-16 md:mb-20">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
             Medical Directors
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-20">
@@ -592,7 +592,7 @@ export function LeadershipBoardContent() {
         <div className="w-full h-px bg-[#00356b]/15 mb-16 md:mb-20" />
 
         {/* Student Coordinators heading */}
-        <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
           Student Directors
         </h3>
 

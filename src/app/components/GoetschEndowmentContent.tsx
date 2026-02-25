@@ -12,7 +12,7 @@ export function GoetschEndowmentContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed mb-2">
             We are especially fortunate to have the support of the
           </p>
-          <h2 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-snug mb-2">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-snug mb-2">
             John B. Goetsch Endowment for
             <br />
             Medical Education and Service
@@ -39,7 +39,7 @@ export function GoetschEndowmentContent() {
         {/* ── Biography ── */}
         <div className="max-w-[900px]">
           <div className="mb-8">
-            <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-1">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-1">
               John B. Goetsch, M.D.
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[16px] md:text-[18px]">
