@@ -113,7 +113,7 @@ function EligibilityChecker() {
       <div className="flex flex-col items-center">
         <button
           onClick={handleStart}
-          className="bg-[#034078] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 rounded-full hover:bg-[#023060] transition-colors shadow-md flex items-center gap-3"
+          className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 hover:bg-[#4a90c4] transition-colors shadow-md flex items-center gap-3"
         >
           See If I Qualify
           <ChevronRight className="w-5 h-5" />
@@ -128,11 +128,11 @@ function EligibilityChecker() {
     const progress = ((currentStep + 1) / CRITERIA.length) * 100;
 
     return (
-      <div className="max-w-[640px] mx-auto bg-white rounded-2xl shadow-lg border border-[#034078]/10 overflow-hidden">
+      <div className="max-w-[640px] mx-auto bg-white shadow-lg border border-[#00356b]/10 overflow-hidden">
         {/* Progress bar */}
         <div className="w-full h-2 bg-[#e8eef5]">
           <div
-            className="h-full bg-[#034078] transition-all duration-500 ease-out"
+            className="h-full bg-[#00356b] transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -142,22 +142,22 @@ function EligibilityChecker() {
           <div className="flex items-center justify-between mb-6">
             <button
               onClick={handleBack}
-              className="text-[#034078]/60 hover:text-[#034078] transition-colors flex items-center gap-1 font-['Poppins',sans-serif] text-[14px]"
+              className="text-[#00356b]/60 hover:text-[#00356b] transition-colors flex items-center gap-1 font-['Poppins',sans-serif] text-[14px]"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </button>
-            <span className="font-['Poppins',sans-serif] text-[#034078]/60 text-[14px]">
+            <span className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[14px]">
               Question {currentStep + 1} of {CRITERIA.length}
             </span>
           </div>
 
           {/* Question */}
           <div className="flex flex-col items-center text-center gap-5 mb-8">
-            <div className="w-16 h-16 rounded-full bg-[#034078]/10 flex items-center justify-center">
-              <Icon className="w-8 h-8 text-[#034078]" />
+            <div className="w-16 h-16 rounded-full bg-[#00356b]/10 flex items-center justify-center">
+              <Icon className="w-8 h-8 text-[#00356b]" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[20px] md:text-[24px] leading-snug">
+            <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] md:text-[24px] leading-snug">
               {criterion.question}
             </h3>
           </div>
@@ -166,13 +166,13 @@ function EligibilityChecker() {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => handleAnswer(true)}
-              className="flex-1 max-w-[200px] bg-[#034078] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 rounded-xl hover:bg-[#023060] transition-colors"
+              className="flex-1 max-w-[200px] bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#4a90c4] transition-colors"
             >
               Yes
             </button>
             <button
               onClick={() => handleAnswer(false)}
-              className="flex-1 max-w-[200px] bg-white text-[#034078] border-2 border-[#034078] font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 rounded-xl hover:bg-[#034078]/5 transition-colors"
+              className="flex-1 max-w-[200px] bg-white text-[#00356b] border-2 border-[#00356b] font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#00356b]/5 transition-colors"
             >
               No
             </button>
@@ -184,30 +184,30 @@ function EligibilityChecker() {
 
   // Result
   return (
-    <div className="max-w-[640px] mx-auto bg-white rounded-2xl shadow-lg border border-[#034078]/10 overflow-hidden">
+    <div className="max-w-[640px] mx-auto bg-white shadow-lg border border-[#00356b]/10 overflow-hidden">
       <div className="px-6 md:px-10 py-10 md:py-12">
         {allYes ? (
           <div className="flex flex-col items-center text-center gap-5">
             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[24px] md:text-[28px]">
+            <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Qualify!
             </h3>
-            <p className="font-['Poppins',sans-serif] text-[#034078]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
+            <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you appear to meet our eligibility
               criteria. Please call us to schedule an appointment.
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#034078] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 rounded-full hover:bg-[#023060] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673
             </a>
             <button
               onClick={handleReset}
-              className="text-[#034078]/60 hover:text-[#034078] font-['Poppins',sans-serif] text-[14px] mt-2 underline"
+              className="text-[#00356b]/60 hover:text-[#00356b] font-['Poppins',sans-serif] text-[14px] mt-2 underline"
             >
               Start over
             </button>
@@ -217,24 +217,24 @@ function EligibilityChecker() {
             <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center">
               <XCircle className="w-10 h-10 text-amber-500" />
             </div>
-            <h3 className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[24px] md:text-[28px]">
+            <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Not Qualify
             </h3>
-            <p className="font-['Poppins',sans-serif] text-[#034078]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
+            <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you may not meet all of our current
               eligibility criteria. However, we encourage you to reach out — we
               may still be able to help or connect you with other resources.
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#034078] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 rounded-full hover:bg-[#023060] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673
             </a>
             <button
               onClick={handleReset}
-              className="text-[#034078]/60 hover:text-[#034078] font-['Poppins',sans-serif] text-[14px] mt-2 underline"
+              className="text-[#00356b]/60 hover:text-[#00356b] font-['Poppins',sans-serif] text-[14px] mt-2 underline"
             >
               Start over
             </button>
@@ -254,7 +254,7 @@ export function EligibilityContent() {
         {/* Intro */}
         <div className="mb-14 md:mb-18">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
               Eligibility
             </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -272,16 +272,16 @@ export function EligibilityContent() {
             return (
               <div
                 key={criterion.id}
-                className="bg-[#f7f9fc] border border-[#034078]/10 rounded-xl px-6 py-6 flex items-start gap-4"
+                className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-6 flex items-start gap-4"
               >
-                <div className="w-11 h-11 rounded-full bg-[#034078]/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon className="w-5 h-5 text-[#034078]" />
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <div>
-                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[16px] md:text-[18px] mb-1">
+                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1">
                     {criterion.title}
                   </h3>
-                  <p className="font-['Poppins',sans-serif] text-[#034078]/70 text-[14px] md:text-[15px] leading-relaxed">
+                  <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
                     {criterion.description}
                   </p>
                 </div>
@@ -291,14 +291,14 @@ export function EligibilityContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#034078]/15 mb-14 md:mb-18" />
+        <div className="w-full h-px bg-[#00356b]/15 mb-14 md:mb-18" />
 
         {/* Checker section */}
         <div className="mb-16 md:mb-20">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[24px] md:text-[30px] lg:text-[34px] mb-4 text-center">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[30px] lg:text-[34px] mb-4 text-center">
             Check Your Eligibility
           </h3>
-          <p className="font-['Poppins',sans-serif] text-[#034078]/70 text-[16px] md:text-[18px] text-center mb-10 max-w-[600px] mx-auto">
+          <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] text-center mb-10 max-w-[600px] mx-auto">
             Answer a few quick questions to find out if you may be eligible for
             care at HAVEN Free Clinic.
           </p>
@@ -306,7 +306,7 @@ export function EligibilityContent() {
         </div>
 
         {/* Contact callout */}
-        <div className="bg-[#034078] rounded-2xl px-8 md:px-12 py-10 md:py-12 text-center">
+        <div className="bg-[#00356b] px-8 md:px-12 py-10 md:py-12 text-center">
           <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[20px] md:text-[24px] mb-3">
             Have Questions?
           </h3>
@@ -317,14 +317,14 @@ export function EligibilityContent() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="tel:2032000673"
-              className="bg-white text-[#034078] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3 rounded-full hover:bg-[#e8eef5] transition-colors flex items-center gap-2"
+              className="bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3 hover:bg-[#e8eef5] transition-colors flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               (203) 200-0673
             </a>
             <Link
               href="/visitor-guide"
-              className="bg-transparent text-white border-2 border-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3 rounded-full hover:bg-white/10 transition-colors"
+              className="bg-transparent text-white border-2 border-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3 hover:bg-white/10 transition-colors"
             >
               Visitor Guide
             </Link>

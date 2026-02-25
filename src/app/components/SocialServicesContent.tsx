@@ -40,7 +40,7 @@ const resources: ResourceItem[] = [
         </ul>
         <p>
           Speak with our social services team during your visit or email{" "}
-          <a href="mailto:hfc.social.services@yale.edu" className="text-[#034078] hover:underline">
+          <a href="mailto:hfc.social.services@yale.edu" className="text-[#00356b] hover:underline">
             hfc.social.services@yale.edu
           </a>{" "}
           for more information.
@@ -142,7 +142,7 @@ const resources: ResourceItem[] = [
           <li>
             If you need an interpreter, please let us know when scheduling
             your appointment by calling{" "}
-            <a href="tel:2032000673" className="text-[#034078] hover:underline">
+            <a href="tel:2032000673" className="text-[#00356b] hover:underline">
               (203) 200-0673
             </a>
           </li>
@@ -183,7 +183,7 @@ const resources: ResourceItem[] = [
         </ul>
         <p>
           Contact our billing team at{" "}
-          <a href="mailto:hfc.billing@yale.edu" className="text-[#034078] hover:underline">
+          <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] hover:underline">
             hfc.billing@yale.edu
           </a>{" "}
           or ask to speak with a counselor during your visit.
@@ -202,7 +202,7 @@ function AccordionItem({ item }: { item: ResourceItem }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
       >
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
+        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
           {item.title}
         </span>
         <ChevronDown
@@ -234,7 +234,7 @@ export function SocialServicesContent() {
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
             Social Services
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -248,7 +248,7 @@ export function SocialServicesContent() {
 
       {/* ── Social Service Resources Heading ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-6 md:pt-10 pb-4 md:pb-6">
-        <h3 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px]">
+        <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px]">
           Social Service Resources
         </h3>
       </div>

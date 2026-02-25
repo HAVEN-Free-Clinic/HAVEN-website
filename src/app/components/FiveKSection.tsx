@@ -11,14 +11,14 @@ export function FiveKSection() {
             alt="HAVEN Free Clinic 5K event"
             width={900}
             height={600}
-            className="w-full h-auto rounded-sm object-cover"
+            className="w-full h-auto object-cover"
             sizes="(max-width: 900px) 100vw, 900px"
           />
         </div>
 
         {/* Info Card */}
-        <div className="bg-white border border-[#858282] w-full max-w-[660px] z-10 px-8 md:px-12 py-8 md:py-10 text-center shadow-sm">
-          <h3 className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[20px] md:text-[26px] lg:text-[30px] leading-snug mb-4 max-w-[560px] mx-auto">
+        <div className="bg-white border border-[#00356b]/10 w-full max-w-[660px] z-10 px-8 md:px-12 py-8 md:py-10 text-center shadow-sm">
+          <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[20px] md:text-[26px] lg:text-[30px] leading-snug mb-4 max-w-[560px] mx-auto">
             Thank you for your support at the 11th Annual HAVEN
             Free Clinic 5K!
           </h3>
@@ -39,7 +39,7 @@ export function FiveKSection() {
         </div>
 
         {/* Divider */}
-        <div className="w-full max-w-[1400px] h-px bg-[#858282] mt-12 md:mt-16" />
+        <div className="w-full max-w-[1400px] h-px bg-[#00356b]/10 mt-12 md:mt-16" />
       </div>
     </section>
   );

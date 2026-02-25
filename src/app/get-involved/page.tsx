@@ -1,5 +1,6 @@
 import { PageHero } from "@/app/components/PageHero";
 import { GetInvolvedContent } from "@/app/components/GetInvolvedContent";
+import { FiveKSection } from "@/app/components/FiveKSection";
 
 export default function GetInvolvedPage() {
   return (
@@ -11,6 +12,7 @@ export default function GetInvolvedPage() {
         subtitle="HAVEN Free Clinic"
       />
       <GetInvolvedContent />
+      <FiveKSection />
     </>
   );
 }

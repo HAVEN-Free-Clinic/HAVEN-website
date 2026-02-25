@@ -5,7 +5,7 @@ import { TranslateDropdown } from "./TranslateDropdown";
 
 export function TopBar() {
   return (
-    <div className="bg-[#034078] w-full">
+    <div className="bg-[#00356b] w-full">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-2">
         <TranslateDropdown />
         <div className="flex items-center gap-1.5 text-white font-['Poppins',sans-serif] text-[12px] sm:text-[13px] md:text-[16px]">

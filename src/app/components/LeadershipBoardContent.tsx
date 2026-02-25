@@ -451,7 +451,7 @@ function PhotoPlaceholder({
     <div
       className={`${dim} rounded-full bg-[#e8eef5] flex items-center justify-center shrink-0`}
     >
-      <User className={`${iconSize} text-[#034078]/40`} />
+      <User className={`${iconSize} text-[#00356b]/40`} />
     </div>
   );
 }
@@ -471,20 +471,20 @@ function DirectorCard({ person }: { person: Person }) {
         <PhotoPlaceholder size="lg" />
       )}
       <div>
-        <p className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[18px] md:text-[20px] inline-flex items-center gap-1.5">
+        <p className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[20px] inline-flex items-center gap-1.5">
           {person.name}
           {person.email && (
             <a
               href={`mailto:${person.email}`}
               title={person.email}
-              className="text-[#034078] hover:text-[#034078] transition-colors"
+              className="text-[#00356b] hover:text-[#00356b] transition-colors"
             >
               <Mail className="w-4 h-4" />
             </a>
           )}
         </p>
         {person.title && (
-          <p className="font-['Poppins',sans-serif] text-[#034078]/70 text-[14px] md:text-[16px] mt-1">
+          <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[16px] mt-1">
             {person.title}
           </p>
         )}
@@ -507,13 +507,13 @@ function MemberCard({ person }: { person: Person }) {
       ) : (
         <PhotoPlaceholder size="sm" />
       )}
-      <p className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[14px] md:text-[16px] leading-snug inline-flex items-center gap-1">
+      <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[14px] md:text-[16px] leading-snug inline-flex items-center gap-1">
         {person.name}
         {person.email && (
           <a
             href={`mailto:${person.email}`}
             title={person.email}
-            className="text-[#034078] hover:text-[#034078] transition-colors"
+            className="text-[#00356b] hover:text-[#00356b] transition-colors"
           >
             <Mail className="w-3.5 h-3.5 shrink-0" />
           </a>
@@ -528,10 +528,10 @@ function DepartmentSection({ dept }: { dept: Department }) {
     <div className="mb-12 md:mb-16">
       {/* Department header */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="font-['Poppins',sans-serif] font-bold text-white bg-[#034078] px-3 py-1 rounded text-[13px] md:text-[14px] tracking-wide">
+        <span className="font-['Poppins',sans-serif] font-bold text-white bg-[#00356b] px-3 py-1 text-[13px] md:text-[14px] tracking-wide">
           {dept.code}
         </span>
-        <h3 className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[20px] md:text-[24px]">
+        <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[20px] md:text-[24px]">
           {dept.label}
         </h3>
       </div>
@@ -555,7 +555,7 @@ export function LeadershipBoardContent() {
         {/* Intro */}
         <div className="mb-16 md:mb-20">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
               Leadership
             </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -575,7 +575,7 @@ export function LeadershipBoardContent() {
 
         {/* Medical Directors */}
         <div className="mb-16 md:mb-20">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[24px] md:text-[30px] lg:text-[34px] mb-10 text-center">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[30px] lg:text-[34px] mb-10">
             Medical Directors
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-20">
@@ -589,10 +589,10 @@ export function LeadershipBoardContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#034078]/15 mb-16 md:mb-20" />
+        <div className="w-full h-px bg-[#00356b]/15 mb-16 md:mb-20" />
 
         {/* Student Coordinators heading */}
-        <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[24px] md:text-[30px] lg:text-[34px] mb-12 text-center">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[30px] lg:text-[34px] mb-12">
           Student Directors
         </h3>
 

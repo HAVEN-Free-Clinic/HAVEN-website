@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-[#034078] w-full">
+    <footer className="bg-[#00356b] w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
           {/* Logo */}
@@ -18,10 +18,10 @@ export function Footer() {
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 w-full">
             {/* Contact */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[24px] md:text-[28px] mb-5">
+              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Contact Us
               </h3>
-              <div className="flex flex-col gap-2 font-['Merriweather',serif] text-white text-[16px] md:text-[18px]">
+              <div className="flex flex-col gap-2 font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[16px]">
                 <a href="tel:2032000673" className="hover:underline">(203) 200-0673</a>
                 <a href="mailto:haven.free.clinic@yale.edu" className="hover:underline">
                   haven.free.clinic@yale.edu
@@ -32,7 +32,7 @@ export function Footer() {
 
             {/* Address */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[24px] md:text-[28px] mb-5">
+              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Address
               </h3>
               <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px] leading-[1.8]">
@@ -46,7 +46,7 @@ export function Footer() {
 
             {/* Hours */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[24px] md:text-[28px] mb-5">
+              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Hours
               </h3>
               <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px]">

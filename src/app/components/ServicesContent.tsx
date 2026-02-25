@@ -38,7 +38,7 @@ function ServiceCard({ label, image, to }: ServiceCardProps) {
   return (
     <Link
       href={to}
-      className="group relative w-full aspect-square overflow-hidden rounded-sm cursor-pointer block"
+      className="group relative w-full aspect-square overflow-hidden cursor-pointer block"
     >
       {/* Card Image */}
       <Image
@@ -68,8 +68,8 @@ export function ServicesContent() {
     <section className="bg-white w-full">
       {/* Intro Block */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14 lg:pb-16">
-        <div className="bg-white rounded-[48px] flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+        <div className="bg-white flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
             Our Services
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">

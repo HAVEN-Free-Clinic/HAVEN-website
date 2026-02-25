@@ -80,7 +80,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
     <nav
       className={`w-full transition-all duration-300 ease-in-out ${
         mobileOpen && !isScrolled
-          ? "bg-[#034078]/95 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none"
+          ? "bg-[#00356b]/95 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none"
           : mobileOpen && isScrolled
           ? "bg-white/95 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none"
           : "bg-transparent"
@@ -119,7 +119,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           >
             <button
               onClick={() => setAboutOpen(!aboutOpen)}
-              className={`font-['Poppins',sans-serif] font-bold text-[14px] ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
+              className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
             >
               About Us
               <ChevronDown
@@ -129,14 +129,14 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
 
             {aboutOpen && (
               <div
-                className={`absolute top-full left-0 mt-2 py-1 min-w-[200px] rounded-lg shadow-xl border z-[9999] bg-white border-gray-200`}
+                className={`absolute top-full left-0 mt-2 py-1 min-w-[200px] shadow-xl border z-[9999] bg-white border-gray-200`}
               >
                 {aboutDropdownItems.map((item) => (
                   <Link
                     key={item.to}
                     href={item.to}
                     onClick={() => setAboutOpen(false)}
-                    className="block px-4 py-2.5 font-['Poppins',sans-serif] font-semibold text-[14px] text-gray-700 hover:bg-[#034078]/10 hover:text-[#034078] transition-colors"
+                    className="block px-4 py-2.5 font-['Poppins',sans-serif] font-normal text-[14px] text-gray-700 hover:bg-[#00356b]/10 hover:text-[#00356b] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -154,7 +154,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className={`font-['Poppins',sans-serif] font-bold text-[14px] ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
+              className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
             >
               Services
               <ChevronDown
@@ -164,14 +164,14 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
 
             {servicesOpen && (
               <div
-                className={`absolute top-full left-0 mt-2 py-1 min-w-[200px] rounded-lg shadow-xl border z-[9999] bg-white border-gray-200`}
+                className={`absolute top-full left-0 mt-2 py-1 min-w-[200px] shadow-xl border z-[9999] bg-white border-gray-200`}
               >
                 {servicesDropdownItems.map((item) => (
                   <Link
                     key={item.to}
                     href={item.to}
                     onClick={() => setServicesOpen(false)}
-                    className="block px-4 py-2.5 font-['Poppins',sans-serif] font-semibold text-[14px] text-gray-700 hover:bg-[#034078]/10 hover:text-[#034078] transition-colors"
+                    className="block px-4 py-2.5 font-['Poppins',sans-serif] font-normal text-[14px] text-gray-700 hover:bg-[#00356b]/10 hover:text-[#00356b] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -183,16 +183,16 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           {/* Impact link */}
           <Link
             href="/impact"
-            className={`font-['Poppins',sans-serif] font-bold text-[14px] ${textColor} hover:opacity-80 transition-all duration-300`}
+            className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300`}
           >
             Impact
           </Link>
           <Link
             href="/get-involved"
-            className={`font-['Poppins',sans-serif] font-bold text-[14px] px-6 py-2.5 rounded-full transition-colors duration-300 ${
+            className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 transition-colors duration-300 ${
               isScrolled
-                ? "bg-black text-white hover:bg-gray-800"
-                : "bg-white text-black hover:bg-gray-100"
+                ? "bg-[#00356b] text-white hover:bg-[#4a90c4]"
+                : "bg-white text-[#00356b] hover:bg-[#d6e8f7]"
             }`}
           >
             Volunteer
@@ -201,7 +201,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#034078] text-white font-['Poppins',sans-serif] font-bold text-[14px] px-6 py-2.5 rounded-full hover:bg-[#0d4280] transition-colors duration-300"
+            className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 hover:bg-[#4a90c4] transition-colors duration-300"
           >
             Donate
           </a>
@@ -230,7 +230,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                className={`font-['Poppins',sans-serif] font-bold text-[16px] hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
+                className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
               >
@@ -249,7 +249,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                         setMobileOpen(false);
                         setMobileAboutOpen(false);
                       }}
-                      className={`font-['Poppins',sans-serif] font-semibold text-[15px] hover:opacity-80 transition-opacity ${
+                      className={`font-['Poppins',sans-serif] font-normal text-[15px] hover:opacity-80 transition-opacity ${
                         isScrolled ? "text-black/80" : "text-white/90"
                       }`}
                     >
@@ -264,7 +264,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className={`font-['Poppins',sans-serif] font-bold text-[16px] hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
+                className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
               >
@@ -283,7 +283,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                         setMobileOpen(false);
                         setMobileServicesOpen(false);
                       }}
-                      className={`font-['Poppins',sans-serif] font-semibold text-[15px] hover:opacity-80 transition-opacity ${
+                      className={`font-['Poppins',sans-serif] font-normal text-[15px] hover:opacity-80 transition-opacity ${
                         isScrolled ? "text-black/80" : "text-white/90"
                       }`}
                     >
@@ -298,7 +298,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             <Link
               href="/impact"
               onClick={() => setMobileOpen(false)}
-              className={`font-['Poppins',sans-serif] font-bold text-[16px] hover:opacity-80 transition-opacity ${
+              className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
                 isScrolled ? "text-black" : "text-white"
               }`}
             >
@@ -308,10 +308,10 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               <Link
                 href="/get-involved"
                 onClick={() => setMobileOpen(false)}
-                className={`font-['Poppins',sans-serif] font-bold text-[14px] px-6 py-2.5 rounded-full text-center flex-1 ${
+                className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 text-center flex-1 ${
                   isScrolled
-                    ? "bg-black text-white"
-                    : "bg-white text-black"
+                    ? "bg-[#00356b] text-white"
+                    : "bg-white text-[#00356b]"
                 }`}
               >
                 Volunteer
@@ -320,7 +320,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                 href={DONATE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#034078] border border-white text-white font-['Poppins',sans-serif] font-bold text-[14px] px-6 py-2.5 rounded-full text-center flex-1"
+                className="bg-[#00356b] border border-white text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 text-center flex-1"
               >
                 Donate
               </a>

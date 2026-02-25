@@ -12,7 +12,7 @@ export function GoetschEndowmentContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed mb-2">
             We are especially fortunate to have the support of the
           </p>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[46px] leading-snug mb-2">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[46px] leading-snug mb-2">
             John B. Goetsch Endowment for
             <br />
             Medical Education and Service
@@ -26,7 +26,7 @@ export function GoetschEndowmentContent() {
             href={LEARN_MORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#034078] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 rounded-full hover:bg-[#023060] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
           >
             Learn More
             <ExternalLink className="w-4 h-4" />
@@ -34,15 +34,15 @@ export function GoetschEndowmentContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#858282] mb-16 md:mb-20" />
+        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
         {/* ── Biography ── */}
         <div className="max-w-[900px]">
           <div className="mb-8">
-            <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[26px] sm:text-[30px] md:text-[36px] mb-1">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[26px] sm:text-[30px] md:text-[36px] mb-1">
               John B. Goetsch, M.D.
             </h3>
-            <p className="font-['Poppins',sans-serif] text-[#034078]/60 text-[16px] md:text-[18px]">
+            <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[16px] md:text-[18px]">
               April 30, 1914 – August 8, 1982
             </p>
           </div>
@@ -74,7 +74,7 @@ export function GoetschEndowmentContent() {
             </p>
 
             {/* Personal remembrance — styled as a blockquote */}
-            <blockquote className="border-l-4 border-[#034078]/30 pl-6 md:pl-8 py-2 bg-[#f7f9fc] rounded-r-xl pr-6 md:pr-8">
+            <blockquote className="border-l-4 border-[#00356b]/30 pl-6 md:pl-8 py-2 bg-[#f7f9fc] pr-6 md:pr-8">
               <p className="italic mb-4">
                 I had the great fortune to be one of those friends. I first met
                 Dr. Goetsch in 1952, when as a teenager I moved to Connecticut.
@@ -99,12 +99,12 @@ export function GoetschEndowmentContent() {
           </div>
 
           {/* Attribution */}
-          <div className="mt-10 pt-6 border-t border-[#034078]/10">
-            <p className="font-['Poppins',sans-serif] text-[#034078]/60 text-[14px] md:text-[15px] italic">
+          <div className="mt-10 pt-6 border-t border-[#00356b]/10">
+            <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[14px] md:text-[15px] italic">
               Written by John Allen Jones from material kindly supplied by
               Charles C. Goetsch
             </p>
-            <p className="font-['Poppins',sans-serif] text-[#034078]/60 text-[14px] md:text-[15px] mt-1">
+            <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[14px] md:text-[15px] mt-1">
               May 2011
             </p>
           </div>

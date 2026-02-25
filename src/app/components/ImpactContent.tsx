@@ -1,4 +1,4 @@
-import { ExternalLink, Newspaper, BookOpen, FileText, FlaskConical } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface NewsItem {
   season: string;
@@ -135,108 +135,88 @@ export function ImpactContent() {
   return (
     <section className="bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
-        {/* ── Two-column layout on desktop ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
-          {/* ── LEFT: News ── */}
-          <div>
-            <div className="flex items-center gap-3 mb-8 md:mb-10">
-              <div className="w-11 h-11 rounded-full bg-[#034078]/10 flex items-center justify-center shrink-0">
-                <Newspaper className="w-5 h-5 text-[#034078]" />
-              </div>
-              <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[32px] md:text-[36px]">
-                News
-              </h2>
-            </div>
+        {/* ── News ── */}
+        <div className="mb-16 md:mb-20">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+            News
+          </h2>
 
-            <div className="space-y-0">
-              {NEWS_ITEMS.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 py-4 border-b border-[#034078]/10 hover:bg-[#f7f9fb] px-3 -mx-3 rounded-lg transition-colors duration-200"
-                >
-                  <span className="shrink-0 font-['Poppins',sans-serif] font-semibold text-[#034078] text-[13px] md:text-[14px] bg-[#034078]/8 rounded-md px-2.5 py-1 mt-0.5 whitespace-nowrap">
-                    {item.season}
-                  </span>
-                  <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#034078] transition-colors duration-200 flex items-center gap-1.5">
-                    {item.title}
-                    <ExternalLink className="w-3.5 h-3.5 text-[#034078]/40 group-hover:text-[#034078] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  </span>
-                </a>
-              ))}
-            </div>
+          <div className="space-y-0">
+            {NEWS_ITEMS.map((item, index) => (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 py-4 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+              >
+                <span className="shrink-0 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[13px] md:text-[14px] bg-[#00356b]/8 px-2.5 py-1 mt-0.5 whitespace-nowrap">
+                  {item.season}
+                </span>
+                <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
+                  {item.title}
+                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                </span>
+              </a>
+            ))}
           </div>
+        </div>
 
-          {/* ── RIGHT: Publications ── */}
-          <div>
-            <div className="flex items-center gap-3 mb-8 md:mb-10">
-              <div className="w-11 h-11 rounded-full bg-[#034078]/10 flex items-center justify-center shrink-0">
-                <BookOpen className="w-5 h-5 text-[#034078]" />
-              </div>
-              <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[32px] md:text-[36px]">
-                Publications
-              </h2>
-            </div>
+        {/* Divider */}
+        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
-            {/* Annual Reports */}
-            <div className="mb-10 md:mb-12">
-              <div className="flex items-center gap-2.5 mb-5">
-                <FileText className="w-[18px] h-[18px] text-[#034078]/70" />
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[18px] md:text-[20px]">
-                  Annual Reports
-                </h3>
-              </div>
+        {/* ── Annual Reports ── */}
+        <div className="mb-16 md:mb-20">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+            Annual Reports
+          </h2>
 
-              <div className="space-y-0">
-                {ANNUAL_REPORTS.map((report, index) => (
-                  <a
-                    key={index}
-                    href={report.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-3 py-3.5 border-b border-[#034078]/10 hover:bg-[#f7f9fb] px-3 -mx-3 rounded-lg transition-colors duration-200"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-[#034078]/30 group-hover:bg-[#034078] shrink-0 transition-colors duration-200" />
-                    <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#034078] transition-colors duration-200 flex items-center gap-1.5">
-                      {report.title}
-                      <ExternalLink className="w-3.5 h-3.5 text-[#034078]/40 group-hover:text-[#034078] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
+          <div className="space-y-0">
+            {ANNUAL_REPORTS.map((report, index) => (
+              <a
+                key={index}
+                href={report.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 py-3.5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+              >
+                <div className="w-2 h-2 bg-[#00356b]/30 group-hover:bg-[#00356b] shrink-0 transition-colors duration-200" />
+                <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
+                  {report.title}
+                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
 
-            {/* Research Articles */}
-            <div>
-              <div className="flex items-center gap-2.5 mb-5">
-                <FlaskConical className="w-[18px] h-[18px] text-[#034078]/70" />
-                <h3 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[18px] md:text-[20px]">
-                  Research Articles
-                </h3>
-              </div>
+        {/* Divider */}
+        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
-              <div className="space-y-4">
-                {RESEARCH_ARTICLES.map((article, index) => (
-                  <a
-                    key={index}
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block p-4 rounded-xl bg-[#f7f9fb] border border-[#034078]/8 hover:border-[#034078]/20 hover:shadow-sm transition-all duration-200"
-                  >
-                    <p className="font-['Poppins',sans-serif] text-[13px] md:text-[14px] text-black/50 mb-1">
-                      {article.authors}
-                    </p>
-                    <p className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#034078] transition-colors duration-200 flex items-start gap-1.5">
-                      <span className="italic">{article.title}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#034078]/40 group-hover:text-[#034078] shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                    </p>
-                  </a>
-                ))}
-              </div>
-            </div>
+        {/* ── Research Articles ── */}
+        <div>
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+            Research Articles
+          </h2>
+
+          <div className="space-y-0">
+            {RESEARCH_ARTICLES.map((article, index) => (
+              <a
+                key={index}
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block py-5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+              >
+                <p className="font-['Poppins',sans-serif] text-[13px] md:text-[14px] text-black/50 mb-1">
+                  {article.authors}
+                </p>
+                <p className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-start gap-1.5">
+                  <span className="italic">{article.title}</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                </p>
+              </a>
+            ))}
           </div>
         </div>
       </div>

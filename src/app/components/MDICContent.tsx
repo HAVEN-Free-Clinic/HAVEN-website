@@ -38,7 +38,7 @@ function ResourceCard({ title, image, href = "#" }: ResourceCardProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block w-full aspect-[368/391] overflow-hidden border border-[#034078] cursor-pointer"
+      className="group relative block w-full aspect-[368/391] overflow-hidden border border-[#00356b] cursor-pointer"
     >
       {/* Card Image */}
       <Image
@@ -81,7 +81,7 @@ export function MDICContent() {
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[42px] lg:text-[48px] shrink-0 md:w-[390px]">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[42px] lg:text-[48px] shrink-0 md:w-[390px]">
             Medical Debt &amp; Insurance Counseling
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -94,12 +94,12 @@ export function MDICContent() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#858282]" />
+        <hr className="w-full border-t border-[#00356b]/10" />
       </div>
 
       {/* ── Blue Contact / Billing Guide Box ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
-        <div className="bg-[#034078] rounded-[32px] md:rounded-[48px] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
+        <div className="bg-[#00356b]  px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
           <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
             If you receive any bills for services provided by or referred
             through HAVEN Free Clinic, or if you need help with medical bills or
@@ -117,9 +117,9 @@ export function MDICContent() {
           {/* MDIC/Billing Guide Button */}
           <button
             onClick={() => setGuideOpen(!guideOpen)}
-            className="bg-white rounded-full px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 cursor-pointer hover:bg-gray-100 transition-colors"
+            className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 cursor-pointer hover:bg-gray-100 transition-colors"
           >
-            <span className="font-['Poppins',sans-serif] font-bold text-[#034078] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+            <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
               MDIC/Billing Guide
             </span>
             <ChevronDown
@@ -136,7 +136,7 @@ export function MDICContent() {
               guideOpen ? "max-h-[2000px] mt-8" : "max-h-0"
             }`}
           >
-            <div className="bg-white/10 rounded-2xl px-6 md:px-10 py-6 md:py-8 text-left">
+            <div className="bg-white/10 px-6 md:px-10 py-6 md:py-8 text-left">
               <div className="font-['Poppins',sans-serif] text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed space-y-4">
                 <p className="font-medium text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
                   What MDIC Can Help With:
@@ -186,16 +186,16 @@ export function MDICContent() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#858282]" />
+        <hr className="w-full border-t border-[#00356b]/10" />
       </div>
 
       {/* ── Helpful Resources: Application Assistance ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-8 md:mb-10 text-center">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-8 md:mb-10">
           Helpful Resources: Application Assistance
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14 max-w-[1200px]">
           {resources.map((resource) => (
             <ResourceCard
               key={resource.title}
@@ -208,7 +208,7 @@ export function MDICContent() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#858282]" />
+        <hr className="w-full border-t border-[#00356b]/10" />
       </div>
 
       {/* Bottom spacing */}

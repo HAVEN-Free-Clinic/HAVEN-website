@@ -39,7 +39,7 @@ const medications: Medication[] = [
 /* ─── Sub-components ─── */
 
 function Divider() {
-  return <hr className="w-full border-t border-[#858282]" />;
+  return <hr className="w-full border-t border-[#00356b]/10" />;
 }
 
 function AccordionItem({ med }: { med: Medication }) {
@@ -51,7 +51,7 @@ function AccordionItem({ med }: { med: Medication }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-4 md:py-5 cursor-pointer group"
       >
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] text-left">
+        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] text-left">
           {med.name}
         </span>
         <ChevronDown
@@ -94,7 +94,7 @@ export function MedicationContent() {
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] shrink-0">
             Medication
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
@@ -113,7 +113,7 @@ export function MedicationContent() {
 
       {/* ── Common Medications ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
           Common Medications
         </h3>
 
@@ -133,7 +133,7 @@ export function MedicationContent() {
               href="https://www.mayoclinic.org/drugs-supplements"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#034078] hover:underline break-all"
+              className="text-[#00356b] hover:underline break-all"
             >
               https://www.mayoclinic.org/drugs-supplements
             </a>{" "}
@@ -148,7 +148,7 @@ export function MedicationContent() {
 
       {/* ── Pharmacy Information ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
           Pharmacy Information
         </h3>
 
@@ -160,7 +160,7 @@ export function MedicationContent() {
           </p>
 
           <div>
-            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
               Pickup Locations
             </h4>
             <p className="leading-relaxed">
@@ -171,7 +171,7 @@ export function MedicationContent() {
           </div>
 
           <div>
-            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
               Pickup Instructions
             </h4>
             <p className="leading-relaxed">
@@ -188,7 +188,7 @@ export function MedicationContent() {
 
       {/* ── Pharmaceutical Assistance Program ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#034078] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
+        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] mb-6 md:mb-8">
           Pharmaceutical Assistance Program
         </h3>
 
@@ -199,7 +199,7 @@ export function MedicationContent() {
             Our team assists with applications and follow-up to ensure continuity
             of care.
           </p>
-          <p className="text-[#034078] leading-relaxed">
+          <p className="text-[#00356b] leading-relaxed">
             Call{" "}
             <a href="tel:2032000673" className="hover:underline">
               (203) 200-0673

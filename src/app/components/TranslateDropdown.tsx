@@ -207,7 +207,7 @@ export function TranslateDropdown() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-1 min-w-[190px] z-[9999]">
+        <div className="absolute top-full left-0 mt-2 bg-white shadow-xl border border-gray-200 py-1 min-w-[190px] z-[9999]">
           {LANGUAGES.map((lang) => {
             const isActive = currentLang === lang.code;
             return (
@@ -216,12 +216,12 @@ export function TranslateDropdown() {
                 onClick={() => switchLanguage(lang.code)}
                 className={`w-full text-left px-4 py-2.5 flex items-center justify-between font-['Poppins',sans-serif] text-[14px] transition-colors ${
                   isActive
-                    ? "bg-[#034078]/10 text-[#034078]"
+                    ? "bg-[#00356b]/10 text-[#00356b]"
                     : "text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 <span>{lang.label}</span>
-                {isActive && <Check className="w-4 h-4 text-[#034078]" />}
+                {isActive && <Check className="w-4 h-4 text-[#00356b]" />}
               </button>
             );
           })}

@@ -103,7 +103,7 @@ export function CommunityPartnersContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         {/* ── Our Partners ── */}
         <div className="mb-16 md:mb-20 max-w-[900px]">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
             Our Partners
           </h2>
 
@@ -144,7 +144,7 @@ export function CommunityPartnersContent() {
               {YALE_SCHOOLS.map((school) => (
                 <div
                   key={school.name}
-                  className="flex items-center justify-center p-3 md:p-4 rounded-xl bg-[#f7f9fb] border border-[#034078]/8 hover:border-[#034078]/20 hover:shadow-sm transition-all duration-200 w-[80px] h-[80px] md:w-[100px] md:h-[100px]"
+                  className="flex items-center justify-center p-3 md:p-4 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 w-[80px] h-[80px] md:w-[100px] md:h-[100px]"
                 >
                   <Image
                     src={school.logo}
@@ -163,7 +163,7 @@ export function CommunityPartnersContent() {
             {OTHER_PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className="flex items-center justify-center p-5 md:p-6 rounded-xl bg-[#f7f9fb] border border-[#034078]/8 hover:border-[#034078]/20 hover:shadow-sm transition-all duration-200 h-[100px] md:h-[120px]"
+                className="flex items-center justify-center p-5 md:p-6 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 h-[100px] md:h-[120px]"
               >
                 <Image
                   src={partner.logo}
@@ -178,11 +178,11 @@ export function CommunityPartnersContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#858282] mb-16 md:mb-20" />
+        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
         {/* ── HAVEN Steering Committee ── */}
         <div>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-4 md:mb-6">
             HAVEN Steering Committee
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/70 text-[16px] md:text-[18px] mb-10 md:mb-14 max-w-[700px]">
@@ -194,12 +194,12 @@ export function CommunityPartnersContent() {
             {STEERING_COMMITTEE.map((member) => (
               <div
                 key={member.name}
-                className="flex items-start gap-4 p-4 rounded-xl bg-[#f7f9fb] border border-[#034078]/8 hover:border-[#034078]/20 hover:shadow-sm transition-all duration-200"
+                className="flex items-start gap-4 p-4 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200"
               >
                 {/* Icon */}
-                <div className="w-10 h-10 rounded-full bg-[#034078]/10 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0 mt-0.5">
                   <svg
-                    className="w-5 h-5 text-[#034078]"
+                    className="w-5 h-5 text-[#00356b]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -215,7 +215,7 @@ export function CommunityPartnersContent() {
 
                 {/* Text */}
                 <div className="min-w-0">
-                  <p className="font-['Poppins',sans-serif] font-semibold text-[#034078] text-[15px] md:text-[16px]">
+                  <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px]">
                     {member.name}
                   </p>
                   <p className="font-['Poppins',sans-serif] text-black/65 text-[13px] md:text-[14px] mt-0.5">

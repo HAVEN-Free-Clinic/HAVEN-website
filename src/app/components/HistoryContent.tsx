@@ -99,7 +99,7 @@ export function HistoryContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         {/* ── Our History narrative ── */}
         <div className="mb-16 md:mb-20 max-w-[900px]">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-6 md:mb-8">
             Our History
           </h2>
 
@@ -143,7 +143,7 @@ export function HistoryContent() {
               be largely independently funded by the Gilead Foundation and the{" "}
               <Link
                 href="/about/endowment"
-                className="text-[#034078] underline font-semibold hover:opacity-80 transition-opacity"
+                className="text-[#00356b] underline font-semibold hover:opacity-80 transition-opacity"
               >
                 John B. Goetsch Endowment for Medical Education and Service
               </Link>
@@ -153,24 +153,24 @@ export function HistoryContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#858282] mb-16 md:mb-20" />
+        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
         {/* ── Timeline ── */}
         <div>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#034078] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-10 md:mb-14">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[32px] sm:text-[38px] md:text-[42px] lg:text-[48px] mb-10 md:mb-14">
             Timeline
           </h2>
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-[39px] md:left-[47px] top-0 bottom-0 w-[3px] bg-[#034078]/15 rounded-full" />
+            <div className="absolute left-[39px] md:left-[47px] top-0 bottom-0 w-[3px] bg-[#00356b]/15 rounded-full" />
 
             <div className="flex flex-col gap-10 md:gap-12">
               {TIMELINE.map((event) => (
                 <div key={event.year} className="relative flex gap-5 md:gap-8">
                   {/* Year badge */}
                   <div className="relative z-10 shrink-0">
-                    <div className="w-[80px] md:w-[96px] h-[80px] md:h-[96px] rounded-full bg-[#034078] flex items-center justify-center shadow-lg">
+                    <div className="w-[80px] md:w-[96px] h-[80px] md:h-[96px] rounded-full bg-[#00356b] flex items-center justify-center shadow-lg">
                       <span className="font-['Poppins',sans-serif] font-bold text-white text-[18px] md:text-[22px]">
                         {event.year}
                       </span>
@@ -187,7 +187,7 @@ export function HistoryContent() {
                       <ul className="space-y-2">
                         {event.highlights.map((highlight, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <span className="w-2 h-2 rounded-full bg-[#034078]/40 shrink-0 mt-2.5" />
+                            <span className="w-2 h-2 rounded-full bg-[#00356b]/40 shrink-0 mt-2.5" />
                             <span className="font-['Poppins',sans-serif] text-black text-[16px] md:text-[18px] leading-relaxed">
                               {highlight}
                             </span>
