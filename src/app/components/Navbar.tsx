@@ -191,8 +191,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             href="/get-involved"
             className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] transition-colors duration-300 ${
               isScrolled
-                ? "bg-[#000000] text-white hover:bg-[#4a90c4]"
-                : "bg-white text-[#00356b] hover:bg-[#d6e8f7]"
+                ? "border bg-[#000000] text-white hover:text-[#00356b] hover:bg-[#d6e8f7]"
+                : "border bg-white text-[#00356b] hover:bg-[#d6e8f7]"
             }`}
           >
             Volunteer
@@ -201,7 +201,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] bg-[#00356b] text-white hover:bg-[#4a90c4] transition-colors duration-300"
+            className="font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] border bg-[#00356b] text-white hover:text-[#00356b] hover:bg-[#d6e8f7] transition-colors duration-300"
           >
             Donate
           </a>
