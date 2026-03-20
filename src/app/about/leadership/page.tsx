@@ -8,7 +8,7 @@ export default function LeadershipPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Leadership Board"
         title="Leadership Board"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <LeadershipBoardContent />
     </>

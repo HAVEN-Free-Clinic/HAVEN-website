@@ -8,7 +8,7 @@ export default function EducationPage() {
         imageSrc="/images/education-hero.jpg"
         imageAlt="Education"
         title="Education"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <EducationContent />
     </>

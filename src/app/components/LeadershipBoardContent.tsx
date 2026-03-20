@@ -551,6 +551,7 @@ function DepartmentSection({ dept }: { dept: Department }) {
 export function LeadershipBoardContent() {
   return (
     <section className="bg-white w-full">
+      <div className="max-w-4xl mx-auto">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         {/* Intro */}
         <div className="mb-16 md:mb-20">
@@ -600,6 +601,7 @@ export function LeadershipBoardContent() {
         {DEPARTMENTS.map((dept) => (
           <DepartmentSection key={dept.code} dept={dept} />
         ))}
+      </div>
       </div>
     </section>
   );

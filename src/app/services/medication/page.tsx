@@ -8,7 +8,7 @@ export default function MedicationPage() {
         imageSrc="/images/medication.png"
         imageAlt="Medication Services"
         title="Medication"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <MedicationContent />
     </>

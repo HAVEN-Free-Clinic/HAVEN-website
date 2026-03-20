@@ -8,7 +8,7 @@ export default function SocialServicesPage() {
         imageSrc="/images/social-services-hero.jpg"
         imageAlt="Social Services"
         title="Social Services"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <SocialServicesContent />
     </>

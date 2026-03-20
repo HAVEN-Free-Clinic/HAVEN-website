@@ -8,7 +8,7 @@ export default function ReferralsPage() {
         imageSrc="/images/referrals-hero.jpg"
         imageAlt="Referrals"
         title="Referrals"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <ReferralsContent />
     </>

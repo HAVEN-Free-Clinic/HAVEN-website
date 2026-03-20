@@ -19,7 +19,7 @@ function DepartmentAccordion({ dept }: { dept: DepartmentData }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
       >
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
+        <span className="font-['Poppins',sans-serif] text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
           {dept.title}
         </span>
         <ChevronDown
@@ -390,6 +390,7 @@ export function PatientCareContent() {
 
       {/* ── Departments ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
+        <div className="max-w-4xl mx-auto">
         <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
           Departments
         </h3>
@@ -398,6 +399,8 @@ export function PatientCareContent() {
           {departments.map((dept) => (
             <DepartmentAccordion key={dept.title} dept={dept} />
           ))}
+        </div>
+        
         </div>
       </div>
     </section>

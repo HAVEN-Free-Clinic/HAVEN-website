@@ -8,7 +8,7 @@ export default function VisitorGuidePage() {
         imageSrc="/images/visitor-guide-hero.jpg"
         imageAlt="Visitor Guide"
         title="Visitor Guide"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <VisitorGuideContent />
     </>

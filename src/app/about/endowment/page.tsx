@@ -8,7 +8,7 @@ export default function EndowmentPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Goetsch Endowment"
         title="Goetsch Endowment"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <GoetschEndowmentContent />
     </>

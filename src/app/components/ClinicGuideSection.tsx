@@ -16,7 +16,7 @@ export function ClinicGuideSection() {
         <div className="flex justify-center">
           <Link
             href="/visitor-guide"
-            className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[20px] md:text-[24px] lg:text-[28px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
+            className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[20px] md:text-[24px] lg:text-[28px] px-8 py-3.5 rounded-full hover:bg-[#4a90c4] transition-colors"
           >
             Learn More
           </Link>

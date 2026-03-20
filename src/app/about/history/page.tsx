@@ -8,7 +8,7 @@ export default function HistoryPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Our History"
         title="Our History"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <HistoryContent />
     </>

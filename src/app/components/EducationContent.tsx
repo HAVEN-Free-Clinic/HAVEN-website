@@ -1,3 +1,14 @@
+import Link from "next/link";
+import {
+  Heart,
+  GraduationCap,
+  Eye,
+  Users,
+  Clock,
+  MapPin,
+  Phone,
+} from "lucide-react";
+
 /* ─── Link Arrow Icon (from Figma SVG) ─── */
 
 function LinkArrow() {
@@ -67,16 +78,21 @@ export function EducationContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+        
+        {/* ✅ NEW centered text container */}
+        <div className="max-w-4xl mx-auto flex flex-col gap-6">
+          
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
             Education
           </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
+
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Now providing one-on-one counseling regarding behavioral changes,
             illness, and general wellness, as well as counseling and resources
             about diet and exercise, hypertension, high cholesterol, weight
             management, and smoking cessation.
           </p>
+
         </div>
       </div>
 
@@ -86,19 +102,24 @@ export function EducationContent() {
 
       {/* ── Disclaimer ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-10 lg:py-12">
-        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-          Please note that these pdf handouts provided by the Education
-          Department are simply meant to{" "}
-          <span className="font-medium">
-            supplement and provide more information for access from home
-          </span>
-          . These handouts are not meant to replace patient visits.{" "}
-          <span className="font-medium">
-            Patients should continue to seek guidance from their healthcare
-            providers
-          </span>{" "}
-          and/or the Education Department to address their concerns.
-        </p>
+        
+        {/* ✅ NEW centered text container */}
+        <div className="max-w-4xl mx-auto">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            Please note that these pdf handouts provided by the Education
+            Department are simply meant to{" "}
+            <span className="font-medium">
+              supplement and provide more information for access from home
+            </span>
+            . These handouts are not meant to replace patient visits.{" "}
+            <span className="font-medium">
+              Patients should continue to seek guidance from their healthcare
+              providers
+            </span>{" "}
+            and/or the Education Department to address their concerns.
+          </p>
+        </div>
+
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">

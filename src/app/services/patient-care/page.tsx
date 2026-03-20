@@ -8,7 +8,7 @@ export default function PatientCarePage() {
         imageSrc="/images/patient-care.jpg"
         imageAlt="Patient Care"
         title="Patient Care"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <PatientCareContent />
     </>

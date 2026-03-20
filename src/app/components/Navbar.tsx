@@ -189,9 +189,9 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           </Link>
           <Link
             href="/get-involved"
-            className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 transition-colors duration-300 ${
+            className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] transition-colors duration-300 ${
               isScrolled
-                ? "bg-[#00356b] text-white hover:bg-[#4a90c4]"
+                ? "bg-[#000000] text-white hover:bg-[#4a90c4]"
                 : "bg-white text-[#00356b] hover:bg-[#d6e8f7]"
             }`}
           >
@@ -201,7 +201,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 hover:bg-[#4a90c4] transition-colors duration-300"
+            className="font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] bg-[#00356b] text-white hover:bg-[#4a90c4] transition-colors duration-300"
           >
             Donate
           </a>
@@ -308,7 +308,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               <Link
                 href="/get-involved"
                 onClick={() => setMobileOpen(false)}
-                className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 text-center flex-1 ${
+                className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] text-center flex-1 ${
                   isScrolled
                     ? "bg-[#00356b] text-white"
                     : "bg-white text-[#00356b]"

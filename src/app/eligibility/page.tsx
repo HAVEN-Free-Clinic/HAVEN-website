@@ -8,7 +8,7 @@ export default function EligibilityPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Eligibility"
         title="Eligibility"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <EligibilityContent />
     </>

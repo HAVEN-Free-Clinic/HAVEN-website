@@ -8,7 +8,7 @@ export default function FAQsPage() {
         imageSrc="/images/faqs-hero.jpg"
         imageAlt="Frequently Asked Questions"
         title="FAQs"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <FAQsContent />
     </>

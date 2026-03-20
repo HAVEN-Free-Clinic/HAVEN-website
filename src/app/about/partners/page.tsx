@@ -8,7 +8,7 @@ export default function PartnersPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Community Partners"
         title="Community Partners"
-        subtitle="HAVEN Free Clinic"
+        // subtitle="HAVEN Free Clinic"
       />
       <CommunityPartnersContent />
     </>
