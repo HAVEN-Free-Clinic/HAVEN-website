@@ -3,87 +3,10 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-/* ─── Data ─── */
-
-interface Medication {
-  name: string;
-  instructions: string;
-  usage: string;
-}
-
-/* DRAFT — replace with final copy */
-const medications: Medication[] = [
-  {
-    name: "Acetaminophen (Tylenol)",
-    instructions:
-      "Take 500–1000 mg by mouth every 4–6 hours as needed. Do not exceed 3000 mg in 24 hours.",
-    usage:
-      "Used for mild to moderate pain relief and fever reduction. Common uses include headaches, muscle aches, and cold symptoms.",
-  },
-  {
-    name: "Lisinopril (Prinivil/Zestril)",
-    instructions:
-      "Take once daily by mouth, with or without food, at the same time each day as directed by your provider.",
-    usage:
-      "Used to treat high blood pressure (hypertension) and to help protect kidney function. Helps lower blood pressure and reduce the risk of heart attack and stroke.",
-  },
-  {
-    name: "Atorvastatin (Lipitor)",
-    instructions:
-      "Take once daily by mouth, usually in the evening, with or without food, as directed by your provider.",
-    usage:
-      "Used to lower high cholesterol and triglyceride levels. Helps reduce the risk of heart disease, heart attack, and stroke when used alongside a healthy diet.",
-  },
-];
-
 /* ─── Sub-components ─── */
 
 function Divider() {
   return <hr className="w-full border-t border-[#00356b]/10" />;
-}
-
-function AccordionItem({ med }: { med: Medication }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="border-b border-black">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-4 md:py-5 cursor-pointer group"
-      >
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] text-left">
-          {med.name}
-        </span>
-        <ChevronDown
-          className={`w-7 h-7 md:w-9 md:h-9 lg:w-11 lg:h-11 shrink-0 text-black transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
-          strokeWidth={2.5}
-        />
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[400px] pb-5" : "max-h-0"
-        }`}
-      >
-        <ul className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] list-disc pl-8 md:pl-12 space-y-1">
-          <li>
-            Instructions:
-            <ul className="list-disc pl-8 md:pl-12">
-              <li>{med.instructions}</li>
-            </ul>
-          </li>
-          <li>
-            Usage:
-            <ul className="list-disc pl-8 md:pl-12">
-              <li>{med.usage}</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
 }
 
 /* ─── Main component ─── */
@@ -103,41 +26,6 @@ export function MedicationContent() {
             prescribe anti-coagulants or insulin, but glucometers, blood
             pressure cuffs, splints, and bandages can be obtained through online
             ordering as needed.
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <Divider />
-      </div>
-
-      {/* ── Common Medications ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-          Common Medications
-        </h3>
-
-        <div className="space-y-0">
-          {medications.map((med) => (
-            <AccordionItem key={med.name} med={med} />
-          ))}
-        </div>
-
-        {/* "For drugs not listed" note */}
-        <div className="mt-6 md:mt-8 mb-8 md:mb-10">
-          <p className="font-['Poppins',sans-serif] text-[#1e1e1e] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
-            For{" "}
-            <span className="font-medium">drugs not listed,</span>{" "}
-            visit{" "}
-            <a
-              href="https://www.mayoclinic.org/drugs-supplements"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#00356b] hover:underline break-all"
-            >
-              https://www.mayoclinic.org/drugs-supplements
-            </a>{" "}
-            for more information.
           </p>
         </div>
       </div>

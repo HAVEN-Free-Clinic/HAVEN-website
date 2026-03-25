@@ -98,11 +98,11 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                 className="transition-colors duration-300"
               />
             </svg>
-            <span className={`relative font-['Poppins',sans-serif] font-semibold text-[11px] ${textColor} z-10 transition-colors duration-300`}>
+            <span className={`relative font-['Poppins',sans-serif] text-[11px] ${textColor} z-10 transition-colors duration-300`}>
               HAVEN
             </span>
           </div>
-          <div className={`font-['Poppins',sans-serif] font-semibold text-[12px] md:text-[14px] ${textColor} leading-tight ml-1 transition-colors duration-300`}>
+          <div className={`font-['Poppins',sans-serif] text-[12px] md:text-[14px] ${textColor} leading-tight ml-1 transition-colors duration-300`}>
             <p>Free Clinic</p>
             <p>La Cl&iacute;nica Gratuita</p>
           </div>

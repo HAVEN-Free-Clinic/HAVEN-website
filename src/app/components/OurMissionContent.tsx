@@ -107,7 +107,7 @@ export function OurMissionContent() {
 
             <Link
               href="/eligibility"
-              className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
+              className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold rounded-full text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
             >
               See If You Qualify
             </Link>
