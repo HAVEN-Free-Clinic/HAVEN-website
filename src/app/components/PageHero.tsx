@@ -4,11 +4,10 @@ interface PageHeroProps {
   imageSrc: string;
   imageAlt: string;
   title: string;
-  subtitle?: string;
   tall?: boolean;
 }
 
-export function PageHero({ imageSrc, imageAlt, title, subtitle, tall = false }: PageHeroProps) {
+export function PageHero({ imageSrc, imageAlt, title, tall = false }: PageHeroProps) {
   return (
     <section
       className={`relative w-full bg-black overflow-hidden ${
@@ -28,11 +27,6 @@ export function PageHero({ imageSrc, imageAlt, title, subtitle, tall = false }: 
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute left-1/2 -translate-x-1/2 top-[20%] w-[600px] h-[300px] bg-black/15 blur-[75px] rounded-[400px]" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-[140px] sm:pt-[160px] md:pt-[180px] lg:pt-[220px]">
-        {subtitle && (
-          <h2 className="font-['Merriweather',serif] font-bold text-white text-[18px] sm:text-[20px] md:text-[24px] mb-2 md:mb-4">
-            {subtitle}
-          </h2>
-        )}
         <h1 className="font-['Merriweather',serif] font-bold text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
           {title}
         </h1>

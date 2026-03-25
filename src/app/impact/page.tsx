@@ -8,7 +8,6 @@ export default function ImpactPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Community health impact"
         title="Impact"
-        subtitle="HAVEN Free Clinic"
       />
       <ImpactContent />
     </>
