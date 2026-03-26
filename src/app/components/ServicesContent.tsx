@@ -1,14 +1,69 @@
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Stethoscope,
+  HeartPulse,
+  Activity,
+  FlaskConical,
+  Brain,
+  GraduationCap,
+  HeartHandshake,
+  Shield,
+  Pill,
+  ArrowRight,
+} from "lucide-react";
 
-const services = [
-  { label: "Patient Care", image: "/images/patient-care.jpg", to: "/services/patient-care" },
-  { label: "Medication", image: "/images/medication.jpg", to: "/services/medication" },
-  { label: "Social Services", image: "/images/social-services-card.jpg", to: "/services/social-services" },
-  { label: "Education", image: "/images/education-card.jpg", to: "/services/education" },
-  { label: "Insurance Counseling", image: "/images/debt-insurance-card.jpg", to: "/services/debt-insurance" },
-  { label: "Referrals", image: "/images/referrals-card.jpg", to: "/services/referrals" },
+/* ─── Clinical Services (image cards) ─── */
+
+const clinicalServices = [
+  { label: "Primary Care", image: "/images/patient-care.jpg", to: "/services/patient-care" },
+  { label: "Reproductive Health", image: "/images/social-services-card.jpg", to: "/services/patient-care" },
+  { label: "Chronic Disease", image: "/images/medication.jpg", to: "/services/patient-care" },
+  { label: "Lab", image: "/images/referrals-card.jpg", to: "/services/referrals" },
 ];
+
+/* ─── Resources (ancillary departments) ─── */
+
+const resources = [
+  {
+    label: "Behavioral Health",
+    description: "Individual and group sessions for mental health and wellness support.",
+    icon: Brain,
+    to: "/services/patient-care",
+  },
+  {
+    label: "Education",
+    description: "Health literacy programs and wellness education for patients.",
+    icon: GraduationCap,
+    to: "/services/education",
+  },
+  {
+    label: "Social Services",
+    description: "Assistance with food, housing, employment, and community resources.",
+    icon: HeartHandshake,
+    to: "/services/social-services",
+  },
+  {
+    label: "Insurance Counseling",
+    description: "Help with medical bills, insurance enrollment, and financial assistance.",
+    icon: Shield,
+    to: "/services/debt-insurance",
+  },
+  {
+    label: "Medication",
+    description: "Pharmacy partnerships and prescription assistance programs.",
+    icon: Pill,
+    to: "/services/medication",
+  },
+  {
+    label: "Referrals",
+    description: "Specialty care referrals and diagnostic testing coordination.",
+    icon: ArrowRight,
+    to: "/services/referrals",
+  },
+];
+
+/* ─── Arrow icon for image cards ─── */
 
 function ArrowIcon() {
   return (
@@ -28,13 +83,9 @@ function ArrowIcon() {
   );
 }
 
-interface ServiceCardProps {
-  label: string;
-  image: string;
-  to: string;
-}
+/* ─── Image card for clinical services ─── */
 
-function ServiceCard({ label, image, to }: ServiceCardProps) {
+function ServiceCard({ label, image, to }: { label: string; image: string; to: string }) {
   return (
     <Link
       href={to}
@@ -47,9 +98,7 @@ function ServiceCard({ label, image, to }: ServiceCardProps) {
         height={300}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
       <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 flex items-center gap-1.5">
         <span className="font-['Poppins',sans-serif] font-bold text-white text-[20px] sm:text-[24px] md:text-[28px] lg:text-[33px]">
           {label}
@@ -60,14 +109,14 @@ function ServiceCard({ label, image, to }: ServiceCardProps) {
   );
 }
 
+/* ─── Main component ─── */
+
 export function ServicesContent() {
   return (
     <section className="bg-white w-full">
-      {/* Intro Block */}
+      {/* Intro */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14 lg:pb-16">
-        
-        <div className="max-w-4xl mx-auto flex flex-col gap-6">
-
+        <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Welcome to HAVEN Free Clinic, where we are committed to providing{" "}
             <span className="font-semibold">comprehensive</span> and{" "}
@@ -75,14 +124,18 @@ export function ServicesContent() {
             to our community. Below are the various services we offer to address
             the diverse needs of our patients.
           </p>
-
         </div>
       </div>
 
-      {/* Service Cards Grid (UNCHANGED) */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-16 md:pb-20 lg:pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-[30px]">
-          {services.map((service) => (
+      {/* ── Clinical Services ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
+            Clinical Services
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          {clinicalServices.map((service) => (
             <ServiceCard
               key={service.label}
               label={service.label}
@@ -90,6 +143,42 @@ export function ServicesContent() {
               to={service.to}
             />
           ))}
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Resources (Ancillary Departments) ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
+            Resources
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {resources.map((resource) => (
+              <Link
+                key={resource.label}
+                href={resource.to}
+                className="group bg-white border border-[#00356b]/15 px-6 py-6 hover:border-[#00356b]/40 hover:shadow-md transition-all"
+              >
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center mb-4 group-hover:bg-[#00356b]/15 transition-colors">
+                  <resource.icon className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+                  {resource.label}
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[15px] leading-relaxed">
+                  {resource.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
