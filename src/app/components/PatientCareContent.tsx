@@ -263,64 +263,29 @@ const departments: DepartmentData[] = [
         <p>
           Our Lab Services department provides{" "}
           <span className="font-medium">
-            accurate, timely, and reliable diagnostic testing
+            diagnostic testing
           </span>{" "}
-          to support high-quality patient care. We help providers diagnose
-          conditions, monitor ongoing treatments, and support preventive care.
+          to support patient care — including routine blood work, screenings,
+          infectious disease testing, chronic condition monitoring, and specimen
+          collection.
         </p>
         <p>
-          We offer a wide range of{" "}
-          <span className="font-medium">
-            routine and specialized tests
-          </span>
-          , with a strong focus on precision, efficiency, and patient comfort.
+          Your provider will let you know if any lab work is needed. Most labs
+          are completed{" "}
+          <span className="font-medium">during the week, not on Saturdays.</span>
         </p>
-        <p className="font-medium">
-          Services include, but are not limited to:
-        </p>
-
-        <p className="font-medium">Routine Testing</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Blood work (CBC, CMP, lipid panels, glucose testing)</li>
-          <li>Urinalysis</li>
-          <li>Pregnancy testing</li>
-        </ul>
-
-        <p className="font-medium">
-          Preventive &amp; Screening Tests
-        </p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Cholesterol and cardiovascular risk screening</li>
-          <li>Diabetes screening</li>
-          <li>Routine health screenings</li>
-        </ul>
-
-        <p className="font-medium">Infectious Disease Testing</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>COVID-19, influenza, and RSV testing</li>
-          <li>Strep testing</li>
-          <li>STD/STI testing</li>
-        </ul>
-
-        <p className="font-medium">Chronic Condition Monitoring</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Diabetes monitoring (A1C)</li>
-          <li>Thyroid function tests</li>
-          <li>Kidney and liver function tests</li>
-        </ul>
-
-        <p className="font-medium">Specialty Testing</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Hormone testing</li>
-          <li>Vitamin and mineral levels</li>
-          <li>Allergy testing (as available)</li>
-        </ul>
-
-        <p className="font-medium">Specimen Collection Services</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Blood draws</li>
-          <li>Urine and swab collection</li>
-        </ul>
+        <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-4 md:p-5">
+          <p className="font-medium text-[#00356b]">
+            Walk-In Lab Hours
+          </p>
+          <p>
+            800 Howard Ave, 2nd Floor<br />
+            Monday – Friday, 7:30 AM – 5:00 PM
+          </p>
+          <p className="text-black/60 text-[14px] mt-2">
+            No appointment needed — just bring your lab order from your provider.
+          </p>
+        </div>
       </div>
     ),
   },
