@@ -76,7 +76,7 @@ const resources = [
 function ArrowIcon() {
   return (
     <svg
-      className="w-[28px] h-[22px] md:w-[36px] md:h-[28px] shrink-0"
+      className="w-[18px] h-[14px] md:w-[22px] md:h-[17px] shrink-0"
       fill="none"
       viewBox="0 0 44 34"
     >
@@ -108,7 +108,7 @@ function ServiceCard({ label, image, to }: { label: string; image: string; to: s
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
       <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 flex items-center gap-1.5">
-        <span className="font-['Poppins',sans-serif] font-bold text-white text-[20px] sm:text-[24px] md:text-[28px] lg:text-[33px]">
+        <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
           {label}
         </span>
         <ArrowIcon />
@@ -142,15 +142,17 @@ export function ServicesContent() {
             Clinical Services
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {clinicalServices.map((service) => (
-            <ServiceCard
-              key={service.label}
-              label={service.label}
-              image={service.image}
-              to={service.to}
-            />
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+            {clinicalServices.map((service) => (
+              <ServiceCard
+                key={service.label}
+                label={service.label}
+                image={service.image}
+                to={service.to}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
