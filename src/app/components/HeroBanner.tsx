@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 export default function HeroBanner() {
   return (
-    <section className="relative w-full text-white min-h-screen flex items-center pt-16 md:pt-20">
+    <section className="relative w-full text-white min-h-screen flex items-end pt-16 md:pt-20">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/HAVEN In-Clinic Banner.jpg')" }}
@@ -12,8 +12,9 @@ export default function HeroBanner() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#002147]/80 via-[#002147]/40 to-transparent" />
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#002147]/70 to-transparent" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-16 md:pb-24 lg:pb-32">
         <div className="max-w-2xl">
           {/* Heading */}
           <h1 className="font-['Merriweather',serif] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
