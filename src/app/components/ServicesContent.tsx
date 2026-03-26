@@ -11,6 +11,7 @@ import {
   Shield,
   Pill,
   ArrowRight,
+  Users,
 } from "lucide-react";
 
 /* ─── Clinical Services (image cards) ─── */
@@ -26,8 +27,15 @@ const clinicalServices = [
 
 const resources = [
   {
+    label: "Patient Navigator",
+    description: "Our Longitudinal Care Coordination (LCC) program pairs patients with dedicated navigators who coordinate ongoing care, follow-ups, and community resources.",
+    icon: Users,
+    to: "/services/social-services",
+    featured: true,
+  },
+  {
     label: "Behavioral Health",
-    description: "Individual and group sessions for mental health and wellness support.",
+    description: "Individual and group sessions for mental health and wellness support. Group meets the first Saturday of each month.",
     icon: Brain,
     to: "/services/patient-care",
   },
@@ -160,8 +168,29 @@ export function ServicesContent() {
             Resources
           </h2>
 
+          {/* Featured: Patient Navigator */}
+          {resources.filter((r) => r.featured).map((resource) => (
+            <Link
+              key={resource.label}
+              href={resource.to}
+              className="group bg-[#00356b] px-6 md:px-8 py-6 md:py-8 mb-6 flex items-start gap-5 hover:bg-[#00356b]/90 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors">
+                <resource.icon className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[18px] md:text-[21px] mb-1.5">
+                  {resource.label}
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-white/80 text-[14px] md:text-[16px] leading-relaxed">
+                  {resource.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {resources.map((resource) => (
+            {resources.filter((r) => !r.featured).map((resource) => (
               <Link
                 key={resource.label}
                 href={resource.to}
