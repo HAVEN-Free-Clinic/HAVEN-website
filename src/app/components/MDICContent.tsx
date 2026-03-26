@@ -1,8 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Download } from "lucide-react";
 import Image from "next/image";
+
+/* ─── Language Dropdown for PDFs ─── */
+
+interface LanguageDoc {
+  label: string;
+  href: string;
+}
+
+function LanguageDownloadDropdown({
+  docs,
+  buttonLabel,
+}: {
+  docs: LanguageDoc[];
+  buttonLabel: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative inline-block">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="true"
+        className="inline-flex items-center gap-2 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] px-5 py-3 hover:bg-[#00356b]/5 transition-colors"
+      >
+        <Download className="w-4 h-4 shrink-0" />
+        {buttonLabel}
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 mt-1 bg-white shadow-xl border border-gray-200 py-1 min-w-[200px] z-50">
+          {docs.map((doc) => (
+            <a
+              key={doc.label}
+              href={doc.href}
+              download
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-4 py-2.5 font-['Poppins',sans-serif] text-[14px] text-gray-700 hover:bg-[#00356b]/10 hover:text-[#00356b] transition-colors"
+            >
+              <Download className="w-3.5 h-3.5 shrink-0" />
+              {doc.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ─── Link Arrow Icon ─── */
 
@@ -66,7 +128,6 @@ function ResourceCard({ title, image, href = "#" }: ResourceCardProps) {
 /* ─── Data ─── */
 
 const resources: ResourceCardProps[] = [
-  { title: "Medicare", image: "/images/medicare-card.jpg" },
   { title: "Medicaid", image: "/images/medicaid-card.jpg" },
   { title: "YNHH", image: "/images/ynhh-card.jpg" },
 ];
@@ -87,7 +148,7 @@ export function MDICContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             We can help you in securing{" "}
             <span className="font-bold">free or low-cost care</span>. We
-            provide application assistance for Medicare, Medicaid, and Yale-New
+            provide application assistance for Medicaid and Yale-New
             Haven Hospital (YNHH) Financial Assistance programs.
           </p>
         </div>
@@ -151,7 +212,7 @@ export function MDICContent() {
                     services
                   </li>
                   <li>
-                    Assisting with applications for Medicare, Medicaid, or YNHH
+                    Assisting with applications for Medicaid or YNHH
                     Financial Assistance
                   </li>
                   <li>
@@ -222,23 +283,14 @@ export function MDICContent() {
             <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-6">
               Yale New Haven Hospital offers financial assistance to eligible patients. Download the guide in your preferred language.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              {[
+            <LanguageDownloadDropdown
+              buttonLabel="Download Guide"
+              docs={[
                 { label: "English", href: "/docs/ynhh-financial-assistance-english.pdf" },
-                { label: "French", href: "/docs/ynhh-financial-assistance-french.pdf" },
-                { label: "Haitian Creole", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
-              ].map((doc) => (
-                <a
-                  key={doc.label}
-                  href={doc.href}
-                  download
-                  className="inline-flex items-center gap-2 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] px-5 py-3 hover:bg-[#00356b]/5 transition-colors"
-                >
-                  <Download className="w-4 h-4 shrink-0" />
-                  {doc.label}
-                </a>
-              ))}
-            </div>
+                { label: "French (Fran\u00e7ais)", href: "/docs/ynhh-financial-assistance-french.pdf" },
+                { label: "Haitian Creole (Krey\u00f2l)", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
+              ]}
+            />
           </div>
         </div>
       </div>
