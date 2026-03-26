@@ -318,10 +318,14 @@ export function VisitorGuideContent() {
       {/* ── Tab Navigation ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 sm:gap-4 md:gap-8 border-b border-[#00356b]/10">
+          <div role="tablist" className="flex items-center gap-2 sm:gap-4 md:gap-8 border-b border-[#00356b]/10">
             {TAB_KEYS.map((key) => (
               <button
                 key={key}
+                role="tab"
+                aria-selected={activeTab === key}
+                aria-controls={`tabpanel-${key}`}
+                id={`tab-${key}`}
                 onClick={() => setActiveTab(key)}
                 className={`cursor-pointer pb-3 md:pb-4 font-['Poppins',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] transition-colors whitespace-nowrap ${
                   activeTab === key
@@ -340,16 +344,24 @@ export function VisitorGuideContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-6 md:pt-10 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
           {activeTab === "what-to-expect" && (
-            <div>
+            <div role="tabpanel" id="tabpanel-what-to-expect" aria-labelledby="tab-what-to-expect">
               {whatToExpectItems.map((item) => (
                 <AccordionItem key={item.title} item={item} />
               ))}
             </div>
           )}
 
-          {activeTab === "booking-cancelling" && <BookingCancellingPanel />}
+          {activeTab === "booking-cancelling" && (
+            <div role="tabpanel" id="tabpanel-booking-cancelling" aria-labelledby="tab-booking-cancelling">
+              <BookingCancellingPanel />
+            </div>
+          )}
 
-          {activeTab === "provider-directory" && <ProviderDirectoryPanel />}
+          {activeTab === "provider-directory" && (
+            <div role="tabpanel" id="tabpanel-provider-directory" aria-labelledby="tab-provider-directory">
+              <ProviderDirectoryPanel />
+            </div>
+          )}
         </div>
       </div>
     </section>

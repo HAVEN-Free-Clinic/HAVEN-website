@@ -558,7 +558,7 @@ export function LeadershipBoardContent() {
             Leadership
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            Haven Free Clinic is led by a dedicated team of{" "}
+            HAVEN Free Clinic is led by a dedicated team of{" "}
             <span className="font-semibold">
               medical professionals
             </span>{" "}

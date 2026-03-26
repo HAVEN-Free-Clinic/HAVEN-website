@@ -69,7 +69,7 @@ export function ServicesContent() {
         <div className="max-w-4xl mx-auto flex flex-col gap-6">
 
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            Welcome to Haven Free Clinic, where we are committed to providing{" "}
+            Welcome to HAVEN Free Clinic, where we are committed to providing{" "}
             <span className="font-semibold">comprehensive</span> and{" "}
             <span className="font-semibold">compassionate healthcare services</span>{" "}
             to our community. Below are the various services we offer to address

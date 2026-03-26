@@ -196,23 +196,29 @@ export function TranslateDropdown() {
       {/* Trigger button */}
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label="Select language"
         className="flex items-center gap-1.5 text-white font-['Poppins',sans-serif] text-[14px] md:text-[16px] hover:opacity-80 transition-opacity"
       >
-        <Globe className="w-4 h-4 shrink-0" />
+        <Globe className="w-4 h-4 shrink-0" aria-hidden="true" />
         <span>{currentLabel}</span>
         <ChevronDown
           className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          aria-hidden="true"
         />
       </button>
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute top-full left-0 mt-2 bg-white shadow-xl border border-gray-200 py-1 min-w-[190px] z-[9999]">
+        <div role="listbox" aria-label="Language options" className="absolute top-full left-0 mt-2 bg-white shadow-xl border border-gray-200 py-1 min-w-[190px] z-[9999]">
           {LANGUAGES.map((lang) => {
             const isActive = currentLang === lang.code;
             return (
               <button
                 key={lang.code}
+                role="option"
+                aria-selected={isActive}
                 onClick={() => switchLanguage(lang.code)}
                 className={`w-full text-left px-4 py-2.5 flex items-center justify-between font-['Poppins',sans-serif] text-[14px] transition-colors ${
                   isActive
@@ -221,7 +227,7 @@ export function TranslateDropdown() {
                 }`}
               >
                 <span>{lang.label}</span>
-                {isActive && <Check className="w-4 h-4 text-[#00356b]" />}
+                {isActive && <Check className="w-4 h-4 text-[#00356b]" aria-hidden="true" />}
               </button>
             );
           })}

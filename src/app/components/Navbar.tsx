@@ -119,6 +119,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           >
             <button
               onClick={() => setAboutOpen(!aboutOpen)}
+              aria-expanded={aboutOpen}
+              aria-haspopup="true"
               className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
             >
               About Us
@@ -154,6 +156,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
               className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300 flex items-center gap-1`}
             >
               Services
@@ -180,7 +184,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             )}
           </div>
 
-          {/* Impact link */}
+          {/* Impact & FAQs links */}
           <Link
             href="/impact"
             className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300`}
@@ -188,10 +192,16 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             Impact
           </Link>
           <Link
+            href="/faqs"
+            className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300`}
+          >
+            FAQs
+          </Link>
+          <Link
             href="/get-involved"
             className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] transition-colors duration-300 ${
               isScrolled
-                ? "border bg-[#000000] text-white hover:text-[#00356b] hover:bg-[#d6e8f7]"
+                ? "border border-[#00356b] bg-white text-[#00356b] hover:bg-[#d6e8f7]"
                 : "border bg-white text-[#00356b] hover:bg-[#d6e8f7]"
             }`}
           >
@@ -211,6 +221,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
         <button
           className={`lg:hidden ${textColor} transition-colors duration-300`}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-expanded={mobileOpen}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -230,6 +242,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                aria-expanded={mobileAboutOpen}
+                aria-haspopup="true"
                 className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
@@ -264,6 +278,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                aria-expanded={mobileServicesOpen}
+                aria-haspopup="true"
                 className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5 ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
@@ -294,7 +310,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               )}
             </div>
 
-            {/* Impact link */}
+            {/* Impact & FAQs links */}
             <Link
               href="/impact"
               onClick={() => setMobileOpen(false)}
@@ -303,6 +319,15 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               }`}
             >
               Impact
+            </Link>
+            <Link
+              href="/faqs"
+              onClick={() => setMobileOpen(false)}
+              className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              FAQs
             </Link>
             <div className="flex gap-3 mt-2">
               <Link
