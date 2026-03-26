@@ -228,7 +228,6 @@ const clinicDepartments: DirectoryRow[] = [
 ];
 
 const otherResources: DirectoryRow[] = [
-  { code: "MDIC", name: "Insurance Counseling", email: "hfc.billing@yale.edu" },
   { code: "MDLP", name: "Medical-Legal Partnership", email: "hfc.medical.legal@yale.edu" },
   { code: "FOOD", name: "Food Pharmacy", email: "food pharm" },
   { code: "EDUC", name: "Education", email: "hfc.education@yale.edu" },
@@ -238,7 +237,6 @@ const otherResources: DirectoryRow[] = [
 
 const otherContacts: DirectoryRow[] = [
   { code: "INTP", name: "Interpretation & Diversity", email: "hfc.interpreting@yale.edu" },
-  { code: "EXEC", name: "Executive Directors", email: "haven.free.clinic@yale.edu" },
   { code: "PATS", name: "Patient Services", email: "hfc.patient.services@yale.edu" },
 ];
 
@@ -285,6 +283,32 @@ function DirectorySection({
 function ProviderDirectoryPanel() {
   return (
     <div className="space-y-12 md:space-y-16">
+      {/* Prominent general contact */}
+      <div className="bg-[#00356b] px-6 md:px-10 py-6 md:py-8 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
+          <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
+            HAVEN Free Clinic — General Inquiries
+          </span>
+          <a
+            href="mailto:haven.free.clinic@yale.edu"
+            className="font-['Poppins',sans-serif] font-semibold text-white text-[16px] sm:text-[18px] md:text-[20px] underline underline-offset-4 hover:text-white/80 transition-colors shrink-0"
+          >
+            haven.free.clinic@yale.edu
+          </a>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
+          <span className="font-['Poppins',sans-serif] font-medium text-white/90 text-[15px] sm:text-[16px] md:text-[18px]">
+            Billing &amp; Insurance Questions
+          </span>
+          <a
+            href="mailto:hfc.billing@yale.edu"
+            className="font-['Poppins',sans-serif] font-medium text-white/90 text-[15px] sm:text-[16px] md:text-[18px] underline underline-offset-4 hover:text-white/70 transition-colors shrink-0"
+          >
+            hfc.billing@yale.edu
+          </a>
+        </div>
+      </div>
+
       <DirectorySection title="Clinic Departments" rows={clinicDepartments} />
       <div className="w-full h-px bg-[#00356b]/10" />
       <DirectorySection title="Other Resources" rows={otherResources} />
