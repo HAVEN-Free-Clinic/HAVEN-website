@@ -129,6 +129,7 @@ function ResourceCard({ title, image, href = "#" }: ResourceCardProps) {
 
 const resources: ResourceCardProps[] = [
   { title: "Medicaid", image: "/images/medicaid-card.jpg" },
+  { title: "HUSKY", image: "/images/husky-card.jpg" },
   { title: "YNHH", image: "/images/ynhh-card.jpg" },
 ];
 
@@ -148,7 +149,7 @@ export function MDICContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             We can help you in securing{" "}
             <span className="font-bold">free or low-cost care</span>. We
-            provide application assistance for Medicaid and Yale-New
+            provide application assistance for Medicaid, HUSKY, and Yale-New
             Haven Hospital (YNHH) Financial Assistance programs.
           </p>
         </div>
@@ -212,7 +213,7 @@ export function MDICContent() {
                     services
                   </li>
                   <li>
-                    Assisting with applications for Medicaid or YNHH
+                    Assisting with applications for Medicaid, HUSKY, or YNHH
                     Financial Assistance
                   </li>
                   <li>
