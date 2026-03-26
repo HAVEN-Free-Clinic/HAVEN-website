@@ -97,8 +97,9 @@ export function HistoryContent() {
   return (
     <section className="bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
+        <div className="max-w-4xl mx-auto">
         {/* ── Our History narrative ── */}
-        <div className="mb-16 md:mb-20 max-w-[900px]">
+        <div className="mb-16 md:mb-20">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Our History
           </h2>
@@ -201,6 +202,7 @@ export function HistoryContent() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

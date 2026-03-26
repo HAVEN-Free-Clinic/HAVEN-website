@@ -60,7 +60,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-black">
+    <div className="border-b border-[#00356b]/20">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer group text-left"
@@ -78,7 +78,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[500px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6" : "max-h-0"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
@@ -96,11 +96,11 @@ export function FAQsContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             FAQs
           </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             The HAVEN Free Clinic is a{" "}
             <span className="font-semibold">student-run primary care clinic</span>{" "}
             that partners with Yale University to provide sustainable,
@@ -115,14 +115,17 @@ export function FAQsContent() {
 
       {/* ── Accordion List ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        {faqs.map((faq) => (
-          <AccordionItem key={faq.question} faq={faq} />
-        ))}
+        <div className="max-w-4xl mx-auto">
+          {faqs.map((faq) => (
+            <AccordionItem key={faq.question} faq={faq} />
+          ))}
+        </div>
       </div>
 
       {/* ── Contact Box ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20 flex justify-center">
-        <div className="border border-[#00356b] px-8 md:px-12 lg:px-16 py-8 md:py-10 w-full max-w-[800px]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto">
+        <div className="border border-[#00356b] px-8 md:px-12 lg:px-16 py-8 md:py-10 w-full">
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[33px] mb-4 md:mb-5">
             Can't find an answer to your question?
           </h3>
@@ -142,6 +145,7 @@ export function FAQsContent() {
               haven.free.clinic@yale.edu
             </a>
           </p>
+        </div>
         </div>
       </div>
     </section>

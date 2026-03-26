@@ -98,11 +98,11 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                 className="transition-colors duration-300"
               />
             </svg>
-            <span className={`relative font-['Poppins',sans-serif] font-semibold text-[11px] ${textColor} z-10 transition-colors duration-300`}>
+            <span className={`relative font-['Poppins',sans-serif] text-[11px] ${textColor} z-10 transition-colors duration-300`}>
               HAVEN
             </span>
           </div>
-          <div className={`font-['Poppins',sans-serif] font-semibold text-[12px] md:text-[14px] ${textColor} leading-tight ml-1 transition-colors duration-300`}>
+          <div className={`font-['Poppins',sans-serif] text-[12px] md:text-[14px] ${textColor} leading-tight ml-1 transition-colors duration-300`}>
             <p>Free Clinic</p>
             <p>La Cl&iacute;nica Gratuita</p>
           </div>
@@ -189,10 +189,10 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
           </Link>
           <Link
             href="/get-involved"
-            className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-full transition-colors duration-300 ${
+            className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] transition-colors duration-300 ${
               isScrolled
-                ? "bg-[#00356b] text-white hover:bg-[#4a90c4]"
-                : "bg-white text-[#00356b] hover:bg-[#d6e8f7]"
+                ? "border bg-[#000000] text-white hover:text-[#00356b] hover:bg-[#d6e8f7]"
+                : "border bg-white text-[#00356b] hover:bg-[#d6e8f7]"
             }`}
           >
             Volunteer
@@ -201,7 +201,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             href={DONATE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-full hover:bg-[#4a90c4] transition-colors duration-300"
+            className="font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] border bg-[#00356b] text-white hover:text-[#00356b] hover:bg-[#d6e8f7] transition-colors duration-300"
           >
             Donate
           </a>
@@ -308,7 +308,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               <Link
                 href="/get-involved"
                 onClick={() => setMobileOpen(false)}
-                className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-full text-center flex-1 ${
+                className={`font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-[30px] text-center flex-1 ${
                   isScrolled
                     ? "bg-[#00356b] text-white"
                     : "bg-white text-[#00356b]"

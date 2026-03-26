@@ -4,7 +4,7 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="bg-[#00356b] w-full">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-12 md:py-16">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
           {/* Logo */}
           <Link href="/" className="relative w-[72px] h-[72px] md:w-[90px] md:h-[90px] flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity">

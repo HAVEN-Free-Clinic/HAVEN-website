@@ -135,88 +135,90 @@ export function ImpactContent() {
   return (
     <section className="bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
-        {/* ── News ── */}
-        <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            News
-          </h2>
+        <div className="max-w-4xl mx-auto">
+          {/* ── News ── */}
+          <div className="mb-16 md:mb-20">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
+              News
+            </h2>
 
-          <div className="space-y-0">
-            {NEWS_ITEMS.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-4 py-4 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
-              >
-                <span className="shrink-0 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[13px] md:text-[14px] bg-[#00356b]/8 px-2.5 py-1 mt-0.5 whitespace-nowrap">
-                  {item.season}
-                </span>
-                <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
-                  {item.title}
-                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </span>
-              </a>
-            ))}
+            <div className="space-y-0">
+              {NEWS_ITEMS.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-4 py-4 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+                >
+                  <span className="shrink-0 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[13px] md:text-[14px] bg-[#00356b]/8 px-2.5 py-1 mt-0.5 whitespace-nowrap">
+                    {item.season}
+                  </span>
+                  <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
+                    {item.title}
+                    <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          {/* Divider */}
+          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
-        {/* ── Annual Reports ── */}
-        <div className="mb-16 md:mb-20">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Annual Reports
-          </h2>
+          {/* ── Annual Reports ── */}
+          <div className="mb-16 md:mb-20">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
+              Annual Reports
+            </h2>
 
-          <div className="space-y-0">
-            {ANNUAL_REPORTS.map((report, index) => (
-              <a
-                key={index}
-                href={report.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 py-3.5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
-              >
-                <div className="w-2 h-2 bg-[#00356b]/30 group-hover:bg-[#00356b] shrink-0 transition-colors duration-200" />
-                <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
-                  {report.title}
-                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </span>
-              </a>
-            ))}
+            <div className="space-y-0">
+              {ANNUAL_REPORTS.map((report, index) => (
+                <a
+                  key={index}
+                  href={report.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 py-3.5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+                >
+                  <div className="w-2 h-2 bg-[#00356b]/30 group-hover:bg-[#00356b] shrink-0 transition-colors duration-200" />
+                  <span className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-center gap-1.5">
+                    {report.title}
+                    <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          {/* Divider */}
+          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
 
-        {/* ── Research Articles ── */}
-        <div>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Research Articles
-          </h2>
+          {/* ── Research Articles ── */}
+          <div>
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
+              Research Articles
+            </h2>
 
-          <div className="space-y-0">
-            {RESEARCH_ARTICLES.map((article, index) => (
-              <a
-                key={index}
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block py-5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
-              >
-                <p className="font-['Poppins',sans-serif] text-[13px] md:text-[14px] text-black/50 mb-1">
-                  {article.authors}
-                </p>
-                <p className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-start gap-1.5">
-                  <span className="italic">{article.title}</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </p>
-              </a>
-            ))}
+            <div className="space-y-0">
+              {RESEARCH_ARTICLES.map((article, index) => (
+                <a
+                  key={index}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block py-5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
+                >
+                  <p className="font-['Poppins',sans-serif] text-[13px] md:text-[14px] text-black/50 mb-1">
+                    {article.authors}
+                  </p>
+                  <p className="font-['Poppins',sans-serif] text-[15px] md:text-[16px] text-black/80 group-hover:text-[#00356b] transition-colors duration-200 flex items-start gap-1.5">
+                    <span className="italic">{article.title}</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#00356b]/40 group-hover:text-[#00356b] shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </p>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

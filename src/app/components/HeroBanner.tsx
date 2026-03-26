@@ -1,41 +1,52 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
-export function HeroBanner() {
+export default function HeroBanner() {
   return (
-    <section className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[846px] bg-black overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src="/images/hero-newhaven.jpg"
-        alt="New Haven cityscape"
-        fill
-        className="object-cover opacity-80"
-        priority
-        sizes="100vw"
+    <section className="relative w-full text-white min-h-screen flex items-center pt-16 md:pt-20">
+      {/* Full background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/HAVEN In-Clinic Banner.jpg')" }}
       />
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Left-side overlay — solid on the left, fading out toward the right */}
+      <div className="absolute inset-y-0 left-0 w-full md:w-[55%] bg-[#00356b]/90" />
+      <div className="absolute inset-y-0 left-[55%] w-[20%] hidden md:block bg-gradient-to-r from-[#00356b]/90 to-transparent" />
 
+      {/* Top gradient for navbar readability */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent" />
 
-      {/* Hero Text */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-[140px] sm:pt-[160px] md:pt-[180px] lg:pt-[220px]">
-        <span className="inline-block bg-white/15 border border-white/30 px-6 py-2 font-['Poppins',sans-serif] font-medium text-white text-[14px] sm:text-[16px] md:text-[18px] tracking-wide mb-6 md:mb-8">
-          HAVEN Free Clinic
-        </span>
-        <h1 className="font-['Merriweather',serif] font-bold text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
-          High-quality health care,
-        </h1>
-        <h1 className="text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
-          <span className="font-['Poppins',sans-serif] font-bold italic">free </span>
-          <span className="font-['Poppins',sans-serif] font-bold">of charge</span>
-        </h1>
-        <Link
-          href="/eligibility"
-          className="mt-8 md:mt-10 inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[16px] sm:text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors shadow-lg"
-        >
-          See If You Qualify
-        </Link>
+      {/* Content — left-aligned */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 w-full">
+        <div className="max-w-lg md:max-w-xl">
+          <h1 className="font-['Merriweather',serif] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+            Quality care,
+            <br />
+            no cost
+          </h1>
+
+          <p className="font-['Poppins',sans-serif] text-white/80 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
+            Free, high-quality healthcare for uninsured adults in New Haven.
+            No insurance needed. No hidden fees. Just care.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/eligibility"
+              className="bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-[#d6e8f7] transition-colors"
+            >
+              See If You Qualify
+            </Link>
+            <a
+              href="tel:2032000673"
+              className="border-2 border-white text-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-white hover:text-[#00356b] transition-colors flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
+              (203) 200-0673
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
