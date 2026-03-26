@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const services = [
   { label: "Patient Care", image: "/images/patient-care.jpg", to: "/services/patient-care" },
-  { label: "Medication", image: "/images/medication.png", to: "/services/medication" },
-  { label: "Social Services", image: "/images/social-services-card.png", to: "/services/social-services" },
+  { label: "Medication", image: "/images/medication.jpg", to: "/services/medication" },
+  { label: "Social Services", image: "/images/social-services-card.jpg", to: "/services/social-services" },
   { label: "Education", image: "/images/education-card.jpg", to: "/services/education" },
-  { label: "Debt/Insurance", image: "/images/debt-insurance-card.png", to: "/services/debt-insurance" },
-  { label: "Referrals", image: "/images/referrals-card.png", to: "/services/referrals" },
+  { label: "Debt/Insurance", image: "/images/debt-insurance-card.jpg", to: "/services/debt-insurance" },
+  { label: "Referrals", image: "/images/referrals-card.jpg", to: "/services/referrals" },
 ];
 
 function ArrowIcon() {
@@ -67,10 +67,6 @@ export function ServicesContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14 lg:pb-16">
         
         <div className="max-w-4xl mx-auto flex flex-col gap-6">
-          
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
-            Our Services
-          </h2>
 
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Welcome to Haven Free Clinic, where we are committed to providing{" "}

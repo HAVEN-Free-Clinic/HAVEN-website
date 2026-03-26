@@ -6,12 +6,12 @@ const LEARN_MORE_URL =
 export function GoetschEndowmentContent() {
   return (
     <section className="bg-white w-full">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         
         <div className="max-w-4xl mx-auto">
 
           {/* ── Hero Statement ── */}
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <p className="font-['Poppins',sans-serif] text-black text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed mb-2">
               We are especially fortunate to have the support of the
             </p>
@@ -39,7 +39,7 @@ export function GoetschEndowmentContent() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
           {/* ── Biography ── */}
           <div>

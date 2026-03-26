@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/app/components/PageHero";
 import { PatientCareContent } from "@/app/components/PatientCareContent";
+
+export const metadata: Metadata = {
+  title: "Patient Care | HAVEN Free Clinic",
+};
 
 export default function PatientCarePage() {
   return (

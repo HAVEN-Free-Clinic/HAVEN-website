@@ -13,13 +13,13 @@ export function OurMissionContent() {
   return (
     <section className="bg-white w-full">
       {/* Wide container */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
 
         {/* Centered content column */}
         <div className="max-w-4xl mx-auto">
 
           {/* ── Our Mission ── */}
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
               Our Mission
             </h2>
@@ -54,10 +54,10 @@ export function OurMissionContent() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
           {/* ── Our Vision ── */}
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
               Our Vision
             </h2>
@@ -87,10 +87,10 @@ export function OurMissionContent() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
           {/* ── Who We Serve ── */}
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
               Who We Serve
             </h2>
@@ -114,20 +114,82 @@ export function OurMissionContent() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+          <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
           {/* ── How We Operate ── */}
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
               How We Operate
             </h2>
 
             <div className="flex flex-col gap-6 mb-10">
-              {/* content unchanged */}
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0 mt-1">
+                  <Clock className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
+                  HAVEN operates on{" "}
+                  <span className="font-semibold">Saturdays (8:30am–12:00pm)</span> out
+                  of the{" "}
+                  <span className="font-semibold">
+                    Yale Physicians Building
+                  </span>
+                  . Patients are seen by teams of senior and junior students with
+                  guidance from faculty preceptors.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0 mt-1">
+                  <Heart className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
+                  We are able to do this work through generous contributions from
+                  students, faculty, and philanthropic donors. We are especially
+                  fortunate to have the support of the{" "}
+                  <Link
+                    href="/about/endowment"
+                    className="text-[#00356b] underline font-semibold hover:opacity-80 transition-opacity"
+                  >
+                    Dr. John B. Goetsch Endowment
+                  </Link>
+                  , which has provided incredible support to the clinic for many
+                  years.
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {/* cards unchanged */}
+              <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-5 flex flex-col items-center text-center">
+                <Clock className="w-6 h-6 text-[#00356b] mb-2" />
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px]">
+                  Saturdays
+                </p>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px]">
+                  8:30 AM – 12:00 PM
+                </p>
+              </div>
+              <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-5 flex flex-col items-center text-center">
+                <MapPin className="w-6 h-6 text-[#00356b] mb-2" />
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px]">
+                  Location
+                </p>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px]">
+                  Yale Physicians Building
+                </p>
+              </div>
+              <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-5 flex flex-col items-center text-center">
+                <Phone className="w-6 h-6 text-[#00356b] mb-2" />
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px]">
+                  Appointments
+                </p>
+                <a
+                  href="tel:2032000673"
+                  className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] hover:underline"
+                >
+                  (203) 200-0673
+                </a>
+              </div>
             </div>
           </div>
 

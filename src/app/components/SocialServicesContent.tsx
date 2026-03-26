@@ -13,34 +13,19 @@ interface ResourceItem {
 const resources: ResourceItem[] = [
   {
     title: "Food Assistance",
-    /* DRAFT — replace with final copy */
     content: (
       <div className="space-y-3">
         <p>
-          Our Food Pharmacy program connects patients with nutritious food and
-          community resources to address food insecurity. We partner with local
-          food pantries and nutrition programs throughout New Haven.
+          We connect patients with local food pantries, community meals, and
+          supplemental food programs. Additionally, we support eligible patients
+          in applying for SNAP and WIC benefits.
         </p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-2">
-          <li>
-            Receive groceries and fresh produce through our on-site Food
-            Pharmacy during clinic hours
-          </li>
-          <li>
-            Get referrals to local food pantries, community meals, and
-            supplemental food programs
-          </li>
-          <li>
-            Receive help applying for SNAP (food stamps) and WIC benefits
-          </li>
-          <li>
-            Access nutrition counseling tailored to your health conditions,
-            such as diabetes or hypertension
-          </li>
-        </ul>
         <p>
           Speak with our social services team during your visit or email{" "}
-          <a href="mailto:hfc.social.services@yale.edu" className="text-[#00356b] hover:underline">
+          <a
+            href="mailto:hfc.social.services@yale.edu"
+            className="text-[#00356b] hover:underline"
+          >
             hfc.social.services@yale.edu
           </a>{" "}
           for more information.
@@ -50,7 +35,6 @@ const resources: ResourceItem[] = [
   },
   {
     title: "Housing",
-    /* DRAFT — replace with final copy */
     content: (
       <div className="space-y-3">
         <p>
@@ -64,14 +48,38 @@ const resources: ResourceItem[] = [
           </li>
           <li>
             Assistance with rental aid applications and utility/energy
-            assistance programs
+            assistance programs via 211, which is a free, confidential
+            information and referral service in Connecticut that connects people
+            to essential health and human services.
+            <ul className="list-disc pl-8 mt-2 space-y-1">
+              <li>
+                211 can offer resources in food access, housing, transportation,
+                utility assistance, and more.
+              </li>
+              <li>
+                To learn more about 211, dial{" "}
+                <a href="tel:211" className="text-[#00356b] hover:underline">
+                  2-1-1
+                </a>{" "}
+                or visit their website at{" "}
+                <a
+                  href="https://www.211ct.org/"
+                  className="text-[#00356b] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://www.211ct.org/
+                </a>
+                .
+              </li>
+            </ul>
           </li>
           <li>
-            Connection to legal aid for tenants facing eviction or unsafe
-            living conditions
+            Referral to legal aid for tenants facing eviction or unsafe living
+            conditions
           </li>
           <li>
-            Help navigating the coordinated access network (CAN) for housing
+            Support navigating the coordinated access network (CAN) for housing
             placement in Connecticut
           </li>
         </ul>
@@ -85,7 +93,6 @@ const resources: ResourceItem[] = [
   },
   {
     title: "Employment",
-    /* DRAFT — replace with final copy */
     content: (
       <div className="space-y-3">
         <p>
@@ -99,95 +106,53 @@ const resources: ResourceItem[] = [
             opportunities
           </li>
           <li>
-            Help with resume writing and interview preparation through
-            community partners
+            Help with resume writing and interview preparation through community
+            partners
           </li>
-          <li>
-            Connection to adult education and GED programs
-          </li>
+          <li>Connection to adult education and GED programs</li>
           <li>
             Information about workers&apos; rights and employment protections
           </li>
         </ul>
         <p>
-          Ask our social services team for a personalized referral based on
-          your goals and experience.
+          Ask our social services team for a personalized referral based on your
+          goals and experience.
         </p>
       </div>
     ),
   },
   {
     title: "Language",
-    /* DRAFT — replace with final copy */
     content: (
       <div className="space-y-3">
         <p>
           We are committed to providing care in a language you are comfortable
           with. HAVEN offers interpretation services and can connect you with
-          English language learning resources.
+          English language learning resources. In-person and phone
+          interpretation available during clinic visits in Spanish and other
+          languages
         </p>
         <ul className="list-disc pl-8 md:pl-12 space-y-2">
           <li>
-            In-person and phone interpretation available during clinic visits
-            in Spanish and other languages
+            In-person and phone interpretation available during clinic visits in
+            Spanish and other languages
           </li>
           <li>
-            Referrals to English for Speakers of Other Languages (ESOL)
-            courses offered in the New Haven community
+            Referrals to English for Speakers of Other Languages (ESOL) courses
+            offered in the New Haven community
           </li>
           <li>
             Translated health education materials available for common
             conditions
           </li>
           <li>
-            If you need an interpreter, please let us know when scheduling
-            your appointment by calling{" "}
+            If you need an interpreter, please let us know when scheduling your
+            appointment by calling{" "}
             <a href="tel:2032000673" className="text-[#00356b] hover:underline">
               (203) 200-0673
             </a>
           </li>
         </ul>
-      </div>
-    ),
-  },
-  {
-    title: "Medical Debt & Counseling",
-    /* DRAFT — replace with final copy */
-    content: (
-      <div className="space-y-3">
-        <p>
-          Medical bills and insurance questions can be overwhelming. Our
-          Medical Debt and Insurance Counseling team is here to help you
-          understand your options and reduce financial stress.
-        </p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-2">
-          <li>
-            Help reviewing and understanding medical bills from other
-            providers
-          </li>
-          <li>
-            Assistance applying for Medicaid (HUSKY), Medicare, and other
-            public insurance programs
-          </li>
-          <li>
-            Guidance on hospital financial assistance and charity care
-            programs
-          </li>
-          <li>
-            Support negotiating payment plans or disputing billing errors
-          </li>
-          <li>
-            Connection to our Medical-Legal Partnership for cases involving
-            debt collection or insurance denials
-          </li>
-        </ul>
-        <p>
-          Contact our billing team at{" "}
-          <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] hover:underline">
-            hfc.billing@yale.edu
-          </a>{" "}
-          or ask to speak with a counselor during your visit.
-        </p>
       </div>
     ),
   },
@@ -200,6 +165,7 @@ function AccordionItem({ item }: { item: ResourceItem }) {
     <div className="border-b border-[#00356b]/20">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
       >
         <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">

@@ -13,43 +13,119 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: "Am I eligible for care at HAVEN Free Clinic?",
+    question: "Who is eligible to be seen at the clinic?",
     answer: (
       <div>
-        <p className="mb-2">To be a patient, you must:</p>
+        <p className="mb-2">To be eligible for care, you must:</p>
         <ul className="list-disc pl-8 space-y-1">
-          <li>Reside in the Greater New Haven Area</li>
-          <li>Be between the ages of 18 and 65 years</li>
-          <li>Have no active medical coverage/insurance.</li>
+          <li>Reside in the Greater New Haven area</li>
+          <li>Be between 18 and 65 years old</li>
+          <li>Have no active medical insurance</li>
+          <li>Not currently have a primary care provider</li>
         </ul>
+        <p className="mt-3">
+          Additional criteria may apply and will be assessed prior to acceptance. You can check your eligibility on our{" "}
+          <Link href="/eligibility" className="text-[#00356b] underline hover:opacity-80">
+            eligibility page
+          </Link>
+          .
+        </p>
       </div>
     ),
   },
   {
-    question: "What services does HAVEN Free Clinic offer?",
+    question: "How do I make an appointment?",
     answer: (
       <p>
-        For information on services offered, please visit our{" "}
-        <Link href="/services" className="text-[#00356b] underline hover:opacity-80">
-          services page
+        Call{" "}
+        <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
+          (203) 200-0673
+        </a>{" "}
+        and leave your name and phone number. Someone will return your call within 24 hours. Both English and Spanish speakers are available.
+      </p>
+    ),
+  },
+  {
+    question: "Do you take walk-ins?",
+    answer: (
+      <p>
+        Yes, but the clinic often fills up quickly. We strongly encourage you to make an appointment by calling ahead to ensure you can be seen.
+      </p>
+    ),
+  },
+  {
+    question: "When is the clinic open?",
+    answer: (
+      <p>Saturdays, 8:30 AM – 12:00 PM.</p>
+    ),
+  },
+  {
+    question: "Where is the clinic located?",
+    answer: (
+      <p>
+        800 Howard Avenue, New Haven, CT — in the Yale Physicians Building. For directions and parking details, visit our{" "}
+        <Link href="/visitor-guide" className="text-[#00356b] underline hover:opacity-80">
+          visitor guide
         </Link>
         .
       </p>
     ),
   },
   {
-    question: "How do I navigate billing?",
+    question: "Do I have to pay for anything?",
     answer: (
-      <ul className="list-disc pl-8 space-y-1">
-        <li>
-          Prepare all necessary documents
-          <ul className="list-disc pl-8 mt-1">
-            <li>Medication list/Medical history</li>
-          </ul>
-        </li>
-        <li>Review our protocols</li>
-        <li>Request a translator if you need one</li>
-      </ul>
+      <p>
+        No. All services provided at the clinic — including visits, medications, and referrals — are completely free of charge.
+      </p>
+    ),
+  },
+  {
+    question: "What should I bring to my visit?",
+    answer: (
+      <div>
+        <p className="mb-2">For your first visit, please bring:</p>
+        <ul className="list-disc pl-8 space-y-1">
+          <li>All current medications, including prescriptions, herbs, vitamins, and supplements</li>
+          <li>Any medical records or history you have available</li>
+          <li>If referred from the Emergency Room, bring your discharge instructions</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    question: "How long should I expect my visit to take?",
+    answer: (
+      <p>
+        Visit length depends on your medical needs and patient volume. Your first visit may take several hours, especially if it has been a long time since you last saw a primary care physician. Follow-up visits are typically shorter.
+      </p>
+    ),
+  },
+  {
+    question: "What types of medical conditions can you treat?",
+    answer: (
+      <p>
+        We treat common chronic conditions such as diabetes, hypertension, and high cholesterol, as well as provide general primary care. We are unable to provide pediatric care, HIV/AIDS care, or prenatal care, but can provide referrals for those services. Visit our{" "}
+        <Link href="/services" className="text-[#00356b] underline hover:opacity-80">
+          services page
+        </Link>{" "}
+        for more details.
+      </p>
+    ),
+  },
+  {
+    question: "What if I don't speak English?",
+    answer: (
+      <p>
+        Spanish interpreters are available every Saturday. If you are most comfortable in a language other than Spanish, please let us know when scheduling so we can work with you to find an interpreter.
+      </p>
+    ),
+  },
+  {
+    question: "Who runs the clinic?",
+    answer: (
+      <p>
+        HAVEN Free Clinic is run by students from the Yale School of Medicine, Yale School of Nursing, Yale School of Public Health, and the Yale Physician Associate Program, in collaboration with Yale Medicine.
+      </p>
     ),
   },
 ];
@@ -63,6 +139,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
     <div className="border-b border-[#00356b]/20">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer group text-left"
       >
         <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
@@ -97,9 +174,6 @@ export function FAQsContent() {
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            FAQs
-          </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             The HAVEN Free Clinic is a{" "}
             <span className="font-semibold">student-run primary care clinic</span>{" "}

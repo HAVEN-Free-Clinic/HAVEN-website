@@ -100,10 +100,10 @@ const STEERING_COMMITTEE: SteeringMember[] = [
 export function CommunityPartnersContent() {
   return (
     <section className="bg-white w-full">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         <div className="max-w-4xl mx-auto">
         {/* ── Our Partners ── */}
-        <div className="mb-16 md:mb-20 max-w-[900px]">
+        <div className="mb-10 md:mb-14 max-w-[900px]">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Our Partners
           </h2>
@@ -131,7 +131,7 @@ export function CommunityPartnersContent() {
         </div>
 
         {/* ── Partner Logos ── */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-10 md:mb-14">
           {/* Yale University Group */}
           <div className="flex flex-col items-center mb-12 md:mb-14">
             <Image
@@ -179,7 +179,7 @@ export function CommunityPartnersContent() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#00356b]/10 mb-16 md:mb-20" />
+        <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
         {/* ── HAVEN Steering Committee ── */}
         <div>

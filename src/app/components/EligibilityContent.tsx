@@ -250,12 +250,10 @@ function EligibilityChecker() {
 export function EligibilityContent() {
   return (
     <section className="bg-white w-full">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
         {/* Intro */}
         <div className="mb-14 md:mb-18">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Eligibility
-          </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             HAVEN Free Clinic provides care to uninsured adults in the Greater
             New Haven area. Please review the criteria below to see if you may
@@ -264,7 +262,7 @@ export function EligibilityContent() {
         </div>
 
         {/* Criteria Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 md:mb-14">
           {CRITERIA.map((criterion) => {
             const Icon = criterion.icon;
             return (
@@ -292,7 +290,7 @@ export function EligibilityContent() {
         <div className="w-full h-px bg-[#00356b]/10 mb-14 md:mb-18" />
 
         {/* Checker section */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-10 md:mb-14">
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
             Check Your Eligibility
           </h3>
@@ -327,6 +325,7 @@ export function EligibilityContent() {
               Visitor Guide
             </Link>
           </div>
+        </div>
         </div>
       </div>
     </section>

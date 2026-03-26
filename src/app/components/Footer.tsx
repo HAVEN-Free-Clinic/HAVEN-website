@@ -78,7 +78,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-6 pt-6 border-t border-white/20 text-center">
-          <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px]">&copy; 2026 HAVEN Free Clinic. All Rights Reserved.</p>
+          <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px]">&copy; {new Date().getFullYear()} HAVEN Free Clinic. All Rights Reserved.</p>
           <a
             href="https://hub.havenfreeclinic.com"
             target="_blank"
