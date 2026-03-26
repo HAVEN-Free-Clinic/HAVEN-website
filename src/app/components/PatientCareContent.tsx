@@ -90,7 +90,11 @@ const departments: DepartmentData[] = [
           <span className="font-medium">
             several routine and preventive vaccines in clinic
           </span>{" "}
-          to help protect your health.
+          to help protect your health.{" "}
+          <span className="font-medium">
+            Vaccine availability varies — please ask your provider about what is
+            currently in stock.
+          </span>
         </p>
         <p className="font-medium">Vaccines Available at HAVEN</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
@@ -104,13 +108,21 @@ const departments: DepartmentData[] = [
         <p className="font-medium">COVID-19 &amp; Flu Vaccines</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>
-            We provide up-to-date information on where and how to receive
-            COVID-19 and seasonal flu vaccines.
+            We do not always carry COVID-19 and flu vaccines in clinic. Visit{" "}
+            <a
+              href="https://www.vaccines.gov"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[#00356b]/70 transition-colors"
+            >
+              vaccines.gov
+            </a>{" "}
+            to find locations near you offering these vaccines.
           </li>
         </ul>
         <p className="font-medium">
           If you are interested in receiving a vaccine or have questions about
-          which vaccines you may need, please let our clinic staff know.
+          which vaccines you may need, please ask your provider.
         </p>
       </div>
     ),
@@ -132,6 +144,9 @@ const departments: DepartmentData[] = [
           in the community (Hispanic Clinic and Connecticut Mental Health
           Center).
         </p>
+        <p>
+          <span className="font-medium">BHD group meets the first Saturday of each month.</span>
+        </p>
         <p className="font-medium">Other services we offer:</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>Intake evaluations conducted with supervising attendings</li>
@@ -140,6 +155,14 @@ const departments: DepartmentData[] = [
           <li>Group sessions for psycho-education</li>
           <li>Mutual support and community building</li>
         </ul>
+        <div className="bg-[#fef7ed] border border-amber-200 p-4 md:p-5">
+          <p className="font-medium text-amber-800">
+            If you are experiencing a mental health emergency, please call{" "}
+            <a href="tel:988" className="underline font-bold">988</a>{" "}
+            (Suicide &amp; Crisis Lifeline). Our department is not equipped to
+            handle emergency situations.
+          </p>
+        </div>
       </div>
     ),
   },
