@@ -48,6 +48,8 @@ function useClinicSchedule() {
       return;
     }
 
+    const controller = new AbortController();
+
     const url = new URL(
       `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`
     );
@@ -61,6 +63,7 @@ function useClinicSchedule() {
 
     fetch(url.toString(), {
       headers: { Authorization: `Bearer ${apiKey}` },
+      signal: controller.signal,
     })
       .then((res) => {
         if (!res.ok) throw new Error(`Airtable responded ${res.status}`);
@@ -76,12 +79,15 @@ function useClinicSchedule() {
           }));
         setDates(days);
       })
-      .catch(() => {
+      .catch((err) => {
+        if (err instanceof DOMException && err.name === "AbortError") return;
         setError(true);
       })
       .finally(() => {
         setLoading(false);
       });
+
+    return () => controller.abort();
   }, [configured, apiKey, baseId, tableName]);
 
   return { dates, loading, error, configured };
