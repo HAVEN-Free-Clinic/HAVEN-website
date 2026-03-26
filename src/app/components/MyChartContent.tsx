@@ -303,8 +303,9 @@ export function MyChartContent() {
             </p>
             <p className="font-['Poppins',sans-serif] text-black/70 text-[15px] md:text-[16px] leading-relaxed mb-6">
               To set up proxy access, please visit the front desk during your
-              next appointment or contact the clinic. You will need to complete
-              an authorization form.
+              next appointment or contact the clinic by calling and leaving a
+              voicemail. You will need to complete an authorization form. Please
+              allow up to 24 hours for a return call.
             </p>
             <a
               href="tel:2032000673"

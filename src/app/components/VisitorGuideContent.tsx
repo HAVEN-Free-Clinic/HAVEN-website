@@ -187,8 +187,9 @@ function BookingCancellingPanel() {
           Book an Appointment
         </h3>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
-          To book an appointment, call us at (203) 200-0673 anytime. Leave a
-          voicemail, and our staff will call you back. Please note that we only
+          To book an appointment, call us at (203) 200-0673 and leave a
+          voicemail. Our clinic is not open at all hours, but a staff member
+          will return your call within 24 hours. Please note that we only
           have appointments on Saturdays.
         </p>
       </div>

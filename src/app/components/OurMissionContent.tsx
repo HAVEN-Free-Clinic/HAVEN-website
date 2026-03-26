@@ -189,6 +189,9 @@ export function OurMissionContent() {
                 >
                   (203) 200-0673
                 </a>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/50 text-[12px] mt-1">
+                  Leave a voicemail — 24hr callback
+                </p>
               </div>
             </div>
           </div>

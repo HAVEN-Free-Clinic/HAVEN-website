@@ -6,14 +6,14 @@ const steps = [
     icon: Phone,
     title: "Call Us",
     description:
-      "Call (203) 200-0673 to schedule. Leave a voicemail and we'll call you back.",
+      "Call (203) 200-0673 to schedule. Leave a voicemail and we'll return your call within 24 hours. The clinic is open Saturdays only.",
   },
   {
     number: "2",
     icon: MapPin,
     title: "Visit the Clinic",
     description:
-      "Come to 800 Howard Ave on Saturday morning. Bring a photo ID — no insurance needed.",
+      "Come to 800 Howard Ave on Saturday morning. No insurance needed.",
   },
   {
     number: "3",

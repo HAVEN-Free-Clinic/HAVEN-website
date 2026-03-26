@@ -196,7 +196,8 @@ function EligibilityChecker() {
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you appear to meet our eligibility
-              criteria. Please call us to schedule an appointment.
+              criteria. Please call us to schedule an appointment. Leave a
+              voicemail and expect a call back within 24 hours.
             </p>
             <a
               href="tel:2032000673"
@@ -224,6 +225,7 @@ function EligibilityChecker() {
               Based on your responses, you may not meet all of our current
               eligibility criteria. However, we encourage you to reach out — we
               may still be able to help or connect you with other resources.
+              Leave a voicemail and expect a call back within 24 hours.
             </p>
             <a
               href="tel:2032000673"
