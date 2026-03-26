@@ -6,7 +6,7 @@ const services = [
   { label: "Medication", image: "/images/medication.jpg", to: "/services/medication" },
   { label: "Social Services", image: "/images/social-services-card.jpg", to: "/services/social-services" },
   { label: "Education", image: "/images/education-card.jpg", to: "/services/education" },
-  { label: "Debt/Insurance", image: "/images/debt-insurance-card.jpg", to: "/services/debt-insurance" },
+  { label: "Insurance Counseling", image: "/images/debt-insurance-card.jpg", to: "/services/debt-insurance" },
   { label: "Referrals", image: "/images/referrals-card.jpg", to: "/services/referrals" },
 ];
 

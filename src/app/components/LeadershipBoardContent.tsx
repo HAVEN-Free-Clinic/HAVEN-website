@@ -107,7 +107,7 @@ const DEPARTMENTS: Department[] = [
   },
   {
     code: "MDIC",
-    label: "Medical Debt & Insurance Counseling",
+    label: "Insurance Counseling",
     members: [
       { name: "Allison Cho", email: "a.cho@yale.edu" },
       {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import Image from "next/image";
 
 /* ─── Link Arrow Icon ─── */
@@ -82,7 +82,7 @@ export function MDICContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Medical Debt &amp; Insurance Counseling
+            Insurance Counseling
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             We can help you in securing{" "}
@@ -212,6 +212,33 @@ export function MDICContent() {
                 href={resource.href}
               />
             ))}
+          </div>
+
+          {/* YNHH Financial Assistance Program */}
+          <div className="mt-12 md:mt-16">
+            <h4 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] mb-4 md:mb-6">
+              YNHH Financial Assistance Program
+            </h4>
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-6">
+              Yale New Haven Hospital offers financial assistance to eligible patients. Download the guide in your preferred language.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              {[
+                { label: "English", href: "/docs/ynhh-financial-assistance-english.pdf" },
+                { label: "French", href: "/docs/ynhh-financial-assistance-french.pdf" },
+                { label: "Haitian Creole", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
+              ].map((doc) => (
+                <a
+                  key={doc.label}
+                  href={doc.href}
+                  download
+                  className="inline-flex items-center gap-2 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] px-5 py-3 hover:bg-[#00356b]/5 transition-colors"
+                >
+                  <Download className="w-4 h-4 shrink-0" />
+                  {doc.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

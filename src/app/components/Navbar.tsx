@@ -22,7 +22,7 @@ const servicesDropdownItems = [
   { label: "Medication", to: "/services/medication" },
   { label: "Social Services", to: "/services/social-services" },
   { label: "Education", to: "/services/education" },
-  { label: "Debt/Insurance", to: "/services/debt-insurance" },
+  { label: "Insurance Counseling", to: "/services/debt-insurance" },
   { label: "Referrals", to: "/services/referrals" },
 ];
 

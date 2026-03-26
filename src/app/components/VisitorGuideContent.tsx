@@ -228,7 +228,7 @@ const clinicDepartments: DirectoryRow[] = [
 ];
 
 const otherResources: DirectoryRow[] = [
-  { code: "MDIC", name: "Medical Debt & Insurance Counseling", email: "hfc.billing@yale.edu" },
+  { code: "MDIC", name: "Insurance Counseling", email: "hfc.billing@yale.edu" },
   { code: "MDLP", name: "Medical-Legal Partnership", email: "hfc.medical.legal@yale.edu" },
   { code: "FOOD", name: "Food Pharmacy", email: "food pharm" },
   { code: "EDUC", name: "Education", email: "hfc.education@yale.edu" },
