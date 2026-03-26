@@ -1,7 +1,7 @@
 export function ImpactStats() {
   const stats = [
-    { value: "15+", label: "Years Serving New Haven" },
-    { value: "10,000+", label: "Patient Visits" },
+    { value: "20+", label: "Years Serving New Haven" },
+    { value: "3,000+", label: "Patient Visits Per Year" },
     { value: "100%", label: "Free of Charge" },
   ];
 
