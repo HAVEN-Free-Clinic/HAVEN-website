@@ -1,98 +1,51 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
-export default function Hero() {
+export default function HeroBanner() {
   return (
     <section className="relative w-full text-white min-h-screen flex items-center pt-16 md:pt-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/HAVEN In-Clinic Banner.jpg')" }}
-        />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/HAVEN In-Clinic Banner.jpg')" }}
+      />
 
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#002147]/80 via-[#002147]/40 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent" />
-        
-        <div className="relative z-10 mx-auto px-0 py-16 md:py-20 grid md:grid-cols-2 gap-12 items-center">
-          
-          {/* LEFT SIDE */}
-          <div className="flex flex-col gap-6 max-w-2xl items-start text-left">
-            
-            {/* Heading */}
-            <div className="space-y-1">
-              <h1 className="font-serif text-white text-4xl md:text-7xl font-semibold leading-[1.05] tracking-tight">
-                Quality care,
-              </h1>
-              <h1 className="font-serif text-white text-4xl md:text-7xl font-semibold leading-[1.05] tracking-tight">
-                no cost
-              </h1>
-            </div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#002147]/80 via-[#002147]/40 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent" />
 
-            {/* Subtext */}
-            <p className="max-w-xl text-base md:text-lg leading-relaxed text-white/75">
-              Free, high-quality healthcare for uninsured adults{" "}
-              <span className="whitespace-nowrap">in New Haven.</span>
-            </p>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20">
+        <div className="max-w-2xl">
+          {/* Heading */}
+          <h1 className="font-['Merriweather',serif] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
+            Quality care,
+            <br />
+            no cost
+          </h1>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4 mt-4">
-              
-              {/* Primary CTA */}
-              <button className="bg-[#d6e8f7] text-[#00356b] px-7 py-3.5 rounded-full font-medium shadow-md hover:bg-white transition">
-                See if you qualify
-              </button>
+          {/* Subtext */}
+          <p className="font-['Poppins',sans-serif] text-white/80 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8 max-w-xl">
+            Free, high-quality healthcare for uninsured adults in New Haven.
+            No insurance needed. No hidden fees. Just care.
+          </p>
 
-              {/* Secondary CTA */}
-              <button className="border border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#00356b] transition">
-                Learn more
-              </button>
-
-            </div>
-
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/eligibility"
+              className="bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-[#d6e8f7] transition-colors"
+            >
+              See If You Qualify
+            </Link>
+            <a
+              href="tel:2032000673"
+              className="border-2 border-white text-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-white hover:text-[#00356b] transition-colors flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
+              (203) 200-0673
+            </a>
           </div>
         </div>
+      </div>
     </section>
   );
 }
-// import Image from "next/image";
-// import Link from "next/link";
-
-// export function HeroBanner() {
-//   return (
-//     <section className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[846px] bg-black overflow-hidden flex items-center justify-center">
-      
-//       {/* Background Image */}
-//       <Image
-//         src="/images/hero-newhaven.jpg"
-//         alt="New Haven cityscape"
-//         fill
-//         className="object-cover opacity-80"
-//         priority
-//         sizes="100vw"
-//       />
-
-//       {/* Dark overlay for text readability */}
-//       <div className="absolute inset-0 bg-black/30" />
-
-//       {/* Hero Text */}
-//       <div className="relative z-10 flex flex-col items-center text-center px-6 -translate-y-6 md:-translate-y-10">
-        
-//         <h1 className="font-['Merriweather',serif] font-bold text-white text-4xl md:text-6xl tracking-wide leading-tight">
-//           HAVEN Free Clinic
-//         </h1>
-
-//         <p className="font-['Poppins',sans-serif] italic text-white/90 text-lg md:text-2xl mt-2 md:mt-3">
-//           Quality care at no cost
-//         </p>
-
-//         <Link
-//           href="/eligibility"
-//           className="mt-6 md:mt-8 inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[16px] sm:text-[18px] md:text-[20px] px-8 py-3.5 rounded-full hover:bg-[#4a90c4] transition-all duration-200 shadow-lg hover:scale-105"
-//         >
-//           See If You Qualify
-//         </Link>
-
-//       </div>
-//     </section>
-//   );
-// }
