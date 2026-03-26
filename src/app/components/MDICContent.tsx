@@ -129,7 +129,7 @@ function ResourceCard({ title, image, href = "#" }: ResourceCardProps) {
 
 const resources: ResourceCardProps[] = [
   { title: "Medicaid", image: "/images/medicaid-card.jpg" },
-  { title: "HUSKY", image: "/images/husky-card.jpg" },
+  { title: "HUSKY", image: "/images/medicaid-card.jpg" },
   { title: "YNHH", image: "/images/ynhh-card.jpg" },
 ];
 
