@@ -4,6 +4,8 @@ import { MDICContent } from "@/app/components/MDICContent";
 
 export const metadata: Metadata = {
   title: "Debt & Insurance | HAVEN Free Clinic",
+  description:
+    "HAVEN Free Clinic helps patients navigate medical debt, insurance enrollment, and financial assistance programs.",
 };
 
 export default function DebtInsurancePage() {

@@ -4,6 +4,8 @@ import { LeadershipBoardContent } from "@/app/components/LeadershipBoardContent"
 
 export const metadata: Metadata = {
   title: "Leadership Board | HAVEN Free Clinic",
+  description:
+    "Meet the medical directors and student leadership board who run HAVEN Free Clinic.",
 };
 
 export default function LeadershipPage() {

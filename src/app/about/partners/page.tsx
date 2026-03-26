@@ -4,6 +4,8 @@ import { CommunityPartnersContent } from "@/app/components/CommunityPartnersCont
 
 export const metadata: Metadata = {
   title: "Community Partners | HAVEN Free Clinic",
+  description:
+    "Learn about the community organizations and Yale University partners who support HAVEN Free Clinic's mission.",
 };
 
 export default function PartnersPage() {

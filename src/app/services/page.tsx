@@ -4,6 +4,8 @@ import { ServicesContent } from "@/app/components/ServicesContent";
 
 export const metadata: Metadata = {
   title: "Our Services | HAVEN Free Clinic",
+  description:
+    "Explore the comprehensive healthcare services offered at HAVEN Free Clinic, including patient care, medication, social services, education, and referrals.",
 };
 
 export default function ServicesPage() {

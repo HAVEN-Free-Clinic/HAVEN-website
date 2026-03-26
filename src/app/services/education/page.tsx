@@ -4,6 +4,8 @@ import { EducationContent } from "@/app/components/EducationContent";
 
 export const metadata: Metadata = {
   title: "Education | HAVEN Free Clinic",
+  description:
+    "Patient education programs at HAVEN Free Clinic to help patients understand and manage their health conditions.",
 };
 
 export default function EducationPage() {

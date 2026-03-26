@@ -4,6 +4,8 @@ import { ImpactContent } from "@/app/components/ImpactContent";
 
 export const metadata: Metadata = {
   title: "Impact | HAVEN Free Clinic",
+  description:
+    "See HAVEN Free Clinic's impact through news coverage, annual reports, and published research articles.",
 };
 
 export default function ImpactPage() {

@@ -4,6 +4,8 @@ import { GoetschEndowmentContent } from "@/app/components/GoetschEndowmentConten
 
 export const metadata: Metadata = {
   title: "Goetsch Endowment | HAVEN Free Clinic",
+  description:
+    "Learn about the Dr. John B. Goetsch Endowment for Medical Education and Service, which supports HAVEN Free Clinic.",
 };
 
 export default function EndowmentPage() {
