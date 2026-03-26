@@ -78,32 +78,27 @@ export function EducationContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        
-        {/* ✅ NEW centered text container */}
-        <div className="max-w-4xl mx-auto flex flex-col gap-6">
-          
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Education
           </h2>
-
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Now providing one-on-one counseling regarding behavioral changes,
             illness, and general wellness, as well as counseling and resources
             about diet and exercise, hypertension, high cholesterol, weight
             management, and smoking cessation.
           </p>
-
         </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
       {/* ── Disclaimer ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-10 lg:py-12">
-        
-        {/* ✅ NEW centered text container */}
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Please note that these pdf handouts provided by the Education
@@ -119,40 +114,45 @@ export function EducationContent() {
             and/or the Education Department to address their concerns.
           </p>
         </div>
-
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
       {/* ── Education Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
-          Education Guides
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
-          {educationGuides.map((guide) => (
-            <GuideCard key={guide.title} title={guide.title} href={guide.href} />
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
+            Education Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
+            {educationGuides.map((guide) => (
+              <GuideCard key={guide.title} title={guide.title} href={guide.href} />
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-10 md:mt-12">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
       {/* ── How-To Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
-          How-To Guides
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
-          {howToGuides.map((guide) => (
-            <GuideCard key={guide.title} title={guide.title} href={guide.href} />
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
+            How-To Guides
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
+            {howToGuides.map((guide) => (
+              <GuideCard key={guide.title} title={guide.title} href={guide.href} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -146,7 +146,7 @@ function AccordionItem({ item }: { item: AccordionItemData }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-black">
+    <div className="border-b border-[#00356b]/20">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
@@ -164,7 +164,7 @@ function AccordionItem({ item }: { item: AccordionItemData }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[1000px] pb-6" : "max-h-0"
+          open ? "max-h-[2000px] pb-6" : "max-h-0"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
@@ -284,9 +284,9 @@ function ProviderDirectoryPanel() {
   return (
     <div className="space-y-12 md:space-y-16">
       <DirectorySection title="Clinic Departments" rows={clinicDepartments} />
-      <hr className="border-t border-black" />
+      <div className="w-full h-px bg-[#00356b]/10" />
       <DirectorySection title="Other Resources" rows={otherResources} />
-      <hr className="border-t border-black" />
+      <div className="w-full h-px bg-[#00356b]/10" />
       <DirectorySection title="Other Contacts" rows={otherContacts} />
     </div>
   );
@@ -301,11 +301,11 @@ export function VisitorGuideContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Visitor Guide
           </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             This Visitor Guide is designed to help you feel prepared and
             comfortable during your visit. Here you'll find essential
             information about check-in procedures, clinic hours, what to expect
@@ -318,36 +318,40 @@ export function VisitorGuideContent() {
 
       {/* ── Tab Navigation ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="flex items-center gap-2 sm:gap-4 md:gap-8 border-b border-gray-200">
-          {TAB_KEYS.map((key) => (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`cursor-pointer pb-3 md:pb-4 font-['Poppins',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] transition-colors whitespace-nowrap ${
-                activeTab === key
-                  ? "text-[#00356b] border-b-[3px] border-[#e5e7eb]"
-                  : "text-[#6b7280] hover:text-[#00356b]"
-              }`}
-            >
-              {TAB_LABELS[key]}
-            </button>
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-8 border-b border-[#00356b]/10">
+            {TAB_KEYS.map((key) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`cursor-pointer pb-3 md:pb-4 font-['Poppins',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] transition-colors whitespace-nowrap ${
+                  activeTab === key
+                    ? "text-[#00356b] border-b-[3px] border-[#00356b]"
+                    : "text-[#6b7280] hover:text-[#00356b]"
+                }`}
+              >
+                {TAB_LABELS[key]}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* ── Tab Content ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-6 md:pt-10 pb-16 md:pb-20 lg:pb-24">
-        {activeTab === "what-to-expect" && (
-          <div>
-            {whatToExpectItems.map((item) => (
-              <AccordionItem key={item.title} item={item} />
-            ))}
-          </div>
-        )}
+        <div className="max-w-4xl mx-auto">
+          {activeTab === "what-to-expect" && (
+            <div>
+              {whatToExpectItems.map((item) => (
+                <AccordionItem key={item.title} item={item} />
+              ))}
+            </div>
+          )}
 
-        {activeTab === "booking-cancelling" && <BookingCancellingPanel />}
+          {activeTab === "booking-cancelling" && <BookingCancellingPanel />}
 
-        {activeTab === "provider-directory" && <ProviderDirectoryPanel />}
+          {activeTab === "provider-directory" && <ProviderDirectoryPanel />}
+        </div>
       </div>
     </section>
   );

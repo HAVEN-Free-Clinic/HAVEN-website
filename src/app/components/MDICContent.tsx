@@ -80,11 +80,11 @@ export function MDICContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0 md:w-[390px]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Medical Debt &amp; Insurance Counseling
           </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             We can help you in securing{" "}
             <span className="font-bold">free or low-cost care</span>. We
             provide application assistance for Medicare, Medicaid, and Yale-New
@@ -94,12 +94,15 @@ export function MDICContent() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
       {/* ── Blue Contact / Billing Guide Box ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
-        <div className="bg-[#00356b]  px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
+        <div className="max-w-4xl mx-auto">
+        <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
           <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
             If you receive any bills for services provided by or referred
             through HAVEN Free Clinic, or if you need help with medical bills or
@@ -183,36 +186,34 @@ export function MDICContent() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
-      </div>
-
-      {/* ── Helpful Resources: Application Assistance ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
-          Helpful Resources: Application Assistance
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14 max-w-[1200px]">
-          {resources.map((resource) => (
-            <ResourceCard
-              key={resource.title}
-              title={resource.title}
-              image={resource.image}
-              href={resource.href}
-            />
-          ))}
         </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
-      {/* Bottom spacing */}
-      <div className="h-8 md:h-12" />
+      {/* ── Helpful Resources: Application Assistance ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
+            Helpful Resources: Application Assistance
+          </h3>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14">
+            {resources.map((resource) => (
+              <ResourceCard
+                key={resource.title}
+                title={resource.title}
+                image={resource.image}
+                href={resource.href}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -14,12 +14,12 @@ function DepartmentAccordion({ dept }: { dept: DepartmentData }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-black">
+    <div className="border-b border-[#00356b]/20">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
       >
-        <span className="font-['Poppins',sans-serif] text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
+        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
           {dept.title}
         </span>
         <ChevronDown
@@ -32,10 +32,10 @@ function DepartmentAccordion({ dept }: { dept: DepartmentData }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[2000px] pb-6" : "max-h-0"
         }`}
       >
-        <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[20px] md:text-[24px] lg:text-[20px] leading-relaxed">
+        <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
           {dept.content}
         </div>
       </div>
@@ -370,11 +370,11 @@ export function PatientCareContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 lg:gap-12 items-start">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] shrink-0">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
             Patient Care
           </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[780px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Our clinical teams provide a wide range of primary care services for
             our patients, including: annual physical examinations, screening for
             hypertension, hyperlipidemia, diabetes, HIV, and tuberculosis,
@@ -385,7 +385,9 @@ export function PatientCareContent() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <hr className="w-full border-t border-[#00356b]/10" />
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
       </div>
 
       {/* ── Departments ── */}
