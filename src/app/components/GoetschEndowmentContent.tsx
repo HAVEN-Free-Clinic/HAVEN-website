@@ -8,7 +8,6 @@ export function GoetschEndowmentContent() {
     <section className="bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         
-        {/* ✅ NEW centered content wrapper */}
         <div className="max-w-4xl mx-auto">
 
           {/* ── Hero Statement ── */}
@@ -116,7 +115,7 @@ export function GoetschEndowmentContent() {
             </div>
           </div>
 
-        </div> {/* ✅ END centered wrapper */}
+        </div>
 
       </div>
     </section>

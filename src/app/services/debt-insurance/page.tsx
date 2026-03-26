@@ -8,7 +8,6 @@ export default function DebtInsurancePage() {
         imageSrc="/images/mdic-hero.jpg"
         imageAlt="Medical Debt & Insurance Counseling"
         title="Medical Debt & Insurance Counseling"
-        // subtitle="HAVEN Free Clinic"
       />
       <MDICContent />
     </>

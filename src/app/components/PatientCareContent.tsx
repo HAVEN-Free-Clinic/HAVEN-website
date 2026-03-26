@@ -32,7 +32,7 @@ function DepartmentAccordion({ dept }: { dept: DepartmentData }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[2000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6" : "max-h-0"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">

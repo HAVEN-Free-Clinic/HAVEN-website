@@ -1,13 +1,3 @@
-import Link from "next/link";
-import {
-  Heart,
-  GraduationCap,
-  Eye,
-  Users,
-  Clock,
-  MapPin,
-  Phone,
-} from "lucide-react";
 
 /* ─── Link Arrow Icon (from Figma SVG) ─── */
 

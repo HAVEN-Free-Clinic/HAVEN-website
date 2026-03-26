@@ -8,7 +8,6 @@ export default function AboutPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="About HAVEN Free Clinic"
         title="About Us"
-        // subtitle="HAVEN Free Clinic"
       />
       <OurMissionContent />
     </>

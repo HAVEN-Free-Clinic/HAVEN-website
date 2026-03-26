@@ -136,7 +136,7 @@ export function MDICContent() {
           {/* Expandable Guide Content */}
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out w-full ${
-              guideOpen ? "max-h-[2000px] mt-8" : "max-h-0"
+              guideOpen ? "max-h-[5000px] mt-8" : "max-h-0"
             }`}
           >
             <div className="bg-white/10 px-6 md:px-10 py-6 md:py-8 text-left">

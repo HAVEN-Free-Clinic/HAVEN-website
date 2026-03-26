@@ -9,7 +9,6 @@ export default function GetInvolvedPage() {
         imageSrc="/images/hero-newhaven.jpg"
         imageAlt="Community involvement"
         title="Get Involved"
-        // subtitle="HAVEN Free Clinic"
       />
       <GetInvolvedContent />
       <FiveKSection />

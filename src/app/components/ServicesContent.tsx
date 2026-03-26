@@ -66,7 +66,6 @@ export function ServicesContent() {
       {/* Intro Block */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14 lg:pb-16">
         
-        {/* ✅ Centered text container */}
         <div className="max-w-4xl mx-auto flex flex-col gap-6">
           
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px]">

@@ -8,7 +8,6 @@ export default function ServicesPage() {
         imageSrc="/images/services-hero.jpg"
         imageAlt="Our Services"
         title="Our Services"
-        // subtitle="HAVEN Free Clinic"
       />
       <ServicesContent />
     </>
