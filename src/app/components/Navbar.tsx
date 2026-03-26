@@ -320,7 +320,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
                 href={DONATE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#00356b] border border-white text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 text-center flex-1"
+                className="bg-[#00356b] border border-white text-white font-['Poppins',sans-serif] font-medium text-[14px] px-6 py-2.5 rounded-full text-center flex-1"
               >
                 Donate
               </a>

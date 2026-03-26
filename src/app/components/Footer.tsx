@@ -64,6 +64,7 @@ export function Footer() {
             { label: "Impact", to: "/impact" },
             { label: "Get Involved", to: "/get-involved" },
             { label: "FAQs", to: "/faqs" },
+            { label: "MyChart", to: "/mychart" },
           ].map((link) => (
             <Link
               key={link.label}
