@@ -107,6 +107,12 @@ export function ReferralsContent() {
             Referrals
           </h2>
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-4 md:p-5 mb-2">
+              <p className="font-medium text-[#00356b]">
+                Patients must have established care with HAVEN before we can
+                place referrals on their behalf.
+              </p>
+            </div>
             <p>
               As a referring provider, we are able to deliver high-quality,
               comprehensive patient care. We are dedicated to supporting your
