@@ -194,7 +194,7 @@ const departments: DepartmentData[] = [
           <li>Pelvic, breast, or genital pain</li>
           <li>Vaginal discharge or urinary/genital discomfort</li>
           <li>Menopause counseling and treatment</li>
-          <li>Fertility and family planning counseling</li>
+          <li>Family planning counseling</li>
           <li>
             Sexually transmitted infection (STI) testing and counseling
           </li>
@@ -232,8 +232,11 @@ const departments: DepartmentData[] = [
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>We welcome patients of all gender identities.</li>
           <li>
-            We do not provide care during pregnancy, but we help connect patients
-            to prenatal services.
+            We do not see patients who are pregnant, but we can help connect you
+            to prenatal care services.
+          </li>
+          <li>
+            We do not provide infertility counseling.
           </li>
           <li>
             Care is available regardless of immigration or legal status, and many
