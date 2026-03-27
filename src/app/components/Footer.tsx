@@ -42,6 +42,9 @@ export function Footer() {
                 <br />
                 New Haven, CT 06519
               </p>
+              <p className="font-['Poppins',sans-serif] text-white/70 text-[14px] md:text-[15px] mt-2">
+                Free parking in the Howard Avenue Garage
+              </p>
             </div>
 
             {/* Hours */}

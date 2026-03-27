@@ -13,7 +13,7 @@ const steps = [
     icon: MapPin,
     title: "Visit the Clinic",
     description:
-      "Come to 800 Howard Ave on Saturday morning. No insurance needed.",
+      "Come to 800 Howard Ave on Saturday morning. No insurance needed. Free parking in the Howard Avenue Garage.",
   },
   {
     number: "3",

@@ -58,7 +58,9 @@ const whatToExpectItems: AccordionItemData[] = [
       <ul className="list-disc pl-8 md:pl-12 space-y-2">
         <li>
           When you arrive, check in at the front desk on Floor 1 of the
-          Yale Physicians Building at 800 Howard Avenue
+          Yale Physicians Building at 800 Howard Avenue. Free parking is
+          available in the Howard Avenue Garage, located to the left of the
+          building
         </li>
         <li>
           You will complete a brief intake form and have your vitals taken

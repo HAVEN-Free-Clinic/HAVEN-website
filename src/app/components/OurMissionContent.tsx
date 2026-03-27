@@ -177,6 +177,9 @@ export function OurMissionContent() {
                 <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px]">
                   Yale Physicians Building
                 </p>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/50 text-[12px] mt-1">
+                  Free parking in Howard Ave Garage
+                </p>
               </div>
               <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-5 flex flex-col items-center text-center">
                 <Phone className="w-6 h-6 text-[#00356b] mb-2" />

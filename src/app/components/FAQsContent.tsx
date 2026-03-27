@@ -63,7 +63,7 @@ const faqs: FAQ[] = [
     question: "Where is the clinic located?",
     answer: (
       <p>
-        800 Howard Avenue, New Haven, CT — in the Yale Physicians Building. For directions and parking details, visit our{" "}
+        800 Howard Avenue, New Haven, CT — in the Yale Physicians Building. Free parking is available in the Howard Avenue Garage, to the left of the building. For more details, visit our{" "}
         <Link href="/visitor-guide" className="text-[#00356b] underline hover:opacity-80">
           visitor guide
         </Link>
