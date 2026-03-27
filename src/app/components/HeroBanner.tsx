@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 export default function HeroBanner() {
   return (
-    <section className="relative w-full text-white min-h-screen flex items-center pt-16 md:pt-20">
+    <section className="relative w-full text-white min-h-screen flex flex-col pt-16 md:pt-20">
       {/* Full background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -18,7 +18,7 @@ export default function HeroBanner() {
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent" />
 
       {/* Content — left-aligned */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 w-full">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 w-full flex-1 flex items-center">
         <div className="max-w-lg md:max-w-xl">
           <h1 className="font-['Merriweather',serif] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
             Quality care,
@@ -45,6 +45,40 @@ export default function HeroBanner() {
               <Phone className="w-4 h-4 md:w-5 md:h-5" />
               (203) 200-0673
             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Impact stats bar — anchored to bottom of hero */}
+      <div className="relative z-10 w-full bg-[#00356b]/80 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-4 md:py-5">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-4 md:gap-12 text-center">
+              <div>
+                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
+                  20+
+                </p>
+                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
+                  Years Serving New Haven
+                </p>
+              </div>
+              <div>
+                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
+                  3,000+
+                </p>
+                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
+                  Patient Visits Per Year
+                </p>
+              </div>
+              <div>
+                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
+                  100%
+                </p>
+                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
+                  Free of Charge
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

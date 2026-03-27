@@ -1,5 +1,4 @@
 import HeroBanner from "@/app/components/HeroBanner";
-import { ImpactStats } from "@/app/components/ImpactStats";
 import { MissionSection } from "@/app/components/MissionSection";
 import { HowItWorks } from "@/app/components/HowItWorks";
 import { ClinicSchedule } from "@/app/components/ClinicSchedule";
@@ -11,7 +10,6 @@ export default function HomePage() {
   return (
     <>
       <HeroBanner />
-      <ImpactStats />
       <MissionSection />
       <HowItWorks />
       <ClinicSchedule />
