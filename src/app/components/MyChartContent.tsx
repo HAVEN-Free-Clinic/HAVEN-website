@@ -115,8 +115,8 @@ const faqs = [
 
 const resources = [
   {
-    label: "MyChart FAQ (YNHHS)",
-    url: "https://www.ynhhs.org/patients-visitors/mychart",
+    label: "MyChart FAQ (YNHH)",
+    url: "https://www.ynhh.org/tools/emrfaq",
   },
   { label: "Patient Forms & Resources", url: "/services" },
 ];
