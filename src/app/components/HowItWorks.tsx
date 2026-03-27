@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Phone, MapPin, Heart } from "lucide-react";
 
 const steps = [
@@ -57,6 +58,14 @@ export function HowItWorks() {
                 <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
                   {step.description}
                 </p>
+                {step.number === "2" && (
+                  <Link
+                    href="/visitor-guide"
+                    className="inline-block mt-4 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-5 py-2.5 hover:bg-[#00356b] hover:text-white transition-colors"
+                  >
+                    Clinic Guide
+                  </Link>
+                )}
               </div>
             ))}
           </div>
