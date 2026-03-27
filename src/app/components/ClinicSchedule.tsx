@@ -198,7 +198,9 @@ export function ClinicSchedule() {
             <div className="flex items-start gap-4 p-5 md:p-6 border border-[#00356b]/10 bg-[#f7f9fc]">
               <Phone className="w-5 h-5 text-[#00356b] mt-0.5 shrink-0" />
               <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[16px] leading-relaxed">
-                Open Saturdays, 8:30 AM – 12:00 PM. Call{" "}
+                Open Saturdays, 8:30 AM – 12:00 PM.
+                <br />
+                Call{" "}
                 <a
                   href="tel:2032000673"
                   className="text-[#00356b] underline hover:opacity-80"
