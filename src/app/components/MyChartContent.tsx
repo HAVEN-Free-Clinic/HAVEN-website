@@ -131,7 +131,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         aria-expanded={open}
         className="w-full flex items-center justify-between py-5 md:py-6 text-left gap-4 group"
       >
-        <span className="font-['Poppins',sans-serif] font-medium text-[15px] sm:text-[16px] md:text-[17px] text-[#00356b] group-hover:text-[#4a90c4] transition-colors">
+        <span className="font-['Poppins',sans-serif] font-normal text-[15px] sm:text-[16px] md:text-[17px] text-[#00356b] group-hover:text-[#4a90c4] transition-colors">
           {question}
         </span>
         <ChevronDown

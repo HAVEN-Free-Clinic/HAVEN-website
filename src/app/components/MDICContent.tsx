@@ -185,7 +185,7 @@ export function MDICContent() {
             aria-expanded={guideOpen}
             className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 cursor-pointer hover:bg-gray-100 transition-colors"
           >
-            <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+            <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
               MDIC/Billing Guide
             </span>
             <ChevronDown

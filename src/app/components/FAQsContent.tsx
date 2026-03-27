@@ -142,7 +142,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
         aria-expanded={open}
         className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer group text-left"
       >
-        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
+        <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
           {faq.question}
         </span>
         <ChevronDown

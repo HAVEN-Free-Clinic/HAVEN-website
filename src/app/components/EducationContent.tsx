@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 /* ─── Link Arrow Icon (from Figma SVG) ─── */
 
@@ -19,44 +23,64 @@ function LinkArrow() {
   );
 }
 
-/* ─── Guide Card ─── */
+/* ─── Guide Dropdown Item ─── */
 
-interface GuideCardProps {
+interface GuideItem {
   title: string;
   href?: string;
 }
 
-function GuideCard({ title, href = "#" }: GuideCardProps) {
+function GuideDropdown({ title, href = "#" }: GuideItem) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block border border-[#00356b] px-5 py-6 sm:px-6 sm:py-7 md:px-7 md:py-8 hover:bg-[#f0f5fb] transition-colors"
-    >
-      <p className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-2 md:mb-3">
-        {title}
-      </p>
-      <span className="inline-flex items-center gap-2 md:gap-2.5">
-        <span className="font-['Poppins',sans-serif] text-[#00356b] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px]">
-          Download pdf
+    <div className="border-b border-[#00356b]/20">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
+      >
+        <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] pr-4">
+          {title}
         </span>
-        <LinkArrow />
-      </span>
-    </a>
+        <ChevronDown
+          className={`w-6 h-6 md:w-8 md:h-8 shrink-0 text-[#00356b] transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
+          strokeWidth={2.5}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-[200px] pb-6" : "max-h-0"
+        }`}
+      >
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 md:gap-2.5 hover:opacity-70 transition-opacity"
+        >
+          <span className="font-['Poppins',sans-serif] text-[#00356b] text-[16px] sm:text-[18px] md:text-[20px]">
+            Download PDF
+          </span>
+          <LinkArrow />
+        </a>
+      </div>
+    </div>
   );
 }
 
 /* ─── Data ─── */
 
-const educationGuides: GuideCardProps[] = [
+const educationGuides: GuideItem[] = [
   { title: "Nutrition" },
   { title: "Exercise" },
   { title: "Specific Conditions" },
   { title: "Calming Down" },
 ];
 
-const howToGuides: GuideCardProps[] = [
+const howToGuides: GuideItem[] = [
   { title: "Blood Pressure Cuffs" },
   { title: "Glucose Monitors" },
 ];
@@ -115,14 +139,12 @@ export function EducationContent() {
       {/* ── Education Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             Education Guides
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
-            {educationGuides.map((guide) => (
-              <GuideCard key={guide.title} title={guide.title} href={guide.href} />
-            ))}
-          </div>
+          {educationGuides.map((guide) => (
+            <GuideDropdown key={guide.title} title={guide.title} href={guide.href} />
+          ))}
         </div>
       </div>
 
@@ -135,14 +157,12 @@ export function EducationContent() {
       {/* ── How-To Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             How-To Guides
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-[37px]">
-            {howToGuides.map((guide) => (
-              <GuideCard key={guide.title} title={guide.title} href={guide.href} />
-            ))}
-          </div>
+          {howToGuides.map((guide) => (
+            <GuideDropdown key={guide.title} title={guide.title} href={guide.href} />
+          ))}
         </div>
       </div>
     </section>
