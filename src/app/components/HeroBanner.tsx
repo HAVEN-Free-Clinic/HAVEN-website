@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
 
+const stats = [
+  { value: "20+", label: "Years Serving New Haven" },
+  { value: "3,000+", label: "Patient Visits Per Year" },
+  { value: "100%", label: "Free of Charge" },
+];
+
 export default function HeroBanner() {
   return (
     <section className="relative w-full text-white min-h-screen flex flex-col pt-16 md:pt-20">
@@ -54,30 +60,16 @@ export default function HeroBanner() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-4 md:py-5">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-3 gap-4 md:gap-12 text-center">
-              <div>
-                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
-                  20+
-                </p>
-                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
-                  Years Serving New Haven
-                </p>
-              </div>
-              <div>
-                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
-                  3,000+
-                </p>
-                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
-                  Patient Visits Per Year
-                </p>
-              </div>
-              <div>
-                <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
-                  100%
-                </p>
-                <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
-                  Free of Charge
-                </p>
-              </div>
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-none mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="font-['Poppins',sans-serif] text-white/70 text-[11px] sm:text-[12px] md:text-[14px]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
