@@ -100,10 +100,6 @@ export function HistoryContent() {
         <div className="max-w-4xl mx-auto">
         {/* ── Our History narrative ── */}
         <div className="mb-10 md:mb-14">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Our History
-          </h2>
-
           <div className="space-y-5 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
             <p>
               In the spring of 2004, a group of Yale health profession students

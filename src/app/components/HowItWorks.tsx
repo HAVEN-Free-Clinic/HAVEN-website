@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Phone, MapPin, Heart } from "lucide-react";
 
 const steps = [
@@ -45,12 +46,10 @@ export function HowItWorks() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
             {steps.map((step) => (
               <div key={step.number} className="flex flex-col">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-[#00356b] flex items-center justify-center shrink-0">
-                    <span className="font-['Merriweather',serif] font-bold text-white text-[20px] md:text-[24px]">
-                      {step.number}
-                    </span>
-                  </div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-['Merriweather',serif] font-bold text-[#00356b]/20 text-[40px] md:text-[48px] leading-none">
+                    {step.number}
+                  </span>
                   <step.icon className="w-6 h-6 md:w-7 md:h-7 text-[#00356b]" />
                 </div>
                 <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[20px] md:text-[22px] mb-3">
@@ -59,6 +58,14 @@ export function HowItWorks() {
                 <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
                   {step.description}
                 </p>
+                {step.number === "2" && (
+                  <Link
+                    href="/visitor-guide"
+                    className="inline-block mt-4 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-5 py-2.5 hover:bg-[#00356b] hover:text-white transition-colors"
+                  >
+                    Clinic Guide
+                  </Link>
+                )}
               </div>
             ))}
           </div>

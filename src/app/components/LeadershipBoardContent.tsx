@@ -552,52 +552,51 @@ export function LeadershipBoardContent() {
   return (
     <section className="bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
-        {/* Intro */}
-        <div className="mb-10 md:mb-14">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-            Leadership
-          </h2>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            HAVEN Free Clinic is led by a dedicated team of{" "}
-            <span className="font-semibold">
-              medical professionals
-            </span>{" "}
-            and{" "}
-            <span className="font-semibold">
-              student coordinators
-            </span>{" "}
-            committed to providing high-quality, compassionate
-            healthcare to our community.
-          </p>
-        </div>
-
-        {/* Medical Directors */}
-        <div className="mb-10 md:mb-14">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
-            Medical Directors
-          </h3>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-20">
-            {MEDICAL_DIRECTORS.map((director) => (
-              <DirectorCard
-                key={director.name}
-                person={director}
-              />
-            ))}
+        <div className="max-w-4xl mx-auto">
+          {/* Intro */}
+          <div className="mb-10 md:mb-14">
+            <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+              HAVEN Free Clinic is led by a dedicated team of{" "}
+              <span className="font-semibold">
+                medical professionals
+              </span>{" "}
+              and{" "}
+              <span className="font-semibold">
+                student coordinators
+              </span>{" "}
+              committed to providing high-quality, compassionate
+              healthcare to our community.
+            </p>
           </div>
+
+          {/* Medical Directors */}
+          <div className="mb-10 md:mb-14">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
+              Medical Directors
+            </h3>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-20">
+              {MEDICAL_DIRECTORS.map((director) => (
+                <DirectorCard
+                  key={director.name}
+                  person={director}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
+
+          {/* Student Coordinators heading */}
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
+            Student Directors
+          </h3>
+
+          {/* Department sections */}
+          {DEPARTMENTS.map((dept) => (
+            <DepartmentSection key={dept.code} dept={dept} />
+          ))}
         </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
-
-        {/* Student Coordinators heading */}
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
-          Student Directors
-        </h3>
-
-        {/* Department sections */}
-        {DEPARTMENTS.map((dept) => (
-          <DepartmentSection key={dept.code} dept={dept} />
-        ))}
       </div>
     </section>
   );
