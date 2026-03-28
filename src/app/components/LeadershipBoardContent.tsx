@@ -555,9 +555,6 @@ export function LeadershipBoardContent() {
         <div className="max-w-4xl mx-auto">
           {/* Intro */}
           <div className="mb-10 md:mb-14">
-            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-6 md:mb-8">
-              Leadership
-            </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
               HAVEN Free Clinic is led by a dedicated team of{" "}
               <span className="font-semibold">
