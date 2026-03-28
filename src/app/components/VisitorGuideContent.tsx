@@ -28,16 +28,6 @@ const whatToExpectItems: AccordionItemData[] = [
     content: (
       <ul className="list-disc pl-8 md:pl-12 space-y-2">
         <li>
-          Bring a valid photo ID (state ID, passport, or consular ID)
-        </li>
-        <li>
-          Bring proof of income or a self-declaration of income if available
-        </li>
-        <li>
-          Bring your insurance card if you have one — but insurance is not
-          required to be seen
-        </li>
-        <li>
           Prepare a list of all current medications, including dosages
         </li>
         <li>
@@ -213,79 +203,10 @@ function BookingCancellingPanel() {
 
 /* ─── Provider Directory Tab ─── */
 
-interface DirectoryRow {
-  code: string;
-  name: string;
-  email: string;
-}
-
-const clinicDepartments: DirectoryRow[] = [
-  { code: "PCAR", name: "Primary Care", email: "Hfc.clinical.advisors@yale.edu" },
-  { code: "PHAM", name: "Pharmacy", email: "hfc.pharmacy@yale.edu" },
-  { code: "BVHD", name: "Behavioral Health Department", email: "hfc.behavioral.health@yale.edu" },
-  { code: "SRHD", name: "Sexual and Reproductive Health", email: "hfc.rhd@yale.edu" },
-  { code: "ICDD", name: "Infectious Diseases", email: "hfc.ltbi@yale.edu" },
-  { code: "LCCN", name: "Longitudinal Care Coordination", email: "hfc.care.coordination@yale.edu" },
-  { code: "LABR", name: "Laboratory", email: "hfc.laboratory@yale.edu" },
-];
-
-const otherResources: DirectoryRow[] = [
-  { code: "MDLP", name: "Medical-Legal Partnership", email: "hfc.medical.legal@yale.edu" },
-  { code: "FOOD", name: "Food Pharmacy", email: "food pharm" },
-  { code: "EDUC", name: "Education", email: "hfc.education@yale.edu" },
-  { code: "SOSE", name: "Social Services", email: "hfc.social.services@yale.edu" },
-  { code: "REFF", name: "Referrals", email: "hfc.referrals@yale.edu" },
-];
-
-const otherContacts: DirectoryRow[] = [
-  { code: "INTP", name: "Interpretation & Diversity", email: "hfc.interpreting@yale.edu" },
-  { code: "PATS", name: "Patient Services", email: "hfc.patient.services@yale.edu" },
-];
-
-function DirectorySection({
-  title,
-  rows,
-}: {
-  title: string;
-  rows: DirectoryRow[];
-}) {
-  return (
-    <div>
-      <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-6">
-        {title}
-      </h3>
-      <div className="space-y-2.5 md:space-y-3.5">
-        {rows.map((row) => (
-          <div
-            key={row.code}
-            className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5 sm:gap-4"
-          >
-            <span className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px]">
-              {row.code} – {row.name}
-            </span>
-            {row.email.includes("@") ? (
-              <a
-                href={`mailto:${row.email}`}
-                className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-[#00356b] transition-colors shrink-0"
-              >
-                {row.email}
-              </a>
-            ) : (
-              <span className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] shrink-0">
-                {row.email}
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ProviderDirectoryPanel() {
   return (
     <div className="space-y-12 md:space-y-16">
-      {/* Prominent general contact */}
+      {/* Contact emails */}
       <div className="bg-[#00356b] px-6 md:px-10 py-6 md:py-8 space-y-4">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
           <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
@@ -311,11 +232,6 @@ function ProviderDirectoryPanel() {
         </div>
       </div>
 
-      <DirectorySection title="Clinic Departments" rows={clinicDepartments} />
-      <div className="w-full h-px bg-[#00356b]/10" />
-      <DirectorySection title="Other Resources" rows={otherResources} />
-      <div className="w-full h-px bg-[#00356b]/10" />
-      <DirectorySection title="Other Contacts" rows={otherContacts} />
     </div>
   );
 }
