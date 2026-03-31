@@ -76,7 +76,7 @@ export function NewsContent() {
           <div className="space-y-0">
             {NEWS_ITEMS.map((item, index) => (
               <a
-                key={index}
+                key={item.url}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"

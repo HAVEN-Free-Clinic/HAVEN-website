@@ -67,9 +67,9 @@ export function MilestonesContent() {
             </h2>
 
             <div className="space-y-0">
-              {ANNUAL_REPORTS.map((report, index) => (
+              {ANNUAL_REPORTS.map((report) => (
                 <a
-                  key={index}
+                  key={report.url}
                   href={report.url}
                   download
                   className="group flex items-center gap-3 py-3.5 border-b border-[#00356b]/10 hover:bg-[#00356b]/5 px-3 -mx-3 transition-colors duration-200"
@@ -94,9 +94,9 @@ export function MilestonesContent() {
             </h2>
 
             <div className="space-y-0">
-              {RESEARCH_ARTICLES.map((article, index) => (
+              {RESEARCH_ARTICLES.map((article) => (
                 <a
-                  key={index}
+                  key={article.url}
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"

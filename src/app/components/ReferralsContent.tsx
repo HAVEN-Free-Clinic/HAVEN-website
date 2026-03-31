@@ -157,7 +157,9 @@ export function ReferralsContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a
-              href="#"
+              href="https://mychart.ynhhs.org/MyChart-PRD/Authentication/Login?"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors"
             >
               <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
@@ -166,7 +168,7 @@ export function ReferralsContent() {
               <LinkArrow />
             </a>
             <a
-              href="#"
+              href="mailto:haven.free.clinic@yale.edu?subject=HAVEN%20MyChart%20Access%20Request"
               className="bg-white px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors"
             >
               <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">

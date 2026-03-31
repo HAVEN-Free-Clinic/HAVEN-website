@@ -20,7 +20,11 @@ export function MedicationContent() {
       {showBadge && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="HAVEN Patient Badge"
           onClick={() => setShowBadge(false)}
+          onKeyDown={(e) => { if (e.key === "Escape") setShowBadge(false); }}
         >
           <div
             className="bg-white w-full max-w-lg mx-auto p-8 md:p-12 relative"
