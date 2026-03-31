@@ -174,7 +174,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               >
                 {servicesDropdownItems.map((item) => (
                   <Link
-                    key={item.to}
+                    key={item.label}
                     href={item.to}
                     onClick={() => setServicesOpen(false)}
                     className="block px-4 py-2.5 font-['Poppins',sans-serif] font-normal text-[14px] text-gray-700 hover:bg-[#00356b]/10 hover:text-[#00356b] transition-colors"
