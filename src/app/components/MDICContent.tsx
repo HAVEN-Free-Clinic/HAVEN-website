@@ -120,6 +120,9 @@ export function MDICContent() {
             provide application assistance for Medicaid, HUSKY, and Yale-New
             Haven Hospital (YNHH) Financial Assistance programs.
           </p>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mt-4 bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4">
+            <span className="font-bold">Important:</span> YNHH Financial Assistance coverage expires every 6 months and must be renewed before it lapses to ensure uninterrupted coverage. Contact MDIC well before your expiration date to begin the renewal process.
+          </p>
         </div>
       </div>
 
@@ -203,6 +206,12 @@ export function MDICContent() {
                     Any medical bills or insurance correspondence you've received
                   </li>
                 </ul>
+                <p className="font-medium text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
+                  Renewal Reminder:
+                </p>
+                <p>
+                  Free care coverage must be renewed every 6 months. To avoid any gaps in coverage, please contact MDIC before your current coverage expires so we can help you complete the renewal process on time.
+                </p>
                 <p>
                   Contact us at{" "}
                   <a
@@ -211,7 +220,7 @@ export function MDICContent() {
                   >
                     hfc.billing@yale.edu
                   </a>{" "}
-                  to get started.
+                  to get started or to check your renewal date.
                 </p>
               </div>
             </div>
@@ -250,6 +259,9 @@ export function MDICContent() {
             <ResourceDropdown title="YNHH Financial Assistance">
               <p>
                 Yale New Haven Hospital offers financial assistance to eligible patients. MDIC can help you navigate the application process.
+              </p>
+              <p className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-4 py-3 text-[14px] md:text-[16px]">
+                <span className="font-bold">Remember:</span> YNHH Financial Assistance coverage expires every 6 months. You must renew before your coverage lapses to maintain uninterrupted free care. Contact MDIC ahead of your expiration date to start the renewal.
               </p>
               <p>
                 Download the guide in your preferred language:
