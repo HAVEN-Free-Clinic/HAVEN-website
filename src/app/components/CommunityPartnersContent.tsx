@@ -183,7 +183,7 @@ export function CommunityPartnersContent() {
 
         {/* ── HAVEN Steering Committee ── */}
         <div>
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             HAVEN Steering Committee
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/70 text-[16px] md:text-[18px] mb-10 md:mb-14 max-w-[700px]">

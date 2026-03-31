@@ -14,15 +14,17 @@ const aboutDropdownItems = [
   { label: "Community Partners", to: "/about/partners" },
   { label: "Leadership Board", to: "/about/leadership" },
   { label: "Goetsch Endowment", to: "/about/endowment" },
+  { label: "News", to: "/about/news" },
 ];
 
 const servicesDropdownItems = [
   { label: "All Services", to: "/services" },
   { label: "Patient Care", to: "/services/patient-care" },
-  { label: "Medication", to: "/services/medication" },
-  { label: "Social Services", to: "/services/social-services" },
+  { label: "Behavioral Health", to: "/services/patient-care" },
   { label: "Education", to: "/services/education" },
+  { label: "Social Services", to: "/services/social-services" },
   { label: "Insurance Counseling", to: "/services/debt-insurance" },
+  { label: "Medication", to: "/services/medication" },
   { label: "Referrals", to: "/services/referrals" },
 ];
 
@@ -88,7 +90,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1 hover:opacity-90 transition-opacity">
+        <Link href="/" className="notranslate flex items-center gap-1 hover:opacity-90 transition-opacity">
           <div className="relative w-[52px] h-[52px] flex items-center justify-center">
             <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
               <path
@@ -172,7 +174,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               >
                 {servicesDropdownItems.map((item) => (
                   <Link
-                    key={item.to}
+                    key={item.label}
                     href={item.to}
                     onClick={() => setServicesOpen(false)}
                     className="block px-4 py-2.5 font-['Poppins',sans-serif] font-normal text-[14px] text-gray-700 hover:bg-[#00356b]/10 hover:text-[#00356b] transition-colors"
@@ -184,12 +186,12 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             )}
           </div>
 
-          {/* Impact & FAQs links */}
+          {/* Milestones & FAQs links */}
           <Link
-            href="/impact"
+            href="/milestones"
             className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300`}
           >
-            Impact
+            Milestones
           </Link>
           <Link
             href="/faqs"
@@ -310,15 +312,15 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               )}
             </div>
 
-            {/* Impact & FAQs links */}
+            {/* Milestones & FAQs links */}
             <Link
-              href="/impact"
+              href="/milestones"
               onClick={() => setMobileOpen(false)}
               className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
                 isScrolled ? "text-black" : "text-white"
               }`}
             >
-              Impact
+              Milestones
             </Link>
             <Link
               href="/faqs"

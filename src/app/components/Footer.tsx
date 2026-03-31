@@ -7,7 +7,7 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
           {/* Logo */}
-          <Link href="/" className="relative w-[72px] h-[72px] md:w-[90px] md:h-[90px] flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity">
+          <Link href="/" className="notranslate relative w-[72px] h-[72px] md:w-[90px] md:h-[90px] flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity">
             <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 96.4539 93.7674">
               <path d={svgPaths.p1339fb00} stroke="white" strokeWidth="3.21856" />
             </svg>
@@ -64,7 +64,7 @@ export function Footer() {
           {[
             { label: "About Us", to: "/about" },
             { label: "Services", to: "/services" },
-            { label: "Impact", to: "/impact" },
+            { label: "Milestones", to: "/milestones" },
             { label: "Get Involved", to: "/get-involved" },
             { label: "FAQs", to: "/faqs" },
             { label: "MyChart", to: "/mychart" },

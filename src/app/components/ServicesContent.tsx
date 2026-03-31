@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   Stethoscope,
   HeartPulse,
@@ -14,13 +13,33 @@ import {
   Users,
 } from "lucide-react";
 
-/* ─── Clinical Services (image cards) ─── */
+/* ─── Clinical Services ─── */
 
 const clinicalServices = [
-  { label: "Primary Care", image: "/images/patient-care.jpg", to: "/services/patient-care" },
-  { label: "Reproductive Health", image: "/images/social-services-card.jpg", to: "/services/patient-care" },
-  { label: "Chronic Disease", image: "/images/medication.jpg", to: "/services/patient-care" },
-  { label: "Lab", image: "/images/referrals-card.jpg", to: "/services/referrals" },
+  {
+    label: "Primary Care",
+    description: "Comprehensive primary care including physical exams, screenings, and ongoing health management.",
+    icon: Stethoscope,
+    to: "/services/patient-care",
+  },
+  {
+    label: "Reproductive Health",
+    description: "Sexual and reproductive health services including counseling, contraception, and STI screening.",
+    icon: HeartPulse,
+    to: "/services/patient-care",
+  },
+  {
+    label: "Chronic Disease",
+    description: "Management and treatment for chronic conditions such as diabetes, hypertension, and TB.",
+    icon: Activity,
+    to: "/services/patient-care",
+  },
+  {
+    label: "Lab",
+    description: "On-site blood draws, lab testing, and diagnostic services for patients.",
+    icon: FlaskConical,
+    to: "/services/referrals",
+  },
 ];
 
 /* ─── Resources (ancillary departments) ─── */
@@ -71,52 +90,6 @@ const resources = [
   },
 ];
 
-/* ─── Arrow icon for image cards ─── */
-
-function ArrowIcon() {
-  return (
-    <svg
-      className="w-[18px] h-[14px] md:w-[22px] md:h-[17px] shrink-0"
-      fill="none"
-      viewBox="0 0 44 34"
-    >
-      <path
-        d="M11 8.82385H27.25M27.25 8.82385V25.0739M27.25 8.82385L11 25.0739"
-        stroke="white"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
-/* ─── Image card for clinical services ─── */
-
-function ServiceCard({ label, image, to }: { label: string; image: string; to: string }) {
-  return (
-    <Link
-      href={to}
-      className="group relative w-full aspect-square overflow-hidden cursor-pointer block"
-    >
-      <Image
-        src={image}
-        alt={label}
-        width={400}
-        height={300}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-      <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 flex items-center gap-1.5">
-        <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
-          {label}
-        </span>
-        <ArrowIcon />
-      </div>
-    </Link>
-  );
-}
-
 /* ─── Main component ─── */
 
 export function ServicesContent() {
@@ -139,52 +112,45 @@ export function ServicesContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
-            Clinical Services
+            Services and Programs
           </h2>
         </div>
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {clinicalServices.map((service) => (
-              <ServiceCard
+              <Link
                 key={service.label}
-                label={service.label}
-                image={service.image}
-                to={service.to}
-              />
+                href={service.to}
+                className="group bg-white border border-[#00356b]/15 px-6 py-6 hover:border-[#00356b]/40 hover:shadow-md transition-all"
+              >
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center mb-4 group-hover:bg-[#00356b]/15 transition-colors">
+                  <service.icon className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+                  {service.label}
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[15px] leading-relaxed">
+                  {service.description}
+                </p>
+              </Link>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
-        </div>
-      </div>
-
-      {/* ── Resources (Ancillary Departments) ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
-            Resources
-          </h2>
 
           {/* Featured: Patient Navigator */}
           {resources.filter((r) => r.featured).map((resource) => (
             <Link
               key={resource.label}
               href={resource.to}
-              className="group bg-[#00356b] px-6 md:px-8 py-6 md:py-8 mb-6 flex items-start gap-5 hover:bg-[#00356b]/90 transition-colors"
+              className="group border-2 border-[#00356b] px-6 md:px-8 py-6 md:py-8 mt-5 md:mt-6 mb-5 md:mb-6 flex items-start gap-5 hover:bg-[#00356b]/5 hover:shadow-md transition-all"
             >
-              <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center shrink-0 group-hover:bg-white/20 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-[#00356b] flex items-center justify-center shrink-0">
                 <resource.icon className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[18px] md:text-[21px] mb-1.5">
+                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px] mb-1.5">
                   {resource.label}
                 </h3>
-                <p className="font-['Poppins',sans-serif] text-white/80 text-[14px] md:text-[16px] leading-relaxed">
+                <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
                   {resource.description}
                 </p>
               </div>

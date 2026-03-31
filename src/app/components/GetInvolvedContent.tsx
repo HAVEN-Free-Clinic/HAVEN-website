@@ -10,6 +10,7 @@ import {
   Mail,
   ArrowRight,
   BriefcaseMedical,
+  Download,
 } from "lucide-react";
 
 const VOLUNTEER_ROLES = [
@@ -59,7 +60,7 @@ export function GetInvolvedContent() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#4a90c4] transition-colors duration-200"
             >
-              Apply to Volunteer
+              Volunteer Interest Form
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -71,6 +72,66 @@ export function GetInvolvedContent() {
               Donate
               <Gift className="w-4 h-4" />
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Director Recruitment Banner ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
+            <h3 className="font-['Merriweather',serif] font-bold text-white text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+              Director Recruitment 2026–2027
+            </h3>
+            <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-3">
+              Applications for Student Leadership Board Director positions for
+              the 2026–2027 year are now open. We are looking for committed
+              students across all health professions programs to lead HAVEN's
+              departments.
+            </p>
+            <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
+              Applications due{" "}
+              <span className="font-bold text-white">
+                Monday, April 6th, 2026 at 11:59 PM EST
+              </span>
+              . Questions? Email us at{" "}
+              <a
+                href="mailto:hfc.recruitment@yale.edu"
+                className="underline hover:text-white/70 transition-colors"
+              >
+                hfc.recruitment@yale.edu
+              </a>
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="https://airtable.com/app6MHzSA1yPej2zX/pagNLIAaYIfJhuCzU/form"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-gray-100 transition-colors"
+              >
+                <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[16px] sm:text-[18px] md:text-[22px]">
+                  Apply Now
+                </span>
+                <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-[#00356b]" />
+              </a>
+              <a
+                href="/docs/haven-board-director-positions-2026-2027.pdf"
+                download
+                className="border-2 border-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-white/10 transition-colors"
+              >
+                <span className="font-['Poppins',sans-serif] font-semibold text-white text-[16px] sm:text-[18px] md:text-[22px]">
+                  View Position Descriptions
+                </span>
+                <Download className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -127,9 +188,11 @@ export function GetInvolvedContent() {
               Become a Volunteer
             </h3>
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-4">
-              HAVEN welcomes applications from all interested individuals for
+              HAVEN welcomes applications from{" "}
+              <span className="font-bold">all interested individuals</span> for
               the Summer term. To best support patient care and clinic
-              operations, we will be prioritizing applicants who speak Spanish
+              operations, we will be prioritizing applicants who speak{" "}
+              <span className="font-bold">Spanish</span>{" "}
               and/or have clinical experience.
             </p>
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
@@ -155,7 +218,7 @@ export function GetInvolvedContent() {
               rel="noopener noreferrer"
               className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-gray-100 transition-colors"
             >
-              <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+              <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
                 Submit Interest Form
               </span>
               <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-[#00356b]" />

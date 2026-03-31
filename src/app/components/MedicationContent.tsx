@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 /* ─── Sub-components ─── */
 
@@ -12,11 +12,73 @@ function Divider() {
 /* ─── Main component ─── */
 
 export function MedicationContent() {
+  const [showBadge, setShowBadge] = useState(false);
+
   return (
     <section className="bg-white w-full">
+      {/* ── Patient Badge Modal ── */}
+      {showBadge && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="HAVEN Patient Badge"
+          onClick={() => setShowBadge(false)}
+          onKeyDown={(e) => { if (e.key === "Escape") setShowBadge(false); }}
+        >
+          <div
+            className="bg-white w-full max-w-lg mx-auto p-8 md:p-12 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowBadge(false)}
+              className="absolute top-4 right-4 text-black/40 hover:text-black transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="text-center space-y-6">
+              <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[30px]">
+                HAVEN Free Clinic
+              </h2>
+              <div className="w-16 h-px bg-[#00356b]/20 mx-auto" />
+              <p className="font-['Poppins',sans-serif] text-black text-[17px] md:text-[20px] leading-relaxed">
+                This patient is a registered{" "}
+                <span className="font-bold text-[#00356b]">HAVEN Free Clinic</span>{" "}
+                patient picking up a prescribed medication.
+              </p>
+              <p className="font-['Poppins',sans-serif] text-black text-[17px] md:text-[20px] leading-relaxed font-semibold">
+                Please apply the{" "}
+                <span className="text-[#00356b]">HAVEN Payor Plan</span>{" "}
+                to this transaction.
+              </p>
+              <div className="w-16 h-px bg-[#00356b]/20 mx-auto" />
+              <p className="font-['Poppins',sans-serif] text-black/60 text-[14px] md:text-[16px]">
+                Questions? Contact HAVEN Pharmacy at{" "}
+                <a href="mailto:haven.free.clinic@yale.edu" className="text-[#00356b] underline">
+                  haven.free.clinic@yale.edu
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <button
+              onClick={() => setShowBadge(true)}
+              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#00356b]/90 transition-colors duration-200"
+            >
+              I Am a HAVEN Patient
+            </button>
+            <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-2">
+              Show this at the pharmacy when picking up your medication
+            </p>
+          </div>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Through pharmacy partnerships and discount coupons, we can help
             purchase medications at a free or low cost. We are unable to
@@ -48,7 +110,7 @@ export function MedicationContent() {
             </p>
 
             <div>
-              <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
                 Pickup Locations
               </h4>
               <p className="leading-relaxed">
@@ -59,7 +121,7 @@ export function MedicationContent() {
             </div>
 
             <div>
-              <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
                 Pickup Instructions
               </h4>
               <p className="leading-relaxed">
