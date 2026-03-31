@@ -88,7 +88,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1 hover:opacity-90 transition-opacity">
+        <Link href="/" className="notranslate flex items-center gap-1 hover:opacity-90 transition-opacity">
           <div className="relative w-[52px] h-[52px] flex items-center justify-center">
             <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
               <path
