@@ -2,8 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Download } from "lucide-react";
-import Image from "next/image";
-
 /* ─── Language Dropdown for PDFs ─── */
 
 interface LanguageDoc {
@@ -66,72 +64,45 @@ function LanguageDownloadDropdown({
   );
 }
 
-/* ─── Link Arrow Icon ─── */
+/* ─── Resource Dropdown ─── */
 
-function LinkArrow({ className = "text-white" }: { className?: string }) {
-  return (
-    <svg
-      className={`w-[22px] h-[17px] md:w-[30px] md:h-[23px] lg:w-[36px] lg:h-[28px] shrink-0 ${className}`}
-      fill="none"
-      viewBox="0 0 44.4421 33.8977"
-    >
-      <path
-        d="M11 8.82385H27.25M27.25 8.82385V25.0739M27.25 8.82385L11 25.0739"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
-/* ─── Resource Card ─── */
-
-interface ResourceCardProps {
+interface ResourceDropdownProps {
   title: string;
-  image: string;
-  href?: string;
+  children: React.ReactNode;
 }
 
-function ResourceCard({ title, image, href = "#" }: ResourceCardProps) {
+function ResourceDropdown({ title, children }: ResourceDropdownProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block w-full aspect-[368/391] overflow-hidden border border-[#00356b] cursor-pointer"
-    >
-      {/* Card Image */}
-      <Image
-        src={image}
-        alt={title}
-        width={400}
-        height={300}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-
-      {/* Bottom gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-      {/* Label + Arrow */}
-      <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 flex items-center gap-2">
-        <span className="font-['Poppins',sans-serif] font-bold text-white text-[20px] sm:text-[24px] md:text-[28px] lg:text-[33px] underline underline-offset-4">
+    <div className="border border-[#00356b]/20">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between px-6 md:px-8 py-5 md:py-6 cursor-pointer hover:bg-[#00356b]/5 transition-colors"
+      >
+        <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] sm:text-[20px] md:text-[22px]">
           {title}
         </span>
-        <LinkArrow />
+        <ChevronDown
+          className={`w-5 h-5 md:w-6 md:h-6 text-[#00356b] transition-transform duration-300 ${
+            open ? "rotate-180" : ""
+          }`}
+          strokeWidth={2.5}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-[2000px]" : "max-h-0"
+        }`}
+      >
+        <div className="px-6 md:px-8 pb-6 md:pb-8 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-4">
+          {children}
+        </div>
       </div>
-    </a>
+    </div>
   );
 }
-
-/* ─── Data ─── */
-
-const resources: ResourceCardProps[] = [
-  { title: "Medicaid", image: "/images/medicaid-card.jpg" },
-  { title: "HUSKY", image: "/images/medicaid-card.jpg" },
-  { title: "YNHH", image: "/images/ynhh-card.jpg" },
-];
 
 /* ─── Main component ─── */
 
@@ -262,33 +233,36 @@ export function MDICContent() {
             Helpful Resources: Application Assistance
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14">
-            {resources.map((resource) => (
-              <ResourceCard
-                key={resource.title}
-                title={resource.title}
-                image={resource.image}
-                href={resource.href}
-              />
-            ))}
-          </div>
+          <div className="space-y-4">
+            <ResourceDropdown title="Medicaid / HUSKY">
+              <p>
+                Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible individuals and families.
+              </p>
+              <p>
+                MDIC can help you determine your eligibility and assist with the application process. Contact us at{" "}
+                <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">
+                  hfc.billing@yale.edu
+                </a>{" "}
+                to get started.
+              </p>
+            </ResourceDropdown>
 
-          {/* YNHH Financial Assistance Program */}
-          <div className="mt-12 md:mt-16">
-            <h4 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] mb-4 md:mb-6">
-              YNHH Financial Assistance Program
-            </h4>
-            <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-6">
-              Yale New Haven Hospital offers financial assistance to eligible patients. Download the guide in your preferred language.
-            </p>
-            <LanguageDownloadDropdown
-              buttonLabel="Download Guide"
-              docs={[
-                { label: "English", href: "/docs/ynhh-financial-assistance-english.pdf" },
-                { label: "French (Fran\u00e7ais)", href: "/docs/ynhh-financial-assistance-french.pdf" },
-                { label: "Haitian Creole (Krey\u00f2l)", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
-              ]}
-            />
+            <ResourceDropdown title="YNHH Financial Assistance">
+              <p>
+                Yale New Haven Hospital offers financial assistance to eligible patients. MDIC can help you navigate the application process.
+              </p>
+              <p>
+                Download the guide in your preferred language:
+              </p>
+              <LanguageDownloadDropdown
+                buttonLabel="Download Guide"
+                docs={[
+                  { label: "English", href: "/docs/ynhh-financial-assistance-english.pdf" },
+                  { label: "French (Fran\u00e7ais)", href: "/docs/ynhh-financial-assistance-french.pdf" },
+                  { label: "Haitian Creole (Krey\u00f2l)", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
+                ]}
+              />
+            </ResourceDropdown>
           </div>
         </div>
       </div>
