@@ -104,12 +104,10 @@ export function ReferralsContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
-            <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-4 md:p-5 mb-2">
-              <p className="font-medium text-[#00356b]">
-                Patients must have established care with HAVEN before we can
-                place referrals on their behalf.
-              </p>
-            </div>
+            <p className="font-medium text-[#00356b] border-l-4 border-[#00356b] pl-5">
+              Patients must have established care with HAVEN before we can
+              place referrals on their behalf.
+            </p>
             <p>
               As a referring provider, we are able to deliver high-quality,
               comprehensive patient care. We are dedicated to supporting your
@@ -117,7 +115,7 @@ export function ReferralsContent() {
               communicate with our providers, and refer patients to sites when
               necessary. Quickly access our referral options below.
             </p>
-            <p>Before you make a referral, review</p>
+            <p><span className="font-semibold">Before</span> you make a referral, review</p>
             <ul className="list-disc pl-8 space-y-1">
               <li>
                 <a
@@ -149,11 +147,11 @@ export function ReferralsContent() {
       {/* ── Access Medical Referrals CTA ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         <div className="max-w-4xl mx-auto">
-        <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 w-full flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
-          <h3 className="font-['Merriweather',serif] font-bold text-white text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+        <div className="bg-[#00356b]/10 border border-[#00356b]/20 px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 w-full flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
             Access Medical Referrals
           </h3>
-          <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[600px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[600px]">
             Feel supported regardless of medical debt, medical insurance, food
             insecurity, housing insecurity, and unemployment.
           </p>
@@ -162,7 +160,7 @@ export function ReferralsContent() {
               href="#"
               className="bg-white px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors"
             >
-              <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+              <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
                 Log In
               </span>
               <LinkArrow />
@@ -171,7 +169,7 @@ export function ReferralsContent() {
               href="#"
               className="bg-white px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors"
             >
-              <span className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+              <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
                 Request Access
               </span>
               <LinkArrow />
