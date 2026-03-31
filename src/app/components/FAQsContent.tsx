@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 
 /* ─── Data ─── */
@@ -207,15 +207,17 @@ export function FAQsContent() {
             Contact us for further assistance!
           </p>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] mb-2">
-            <a href="tel:2032000673" className="hover:underline">
+            <a href="tel:2032000673" className="inline-flex items-center gap-2 hover:underline">
+              <Phone className="w-5 h-5 md:w-6 md:h-6 text-[#00356b] shrink-0" />
               (203) 200-0673
             </a>
           </p>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px]">
             <a
               href="mailto:haven.free.clinic@yale.edu"
-              className="hover:underline"
+              className="inline-flex items-center gap-2 hover:underline"
             >
+              <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#00356b] shrink-0" />
               haven.free.clinic@yale.edu
             </a>
           </p>
