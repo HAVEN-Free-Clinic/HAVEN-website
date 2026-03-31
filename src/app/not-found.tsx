@@ -110,8 +110,8 @@ export default function NotFound() {
                 desc: "Volunteer and make a difference",
               },
               {
-                href: "/impact",
-                label: "Our Impact",
+                href: "/milestones",
+                label: "Milestones",
                 desc: "See the difference we're making",
               },
             ].map((link) => (

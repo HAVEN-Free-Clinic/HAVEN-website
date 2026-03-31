@@ -14,6 +14,7 @@ const aboutDropdownItems = [
   { label: "Community Partners", to: "/about/partners" },
   { label: "Leadership Board", to: "/about/leadership" },
   { label: "Goetsch Endowment", to: "/about/endowment" },
+  { label: "News", to: "/about/news" },
 ];
 
 const servicesDropdownItems = [
@@ -184,12 +185,12 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
             )}
           </div>
 
-          {/* Impact & FAQs links */}
+          {/* Milestones & FAQs links */}
           <Link
-            href="/impact"
+            href="/milestones"
             className={`font-['Poppins',sans-serif] font-medium text-[14px] tracking-wide ${textColor} hover:opacity-80 transition-all duration-300`}
           >
-            Impact
+            Milestones
           </Link>
           <Link
             href="/faqs"
@@ -310,15 +311,15 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               )}
             </div>
 
-            {/* Impact & FAQs links */}
+            {/* Milestones & FAQs links */}
             <Link
-              href="/impact"
+              href="/milestones"
               onClick={() => setMobileOpen(false)}
               className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
                 isScrolled ? "text-black" : "text-white"
               }`}
             >
-              Impact
+              Milestones
             </Link>
             <Link
               href="/faqs"

@@ -64,7 +64,7 @@ export function Footer() {
           {[
             { label: "About Us", to: "/about" },
             { label: "Services", to: "/services" },
-            { label: "Impact", to: "/impact" },
+            { label: "Milestones", to: "/milestones" },
             { label: "Get Involved", to: "/get-involved" },
             { label: "FAQs", to: "/faqs" },
             { label: "MyChart", to: "/mychart" },
