@@ -135,14 +135,14 @@ export function MDICContent() {
       {/* ── Blue Contact / Billing Guide Box ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         <div className="max-w-4xl mx-auto">
-        <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
-          <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
+        <div className="bg-[#00356b]/10 border border-[#00356b]/20 px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
             If you receive any bills for services provided by or referred
             through HAVEN Free Clinic, or if you need help with medical bills or
             insurance questions, please contact MDIC at{" "}
             <a
               href="mailto:hfc.billing@yale.edu"
-              className="underline hover:text-white/80 transition-colors"
+              className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
             >
               hfc.billing@yale.edu
             </a>
@@ -154,13 +154,13 @@ export function MDICContent() {
           <button
             onClick={() => setGuideOpen(!guideOpen)}
             aria-expanded={guideOpen}
-            className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 cursor-pointer hover:bg-gray-100 transition-colors"
+            className="bg-[#00356b] px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 cursor-pointer hover:bg-[#00356b]/90 transition-colors"
           >
-            <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
+            <span className="font-['Poppins',sans-serif] font-light text-white text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px]">
               MDIC/Billing Guide
             </span>
             <ChevronDown
-              className={`w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-black transition-transform duration-300 ${
+              className={`w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-white transition-transform duration-300 ${
                 guideOpen ? "rotate-180" : ""
               }`}
               strokeWidth={2.5}
@@ -173,9 +173,9 @@ export function MDICContent() {
               guideOpen ? "max-h-[5000px] mt-8" : "max-h-0"
             }`}
           >
-            <div className="bg-white/10 px-6 md:px-10 py-6 md:py-8 text-left">
-              <div className="font-['Poppins',sans-serif] text-white text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed space-y-4">
-                <p className="font-medium text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
+            <div className="bg-[#00356b]/5 px-6 md:px-10 py-6 md:py-8 text-left">
+              <div className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-relaxed space-y-4">
+                <p className="font-medium text-[#00356b] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
                   What MDIC Can Help With:
                 </p>
                 <ul className="list-disc pl-6 md:pl-8 space-y-2">
@@ -195,7 +195,7 @@ export function MDICContent() {
                     plans
                   </li>
                 </ul>
-                <p className="font-medium text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
+                <p className="font-medium text-[#00356b] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
                   Documents You May Need:
                 </p>
                 <ul className="list-disc pl-6 md:pl-8 space-y-2">
@@ -206,7 +206,7 @@ export function MDICContent() {
                     Any medical bills or insurance correspondence you've received
                   </li>
                 </ul>
-                <p className="font-medium text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
+                <p className="font-medium text-[#00356b] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
                   Renewal Reminder:
                 </p>
                 <p>
@@ -216,7 +216,7 @@ export function MDICContent() {
                   Contact us at{" "}
                   <a
                     href="mailto:hfc.billing@yale.edu"
-                    className="underline hover:text-white/80"
+                    className="text-[#00356b] underline hover:text-[#00356b]/70"
                   >
                     hfc.billing@yale.edu
                   </a>{" "}
@@ -243,19 +243,6 @@ export function MDICContent() {
           </h3>
 
           <div className="space-y-4">
-            <ResourceDropdown title="Medicaid / HUSKY">
-              <p>
-                Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible individuals and families.
-              </p>
-              <p>
-                MDIC can help you determine your eligibility and assist with the application process. Contact us at{" "}
-                <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">
-                  hfc.billing@yale.edu
-                </a>{" "}
-                to get started.
-              </p>
-            </ResourceDropdown>
-
             <ResourceDropdown title="YNHH Financial Assistance">
               <p>
                 Yale New Haven Hospital offers financial assistance to eligible patients. MDIC can help you navigate the application process.
@@ -274,6 +261,19 @@ export function MDICContent() {
                   { label: "Haitian Creole (Krey\u00f2l)", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
                 ]}
               />
+            </ResourceDropdown>
+
+            <ResourceDropdown title="Medicaid / HUSKY">
+              <p>
+                Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible individuals and families.
+              </p>
+              <p>
+                MDIC can help you determine your eligibility and assist with the application process. Contact us at{" "}
+                <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">
+                  hfc.billing@yale.edu
+                </a>{" "}
+                to get started.
+              </p>
             </ResourceDropdown>
           </div>
         </div>
