@@ -33,8 +33,9 @@ export default function HeroBanner() {
           </h1>
 
           <p className="font-['Poppins',sans-serif] text-white/80 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
-            Free, high-quality healthcare for uninsured adults in New Haven.
-            No insurance needed. No hidden fees. Just care.
+            Compassionate, high-quality care for our Greater New Haven
+            community — supporting patients without insurance in accessing the
+            care they need, within and beyond HAVEN.
           </p>
 
           <div className="flex flex-wrap gap-4">

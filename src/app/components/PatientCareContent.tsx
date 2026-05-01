@@ -142,7 +142,7 @@ const departments: DepartmentData[] = [
             we can refer patients to partner clinics
           </span>{" "}
           in the community (Hispanic Clinic and Connecticut Mental Health
-          Center).
+          Center) to connect them with long-term mental health services.
         </p>
         <p>
           <span className="font-medium">BHD group meets the first Saturday of each month.</span>
@@ -290,65 +290,35 @@ const departments: DepartmentData[] = [
     ),
   },
   {
-    title: "Infectious Diseases",
+    title: "Infectious & Chronic Disease Department (ICDD)",
     content: (
       <div className="space-y-4 md:space-y-6">
-        <p className="font-medium">
-          Tuberculosis (TB) Screening &amp; Treatment Services
-        </p>
         <p>
-          At HAVEN, we screen all patients for tuberculosis (TB) exposure to help
-          keep our community healthy.
+          The Infectious and Chronic Disease Department (ICDD), formerly the
+          Latent Tuberculosis Initiative (LTBI), oversees care for conditions
+          that benefit from continuity and long-term follow-up. We help our
+          team get to know you over multiple visits, so your care plan can grow
+          with you.
         </p>
 
-        <p className="font-medium">TB Screening</p>
+        <p className="font-medium">Conditions We Manage</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>
-            All patients complete a brief questionnaire to assess possible TB
-            exposure.
-          </li>
-          <li>
-            If your screening suggests prior exposure, we will order a blood test
-            (QuantiFERON-TB Gold).
-          </li>
-          <li>
-            If that blood test is positive, we arrange a chest X-ray to make sure
-            there is no active TB infection.
-          </li>
+          <li>Latent tuberculosis (TB) infection screening and treatment</li>
+          <li>Chronic hypertension management</li>
+          <li>H. pylori treatment</li>
         </ul>
 
-        <p className="font-medium">TB Treatment</p>
+        <p className="font-medium">What to Expect at an ICDD Visit</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>
-            If you are found to have latent TB (meaning TB bacteria are present
-            but not making you sick or contagious), we offer treatment to prevent
-            future illness.
-          </li>
-          <li>
-            Treatment consists of four months of daily rifampin, an antibiotic.
-          </li>
-          <li>
-            During treatment, we check in with you about every two weeks to
-            monitor symptoms, medication side effects, and overall progress.
-          </li>
-          <li>Additional lab tests or imaging may be done if needed.</li>
+          <li>In-depth health education and counseling</li>
+          <li>Focused physical assessments and review of any new concerns</li>
+          <li>Checks for medication side effects and support for treatment adherence</li>
+          <li>A care plan finalized together with a HAVEN attending physician</li>
         </ul>
 
-        <p className="font-medium">Important Information for Patients</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Latent TB is not contagious.</li>
-          <li>
-            A positive TB blood test alone does not mean you have active TB.
-          </li>
-          <li>
-            Our TB team focuses specifically on TB care and works alongside your
-            primary medical team for other health needs.
-          </li>
-        </ul>
-
-        <p className="font-medium">
-          If you have concerns about TB, past exposure, or need documentation for
-          work or school, please let our clinic staff know — we're happy to help.
+        <p>
+          ICDD also collaborates with other HAVEN departments to screen all
+          patients for tuberculosis risk factors and collect labs as needed.
         </p>
       </div>
     ),

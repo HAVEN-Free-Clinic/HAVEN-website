@@ -8,6 +8,11 @@ interface NewsItem {
 
 const NEWS_ITEMS: NewsItem[] = [
   {
+    season: "2025 Fall",
+    title: "Most Successful Yet—HAVEN 5K Surpasses Fundraising Goal",
+    url: "https://medicine.yale.edu/news-article/most-successful-yet-haven-5k-surpasses-fundraising-goal/",
+  },
+  {
     season: "2023 Fall",
     title: "HAVEN Free Clinic 5K Exceeds Fundraising Goal!",
     url: "https://medicine.yale.edu/news-article/haven-free-clinic-5k-exceeds-fundraising-goal/",

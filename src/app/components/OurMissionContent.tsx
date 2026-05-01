@@ -42,12 +42,10 @@ export function OurMissionContent() {
                   <GraduationCap className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
-                  HAVEN also hopes to educate Yale students about the value of
-                  working in healthcare, to allow students to gain experience in
-                  community health through partnership with patients and
-                  professionals, to promote continuous quality improvement through
-                  scholarly efforts, and to expose students to patient care
-                  management with limited resources.
+                  HAVEN also seeks to educate and inspire Yale students through
+                  hands-on community-based care, meaningful partnerships with
+                  patients and professionals, and a commitment to continuous
+                  quality improvement.
                 </p>
               </div>
             </div>
@@ -68,8 +66,9 @@ export function OurMissionContent() {
                   <Eye className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
-                  Every adult living in New Haven will have access to comprehensive
-                  quality healthcare.
+                  A New Haven where every person can access high-quality,
+                  compassionate care and is meaningfully connected to the
+                  resources they need to thrive.
                 </p>
               </div>
 
@@ -78,9 +77,9 @@ export function OurMissionContent() {
                   <GraduationCap className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
-                  Students will develop a lifelong commitment to valuing social
-                  context and community needs in their future work with patients
-                  and communities.
+                  A generation of healthcare leaders grounded in compassion,
+                  committed to equity, and prepared to improve how care is
+                  delivered in their communities.
                 </p>
               </div>
             </div>
