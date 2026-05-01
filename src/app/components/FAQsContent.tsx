@@ -75,7 +75,7 @@ const faqs: FAQ[] = [
     question: "Do I have to pay for anything?",
     answer: (
       <p>
-        No. All services provided at the clinic — including visits, medications, and referrals — are completely free of charge.
+        Visits at HAVEN are always free. Some patients also qualify for free medications and specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
       </p>
     ),
   },

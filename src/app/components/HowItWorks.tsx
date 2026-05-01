@@ -14,7 +14,7 @@ const steps = [
     icon: MapPin,
     title: "Visit the Clinic",
     description:
-      "Come to 800 Howard Ave on Saturday morning. No insurance needed. Free parking in the Howard Avenue Garage.",
+      "Visit us Saturday mornings from 8:30am-12:00pm at 800 Howard Ave. No insurance needed. Free parking available in the Howard Avenue Garage.",
   },
   {
     number: "3",

@@ -32,11 +32,11 @@ interface SteeringMember {
 
 const STEERING_COMMITTEE: SteeringMember[] = [
   {
-    name: "Richard Belitsky, MD",
+    name: "Jessica Illuzzi, MD, MS, FACOG",
     title: "YSM Deputy Dean for Education",
   },
   {
-    name: "Nancy Angoff, MD, MPH, MEd",
+    name: "John Francis, MD, PhD",
     title: "YSM Associate Dean for Student Affairs",
   },
   {
@@ -50,10 +50,6 @@ const STEERING_COMMITTEE: SteeringMember[] = [
   {
     name: "Mayur M. Desai, PhD, MPH",
     title: "YSPH Associate Dean for Diversity, Equity, and Inclusion",
-  },
-  {
-    name: "Katherine Kraschel",
-    title: "YLS Executive Director of the Solomon Center",
   },
   {
     name: "Michael Fitzsousa",
@@ -72,28 +68,8 @@ const STEERING_COMMITTEE: SteeringMember[] = [
     title: "Assistant Professor in the PA Program",
   },
   {
-    name: "Kaitlin N. Erickson, APRN, MPH",
-    title: "Emeritus HAVEN Executive Director",
-  },
-  {
-    name: "Herbert Castillo Valladares, MD, PGY2",
-    title: "Emeritus HAVEN Jones Fellow",
-  },
-  {
-    name: "Jessica Illuzi",
-    title: "Incoming YSM Deputy Dean for Education",
-  },
-  {
     name: "James Bhandary-Alexander",
     title: "YSM Solomon Center's Medical Legal Partnership (MLP) Legal Director",
-  },
-  {
-    name: "Pavithra Vijayakumar, YSM MS4",
-    title: "Emeritus HAVEN Jones Fellow",
-  },
-  {
-    name: "Sascha Murillo, MD, PGY1",
-    title: "Emeritus HAVEN Jones Fellow",
   },
 ];
 

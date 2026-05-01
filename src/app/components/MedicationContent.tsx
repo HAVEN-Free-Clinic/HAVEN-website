@@ -109,15 +109,21 @@ export function MedicationContent() {
               personal pharmacies, but lowered cost is not guaranteed.
             </p>
 
+            <p className="leading-relaxed">
+              For medications under $20, we ask that patients cover the cost when
+              possible so we can continue to support those with the greatest need.
+            </p>
+
             <div>
               <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
                 Pickup Locations
               </h4>
-              <p className="leading-relaxed">
-                CVS Pharmacy at 123 Church St.
-                <br />
-                New Haven, CT 06510
-              </p>
+              <ul className="leading-relaxed list-disc pl-6 space-y-2">
+                <li>CVS Pharmacy — 123 Church St., New Haven, CT 06510</li>
+                <li>Stop &amp; Shop — West Haven, Amity, and East Haven locations</li>
+                <li>ShopRite</li>
+                <li>Dispensary of Hope</li>
+              </ul>
             </div>
 
             <div>

@@ -7,14 +7,12 @@ export function MissionSection() {
             Our Mission
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            The HAVEN Free Clinic is a{" "}
-            <span className="font-semibold">student-run primary care clinic</span> that
-            partners with Yale University to provide sustainable, comprehensive,
-            and high-quality{" "}
-            <span className="font-semibold">
-              health care <em className="font-medium">free</em> of charge
-            </span>{" "}
-            to uninsured adults in New Haven.
+            HAVEN Free Clinic is a{" "}
+            <span className="font-semibold">student-run primary care clinic</span>{" "}
+            that partners with Yale University to advance access to sustainable,
+            comprehensive, and high-quality care for uninsured adults in New
+            Haven, supporting patients in accessing care both within HAVEN and
+            across the community.
           </p>
         </div>
       </div>
