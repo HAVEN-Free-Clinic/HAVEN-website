@@ -8,7 +8,7 @@ export function ComingSoon() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
         {/* Wordmark */}
-        <div className="notranslate flex items-center gap-2">
+        <div className="notranslate flex items-center gap-2" role="img" aria-label="HAVEN Free Clinic">
           <div className="relative w-[64px] h-[64px] flex items-center justify-center">
             <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
               <path d={svgPaths.pd9d0700} stroke="#00356b" strokeWidth="2.47477" />
@@ -54,6 +54,8 @@ export function ComingSoon() {
               Visit Us
             </h2>
             <p className="font-['Poppins',sans-serif] text-[#334155] text-[14px] md:text-[15px] leading-relaxed">
+              Yale Physicians Building,
+              <br />
               800 Howard Avenue, Floor 1,
               <br />
               New Haven, CT 06519
@@ -83,6 +85,7 @@ export function ComingSoon() {
           href="https://mychart.ynhhs.org"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Access MyChart (opens in a new tab)"
           className="mt-10 inline-block bg-[#00356b] hover:bg-[#002a55] transition-colors text-white font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
         >
           Access MyChart &rarr;
