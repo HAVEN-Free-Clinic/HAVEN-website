@@ -13,11 +13,14 @@ Show patients a polished "we're revamping, coming soon" page in place of the ent
 - No server or middleware exists at runtime, so any client-side gate is bypassable. The only true gate is to exclude the real content from the deployed artifact.
 - HAVEN is an active clinic; patients still need care logistics while the site is covered.
 
-## Approach: Build-Time Flag
+## Approach: Build-Time Flag via `pageExtensions`
 
 A `COMING_SOON` environment variable is read **at build time**.
 
-- `src/app/layout.tsx` checks `process.env.COMING_SOON === 'true'`. When set, it renders the `ComingSoon` component instead of the entire body content — `StickyHeader`, `{children}`, and `Footer` — for **every** route (the header/footer contain nav links that would all dead-end at the cover). The static export then contains only the cover page HTML at every path (`/`, `/services`, `/about`, …). The real content never reaches GitHub Pages.
+> **Revised during implementation:** the original design gated only the root layout (render `ComingSoon` instead of header/children/footer). Review found that approach leaks real content into the covered artifact anyway — Next.js renders page segments independently, so RSC flight files (`out/*.txt`) contained full page text and a JS chunk contained header/footer code. The mechanism below excludes the real site from the build entirely.
+
+- `next.config.ts` sets `pageExtensions: ['soon.tsx']` when `process.env.COMING_SOON === 'true'` (default extensions otherwise). With only `*.soon.tsx` recognized as route files, the entire real site — every `page.tsx` and `layout.tsx` — is invisible to the router: no HTML, no RSC flight files, no JS chunks for it are emitted. `src/app/layout.tsx` stays untouched.
+- Three small route files exist only in covered builds: `src/app/layout.soon.tsx` (minimal root layout with coming-soon metadata + `noindex`), `src/app/page.soon.tsx` and `src/app/not-found.soon.tsx` (both render the `ComingSoon` component). The covered export contains just `/` and `404.html` — and GitHub Pages serves `404.html` for every deep link (`/services`, `/about`, …), so all paths show the cover.
 - The flag is supplied by a **GitHub repository variable** (`vars.COMING_SOON`) passed as an env var to the build step in `deploy.yml`.
 - `workflow_dispatch` is added to `deploy.yml` triggers so the deploy can be re-run from the Actions tab after flipping the variable — no commit required.
 - Local development is unaffected: the flag is unset locally, so `npm run dev` shows the real site. To preview the cover locally: `COMING_SOON=true npm run dev`.
@@ -54,8 +57,17 @@ Direction A — "Clean & Calm" (selected from three mockups):
 | File | Change |
 |---|---|
 | `src/app/components/ComingSoon.tsx` | New — cover page component |
-| `src/app/layout.tsx` | Conditional render: cover vs header/children/footer; conditional `noindex` + title metadata |
+| `next.config.ts` | Conditional `pageExtensions` on `COMING_SOON` |
+| `src/app/layout.soon.tsx` | New — covered-build root layout (coming-soon title/description, `noindex`) |
+| `src/app/page.soon.tsx` | New — covered-build home page (renders `ComingSoon`) |
+| `src/app/not-found.soon.tsx` | New — covered-build 404 (renders `ComingSoon`; serves all deep links on Pages) |
 | `.github/workflows/deploy.yml` | Pass `COMING_SOON: ${{ vars.COMING_SOON }}` to the build step; add `workflow_dispatch` trigger |
+
+## Accepted Limitations
+
+- `public/` assets (images, PDFs) are always copied into the export, including covered builds. They are already-public static files at unchanged URLs; excluding them would break the favicon and any future cover assets.
+- The covered build's CSS bundle still contains utility classes generated from scanning the whole `src/` tree (Tailwind scans by glob, not by route). No readable site text is included.
+- Deep links return HTTP 404 (with the cover page as the body) while covered — correct behavior for pages that intentionally don't exist yet, and harmless alongside `noindex`.
 
 ## Testing
 
