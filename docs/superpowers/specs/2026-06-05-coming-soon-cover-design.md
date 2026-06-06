@@ -68,6 +68,7 @@ Direction A — "Clean & Calm" (selected from three mockups):
 - `public/` assets (images, PDFs) are always copied into the export, including covered builds. They are already-public static files at unchanged URLs; excluding them would break the favicon and any future cover assets.
 - The covered build's CSS bundle still contains utility classes generated from scanning the whole `src/` tree (Tailwind scans by glob, not by route). No readable site text is included.
 - Deep links return HTTP 404 (with the cover page as the body) while covered — correct behavior for pages that intentionally don't exist yet, and harmless alongside `noindex`.
+- While covered, existing Google snippets for the site will gradually drop out of the index (`noindex` removes them; nothing replaces them until launch). Expected and acceptable for a temporary cover; rankings recover after relaunch.
 
 ## Testing
 
