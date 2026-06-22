@@ -14,7 +14,47 @@ import {
   Heart,
   Baby,
   Stethoscope,
+  Ambulance,
+  Building2,
 } from "lucide-react";
+
+/* ─── Tiers of Care Data ─── */
+
+const CARE_TIERS = [
+  {
+    icon: Ambulance,
+    accent: "red" as const,
+    title: "Emergency Department / 911",
+    tagline: "Life-threatening emergencies",
+    bestFor:
+      "Chest pain, trouble breathing, severe bleeding, signs of a stroke, serious injuries, or any situation that feels life-threatening. For a mental health crisis, call or text 988.",
+    cost: "Emergency rooms care for anyone with a medical emergency, regardless of insurance or ability to pay.",
+    access:
+      "Call 911 or go to the nearest emergency department. Open 24 hours a day, 7 days a week.",
+  },
+  {
+    icon: Building2,
+    accent: "blue" as const,
+    title: "Community Health Centers",
+    tagline: "Ongoing primary care for everyone",
+    bestFor:
+      "Non-emergency illnesses and regular, ongoing primary care — especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
+    cost: "Centers like Fair Haven Community Health Care and Cornell Scott-Hill Health Center welcome patients regardless of insurance or ability to pay.",
+    access:
+      "Contact the health center directly to become a patient and schedule an appointment.",
+  },
+  {
+    icon: Heart,
+    accent: "blue" as const,
+    title: "HAVEN Free Clinic",
+    tagline: "Free care for uninsured adults",
+    bestFor:
+      "Free primary care and wraparound support if you're an uninsured adult (18–65) without a current primary care provider who meets our eligibility criteria.",
+    cost: "All care at HAVEN is completely free.",
+    access:
+      "Check your eligibility above, then reach out to establish care. Our clinic runs on Saturdays.",
+  },
+];
 
 /* ─── Criteria Data ─── */
 
@@ -301,6 +341,74 @@ export function EligibilityContent() {
             care at HAVEN Free Clinic.
           </p>
           <EligibilityChecker />
+        </div>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-[#00356b]/10 mb-14 md:mb-18" />
+
+        {/* Where to Go for Care */}
+        <div className="mb-14 md:mb-18">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+            Where to Go for Care
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
+            Knowing where to go can save you time, money, and stress. Here is a
+            quick guide to your options in Greater New Haven, depending on how
+            urgent your needs are.
+          </p>
+
+          <div className="space-y-5 md:space-y-6">
+            {CARE_TIERS.map((tier) => {
+              const isEmergency = tier.accent === "red";
+              return (
+                <div
+                  key={tier.title}
+                  className={`bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 p-6 md:p-7 ${
+                    isEmergency ? "border-l-red-400" : "border-l-[#00356b]"
+                  }`}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div
+                      className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${
+                        isEmergency ? "bg-red-100" : "bg-[#00356b]/10"
+                      }`}
+                    >
+                      <tier.icon
+                        className={`w-6 h-6 ${
+                          isEmergency ? "text-red-700" : "text-[#00356b]"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] md:text-[21px] leading-tight">
+                        {tier.title}
+                      </h4>
+                      <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[13px] md:text-[14px]">
+                        {tier.tagline}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+                    {[
+                      { label: "Best for", value: tier.bestFor },
+                      { label: "Cost", value: tier.cost },
+                      { label: "How to get care", value: tier.access },
+                    ].map((row) => (
+                      <div key={row.label}>
+                        <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[12px] uppercase tracking-wide mb-1.5">
+                          {row.label}
+                        </p>
+                        <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
+                          {row.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Divider */}

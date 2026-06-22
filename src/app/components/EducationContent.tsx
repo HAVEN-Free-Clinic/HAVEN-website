@@ -151,6 +151,71 @@ export function EducationContent() {
         </div>
       </div>
 
+      {/* ── Vaccine Education ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Vaccine Education
+          </h3>
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <p>
+              Vaccines are one of the safest, most effective ways to prevent
+              serious illness. They help your immune system recognize and fight
+              specific infections before you ever get sick. HAVEN offers several
+              routine and preventive vaccines in clinic to help protect your
+              health.{" "}
+              <span className="font-medium">
+                Vaccine availability varies — please ask your provider about what
+                is currently in stock.
+              </span>
+            </p>
+          </div>
+
+          <div className="mt-7">
+            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              Vaccines Available at HAVEN
+            </h4>
+            <ul className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed list-disc pl-6 space-y-2">
+              <li>Shingles (Shingrix)</li>
+              <li>HPV (Gardasil)</li>
+              <li>Hepatitis B (Heplisav-B)</li>
+              <li>Tetanus, diphtheria, and pertussis (Tdap / Boostrix)</li>
+              <li>Pneumococcal (PCV)</li>
+              <li>Hepatitis A &amp; B (Twinrix)</li>
+            </ul>
+          </div>
+
+          <div className="mt-7">
+            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              COVID-19 &amp; Flu Vaccines
+            </h4>
+            <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
+              We do not always carry COVID-19 and flu vaccines in clinic. Visit{" "}
+              <a
+                href="https://www.vaccines.gov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                vaccines.gov
+              </a>{" "}
+              to find locations near you offering these vaccines.
+            </p>
+          </div>
+
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed mt-7">
+            If you are interested in receiving a vaccine or have questions about
+            which vaccines you may need, please ask your provider.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-10 md:mt-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
       {/* ── How-To Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">

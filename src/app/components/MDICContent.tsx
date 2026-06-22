@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, Download, ArrowDown, Stethoscope, Building2 } from "lucide-react";
+import { FreeCareGuide } from "@/app/components/FreeCareGuide";
 /* ─── Language Dropdown for PDFs ─── */
 
 interface LanguageDoc {
@@ -115,13 +116,22 @@ export function MDICContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            We can help you in securing{" "}
-            <span className="font-bold">free or low-cost care</span>. We
-            provide application assistance for Medicaid, HUSKY, and Yale-New
-            Haven Hospital (YNHH) Financial Assistance programs.
+            Navigating insurance and medical bills can be overwhelming. HAVEN&apos;s{" "}
+            <span className="font-bold">
+              Medical Debt &amp; Insurance Counseling (MDIC)
+            </span>{" "}
+            department is here to help. MDIC is an internal HAVEN department
+            staffed by trained volunteers who can assist you with applications,
+            bills, and insurance questions{" "}
+            <span className="font-bold">at no cost to you</span>.
           </p>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mt-4 bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4">
-            <span className="font-bold">Important:</span> YNHH Financial Assistance coverage expires every 6 months and must be renewed before it lapses to ensure uninterrupted coverage. Contact MDIC well before your expiration date to begin the renewal process.
+            <span className="font-bold">Important:</span> YNHH Financial
+            Assistance coverage expires every 6 months and must be renewed before
+            it lapses to ensure uninterrupted coverage. The renewal process can
+            take <span className="font-bold">6 to 8 weeks</span>, so don&apos;t
+            wait until your coverage expires — contact MDIC well before your
+            expiration date to begin the process.
           </p>
         </div>
       </div>
@@ -137,17 +147,21 @@ export function MDICContent() {
         <div className="max-w-4xl mx-auto">
         <div className="bg-[#00356b]/10 border border-[#00356b]/20 px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
-            If you receive any bills for services provided by or referred
-            through HAVEN Free Clinic, or if you need help with medical bills or
-            insurance questions, please contact MDIC at{" "}
+            If you receive a bill for any services provided by or referred
+            through HAVEN Free Clinic,{" "}
+            <span className="font-bold">
+              please do not ignore it and do not pay it before speaking with us
+            </span>
+            . Contact MDIC first at{" "}
             <a
               href="mailto:hfc.billing@yale.edu"
               className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
             >
               hfc.billing@yale.edu
-            </a>
-            . See the MDIC/Billing Guide below for information on how HAVEN can
-            assist and what documents are required.
+            </a>{" "}
+            — we may be able to help reduce or eliminate the balance. See the
+            MDIC/Billing Guide below for how HAVEN can assist and what documents
+            are required.
           </p>
 
           {/* MDIC/Billing Guide Button */}
@@ -242,8 +256,89 @@ export function MDICContent() {
             Understanding Your Bill
           </h3>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
-            Medical bills can be confusing. If you receive a statement from
-            Yale-New Haven Hospital, here are the key parts to look for:
+            Medical bills can be confusing — and Yale&apos;s medical system has{" "}
+            <span className="font-semibold">two separate billing organizations</span>.
+            A single visit can produce a bill from each. Knowing which is which
+            tells you who to contact.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-6">
+            <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                  <Stethoscope className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <div>
+                  <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] leading-tight">
+                    Yale Medicine
+                  </h4>
+                  <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px]">
+                    Physician &amp; provider services
+                  </p>
+                </div>
+              </div>
+              <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mb-3">
+                Covers the professional services of the Yale Medicine doctor or
+                provider who treated you.
+              </p>
+              <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[15px] leading-relaxed">
+                Yale Medicine Patient Services:{" "}
+                <a href="tel:8008269922" className="text-[#00356b] font-semibold hover:underline">
+                  (800) 826-9922
+                </a>
+                , Mon–Fri 8:30 am–5:00 pm, or{" "}
+                <a
+                  href="mailto:patient.services@yale.edu"
+                  className="text-[#00356b] underline hover:text-[#00356b]/70"
+                >
+                  patient.services@yale.edu
+                </a>
+                . Pay online through MyChart.
+              </p>
+            </div>
+
+            <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                  <Building2 className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <div>
+                  <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] leading-tight">
+                    Yale New Haven Health / Hospital
+                  </h4>
+                  <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px]">
+                    Hospital &amp; facility services
+                  </p>
+                </div>
+              </div>
+              <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mb-3">
+                Covers hospital and facility charges — the facility where you were
+                seen and hospital services such as labs and imaging.
+              </p>
+              <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[15px] leading-relaxed">
+                YNHH Patient Financial Services:{" "}
+                <a href="tel:8555474584" className="text-[#00356b] font-semibold hover:underline">
+                  (855) 547-4584
+                </a>
+                , Mon–Fri 7:30 am–5:00 pm. Pay online through MyChart.
+              </p>
+            </div>
+          </div>
+
+          <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed mb-6">
+            Check the top of each statement to see which organization issued it,
+            and use the matching contact above. When in doubt, contact MDIC at{" "}
+            <a
+              href="mailto:hfc.billing@yale.edu"
+              className="text-[#00356b] underline hover:text-[#00356b]/70"
+            >
+              hfc.billing@yale.edu
+            </a>{" "}
+            and we&apos;ll help you figure out which bill is which.
+          </p>
+
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
+            Whichever bill you receive, here are the key parts to look for:
           </p>
           <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-3 list-disc pl-6 md:pl-8 mb-6">
             <li>
@@ -274,22 +369,16 @@ export function MDICContent() {
           </ul>
           <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
             <p>
-              <span className="font-bold">Questions about a YNHH bill?</span> Call
-              Yale-New Haven Health Patient Financial Services at{" "}
-              <a
-                href="tel:8555474584"
-                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
-              >
-                (855) 547-4584
-              </a>
-              , Monday–Friday, 7:30 am–5:00 pm. You can also reach out to MDIC at{" "}
+              <span className="font-bold">Need help reading either bill?</span>{" "}
+              Reach out to MDIC at{" "}
               <a
                 href="mailto:hfc.billing@yale.edu"
                 className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
               >
                 hfc.billing@yale.edu
               </a>{" "}
-              and we can help you review the bill together.
+              and we can review it with you and figure out which organization to
+              contact.
             </p>
             <p className="mt-3 text-[14px] md:text-[15px]">
               For more detail and a sample statement, see{" "}
@@ -300,6 +389,15 @@ export function MDICContent() {
                 className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
               >
                 YNHH&apos;s Understanding Your Bill page
+              </a>{" "}
+              or Yale Medicine&apos;s{" "}
+              <a
+                href="https://www.yalemedicine.org/patient-tools/pay-a-bill"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                Pay a Bill page
               </a>
               .
             </p>
@@ -313,12 +411,66 @@ export function MDICContent() {
         </div>
       </div>
 
-      {/* ── Helpful Resources: Application Assistance ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
+      {/* ── Application Assistance ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-8 md:mb-10">
-            Helpful Resources: Application Assistance
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            Application Assistance
           </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
+            We provide hands-on support for applying to the following programs:
+          </p>
+          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-3 list-disc pl-6 md:pl-8 mb-8">
+            <li>
+              <span className="font-semibold">Medicaid &amp; HUSKY</span> —
+              Connecticut&apos;s public health insurance programs for qualifying
+              low-income individuals and families.
+            </li>
+            <li>
+              <span className="font-semibold">YNHH Financial Assistance</span> —
+              Yale New Haven Hospital&apos;s program to provide free or
+              reduced-cost care to patients who qualify based on income.
+            </li>
+          </ul>
+
+          {/* What You'll Need: Proof of Income */}
+          <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[19px] md:text-[22px] mb-3">
+            What You&apos;ll Need: Proof of Income
+          </h4>
+          <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-4">
+            Both Medicaid/HUSKY and YNHH Financial Assistance require proof of
+            income as part of the application process. This applies to you and,
+            if applicable, your spouse or household members. Commonly accepted
+            documents include:
+          </p>
+          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-2 list-disc pl-6 md:pl-8 mb-4">
+            <li>Recent pay stubs (typically the last 2–4)</li>
+            <li>Most recent federal tax return</li>
+            <li>Social Security award letters or benefit statements</li>
+            <li>Documentation of any other household income sources</li>
+          </ul>
+          <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-8">
+            Our MDIC team will walk you through exactly what is needed for your
+            specific situation. If you are unsure what applies to you, reach out
+            at{" "}
+            <a
+              href="mailto:hfc.billing@yale.edu"
+              className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+            >
+              hfc.billing@yale.edu
+            </a>{" "}
+            before your appointment and we will help you prepare.
+          </p>
+
+          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 mb-10 md:mb-12 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
+            <span className="font-bold">
+              Important: YNHH Financial Assistance is not insurance.
+            </span>{" "}
+            It is Yale New Haven Hospital&apos;s commitment to ensuring that
+            patients who cannot afford care still receive it. It covers services
+            at YNHH facilities but does not function like a health insurance plan
+            and is not transferable to other providers.
+          </div>
 
           <div className="space-y-4">
             <ResourceDropdown title="YNHH Financial Assistance">
@@ -353,6 +505,59 @@ export function MDICContent() {
                 to get started.
               </p>
             </ResourceDropdown>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Lead-in to the Free Care Guide ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-14">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-3">
+            YNHH Free Care: Step-by-Step Application Guide
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed max-w-[680px] mx-auto">
+            A complete, plain-language walkthrough of the Yale New Haven Health
+            Financial Assistance (Free Care) application — what it is, whether you
+            qualify, how to fill out every section, and how to submit. You can do
+            this yourself, and our MDIC team is here to help.
+          </p>
+          <div className="flex justify-center mt-5">
+            <ArrowDown className="w-6 h-6 text-[#00356b]/40" />
+          </div>
+        </div>
+      </div>
+
+      {/* ── Free Care Guide ── */}
+      <div className="mt-8 md:mt-10">
+        <FreeCareGuide />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Closing Contact CTA ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 py-10 md:py-12 text-center">
+            <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[640px] mx-auto mb-6">
+              Have questions about insurance, bills, or coverage? Contact MDIC —
+              we&apos;re here to help you every step of the way.
+            </p>
+            <a
+              href="mailto:hfc.billing@yale.edu"
+              className="inline-flex items-center justify-center bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3 hover:bg-[#e8eef5] transition-colors"
+            >
+              hfc.billing@yale.edu
+            </a>
           </div>
         </div>
       </div>
