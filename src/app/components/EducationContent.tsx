@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 /* ─── Link Arrow Icon (from Figma SVG) ─── */
@@ -168,6 +169,24 @@ export function EducationContent() {
                 Vaccine availability varies — please ask your provider about what
                 is currently in stock.
               </span>
+            </p>
+          </div>
+
+          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] p-4 md:p-5 mt-6 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
+            <p>
+              <span className="font-semibold text-[#00356b]">
+                You must be an established HAVEN patient to receive a vaccine.
+              </span>{" "}
+              Vaccines are offered as part of your ongoing care at the clinic — we
+              are not able to provide standalone or walk-in vaccine-only visits.
+              If you are not yet a patient,{" "}
+              <Link
+                href="/eligibility"
+                className="text-[#00356b] underline hover:text-[#00356b]/70"
+              >
+                see our eligibility information
+              </Link>{" "}
+              to establish care first.
             </p>
           </div>
 
