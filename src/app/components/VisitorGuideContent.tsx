@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone, Voicemail, AlertTriangle } from "lucide-react";
 
 /* ─── Tabs ─── */
 
@@ -374,6 +374,77 @@ export function VisitorGuideContent() {
               <ProviderDirectoryPanel />
             </div>
           )}
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Triage Line ── */}
+      <div
+        id="triage-line"
+        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <Voicemail className="w-6 h-6 text-[#00356b]" />
+            </div>
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+              Between-Visit Questions: Our Triage Line
+            </h3>
+          </div>
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <p>
+              HAVEN Free Clinic maintains a triage line for patients who have
+              medical questions or concerns between clinic visits. The triage line
+              is a monitored voicemail inbox. When you call, leave a message with
+              your name, date of birth, a callback number, and a brief description
+              of your concern.
+            </p>
+            <p>
+              Our team monitors the line regularly and will do our best to get
+              back to you the same day. Depending on the nature of your request,
+              it may take <span className="font-semibold">1 to 2 business days</span>{" "}
+              for a full response.
+            </p>
+          </div>
+
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7 mt-7">
+            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+              When leaving a voicemail, please include:
+            </h4>
+            <ul className="list-disc pl-6 space-y-2 font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+              <li>Your full name and date of birth</li>
+              <li>A callback number where we can reach you</li>
+              <li>A brief description of your question or concern</li>
+            </ul>
+            <a
+              href="tel:2032000673"
+              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 mt-6 hover:bg-[#4a90c4] transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call the Triage Line — (203) 200-0673
+            </a>
+          </div>
+
+          <div className="bg-red-50 border border-red-200 p-6 md:p-7 mt-6 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <AlertTriangle className="w-5 h-5 text-red-700" />
+            </div>
+            <p className="font-['Poppins',sans-serif] font-medium text-red-800 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+              If you are experiencing a medical emergency, do not call the triage
+              line. Call{" "}
+              <a href="tel:911" className="underline font-bold">
+                911
+              </a>{" "}
+              immediately or go to your nearest emergency room. The triage line is
+              not staffed 24/7 and is not equipped to respond to emergencies.
+            </p>
+          </div>
         </div>
       </div>
     </section>

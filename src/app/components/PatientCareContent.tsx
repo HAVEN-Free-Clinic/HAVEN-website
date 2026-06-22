@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 /* ─── Accordion helper ─── */
 
@@ -132,29 +133,18 @@ const departments: DepartmentData[] = [
     content: (
       <div className="space-y-4 md:space-y-6">
         <p>
-          Behavioral Health focuses on principles of{" "}
-          <span className="font-medium">psycho-education</span> and knowledge.{" "}
-          <span className="font-medium">
-            Our department does not provide treatment
-          </span>{" "}
-          to patients. However,{" "}
-          <span className="font-medium">
-            we can refer patients to partner clinics
-          </span>{" "}
-          in the community (Hispanic Clinic and Connecticut Mental Health
-          Center) to connect them with long-term mental health services.
+          Our Behavioral Health Department focuses on{" "}
+          <span className="font-medium">psycho-education</span> and connects
+          patients with trusted community partners for long-term mental health
+          care.
         </p>
-        <p>
-          <span className="font-medium">BHD group meets the first Saturday of each month.</span>
-        </p>
-        <p className="font-medium">Other services we offer:</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Intake evaluations conducted with supervising attendings</li>
-          <li>Follow-up appointments for check-ins</li>
-          <li>Education on coping skills</li>
-          <li>Group sessions for psycho-education</li>
-          <li>Mutual support and community building</li>
-        </ul>
+        <Link
+          href="/services/behavioral-health"
+          className="inline-flex items-center gap-2 font-medium text-[#00356b] hover:gap-3 transition-all"
+        >
+          Learn more on our Behavioral Health page
+          <ArrowRight className="w-4 h-4" />
+        </Link>
         <div className="bg-[#fef7ed] border border-amber-200 p-4 md:p-5">
           <p className="font-medium text-amber-800">
             If you are experiencing a mental health emergency, please call{" "}

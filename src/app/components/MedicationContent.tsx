@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown, X } from "lucide-react";
 
 /* ─── Sub-components ─── */
@@ -131,6 +132,94 @@ export function MedicationContent() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-8 md:mt-10">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
+      {/* ── Requesting a Medication Refill ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Requesting a Medication Refill
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
+            Running low on a medication? Follow these two steps to request a
+            refill. Please allow <span className="font-semibold">3 to 5 business
+            days</span> before you run out. Last-minute requests may cause delays
+            in your care.
+          </p>
+
+          <div className="space-y-5 md:space-y-6">
+            <div className="flex items-start gap-4 md:gap-5 bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7">
+              <div className="w-10 h-10 rounded-full bg-[#00356b] text-white font-['Merriweather',serif] flex items-center justify-center shrink-0">
+                1
+              </div>
+              <div>
+                <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
+                  Check with your pharmacy first
+                </h4>
+                <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+                  Call your pharmacy to find out whether any refills remain on
+                  your current prescription. Pharmacies can often process a refill
+                  automatically if one is available, saving you an extra step.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 md:gap-5 bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7">
+              <div className="w-10 h-10 rounded-full bg-[#00356b] text-white font-['Merriweather',serif] flex items-center justify-center shrink-0">
+                2
+              </div>
+              <div>
+                <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
+                  Contact HAVEN if no refills are available
+                </h4>
+                <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+                  If your pharmacy confirms there are no refills remaining, give
+                  us a call at{" "}
+                  <a
+                    href="tel:2032000673"
+                    className="text-[#00356b] font-semibold hover:underline"
+                  >
+                    (203) 200-0673
+                  </a>{" "}
+                  and we will work with your care team to authorize a new refill.
+                  Please have your <span className="font-semibold">medication
+                  name, dosage, and pharmacy information</span> ready when you
+                  call.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+              <span className="font-semibold text-[#00356b]">
+                Please do not wait until you have run out of medication to request
+                a refill.
+              </span>{" "}
+              Reaching out 3 to 5 business days in advance ensures your care team
+              has enough time to review and approve your request without
+              interruption to your treatment.
+            </p>
+          </div>
+
+          <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed mt-6">
+            Have a different medical question between visits? Reach our care team
+            through the{" "}
+            <Link
+              href="/visitor-guide#triage-line"
+              className="text-[#00356b] font-semibold underline hover:text-[#00356b]/70"
+            >
+              triage line
+            </Link>
+            .
+          </p>
         </div>
       </div>
 

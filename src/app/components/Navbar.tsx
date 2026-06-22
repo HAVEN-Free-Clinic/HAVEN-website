@@ -20,7 +20,7 @@ const aboutDropdownItems = [
 const servicesDropdownItems = [
   { label: "All Services", to: "/services" },
   { label: "Patient Care", to: "/services/patient-care" },
-  { label: "Behavioral Health", to: "/services/patient-care" },
+  { label: "Behavioral Health", to: "/services/behavioral-health" },
   { label: "Education", to: "/services/education" },
   { label: "Social Services", to: "/services/social-services" },
   { label: "Dental Care", to: "/services/dental" },

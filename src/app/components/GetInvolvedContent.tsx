@@ -11,7 +11,36 @@ import {
   ArrowRight,
   BriefcaseMedical,
   Download,
+  CheckCircle2,
+  Users,
+  ShieldCheck,
+  CalendarDays,
+  Clock,
 } from "lucide-react";
+
+const WHAT_WE_LOOK_FOR = [
+  "Commitment and reliability",
+  "Passion for serving underserved communities",
+  "Teamwork and communication",
+  "Spanish language skills are a valued asset",
+];
+
+const RECRUITMENT_TIMELINE = [
+  {
+    label: "August",
+    description: "Applications open for the upcoming fall term.",
+  },
+  {
+    label: "Review Period",
+    description:
+      "Our team carefully reviews every application and conducts intentional pairing based on skills, availability, and clinic needs.",
+  },
+  {
+    label: "Offers & Onboarding",
+    description:
+      "Selected volunteers are notified and begin training and orientation before their first shift.",
+  },
+];
 
 const VOLUNTEER_ROLES = [
   {
@@ -171,6 +200,174 @@ export function GetInvolvedContent() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Our Volunteer Community ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Our Volunteer Community
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            HAVEN is entirely student-run, powered each Saturday by a carefully
+            selected team of volunteers. In any given term, we receive over 750
+            applications, and we take the time to review each one. Those selected
+            are paired intentionally based on their skills, background, and the
+            needs of our clinic, with support and coordination that extends well
+            beyond initial training.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── What We Look For ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            What We Look For
+          </h3>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+            {WHAT_WE_LOOK_FOR.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 bg-[#f7f9fc] p-5 md:p-6 border border-[#00356b]/10"
+              >
+                <CheckCircle2 className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
+                <span className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Who Volunteers With Us ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <Users className="w-6 h-6 text-[#00356b]" />
+            </div>
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+              Who Volunteers With Us
+            </h3>
+          </div>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            Our team includes medical, nursing, public health, and pre-health
+            students, graduate students, and non-clinical volunteers in
+            administrative and support roles. On a case-by-case basis, we also
+            welcome community providers who wish to contribute their expertise
+            directly to patient care.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Clinical Supervision ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-[#00356b]" />
+            </div>
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+              Clinical Supervision
+            </h3>
+          </div>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            Every clinical encounter at HAVEN is supervised by licensed attending
+            physicians and registered nurses who volunteer their time to our
+            clinic. Our Saturday clinics in primary care and reproductive health
+            are staffed by faculty attendings, alongside RNs and specialty clinic
+            preceptors. They are all community providers who believe in this
+            mission. Their oversight ensures every patient receives safe,
+            professional-standard care.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Recruitment Timeline ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Recruitment Timeline
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8 md:mb-10">
+            Because of the volume and care involved in our selection process,
+            recruitment follows a structured timeline each term:
+          </p>
+
+          <div className="space-y-5 md:space-y-6">
+            {RECRUITMENT_TIMELINE.map((step) => (
+              <div
+                key={step.label}
+                className="flex items-start gap-4 md:gap-5 bg-[#f7f9fc] p-6 md:p-7 border border-[#00356b]/10"
+              >
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                  <CalendarDays className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <div>
+                  <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[17px] sm:text-[19px] md:text-[21px] mb-1.5">
+                    {step.label}
+                  </h4>
+                  <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 md:mt-10 flex items-start gap-3 md:gap-4 border-l-4 border-[#00356b] bg-[#f7f9fc] p-6 md:p-7">
+            <Clock className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+              We ask that all applicants please be patient during this process.
+              With 750+ applications to review, we give every candidate the
+              thoughtful consideration they deserve, and that takes time. We
+              appreciate your understanding and your interest in HAVEN&rsquo;s
+              mission. We continue to review applications on a rolling basis even
+              after training begins, so if you do not hear from us right away,
+              your application remains under consideration.
+            </p>
+          </div>
+
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mt-8 md:mt-10">
+            <span className="font-semibold text-[#00356b]">
+              Interested in volunteering?
+            </span>{" "}
+            Our next recruitment cycle opens in August. Stay tuned to our website
+            and social media for application details.
+          </p>
         </div>
       </div>
 

@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { CheckCircle2, Stethoscope, HeartHandshake } from "lucide-react";
 
 /* ─── Arrow icon for CTA buttons ─── */
 
@@ -29,71 +26,33 @@ function Divider() {
   return <div className="w-full h-px bg-[#00356b]/10" />;
 }
 
-/* ─── Accordion ─── */
+/* ─── Data ─── */
 
-interface ReferralType {
-  title: string;
-  content?: React.ReactNode;
-}
-
-const referralTypes: ReferralType[] = [
+const SPECIALTY_EXAMPLES = [
   {
-    title: "Medical & Surgical Specialty Referral",
+    name: "Cardiology",
+    description: "heart health, blood pressure complications, and cardiac conditions",
   },
   {
-    title: "Clinical Support Services Referral",
+    name: "Dermatology",
+    description: "skin conditions, rashes, lesions, and chronic skin diseases",
   },
   {
-    title: "Inpatient Referral",
-    content: (
-      <p>
-        To arrange a hospital admission at Connecticut Children's – Hartford or
-        at Connecticut Children's – Waterbury or the pediatric inpatient units at
-        Norwalk Hospital or Danbury Hospital, contact our OneCall Physician
-        Access Line at 1.833.PEDS.NOW (1.833.733.7669)
-      </p>
-    ),
+    name: "Orthopedics",
+    description: "bone, joint, and musculoskeletal concerns",
   },
   {
-    title: "Emergency Department Transport",
+    name: "Neurology",
+    description: "headaches, nerve conditions, and neurological symptoms",
   },
 ];
 
-function AccordionItem({ item }: { item: ReferralType }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="border-b border-[#00356b]/20">
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between py-5 md:py-6 cursor-pointer text-left"
-      >
-        <span className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] pr-4">
-          {item.title}
-        </span>
-        <ChevronDown
-          className={`w-6 h-6 md:w-9 md:h-9 lg:w-11 lg:h-11 shrink-0 text-black transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
-          strokeWidth={2.5}
-        />
-      </button>
-
-      {item.content && (
-        <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            open ? "max-h-[5000px] pb-6" : "max-h-0"
-          }`}
-        >
-          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            {item.content}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+const REFERRAL_TEAM_STEPS = [
+  "Identify the right specialist for your needs",
+  "Work with YNHH Free Care to explore free or reduced-cost options",
+  "Help you understand what to expect and what to bring to your appointment",
+  "Follow up with you as part of your ongoing care at HAVEN",
+];
 
 /* ─── Main Component ─── */
 
@@ -105,35 +64,152 @@ export function ReferralsContent() {
         <div className="max-w-4xl mx-auto">
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
             <p className="font-medium text-[#00356b] border-l-4 border-[#00356b] pl-5">
-              Patients must have established care with HAVEN before we can
-              place referrals on their behalf.
+              Patients must have established care with HAVEN before we can place
+              referrals on their behalf.
             </p>
             <p>
-              As a referring provider, we are able to deliver high-quality,
-              comprehensive patient care. We are dedicated to supporting your
-              needs and making it easier for you to access important information,
-              communicate with our providers, and refer patients to sites when
-              necessary. Quickly access our referral options below.
+              Sometimes your health needs care beyond what we can provide at our
+              Saturday clinic. When that happens, our team helps connect you with
+              the right specialist and works to make that care affordable. Here is
+              how referrals work at HAVEN.
             </p>
-            <p><span className="font-semibold">Before</span> you make a referral, review</p>
-            <ul className="list-disc pl-8 space-y-1">
-              <li>
-                <a
-                  href="#"
-                  className="text-[#00356b] underline hover:opacity-80"
-                >
-                  Referral Guidance
-                </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
+      {/* ── Primary Care vs. Specialty Care ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Primary Care vs. Specialty Care
+          </h3>
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <p>
+              Primary care is the foundation of your health. It covers
+              prevention, routine checkups, chronic disease management, and most
+              everyday health concerns. This is what HAVEN provides directly
+              through our Saturday clinic.
+            </p>
+            <p>
+              Specialty care refers to medical services that require advanced,
+              focused expertise beyond the scope of primary care. Examples
+              include:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 mt-8">
+            {SPECIALTY_EXAMPLES.map((specialty) => (
+              <div
+                key={specialty.name}
+                className="bg-[#f7f9fc] p-6 md:p-7 border border-[#00356b]/10"
+              >
+                <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
+                  {specialty.name}
+                </h4>
+                <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
+                  {specialty.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mt-8">
+            When your care requires expertise or equipment beyond what HAVEN can
+            provide, we will work with you to connect you with the right
+            specialist.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
+      {/* ── Partnership with YNHH Free Care ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <HeartHandshake className="w-6 h-6 text-[#00356b]" />
+            </div>
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+              Our Partnership with YNHH Free Care
+            </h3>
+          </div>
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <p>
+              HAVEN Free Clinic works closely with the Yale New Haven Hospital
+              (YNHH) Free Care Office to help our patients access specialty care
+              at little or no cost. Through this partnership, we are often able to
+              secure free or significantly reduced-cost specialist appointments
+              for patients who qualify, services that would otherwise be
+              financially out of reach.
+            </p>
+            <p>
+              This is one of the most meaningful ways we extend care beyond our
+              walls and ensure that a specialist referral does not become a dead
+              end for our patients.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
+      {/* ── How the Referral Process Works ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            How the Referral Process Works
+          </h3>
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
+            <p>
+              Referrals at HAVEN are handled flexibly depending on your
+              situation. In some cases, our care team will initiate the referral
+              on your behalf and coordinate directly with YNHH. In others, we will
+              guide you through the steps to reach out yourself, with our support
+              along the way.
+            </p>
+            <p>
+              Either way, you will not navigate this alone. Our team will:
+            </p>
+          </div>
+
+          <ul className="space-y-4 mt-8">
+            {REFERRAL_TEAM_STEPS.map((step) => (
+              <li
+                key={step}
+                className="flex items-start gap-3 bg-[#f7f9fc] p-5 md:p-6 border border-[#00356b]/10"
+              >
+                <CheckCircle2 className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
+                <span className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+                  {step}
+                </span>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#00356b] underline hover:opacity-80"
-                >
-                  Information Necessary to Process a New Patient Referral
-                </a>
-              </li>
-            </ul>
+            ))}
+          </ul>
+
+          <div className="mt-8 md:mt-10 flex items-start gap-3 md:gap-4 border-l-4 border-[#00356b] bg-[#f7f9fc] p-6 md:p-7">
+            <Stethoscope className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+              <span className="font-semibold text-[#00356b]">
+                Think you may need a specialist?
+              </span>{" "}
+              Talk to your HAVEN care team and we&rsquo;ll figure out the next
+              step together.
+            </p>
           </div>
         </div>
       </div>
@@ -145,7 +221,7 @@ export function ReferralsContent() {
       </div>
 
       {/* ── Access Medical Referrals CTA ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
         <div className="bg-[#00356b]/10 border border-[#00356b]/20 px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 w-full flex flex-col items-center text-center gap-6 md:gap-8 lg:gap-10">
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
@@ -178,15 +254,6 @@ export function ReferralsContent() {
             </a>
           </div>
         </div>
-        </div>
-      </div>
-
-      {/* ── Types of Referrals Accordion ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-16 md:pb-20 lg:pb-24">
-        <div className="max-w-4xl mx-auto">
-          {referralTypes.map((item) => (
-            <AccordionItem key={item.title} item={item} />
-          ))}
         </div>
       </div>
     </section>
