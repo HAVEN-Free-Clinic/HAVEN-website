@@ -332,14 +332,93 @@ export function PatientCareContent() {
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-4 md:space-y-5">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            Our clinical teams provide a wide range of primary care services for
-            our patients, including: annual physical examinations, screening for
-            hypertension, hyperlipidemia, diabetes, HIV, and tuberculosis,
-            routine pelvic examinations, urgent primary care and management of
-            chronic conditions.
+            HAVEN Free Clinic is a student-run free clinic dedicated to providing
+            compassionate, accessible healthcare to uninsured community members.
+            Because our clinic is student-run, our services are delivered under
+            physician supervision and are intentionally focused on conditions our
+            team is equipped to manage safely and effectively.
           </p>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            Our broader mission goes beyond treating illness. We are here to help
+            every patient navigate the healthcare system and find a path to
+            permanent, sustainable care.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Scope of Care ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-14">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            Scope of Care
+          </h3>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            {/* Conditions We Treat */}
+            <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 md:px-8 py-6 md:py-8">
+              <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+                Services We Provide
+              </h4>
+              <p className="font-['Poppins',sans-serif] text-black/75 text-[15px] md:text-[16px] leading-relaxed mb-4">
+                We provide primary care for a range of common and chronic
+                conditions, including but not limited to:
+              </p>
+              <ul className="list-disc pl-6 md:pl-7 space-y-1.5 font-['Poppins',sans-serif] text-black text-[15px] md:text-[16px] leading-relaxed">
+                <li>Hypertension (high blood pressure)</li>
+                <li>High cholesterol</li>
+                <li>Non-insulin-dependent (Type 2) diabetes</li>
+                <li>Asthma and other stable respiratory conditions</li>
+                <li>Common infections and acute illnesses</li>
+                <li>Preventive care and health screenings</li>
+                <li>Medication management for stable chronic conditions</li>
+                <li>Health education and counseling</li>
+              </ul>
+            </div>
+
+            {/* Conditions We Are Unable to Treat */}
+            <div className="bg-[#fef7ed] border border-amber-200 px-6 md:px-8 py-6 md:py-8">
+              <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+                Conditions We Are Unable to Treat
+              </h4>
+              <p className="font-['Poppins',sans-serif] text-black/75 text-[15px] md:text-[16px] leading-relaxed mb-4">
+                As a student-run clinic, some conditions fall outside our scope.
+                Patients with the following will be referred to a more
+                appropriate provider or specialist:
+              </p>
+              <ul className="space-y-3 font-['Poppins',sans-serif] text-black text-[15px] md:text-[16px] leading-relaxed">
+                <li>
+                  <span className="font-semibold">Insulin-dependent diabetes</span> —
+                  requires specialist oversight beyond our current capacity.
+                </li>
+                <li>
+                  <span className="font-semibold">Active cancer</span> — requires
+                  oncology care that we are not able to provide.
+                </li>
+                <li>
+                  <span className="font-semibold">Pregnancy</span> — prenatal and
+                  obstetric care requires specialized providers; we will help you
+                  locate appropriate OB/GYN or midwifery services.
+                </li>
+                <li>
+                  <span className="font-semibold">Other complex medical conditions</span> —
+                  needs that require specialty management.
+                </li>
+              </ul>
+              <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed mt-4 pt-4 border-t border-amber-200">
+                Being referred out of HAVEN does not mean you are on your own. Our
+                team will work with you to ensure a warm handoff to the right
+                provider.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

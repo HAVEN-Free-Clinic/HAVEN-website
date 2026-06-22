@@ -303,6 +303,83 @@ export function EligibilityContent() {
           <EligibilityChecker />
         </div>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-[#00356b]/10 mb-14 md:mb-18" />
+
+        {/* Other resources */}
+        <div className="mb-14 md:mb-18">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+            If HAVEN Isn&apos;t the Right Fit
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
+            If you don&apos;t meet our eligibility criteria, or if you&apos;re
+            looking for ongoing primary care, these community health centers in
+            the New Haven area welcome patients regardless of insurance status:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 md:mb-14">
+            {[
+              {
+                name: "Fair Haven Community Health Care",
+                description:
+                  "A community health center providing primary, dental, and behavioral health care to all, regardless of insurance or ability to pay.",
+              },
+              {
+                name: "Cornell Scott-Hill Health Center",
+                description:
+                  "A federally qualified health center offering comprehensive medical, dental, and behavioral health services across Greater New Haven.",
+              },
+            ].map((clinic) => (
+              <div
+                key={clinic.name}
+                className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-6"
+              >
+                <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+                  {clinic.name}
+                </h4>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
+                  {clinic.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+            Community Partners
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
+            We work closely with local organizations that help connect community
+            members to care at HAVEN and beyond:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                abbr: "IRIS",
+                name: "Integrated Refugee & Immigrant Services",
+              },
+              {
+                abbr: "ULA",
+                name: "Unidad Latina en Acción",
+              },
+              {
+                abbr: "CIRI",
+                name: "Connecticut Institute for Refugees and Immigrants",
+              },
+            ].map((partner) => (
+              <div
+                key={partner.abbr}
+                className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-6"
+              >
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1">
+                  {partner.abbr}
+                </p>
+                <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
+                  {partner.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Contact callout */}
         <div className="bg-[#00356b] px-8 md:px-12 py-10 md:py-12 text-center">
           <h3 className="font-['Merriweather',serif] font-bold text-white text-[20px] md:text-[24px] mb-3">

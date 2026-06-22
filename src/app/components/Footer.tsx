@@ -1,9 +1,20 @@
 import svgPaths from "@/lib/svg-paths";
 import Link from "next/link";
+import { CalendarClock } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-[#00356b] w-full">
+      {/* New patient wait-time notice */}
+      <div className="border-b border-white/15 bg-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-3.5 flex items-center justify-center gap-2.5 text-center">
+          <CalendarClock className="w-4 h-4 md:w-5 md:h-5 text-white/80 shrink-0" />
+          <p className="font-['Poppins',sans-serif] text-white/90 text-[13px] md:text-[15px]">
+            New patients can expect a wait of approximately 1 month for a first appointment.
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
           {/* Logo */}
