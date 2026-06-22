@@ -124,6 +124,23 @@ const departments: DepartmentData[] = [
             currently in stock.
           </span>
         </p>
+        <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] p-4 md:p-5">
+          <p>
+            <span className="font-semibold text-[#00356b]">
+              You must be an established HAVEN patient to receive a vaccine.
+            </span>{" "}
+            Vaccines are offered as part of your ongoing care at the clinic — we
+            are not able to provide standalone or walk-in vaccine-only visits. If
+            you are not yet a patient,{" "}
+            <Link
+              href="/eligibility"
+              className="text-[#00356b] underline hover:text-[#00356b]/70"
+            >
+              see our eligibility information
+            </Link>{" "}
+            to establish care first.
+          </p>
+        </div>
         <p className="font-medium">Vaccines Available at HAVEN</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>Shingles (Shingrix)</li>
