@@ -2,7 +2,34 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, X } from "lucide-react";
+
+/* ─── Scope of Care ─── */
+
+const HAVEN_PROVIDES = [
+  "Primary care visits — checkups, illness, physicals",
+  "Chronic disease management: diabetes, hypertension, asthma",
+  "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
+  "Behavioral health screenings and warm referrals",
+  "Lab testing and vaccines",
+  "Low-cost medications through our pharmacy partnerships",
+  "Health education: diabetes, nutrition, self-management",
+  "Referrals to specialists and community resources",
+  "Medical debt counseling and help with YNHH Free Care applications",
+  "Latent TB, H. pylori, and hypertension follow-up care",
+  "Interpretation and cultural navigation",
+  "Longitudinal care coordination for complex health needs",
+];
+
+const OUTSIDE_SCOPE = [
+  "Emergency or life-threatening care — call 911 or go to the ER",
+  "Insulin-dependent or highly complex diabetes management",
+  "Surgery, imaging, oncology, or complex specialist procedures",
+  "Licensed social work or crisis intervention",
+  "Housing placement or job placement",
+  "Weekday or after-hours care (Saturdays only)",
+  "Insurance enrollment or Medicaid applications (we refer you)",
+];
 
 /* ─── Accordion helper ─── */
 
@@ -351,63 +378,66 @@ export function PatientCareContent() {
             Scope of Care
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {/* Conditions We Treat */}
-            <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 md:px-8 py-6 md:py-8">
-              <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[20px] mb-4">
-                Services We Provide
-              </h4>
-              <p className="font-['Poppins',sans-serif] text-black/75 text-[15px] md:text-[16px] leading-relaxed mb-4">
-                We provide primary care for a range of common and chronic
-                conditions, including but not limited to:
-              </p>
-              <ul className="list-disc pl-6 md:pl-7 space-y-1.5 font-['Poppins',sans-serif] text-black text-[15px] md:text-[16px] leading-relaxed">
-                <li>Hypertension (high blood pressure)</li>
-                <li>High cholesterol</li>
-                <li>Non-insulin-dependent (Type 2) diabetes</li>
-                <li>Asthma and other stable respiratory conditions</li>
-                <li>Common infections and acute illnesses</li>
-                <li>Preventive care and health screenings</li>
-                <li>Medication management for stable chronic conditions</li>
-                <li>Health education and counseling</li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* What HAVEN provides */}
+            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                  <Check className="w-5 h-5 text-[#00356b]" strokeWidth={2.5} />
+                </div>
+                <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
+                  What HAVEN provides
+                </h4>
+              </div>
+              <ul className="space-y-3">
+                {HAVEN_PROVIDES.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Check
+                      className="w-5 h-5 text-[#00356b] shrink-0 mt-0.5"
+                      strokeWidth={2.5}
+                    />
+                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Conditions We Are Unable to Treat */}
-            <div className="bg-[#fef7ed] border border-amber-200 px-6 md:px-8 py-6 md:py-8">
-              <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[20px] mb-4">
-                Conditions We Are Unable to Treat
-              </h4>
-              <p className="font-['Poppins',sans-serif] text-black/75 text-[15px] md:text-[16px] leading-relaxed mb-4">
-                As a student-run clinic, some conditions fall outside our scope.
-                Patients with the following will be referred to a more
-                appropriate provider or specialist:
-              </p>
-              <ul className="space-y-3 font-['Poppins',sans-serif] text-black text-[15px] md:text-[16px] leading-relaxed">
-                <li>
-                  <span className="font-semibold">Insulin-dependent diabetes</span> —
-                  requires specialist oversight beyond our current capacity.
-                </li>
-                <li>
-                  <span className="font-semibold">Active cancer</span> — requires
-                  oncology care that we are not able to provide.
-                </li>
-                <li>
-                  <span className="font-semibold">Pregnancy</span> — prenatal and
-                  obstetric care requires specialized providers; we will help you
-                  locate appropriate OB/GYN or midwifery services.
-                </li>
-                <li>
-                  <span className="font-semibold">Other complex medical conditions</span> —
-                  needs that require specialty management.
-                </li>
+            {/* Outside our scope */}
+            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+                  <X className="w-5 h-5 text-red-700" strokeWidth={2.5} />
+                </div>
+                <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
+                  Outside our scope
+                </h4>
+              </div>
+              <ul className="space-y-3">
+                {OUTSIDE_SCOPE.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <X
+                      className="w-5 h-5 text-red-600 shrink-0 mt-0.5"
+                      strokeWidth={2.5}
+                    />
+                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
               </ul>
-              <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed mt-4 pt-4 border-t border-amber-200">
-                Being referred out of HAVEN does not mean you are on your own. Our
-                team will work with you to ensure a warm handoff to the right
-                provider.
-              </p>
             </div>
+          </div>
+
+          <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+              When we can&apos;t provide something directly, we connect you to
+              someone who can.{" "}
+              <span className="font-semibold text-[#00356b]">
+                You never leave HAVEN without a next step.
+              </span>
+            </p>
           </div>
         </div>
       </div>
