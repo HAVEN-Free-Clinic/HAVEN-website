@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Compass, Map, HeartHandshake } from "lucide-react";
 
 /* ─── Accordion ─── */
 
@@ -206,6 +206,73 @@ export function SocialServicesContent() {
             assistance, unemployment, English for Speakers of Other Languages
             (ESOL) courses, clothing resources, and more.
           </p>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── The Compass Program ── */}
+      <div
+        id="compass"
+        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 md:pb-16"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#00356b] px-6 md:px-10 lg:px-14 py-10 md:py-12 lg:py-14">
+            <div className="flex items-center gap-4 mb-5 md:mb-6">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                <Compass className="w-6 h-6 md:w-7 md:h-7 text-white" />
+              </div>
+              <h3 className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px]">
+                The Compass Program
+              </h3>
+            </div>
+            <p className="font-['Poppins',sans-serif] text-white/90 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-4">
+              At the heart of HAVEN Free Clinic is the Compass Program — our
+              signature 3-to-5-year care navigation program designed to do more
+              than manage your health today.
+            </p>
+            <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed mb-8">
+              Through Compass, we work with you to:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 mb-8 md:mb-10">
+              {[
+                {
+                  icon: HeartHandshake,
+                  text: "Understand your health conditions and how to manage them",
+                },
+                {
+                  icon: Map,
+                  text: "Connect you with community resources, specialists, and support services",
+                },
+                {
+                  icon: Compass,
+                  text: "Build a roadmap toward permanent healthcare coverage and a long-term primary care provider",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white/10 border border-white/15 px-5 py-6 flex flex-col gap-3"
+                >
+                  <item.icon className="w-6 h-6 text-white/90" />
+                  <p className="font-['Poppins',sans-serif] text-white/90 text-[14px] md:text-[15px] leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
+              The ultimate goal of the Compass Program is to help you establish
+              care with a permanent provider, so you have consistent, reliable
+              access to healthcare beyond your time with us. Ask your care team
+              how to enroll, or let us know if you&apos;d like to learn more.
+            </p>
+          </div>
         </div>
       </div>
 

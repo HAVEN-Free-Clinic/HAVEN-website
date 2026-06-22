@@ -109,11 +109,6 @@ export function MedicationContent() {
               personal pharmacies, but lowered cost is not guaranteed.
             </p>
 
-            <p className="leading-relaxed">
-              For medications under $20, we ask that patients cover the cost when
-              possible so we can continue to support those with the greatest need.
-            </p>
-
             <div>
               <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
                 Pickup Locations
@@ -135,6 +130,87 @@ export function MedicationContent() {
                 you around 3 days after your clinic visit.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-8 md:mt-10">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
+      {/* ── Medication Cost-Sharing ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            Medication Cost-Sharing
+          </h3>
+
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
+            <p className="leading-relaxed">
+              HAVEN Free Clinic is a community-supported organization. Each year,
+              we rely on the generosity of our donors and volunteers to keep our
+              doors open and our services free. In alignment with models used by
+              other community health clinics, HAVEN has reinstated a medication
+              cost-sharing policy to support the long-term sustainability of our
+              clinic and our ability to invest in our mission.
+            </p>
+
+            <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 md:px-8 py-6 md:py-8">
+              <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+                Under this policy:
+              </h4>
+              <ul className="list-disc pl-6 md:pl-7 space-y-2.5 leading-relaxed text-[15px] md:text-[17px]">
+                <li>
+                  Patients are responsible for covering the cost of medications
+                  priced <span className="font-semibold">under $20</span>.
+                </li>
+                <li>
+                  Medications <span className="font-semibold">at or above $20</span>{" "}
+                  continue to be provided at no cost to the patient.
+                </li>
+                <li>
+                  Patients who demonstrate significant financial hardship may
+                  request a <span className="font-semibold">cost-sharing waiver</span>.
+                  Our team will work with you discreetly and compassionately to
+                  assess your situation.
+                </li>
+                <li>
+                  <span className="font-semibold">
+                    No patient will be denied a medication solely due to inability
+                    to pay.
+                  </span>{" "}
+                  If cost is a concern, please speak with your care team.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+                Why This Matters
+              </h4>
+              <p className="leading-relaxed mb-4">
+                Cost-sharing models are a common and proven approach among free
+                and charitable clinics. By asking patients who are able to
+                contribute a small amount toward lower-cost medications, we can:
+              </p>
+              <ul className="list-disc pl-6 md:pl-7 space-y-2 leading-relaxed text-[15px] md:text-[17px]">
+                <li>Preserve our donated funds for higher-cost medications and services</li>
+                <li>Expand our capacity to take on more patients</li>
+                <li>Continue investing in programs that support long-term patient outcomes</li>
+                <li>Sustain and grow HAVEN&apos;s presence in the community</li>
+              </ul>
+            </div>
+
+            <p className="text-[#00356b] leading-relaxed">
+              Have questions about this policy or need to request a waiver? Please
+              speak with your care team or send us a Care Message through{" "}
+              <a href="/mychart" className="underline hover:text-[#00356b]/70 transition-colors">
+                MyChart
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>

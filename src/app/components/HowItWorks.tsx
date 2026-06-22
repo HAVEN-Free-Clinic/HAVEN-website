@@ -21,7 +21,7 @@ const steps = [
     icon: Heart,
     title: "Receive Care",
     description:
-      "See a provider, get prescriptions, and access support services — all at no cost.",
+      "See a provider, get prescriptions, and connect with support services that help beyond the clinic.",
   },
 ];
 

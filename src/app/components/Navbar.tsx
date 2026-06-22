@@ -23,6 +23,7 @@ const servicesDropdownItems = [
   { label: "Behavioral Health", to: "/services/patient-care" },
   { label: "Education", to: "/services/education" },
   { label: "Social Services", to: "/services/social-services" },
+  { label: "Dental Care", to: "/services/dental" },
   { label: "Insurance Counseling", to: "/services/debt-insurance" },
   { label: "Medication", to: "/services/medication" },
   { label: "Referrals", to: "/services/referrals" },

@@ -186,15 +186,85 @@ function BookingCancellingPanel() {
         </p>
       </div>
 
-      {/* Cancel */}
+      {/* Walk-Ins */}
       <div>
         <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
-          Cancel an Appointment
+          Walk-Ins
         </h3>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
-          We understand if you can't make your appointment. Please let us know
-          by calling (203) 200-0673 and leaving a message so that another
-          patient can be seen.
+          HAVEN Free Clinic offers both scheduled appointments and limited
+          walk-in availability. Scheduled patients are always seen first.
+          Walk-ins are welcome on a first come, first served basis, but are only
+          accepted until 10:30 AM, after which we cannot guarantee availability
+          for that day.
+        </p>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
+          To secure your spot and reduce wait times, we encourage all patients
+          to schedule an appointment in advance.
+        </p>
+      </div>
+
+      {/* Cancel / Reschedule */}
+      <div>
+        <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
+          Reschedule or Cancel an Appointment
+        </h3>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
+          We understand that life is unpredictable and that circumstances may
+          sometimes prevent you from attending a scheduled appointment. If you
+          are unable to attend for any reason, we ask that you let us know as
+          soon as possible. You can reach us in either of the following ways:
+        </p>
+        <ul className="list-disc pl-8 md:pl-12 space-y-2 mt-4 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
+          <li>Send a Care Message through your MyChart patient portal</li>
+          <li>Call us at (203) 200-0673 to speak with a staff member</li>
+        </ul>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
+          Notifying us in advance allows us to offer your appointment slot to
+          another patient in need.
+        </p>
+      </div>
+
+      {/* No-Show Policy */}
+      <div>
+        <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
+          No-Show Policy
+        </h3>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
+          A no-show occurs when a patient misses a scheduled appointment without
+          prior notice. This policy is designed to ensure we can continue
+          serving all of our patients equitably and efficiently.
+        </p>
+        <div className="bg-[#fef7ed] border-l-4 border-amber-400 px-6 py-5 mt-5 max-w-[1000px]">
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
+            If you <span className="font-semibold">no-show 3 or more
+            consecutive appointments</span>, we will be unable to reschedule
+            future appointments at HAVEN Free Clinic. This policy exists to
+            protect access to care for all patients on our waiting list.
+          </p>
+        </div>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-5">
+          We strongly encourage you to reach out before missing an appointment.
+          We are always happy to find a time that works better for you.
+        </p>
+      </div>
+
+      {/* Different Schedule or Visit Format */}
+      <div>
+        <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
+          Need a Different Schedule or Visit Format?
+        </h3>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
+          We recognize that our Saturday clinic hours and standard appointment
+          length may not be the right fit for everyone. If you are unable to
+          attend appointments on Saturdays, or if you prefer a shorter visit
+          format, please let us know. We will work with you to connect you with
+          one of our partner clinics that may be a better fit for your needs and
+          schedule.
+        </p>
+        <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
+          Questions? Contact us via Care Message or by phone at (203) 200-0673.
+          We&apos;re here to help.
         </p>
       </div>
     </div>

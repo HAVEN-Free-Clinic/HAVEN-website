@@ -107,6 +107,11 @@ const faqs = [
       "Absolutely. MyChart uses industry-standard encryption and security protocols to protect your personal health information. All communications within the portal are private and attached to your account only.",
   },
   {
+    question: "How do I cancel or reschedule an appointment?",
+    answer:
+      "If you can't make an appointment, let us know as soon as possible by sending a Care Message through MyChart or calling the clinic at (203) 200-0673. Notifying us in advance lets us offer your slot to another patient. Please note that no-showing 3 or more consecutive appointments without notice means we will be unable to reschedule future visits. See the Visitor Guide for our full no-show policy.",
+  },
+  {
     question: "Should I use MyChart for urgent medical matters?",
     answer:
       "No. MyChart should only be used for non-urgent medical matters. If you are experiencing a medical emergency, please call 911 immediately. For urgent but non-emergency questions, call the clinic directly.",
@@ -142,7 +147,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[400px] opacity-100 pb-5 md:pb-6" : "max-h-0 opacity-0"
+          open ? "max-h-[600px] opacity-100 pb-5 md:pb-6" : "max-h-0 opacity-0"
         }`}
       >
         <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed pr-10">

@@ -235,6 +235,84 @@ export function MDICContent() {
         </div>
       </div>
 
+      {/* ── Understanding Your Bill ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-14">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            Understanding Your Bill
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
+            Medical bills can be confusing. If you receive a statement from
+            Yale-New Haven Hospital, here are the key parts to look for:
+          </p>
+          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-3 list-disc pl-6 md:pl-8 mb-6">
+            <li>
+              <span className="font-semibold">Guarantor &amp; account number</span> — the
+              person responsible for the balance and the account the charges
+              belong to. Have these ready whenever you call with questions.
+            </li>
+            <li>
+              <span className="font-semibold">Statement date &amp; date of service</span> — when
+              the statement was issued and when you received care. (For privacy,
+              the date and type of service may only appear after you log in to
+              MyChart.)
+            </li>
+            <li>
+              <span className="font-semibold">Charges</span> — the full cost of the
+              services provided before any insurance or assistance is applied.
+            </li>
+            <li>
+              <span className="font-semibold">Payments &amp; adjustments</span> — amounts
+              already paid by you or your insurance, plus any discounts or
+              financial assistance credited to the account.
+            </li>
+            <li>
+              <span className="font-semibold">Balance / amount due</span> — what is still
+              owed after payments and adjustments. This is the figure to review
+              before paying or asking for help.
+            </li>
+          </ul>
+          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
+            <p>
+              <span className="font-bold">Questions about a YNHH bill?</span> Call
+              Yale-New Haven Health Patient Financial Services at{" "}
+              <a
+                href="tel:8555474584"
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                (855) 547-4584
+              </a>
+              , Monday–Friday, 7:30 am–5:00 pm. You can also reach out to MDIC at{" "}
+              <a
+                href="mailto:hfc.billing@yale.edu"
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                hfc.billing@yale.edu
+              </a>{" "}
+              and we can help you review the bill together.
+            </p>
+            <p className="mt-3 text-[14px] md:text-[15px]">
+              For more detail and a sample statement, see{" "}
+              <a
+                href="https://www.ynhhs.org/patient-care/billing-insurance/Understanding-Your-Bill"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                YNHH&apos;s Understanding Your Bill page
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
       {/* ── Helpful Resources: Application Assistance ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">

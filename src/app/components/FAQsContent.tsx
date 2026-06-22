@@ -23,6 +23,24 @@ const faqs: FAQ[] = [
           <li>Have no active medical insurance</li>
           <li>Not currently have a primary care provider</li>
         </ul>
+        <p className="mt-3 mb-2">Eligible areas to be seen include the following townships:</p>
+        <ul className="list-disc pl-8 space-y-1">
+          <li>Bethany</li>
+          <li>Branford</li>
+          <li>East Haven</li>
+          <li>Guilford</li>
+          <li>Hamden</li>
+          <li>Madison</li>
+          <li>Meriden</li>
+          <li>Milford</li>
+          <li>New Haven (central city)</li>
+          <li>North Branford</li>
+          <li>North Haven</li>
+          <li>Orange</li>
+          <li>Wallingford</li>
+          <li>West Haven</li>
+          <li>Woodbridge</li>
+        </ul>
         <p className="mt-3">
           Additional criteria may apply and will be assessed prior to acceptance. You can check your eligibility on our{" "}
           <Link href="/eligibility" className="text-[#00356b] underline hover:opacity-80">
@@ -46,11 +64,45 @@ const faqs: FAQ[] = [
     ),
   },
   {
+    question: "What happens if I miss or need to cancel an appointment?",
+    answer: (
+      <div>
+        <p className="mb-2">
+          If you can't make an appointment, please let us know as soon as possible — send a Care Message through your{" "}
+          <Link href="/mychart" className="text-[#00356b] underline hover:opacity-80">
+            MyChart patient portal
+          </Link>{" "}
+          or call{" "}
+          <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
+            (203) 200-0673
+          </a>
+          . This lets us offer your slot to another patient in need.
+        </p>
+        <p>
+          A no-show is a missed appointment without prior notice. Please note that if you no-show 3 or more consecutive appointments, we will be unable to reschedule future appointments. See our{" "}
+          <Link href="/visitor-guide" className="text-[#00356b] underline hover:opacity-80">
+            visitor guide
+          </Link>{" "}
+          for the full no-show policy and alternative scheduling options.
+        </p>
+      </div>
+    ),
+  },
+  {
     question: "Do you take walk-ins?",
     answer: (
-      <p>
-        Yes, but the clinic often fills up quickly. We strongly encourage you to make an appointment by calling ahead to ensure you can be seen.
-      </p>
+      <div>
+        <p className="mb-2">
+          We offer both scheduled appointments and limited walk-in availability. Scheduled patients are always seen first. Walk-ins are welcome on a first come, first served basis, but are only accepted until 10:30 AM, after which we cannot guarantee availability for that day.
+        </p>
+        <p>
+          To secure your spot and reduce wait times, we encourage all patients to schedule an appointment in advance by calling{" "}
+          <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
+            (203) 200-0673
+          </a>
+          .
+        </p>
+      </div>
     ),
   },
   {
@@ -74,9 +126,18 @@ const faqs: FAQ[] = [
   {
     question: "Do I have to pay for anything?",
     answer: (
-      <p>
-        Visits at HAVEN are always free. Some patients also qualify for free medications and specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
-      </p>
+      <div>
+        <p className="mb-2">
+          Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
+        </p>
+        <p>
+          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $20, while medications at or above $20 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
+          <Link href="/services/medication" className="text-[#00356b] underline hover:opacity-80">
+            medication page
+          </Link>{" "}
+          for details.
+        </p>
+      </div>
     ),
   },
   {
@@ -103,12 +164,32 @@ const faqs: FAQ[] = [
   {
     question: "What types of medical conditions can you treat?",
     answer: (
+      <div>
+        <p className="mb-2">
+          As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions, including hypertension, high cholesterol, non-insulin-dependent (Type 2) diabetes, asthma and other stable respiratory conditions, common infections and acute illnesses, preventive care and screenings, and medication management for stable chronic conditions.
+        </p>
+        <p className="mb-2">
+          Some conditions fall outside our scope — including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
+        </p>
+        <p>
+          See our{" "}
+          <Link href="/services/patient-care" className="text-[#00356b] underline hover:opacity-80">
+            patient care page
+          </Link>{" "}
+          for the full scope of care.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "What is the Compass Program?",
+    answer: (
       <p>
-        We treat common chronic conditions such as diabetes, hypertension, and high cholesterol, as well as provide general primary care. We are unable to provide pediatric care, HIV/AIDS care, or prenatal care, but can provide referrals for those services. Visit our{" "}
-        <Link href="/services" className="text-[#00356b] underline hover:opacity-80">
-          services page
-        </Link>{" "}
-        for more details.
+        The Compass Program is HAVEN&apos;s signature 3-to-5-year care navigation program. Beyond managing your health today, we work with you to understand your conditions, connect you with community resources and specialists, and build a roadmap toward permanent healthcare coverage and a long-term primary care provider. Ask your care team how to enroll, or learn more on our{" "}
+        <Link href="/services/social-services#compass" className="text-[#00356b] underline hover:opacity-80">
+          social services page
+        </Link>
+        .
       </p>
     ),
   },

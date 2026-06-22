@@ -11,6 +11,8 @@ import {
   Pill,
   ArrowRight,
   Users,
+  Compass,
+  Smile,
 } from "lucide-react";
 
 /* ─── Clinical Services ─── */
@@ -71,6 +73,12 @@ const resources = [
     to: "/services/social-services",
   },
   {
+    label: "Dental Care",
+    description: "Care coordination connecting patients with accessible, affordable community dental resources at no cost.",
+    icon: Smile,
+    to: "/services/dental",
+  },
+  {
     label: "Insurance Counseling",
     description: "Help with medical bills, insurance enrollment, and financial assistance.",
     icon: Shield,
@@ -115,6 +123,41 @@ export function ServicesContent() {
             Services and Programs
           </h2>
         </div>
+
+        {/* Featured: The Compass Program */}
+        <div className="max-w-4xl mx-auto mb-8 md:mb-10">
+          <Link
+            href="/services/social-services#compass"
+            className="group block bg-[#00356b] px-6 md:px-8 py-7 md:py-9 hover:bg-[#00356b]/95 hover:shadow-lg transition-all"
+          >
+            <div className="flex items-start gap-5">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                <Compass className="w-6 h-6 md:w-7 md:h-7 text-white" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="font-['Poppins',sans-serif] font-semibold text-white/60 text-[12px] md:text-[13px] uppercase tracking-wider">
+                    Our Signature Program
+                  </span>
+                </div>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[20px] md:text-[24px] mb-2">
+                  The Compass Program
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
+                  A 3-to-5-year care navigation program that goes beyond managing
+                  your health today — helping you understand your conditions,
+                  connect with resources, and build a roadmap toward permanent
+                  coverage and a long-term provider.
+                </p>
+                <span className="inline-flex items-center gap-1.5 mt-3 font-['Poppins',sans-serif] font-semibold text-white text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                  Learn more
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {clinicalServices.map((service) => (
