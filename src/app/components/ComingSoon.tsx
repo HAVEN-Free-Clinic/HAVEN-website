@@ -80,16 +80,27 @@ export function ComingSoon() {
           </div>
         </div>
 
-        {/* MyChart button */}
-        <a
-          href="https://mychart.ynhhs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Access MyChart (opens in a new tab)"
-          className="mt-10 inline-block bg-[#00356b] hover:bg-[#002a55] transition-colors text-white font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
-        >
-          Access MyChart &rarr;
-        </a>
+        {/* Actions */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="https://mychart.ynhhs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Access MyChart (opens in a new tab)"
+            className="inline-block bg-[#00356b] hover:bg-[#002a55] transition-colors text-white font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
+          >
+            Access MyChart &rarr;
+          </a>
+          <a
+            href="https://givetoday.yale.edu/campaigns/67229/donations/new?designation_id=16596"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Donate to HAVEN Free Clinic (opens in a new tab)"
+            className="inline-block bg-white hover:bg-[#d6e8f7] transition-colors text-[#00356b] border-2 border-[#00356b] font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
+          >
+            Donate &#10084;
+          </a>
+        </div>
       </main>
 
       <footer className="py-6 text-center">
