@@ -3,9 +3,7 @@
 import { useState } from "react";
 import {
   ChevronDown,
-  Check,
-  X,
-  Plus,
+  Download,
   Banknote,
   Coins,
   Home,
@@ -16,60 +14,9 @@ import {
   Mail,
   Building2,
   Phone,
-  MapPin,
-  AlertTriangle,
 } from "lucide-react";
 
 /* ─────────────────────────── Data ─────────────────────────── */
-
-const STEP_NAV = [
-  { id: "fc-what", label: "What it is" },
-  { id: "fc-eligible", label: "Am I eligible?" },
-  { id: "fc-guide", label: "Fill out the form" },
-  { id: "fc-proof", label: "Proof of income" },
-  { id: "fc-checklist", label: "Checklist" },
-  { id: "fc-submit", label: "Submit" },
-];
-
-const COMPARE_ROWS: [string, React.ReactNode, React.ReactNode][] = [
-  ["What does it cover?", "Bills at YNHH facilities only", "Care at most doctors and hospitals"],
-  ["Do you pay premiums?", <span className="text-emerald-700 font-semibold">No</span>, <span className="text-emerald-700 font-semibold">No (for HUSKY)</span>],
-  ["Do you need a card?", <span className="text-red-600 font-semibold">No card — approval letter only</span>, <span className="text-emerald-700 font-semibold">Yes, insurance card issued</span>],
-  ["How long does it last?", "~6 months, then renew", "Annually, then renew"],
-  ["Non-citizens eligible?", <span className="text-emerald-700 font-semibold">Yes</span>, "Depends on status"],
-  ["Can you use it for bills you already have?", <span className="text-emerald-700 font-semibold">Yes — retroactive bills too</span>, <span className="text-red-600 font-semibold">No — only future care</span>],
-  ["Where to apply", "YNHH application (this guide)", "ct.gov/husky or call HAVEN"],
-];
-
-const ELIG_QUESTIONS = [
-  {
-    key: "income",
-    text: "Do you have low or no income? (This includes being unemployed, paid in cash, or supported by someone else.)",
-    opts: [
-      { v: "yes", label: "Yes, low or no income", positive: true },
-      { v: "moderate", label: "I earn a moderate income", positive: true },
-      { v: "higher", label: "I earn a higher income", positive: false },
-    ],
-  },
-  {
-    key: "insurance",
-    text: "Do you have health insurance right now?",
-    opts: [
-      { v: "none", label: "No insurance", positive: true },
-      { v: "limited", label: "Limited or expired insurance", positive: true },
-      { v: "full", label: "Yes, full insurance coverage", positive: false },
-    ],
-  },
-  {
-    key: "ynhh",
-    text: "Did you receive care at a Yale New Haven Health facility — OR do you have a bill from YNHH right now?",
-    opts: [
-      { v: "yes", label: "Yes, at YNHH", positive: true },
-      { v: "planned", label: "I have an upcoming YNHH appointment", positive: true },
-      { v: "no", label: "No, somewhere else", positive: false },
-    ],
-  },
-];
 
 interface FormField {
   name: string;
@@ -180,32 +127,11 @@ const POI_CARDS = [
   { icon: Briefcase, situation: "Self-employed", doc: "Most recent tax return (Schedule C)", detail: "Use your federal tax return Schedule C. If you don’t file taxes, a letter from yourself stating your earnings is acceptable. MDIC team can help." },
 ];
 
-const CHECKLIST_ITEMS = [
-  "I understand that Free Care is financial assistance from YNHH — not insurance",
-  "I have filled in Section 1: my name, address, phone number, and date of birth",
-  "I have filled in Section 2: my spouse and dependent children (or marked it N/A if I have none)",
-  "I have completed Section 3: all income amounts for myself and my spouse, with weekly/biweekly/monthly circled",
-  "I have answered Section 4: health insurance question (YES or NO)",
-  "I have signed and dated Section 5",
-  "I have attached proof of income (pay stubs, or a letter — see Step 4)",
-  "I know where I am sending this application (mail, email, or HAVEN)",
-  "I have set a reminder to renew in approximately 5 months",
-];
-
 const SUBMIT_CARDS = [
   { icon: Mailbox, title: "Mail it", desc: "Print, complete, sign, and mail your application with proof of income attached. Allow 2–3 weeks for processing.", detail: "Yale New Haven Health\nSBO, Attn: Financial Assistance\nPO Box 1403\nNew Haven, CT 06505" },
   { icon: Mail, title: "Email proof of income", desc: "Send photos or scans of your proof of income documents directly to the HAVEN billing team, who will submit with your application.", detail: "hfc.billing@yale.edu" },
   { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 1:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
   { icon: Phone, title: "Call YNHH directly", desc: "If you have questions about your application status, a specific bill, or need help — call YNHH’s financial assistance line directly.", detail: "855-547-4584\nYNHH Financial Assistance" },
-];
-
-const RENEWAL_STEPS: { label: string; text: string; color: string }[] = [
-  { label: "Day 1:", text: "You submit your Free Care application", color: "bg-emerald-400" },
-  { label: "Weeks 2–4:", text: "YNHH processes your application", color: "bg-emerald-400" },
-  { label: "Approval letter arrives:", text: "Keep it — show it at YNHH appointments", color: "bg-emerald-400" },
-  { label: "Month 5:", text: "HAVEN alerts you — time to renew soon", color: "bg-amber-400" },
-  { label: "Month 6:", text: "Submit renewal application with updated income proof", color: "bg-amber-400" },
-  { label: "After 6 months without renewal:", text: "Coverage lapses — apply again", color: "bg-red-400" },
 ];
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
@@ -214,7 +140,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   { q: "What if YNHH denies my application?", a: "Contact HAVEN’s MDIC team immediately. We can help you understand the reason for denial, correct any errors on the application, and determine whether to appeal. Denials are sometimes due to missing documentation — not ineligibility." },
   { q: "Does applying for Free Care affect my credit score?", a: 'YNHH may request your credit report as part of the application (you agreed to this in Section 5). However, this is a "soft pull" for assistance purposes — it does not affect your credit score the way a loan application would.' },
   { q: "What if my income changes after I am approved?", a: "You are required to tell YNHH if your income or situation changes significantly. This is stated in Section 5. If your income increases substantially, your Free Care level may be adjusted or discontinued." },
-  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in Step 4 of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673 — we will help you find a solution." },
+  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673 — we will help you find a solution." },
   { q: "How will I know if I am approved?", a: "YNHH will mail you a determination letter. Processing usually takes 2–4 weeks. If you haven’t heard anything after 4 weeks, call 855-547-4584 to check your status. Keep the approval letter — you will need to show it at future YNHH appointments." },
   { q: "Does Free Care cover care at Fair Haven Community Health or other clinics?", a: <><strong>No.</strong> Free Care only applies to Yale New Haven Health facilities — Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated YNHH practices. It does not cover care at Fair Haven, Cornell Scott, or other non-YNHH locations.</> },
   { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at 203-200-0673." },
@@ -222,17 +148,12 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
 
 /* ─────────────────────────── Helpers ─────────────────────────── */
 
-function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
-
 function TplBlank({ children }: { children: React.ReactNode }) {
   return (
     <span
       contentEditable
       suppressContentEditableWarning
-      className="inline-block min-w-[100px] border-b-2 border-[#00356b] text-[#00356b] font-semibold px-1 italic focus:outline focus:outline-2 focus:outline-emerald-500"
+      className="inline-block min-w-[100px] border-b-2 border-[#00356b] text-[#00356b] font-semibold px-1 italic focus:outline focus:outline-2 focus:outline-[#00356b]"
     >
       {children}
     </span>
@@ -241,316 +162,140 @@ function TplBlank({ children }: { children: React.ReactNode }) {
 
 const SECTION = "max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16";
 const INNER = "max-w-4xl mx-auto";
-const EYEBROW = "font-['Poppins',sans-serif] font-semibold text-[12px] md:text-[13px] uppercase tracking-wider mb-2";
-const TITLE = "font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] leading-tight mb-3";
+const TITLE = "font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] leading-tight mb-4";
 const DESC = "font-['Poppins',sans-serif] text-black/70 text-[15px] md:text-[17px] leading-relaxed";
+const CALLOUT = "bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed";
+
+const DOWNLOADS = [
+  { label: "English", href: "/docs/ynhh-financial-assistance-english.pdf" },
+  { label: "French (Français)", href: "/docs/ynhh-financial-assistance-french.pdf" },
+  { label: "Haitian Creole (Kreyòl)", href: "/docs/ynhh-financial-assistance-haitian-creole.pdf" },
+];
+
+function Divider() {
+  return (
+    <div className={SECTION}>
+      <div className={INNER}>
+        <div className="w-full h-px bg-[#00356b]/10" />
+      </div>
+    </div>
+  );
+}
 
 /* ─────────────────────────── Component ─────────────────────────── */
 
 export function FreeCareGuide() {
-  const [eligAnswers, setEligAnswers] = useState<Record<string, string>>({});
-  const [eligResult, setEligResult] = useState<{ variant: string; title: string; text: React.ReactNode } | null>(null);
   const [openStep, setOpenStep] = useState<number | null>(0);
-  const [checks, setChecks] = useState<boolean[]>(() => CHECKLIST_ITEMS.map(() => false));
   const [openFaq, setOpenFaq] = useState<Record<number, boolean>>({});
-
-  const checkEligibility = () => {
-    const { income, insurance, ynhh } = eligAnswers;
-    if (!income || !insurance || !ynhh) {
-      setEligResult({
-        variant: "check",
-        title: "Please answer all three questions",
-        text: "Select an option for each question above, then check your eligibility.",
-      });
-    } else if (ynhh === "no") {
-      setEligResult({
-        variant: "maybe",
-        title: "Free Care likely does not apply to that bill",
-        text: "Free Care only covers care received at Yale New Haven Health facilities. If your care was at a different hospital or clinic, this program will not cover that bill. Ask HAVEN’s MDIC team about other financial assistance options for non-YNHH bills.",
-      });
-    } else if (income === "higher" && insurance === "full") {
-      setEligResult({
-        variant: "maybe",
-        title: "You may still be eligible — but it is less certain",
-        text: (
-          <>
-            Free Care is primarily for patients with low or no income and limited
-            insurance. With higher income and full insurance, you may not qualify
-            for full Free Care — but you may qualify for{" "}
-            <strong>Discounted Care</strong>, which reduces your bill based on
-            income. Apply anyway — let YNHH make the determination. Ask HAVEN’s
-            MDIC team for guidance.
-          </>
-        ),
-      });
-    } else if (income === "yes" || income === "moderate") {
-      setEligResult({
-        variant: "likely",
-        title: "You likely qualify — apply as soon as possible",
-        text: (
-          <>
-            Based on your answers, you appear to meet the basic criteria for Free
-            Care or Discounted Care at YNHH. <strong>Do not wait to apply</strong>{" "}
-            — the sooner you submit, the sooner your bills can be addressed. Bring
-            your application and proof of income to HAVEN any Saturday, or continue
-            with Step 3 of this guide.
-          </>
-        ),
-      });
-    } else {
-      setEligResult({
-        variant: "check",
-        title: "Apply and let YNHH decide",
-        text: "Based on your answers, you may qualify — but your situation has some factors that YNHH will need to evaluate directly. The best thing you can do is apply and provide complete documentation. HAVEN’s MDIC team can review your situation and help you build the strongest application. Come any Saturday or call 203-200-0673.",
-      });
-    }
-  };
-
-  const doneCount = checks.filter(Boolean).length;
-  const pct = Math.round((doneCount / CHECKLIST_ITEMS.length) * 100);
-
-  const resultStyles: Record<string, string> = {
-    likely: "bg-emerald-50 border-emerald-200",
-    maybe: "bg-amber-50 border-amber-200",
-    check: "bg-[#00356b]/5 border-[#00356b]/20",
-  };
-  const resultTitleColor: Record<string, string> = {
-    likely: "text-emerald-800",
-    maybe: "text-amber-900",
-    check: "text-[#00356b]",
-  };
 
   return (
     <div>
-      {/* ── Guide Hero Banner ── */}
-      <div className="w-full bg-[#00356b]">
-        <div className={`${SECTION} py-12 md:py-16`}>
-          <div className={INNER}>
-            <p className="font-['Poppins',sans-serif] font-semibold text-[12px] uppercase tracking-wider text-[#8DC63F] mb-3">
-              Yale New Haven Health · Financial Assistance Program
-            </p>
-            <h2 className="font-['Merriweather',serif] font-bold text-white text-[26px] sm:text-[32px] md:text-[40px] leading-[1.15] mb-4">
-              Free Care is the hospital&apos;s commitment to you.{" "}
-              <span className="text-[#8DC63F] italic">Not insurance.</span>
-            </h2>
-            <p className="font-['Poppins',sans-serif] text-white/75 text-[16px] md:text-[18px] leading-relaxed max-w-[580px] mb-6">
-              Yale New Haven Health (YNHH) has a program called Free Care — a
-              promise to help patients who cannot afford their medical bills. This
-              guide walks you through exactly how to apply, step by step, in plain
-              language. You can do this yourself — and HAVEN is here if you need
-              help.
-            </p>
-            <div className="bg-white/[0.07] border border-white/15 rounded-2xl p-5 md:p-6 max-w-[580px]">
-              <p className="font-['Poppins',sans-serif] font-semibold text-[11px] uppercase tracking-wider text-[#8DC63F] mb-2">
-                The most important thing to understand first
-              </p>
-              <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[15px] leading-relaxed">
-                Free Care is <strong>not health insurance</strong>. It does not
-                replace insurance. It is a financial assistance program — meaning
-                Yale New Haven Health agrees to reduce or eliminate your bill for
-                care you already received, or care you are about to receive,{" "}
-                <em>at their facilities only</em>. You apply for it, and you must
-                renew it approximately every 6 months.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* ── Intro ── */}
+      <div className={`${SECTION} pt-2 md:pt-4 pb-10 md:pb-14`}>
+        <div className={INNER}>
+          <p className={`${DESC} mb-4`}>
+            Free Care is Yale New Haven Health&apos;s commitment to help patients
+            who cannot afford their medical bills. It is{" "}
+            <strong className="text-[#00356b]">not insurance</strong> — it covers
+            care at YNHH facilities only, and you must renew it about every 6
+            months.
+          </p>
 
-      {/* ── Step Navigation ── */}
-      <div className="w-full bg-white border-b border-[#00356b]/10">
-        <div className={`${SECTION} py-4`}>
-          <div className={`${INNER} flex flex-wrap gap-2`}>
-            {STEP_NAV.map((s, i) => (
-              <button
-                key={s.id}
-                onClick={() => scrollToId(s.id)}
-                className="inline-flex items-center gap-2 font-['Poppins',sans-serif] text-[13px] font-medium text-[#00356b]/70 hover:text-[#00356b] hover:bg-[#00356b]/5 px-3 py-1.5 rounded transition-colors"
+          <div className={`${CALLOUT} mb-6`}>
+            <span className="font-bold">Free Care is not insurance.</span> There
+            is no card, and it only applies at Yale New Haven Health facilities.
+            You apply, provide proof of income, and are approved for roughly 6
+            months before renewing. It can be applied to bills you already have,
+            and non-citizens are welcome to apply — immigration status does not
+            disqualify you.
+          </div>
+
+          <p className={`${DESC} mb-6`}>
+            This guide walks you through the application, section by section, so
+            you can complete it yourself.{" "}
+            <strong className="text-[#00356b]">
+              HAVEN&apos;s MDIC team will help you through it the first time.
+            </strong>{" "}
+            After that, for your 6-month renewals, we encourage you to file on
+            your own using this guide — and we&apos;re here whenever you get
+            stuck.
+          </p>
+
+          <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px] mb-3">
+            Download the application guide:
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {DOWNLOADS.map((d) => (
+              <a
+                key={d.label}
+                href={d.href}
+                download
+                className="inline-flex items-center gap-2 border border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-5 py-3 hover:bg-[#00356b]/5 transition-colors"
               >
-                <span className="w-5 h-5 rounded-full border border-[#00356b]/30 flex items-center justify-center text-[11px] font-semibold shrink-0">
-                  {i + 1}
-                </span>
-                {s.label}
-              </button>
+                <Download className="w-4 h-4 shrink-0" />
+                {d.label}
+              </a>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Step 1: What Free Care Is ── */}
-      <div id="fc-what" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
+      <Divider />
+
+      {/* ── Fill out the application ── */}
+      <div className={`${SECTION} py-12 md:py-16`}>
         <div className={INNER}>
-          <p className={`${EYEBROW} text-emerald-700`}>Step 1 — Understand what you&apos;re applying for</p>
-          <h3 className={TITLE}>What Free Care is — and what it is not</h3>
+          <h3 className={TITLE}>
+            How to fill out the application, section by section
+          </h3>
           <p className={DESC}>
-            Before you fill out one line of the application, you need to understand
-            this clearly. Many people are confused about what Free Care does. This
-            confusion leads to disappointment — and sometimes, to people not
-            applying at all. Read this carefully.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 md:p-6">
-              <p className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-emerald-800 text-[16px] mb-3">
-                <Check className="w-5 h-5" strokeWidth={2.5} /> Free Care IS…
-              </p>
-              <div className="font-['Poppins',sans-serif] text-emerald-900/90 text-[14px] md:text-[15px] leading-relaxed space-y-2">
-                <p>A <strong>financial assistance program</strong> run by Yale New Haven Health (YNHH). When approved, YNHH agrees to cover all or part of your medical bills — based on your income.</p>
-                <p>Available to patients who receive care at <strong>YNHH facilities</strong> — including Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated clinics.</p>
-                <p><strong>Free or discounted</strong> depending on your income level. You apply once and are approved for approximately 6 months, then you renew.</p>
-                <p>Available to <strong>non-citizens</strong> — immigration status does not disqualify you.</p>
-              </div>
-            </div>
-            <div className="bg-red-50 border border-red-200 rounded-2xl p-5 md:p-6">
-              <p className="flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-red-700 text-[16px] mb-3">
-                <X className="w-5 h-5" strokeWidth={2.5} /> Free Care is NOT…
-              </p>
-              <div className="font-['Poppins',sans-serif] text-red-800/90 text-[14px] md:text-[15px] leading-relaxed space-y-2">
-                <p><strong>Not health insurance.</strong> It does not give you a card to use at any doctor. It only applies to YNHH facilities — nowhere else.</p>
-                <p><strong>Not permanent.</strong> You must renew approximately every 6 months. If you miss renewal, coverage may lapse even mid-treatment.</p>
-                <p><strong>Not automatic.</strong> You must apply, provide proof of income, and be approved. It is not given to everyone — you must qualify.</p>
-                <p><strong>Not a replacement for HUSKY.</strong> If you qualify for Connecticut Medicaid (HUSKY), you should apply for that too. Ask HAVEN’s MDIC team for help with both.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto mt-8">
-            <table className="w-full border-collapse font-['Poppins',sans-serif] text-[14px] md:text-[15px]">
-              <thead>
-                <tr>
-                  <th className="bg-[#00356b] text-white text-left font-semibold px-4 py-2.5">Question</th>
-                  <th className="bg-[#00356b] text-white text-left font-semibold px-4 py-2.5">Free Care (YNHH FAP)</th>
-                  <th className="bg-[#00356b] text-white text-left font-semibold px-4 py-2.5">Health Insurance (HUSKY / Medicaid)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARE_ROWS.map(([q, a, b], i) => (
-                  <tr key={q} className={i % 2 ? "bg-[#f7f9fc]" : ""}>
-                    <td className="px-4 py-2.5 border-b border-[#00356b]/10 align-top text-black/80">{q}</td>
-                    <td className="px-4 py-2.5 border-b border-[#00356b]/10 align-top text-black/80">{a}</td>
-                    <td className="px-4 py-2.5 border-b border-[#00356b]/10 align-top text-black/80">{b}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-[#00356b]/5 border border-[#00356b]/20 rounded-2xl px-5 py-4 mt-6">
-            <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] mb-1">HAVEN can help you with both</p>
-            <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed">
-              Our Medical Debt and Insurance Counseling (MDIC) team helps patients
-              apply for Free Care AND screen for HUSKY eligibility. You do not have
-              to choose one — you may qualify for both. Ask at your next Saturday
-              visit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className={SECTION}><div className={INNER}><div className="w-full h-px bg-[#00356b]/10" /></div></div>
-
-      {/* ── Step 2: Eligibility ── */}
-      <div id="fc-eligible" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
-        <div className={INNER}>
-          <p className={`${EYEBROW} text-[#534AB7]`}>Step 2 — Check if you likely qualify</p>
-          <h3 className={TITLE}>Do I qualify for Free Care?</h3>
-          <p className={DESC}>
-            Answer these quick questions to get a sense of your eligibility. This
-            is not an official determination — only YNHH makes that. But it will
-            help you understand whether applying makes sense.
-          </p>
-
-          <div className="flex flex-col gap-3 mt-8">
-            {ELIG_QUESTIONS.map((q) => (
-              <div key={q.key} className="bg-[#f7f9fc] border border-[#00356b]/10 rounded-2xl p-5">
-                <p className="font-['Poppins',sans-serif] font-medium text-[#00356b] text-[15px] md:text-[16px] mb-3">{q.text}</p>
-                <div className="flex flex-wrap gap-2">
-                  {q.opts.map((o) => {
-                    const selected = eligAnswers[q.key] === o.v;
-                    return (
-                      <button
-                        key={o.v}
-                        onClick={() => {
-                          setEligAnswers((p) => ({ ...p, [q.key]: o.v }));
-                          setEligResult(null);
-                        }}
-                        className={`font-['Poppins',sans-serif] text-[13px] md:text-[14px] font-medium px-4 py-1.5 rounded-full border transition-colors ${
-                          selected
-                            ? o.positive
-                              ? "bg-emerald-50 border-emerald-400 text-emerald-800"
-                              : "bg-amber-50 border-amber-400 text-amber-900"
-                            : "bg-white border-[#00356b]/20 text-black/60 hover:border-emerald-400 hover:text-emerald-800"
-                        }`}
-                      >
-                        {o.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={checkEligibility}
-            className="mt-5 inline-flex items-center font-['Poppins',sans-serif] font-semibold text-[15px] text-white bg-[#00356b] px-7 py-3 hover:bg-[#4a90c4] transition-colors"
-          >
-            Check my eligibility →
-          </button>
-
-          {eligResult && (
-            <div className={`rounded-2xl border px-5 py-5 mt-5 ${resultStyles[eligResult.variant]}`}>
-              <p className={`font-['Poppins',sans-serif] font-semibold text-[16px] mb-1.5 ${resultTitleColor[eligResult.variant]}`}>
-                {eligResult.title}
-              </p>
-              <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed">
-                {eligResult.text}
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className={SECTION}><div className={INNER}><div className="w-full h-px bg-[#00356b]/10" /></div></div>
-
-      {/* ── Step 3: Form Walkthrough ── */}
-      <div id="fc-guide" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
-        <div className={INNER}>
-          <p className={`${EYEBROW} text-[#00356b]`}>Step 3 — Fill out the application</p>
-          <h3 className={TITLE}>How to fill out the Free Care application, field by field</h3>
-          <p className={DESC}>
-            The official form is the <strong>YNHH Application for Financial
-            Assistance Programs (Form F6304)</strong>. Below is every section of
-            the form explained in plain language. Tap each section to expand it.
+            The official form is the{" "}
+            <strong className="text-[#00356b]">
+              YNHH Application for Financial Assistance Programs (Form F6304)
+            </strong>
+            . Below is every section of the form explained in plain language. Tap
+            each one to expand it.
           </p>
           <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-2">
-            If you need the actual form: ask HAVEN&apos;s MDIC team at any Saturday
-            clinic, or call YNHH at <strong>855-547-4584</strong>.
+            Need the form itself? Download it above, ask HAVEN&apos;s MDIC team at
+            any Saturday clinic, or call YNHH at <strong>855-547-4584</strong>.
           </p>
 
           <div className="mt-8 space-y-4">
             {FORM_STEPS.map((s, i) => {
               const open = openStep === i;
               return (
-                <div key={s.num} className={`bg-white border rounded-2xl overflow-hidden transition-shadow ${open ? "shadow-md border-[#00356b]/20" : "border-[#00356b]/15"}`}>
+                <div
+                  key={s.num}
+                  className={`bg-white border overflow-hidden ${open ? "border-[#00356b]/30" : "border-[#00356b]/20"}`}
+                >
                   <button
                     onClick={() => setOpenStep(open ? null : i)}
                     aria-expanded={open}
-                    className="w-full flex items-start gap-4 px-5 md:px-6 py-5 text-left"
+                    className="w-full flex items-start gap-4 px-5 md:px-6 py-5 text-left hover:bg-[#00356b]/5 transition-colors"
                   >
                     <span className="w-10 h-10 rounded-full bg-[#00356b] text-white font-['Merriweather',serif] flex items-center justify-center shrink-0 mt-0.5">
                       {s.num}
                     </span>
                     <span className="flex-1 min-w-0">
-                      <span className="block font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[17px]">{s.title}</span>
-                      <span className="block font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-0.5">{s.subtitle}</span>
+                      <span className="block font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[17px]">
+                        {s.title}
+                      </span>
+                      <span className="block font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-0.5">
+                        {s.subtitle}
+                      </span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 shrink-0 mt-1 text-[#00356b] transition-transform duration-300 ${open ? "rotate-180" : ""}`} strokeWidth={2.5} />
+                    <ChevronDown
+                      className={`w-5 h-5 shrink-0 mt-1 text-[#00356b] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                      strokeWidth={2.5}
+                    />
                   </button>
 
                   {open && (
                     <div className="px-5 md:px-6 pb-6">
-                      <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed bg-[#f7f9fc] rounded-lg p-4 mb-5">{s.intro}</p>
+                      <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed bg-[#f7f9fc] p-4 mb-5">
+                        {s.intro}
+                      </p>
 
                       {s.incomeTable && (
                         <div className="overflow-x-auto my-4">
@@ -566,7 +311,7 @@ export function FreeCareGuide() {
                               {INCOME_ROWS.map(([type, inc, ex, yes], idx) => (
                                 <tr key={type} className={idx % 2 ? "bg-[#f7f9fc]" : ""}>
                                   <td className="px-3 py-2 border-b border-[#00356b]/10 align-top text-black/80">{type}</td>
-                                  <td className={`px-3 py-2 border-b border-[#00356b]/10 align-top font-medium ${yes ? "text-emerald-700" : "text-black/40"}`}>
+                                  <td className={`px-3 py-2 border-b border-[#00356b]/10 align-top font-medium ${yes ? "text-[#00356b]" : "text-black/40"}`}>
                                     {yes ? "✓ " : "✗ "}{inc}
                                   </td>
                                   <td className="px-3 py-2 border-b border-[#00356b]/10 align-top text-black/60">{ex}</td>
@@ -583,28 +328,28 @@ export function FreeCareGuide() {
 
                       <div className="space-y-3">
                         {s.fields.map((f) => (
-                          <div key={f.name} className="border border-[#00356b]/10 rounded-lg overflow-hidden">
+                          <div key={f.name} className="border border-[#00356b]/15 overflow-hidden">
                             <div className="flex items-center justify-between gap-3 px-4 py-3 bg-[#f7f9fc]">
                               <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[14px] md:text-[15px]">{f.name}</p>
-                              <span className={`font-['Poppins',sans-serif] font-semibold text-[11px] px-2 py-0.5 rounded-full shrink-0 ${f.required ? "bg-red-50 text-red-600" : "bg-emerald-50 text-emerald-700"}`}>
+                              <span className={`font-['Poppins',sans-serif] font-semibold text-[11px] px-2 py-0.5 shrink-0 ${f.required ? "bg-[#00356b] text-white" : "bg-[#00356b]/10 text-[#00356b]"}`}>
                                 {f.required ? "Required" : "Optional"}
                               </span>
                             </div>
                             <div className="px-4 py-3 space-y-2.5">
                               <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[15px] leading-relaxed">{f.what}</p>
                               {f.example && (
-                                <p className="font-['Poppins',sans-serif] text-emerald-800 text-[13px] md:text-[14px] italic bg-emerald-50 rounded px-3 py-2">
-                                  <span className="font-semibold not-italic">Example: </span>{f.example}
+                                <p className="font-['Poppins',sans-serif] text-black/80 text-[13px] md:text-[14px] bg-[#00356b]/5 border-l-2 border-[#00356b] px-3 py-2">
+                                  <span className="font-semibold text-[#00356b]">Example: </span>{f.example}
                                 </p>
                               )}
                               {f.tip && (
-                                <p className="font-['Poppins',sans-serif] text-amber-900 text-[13px] md:text-[14px] bg-amber-50 rounded px-3 py-2">
-                                  <span className="font-semibold">💡 Tip: </span>{f.tip}
+                                <p className="font-['Poppins',sans-serif] text-black/80 text-[13px] md:text-[14px] bg-[#00356b]/5 border-l-2 border-[#00356b] px-3 py-2">
+                                  <span className="font-semibold text-[#00356b]">Tip: </span>{f.tip}
                                 </p>
                               )}
                               {f.warning && (
-                                <p className="font-['Poppins',sans-serif] text-red-700 text-[13px] md:text-[14px] bg-red-50 rounded px-3 py-2">
-                                  <span className="font-semibold">⚠ </span>{f.warning}
+                                <p className="font-['Poppins',sans-serif] text-black/80 text-[13px] md:text-[14px] bg-[#00356b]/10 border-l-2 border-[#00356b] px-3 py-2">
+                                  <span className="font-semibold text-[#00356b]">Important: </span>{f.warning}
                                 </p>
                               )}
                             </div>
@@ -620,39 +365,37 @@ export function FreeCareGuide() {
         </div>
       </div>
 
-      <div className={SECTION}><div className={INNER}><div className="w-full h-px bg-[#00356b]/10" /></div></div>
+      <Divider />
 
-      {/* ── Step 4: Proof of Income ── */}
-      <div id="fc-proof" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
+      {/* ── Proof of Income ── */}
+      <div className={`${SECTION} py-12 md:py-16`}>
         <div className={INNER}>
-          <p className={`${EYEBROW} text-amber-700`}>Step 4 — Gather your proof of income</p>
-          <h3 className={TITLE}>What counts as proof of income — and how to get it</h3>
+          <h3 className={TITLE}>Proof of income</h3>
           <p className={DESC}>
-            This is the step most people get stuck on. Your proof of income shows
-            YNHH how much money your household earns. You must attach it to your
-            application — without it, your application will be incomplete. Find your
-            situation below.
+            This is the step people most often get wrong — a missing or incorrect
+            proof of income is the most common reason an application stalls. You
+            must attach proof of income to your application. Find your situation
+            below.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             {POI_CARDS.map((c) => (
-              <div key={c.situation} className="bg-white border border-[#00356b]/15 rounded-2xl p-5">
+              <div key={c.situation} className="bg-white border border-[#00356b]/20 p-5">
                 <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center mb-3">
                   <c.icon className="w-5 h-5 text-[#00356b]" />
                 </div>
-                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b]/70 text-[11px] uppercase tracking-wide mb-1.5">{c.situation}</p>
-                <p className="font-['Poppins',sans-serif] font-semibold text-emerald-800 text-[15px] mb-1.5">{c.doc}</p>
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b]/60 text-[11px] uppercase tracking-wide mb-1.5">{c.situation}</p>
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] mb-1.5">{c.doc}</p>
                 <p className="font-['Poppins',sans-serif] text-black/60 text-[13px] leading-relaxed">{c.detail}</p>
               </div>
             ))}
           </div>
 
-          {/* Letter templates */}
           <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[12px] uppercase tracking-wider mt-10 mb-5">
             Letter templates — fill in the blanks and have the person sign
           </p>
 
-          <div className="bg-white border border-[#00356b]/15 border-l-4 border-l-[#00356b] rounded-xl p-5 mb-4">
+          <div className="bg-white border border-[#00356b]/20 border-l-4 border-l-[#00356b] p-5 mb-4">
             <p className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[12px] uppercase tracking-wide mb-4">Letter written by your employer (if paid in cash)</p>
             <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] leading-[2]">
               [Your Employer&apos;s Letterhead if they have one]<br /><br />
@@ -665,8 +408,8 @@ export function FreeCareGuide() {
             </p>
           </div>
 
-          <div className="bg-white border border-[#00356b]/15 border-l-4 border-l-[#534AB7] rounded-xl p-5">
-            <p className="font-['Poppins',sans-serif] font-bold text-[#534AB7] text-[12px] uppercase tracking-wide mb-4">Letter written by the person who supports you financially</p>
+          <div className="bg-white border border-[#00356b]/20 border-l-4 border-l-[#00356b] p-5">
+            <p className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[12px] uppercase tracking-wide mb-4">Letter written by the person who supports you financially</p>
             <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] leading-[2]">
               <TplBlank>[Today&apos;s date]</TplBlank><br /><br />
               To whom it may concern,<br /><br />
@@ -677,148 +420,92 @@ export function FreeCareGuide() {
             </p>
           </div>
 
-          <div className="bg-emerald-50 rounded-xl p-5 mt-5">
-            <p className="font-['Poppins',sans-serif] font-semibold text-emerald-800 text-[14px] md:text-[15px]">How to submit your proof of income:</p>
-            <p className="font-['Poppins',sans-serif] text-emerald-800 text-[14px] md:text-[15px] mt-1.5 flex items-center gap-2"><Mail className="w-4 h-4 shrink-0" /> Email photos to: <strong>hfc.billing@yale.edu</strong></p>
-            <p className="font-['Poppins',sans-serif] text-emerald-800 text-[14px] md:text-[15px] flex items-center gap-2"><MapPin className="w-4 h-4 shrink-0" /> Drop off in person at HAVEN clinic any Saturday, 8:30 AM – 1:00 PM</p>
+          <div className={`${CALLOUT} mt-5`}>
+            <span className="font-bold">Submitting your proof of income:</span>{" "}
+            email photos or scans to{" "}
+            <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">hfc.billing@yale.edu</a>,
+            or drop it off at HAVEN any Saturday, 8:30 AM – 1:00 PM.
           </div>
         </div>
       </div>
 
-      <div className={SECTION}><div className={INNER}><div className="w-full h-px bg-[#00356b]/10" /></div></div>
+      <Divider />
 
-      {/* ── Step 5: Checklist ── */}
-      <div id="fc-checklist" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
+      {/* ── How to Submit ── */}
+      <div className={`${SECTION} py-12 md:py-16`}>
         <div className={INNER}>
-          <p className={`${EYEBROW} text-emerald-700`}>Step 5 — Make sure you have everything</p>
-          <h3 className={TITLE}>Application checklist</h3>
+          <h3 className={TITLE}>How to submit your application</h3>
           <p className={DESC}>
-            Check off each item as you complete it. Your application will not be
-            processed without all required items.
-          </p>
-
-          <div className="bg-[#f7f9fc] rounded-xl px-5 py-4 mt-6 flex items-center justify-between">
-            <span className="font-['Poppins',sans-serif] text-black/60 text-[14px] md:text-[15px]">{doneCount} of {CHECKLIST_ITEMS.length} completed</span>
-            <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px]">{doneCount} / {CHECKLIST_ITEMS.length}</span>
-          </div>
-          <div className="h-1.5 bg-[#00356b]/10 rounded-full my-2 overflow-hidden">
-            <div className="h-full bg-emerald-500 rounded-full transition-all duration-300" style={{ width: `${pct}%` }} />
-          </div>
-
-          <div className="flex flex-col gap-2.5 mt-5">
-            {CHECKLIST_ITEMS.map((item, i) => {
-              const on = checks[i];
-              return (
-                <button
-                  key={item}
-                  onClick={() => setChecks((p) => p.map((v, idx) => (idx === i ? !v : v)))}
-                  aria-pressed={on}
-                  className={`flex items-start gap-3.5 text-left px-4 py-3.5 rounded-lg border transition-colors ${on ? "bg-emerald-50 border-emerald-200" : "bg-[#f7f9fc] border-[#00356b]/10 hover:border-emerald-300"}`}
-                >
-                  <span className={`w-[22px] h-[22px] rounded-md border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${on ? "bg-emerald-500 border-emerald-500 text-white" : "border-[#00356b]/25"}`}>
-                    {on && <Check className="w-3.5 h-3.5" strokeWidth={3} />}
-                  </span>
-                  <span className={`font-['Poppins',sans-serif] text-[14px] md:text-[15px] leading-relaxed ${on ? "text-emerald-800" : "text-black/80"}`}>{item}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div className={SECTION}><div className={INNER}><div className="w-full h-px bg-[#00356b]/10" /></div></div>
-
-      {/* ── Step 6: Submit ── */}
-      <div id="fc-submit" className={`${SECTION} scroll-mt-24 py-12 md:py-16`}>
-        <div className={INNER}>
-          <p className={`${EYEBROW} text-[#185FA5]`}>Step 6 — Submit your application</p>
-          <h3 className={TITLE}>Three ways to submit — choose what works for you</h3>
-          <p className={DESC}>
-            YNHH gives you options to submit your completed application. All require
-            your signed application AND your proof of income attached.
+            YNHH gives you several ways to submit. All require your signed
+            application and your proof of income attached.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             {SUBMIT_CARDS.map((c) => (
-              <div key={c.title} className="bg-white border border-[#00356b]/15 rounded-2xl p-6 text-center flex flex-col items-center">
+              <div key={c.title} className="bg-white border border-[#00356b]/20 p-6 text-center flex flex-col items-center">
                 <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center mb-3">
                   <c.icon className="w-6 h-6 text-[#00356b]" />
                 </div>
                 <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] mb-1.5">{c.title}</p>
                 <p className="font-['Poppins',sans-serif] text-black/60 text-[14px] leading-relaxed mb-4">{c.desc}</p>
-                <p className="font-['Poppins',sans-serif] font-medium text-emerald-800 text-[14px] bg-emerald-50 px-4 py-2 rounded-lg whitespace-pre-line">{c.detail}</p>
+                <p className="font-['Poppins',sans-serif] font-medium text-[#00356b] text-[14px] bg-[#00356b]/5 px-4 py-2 whitespace-pre-line">{c.detail}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-red-50 border border-red-200 rounded-2xl px-5 py-4 mt-6">
-            <p className="font-['Poppins',sans-serif] font-semibold text-red-700 text-[15px] mb-1.5">After you submit — what to expect</p>
-            <p className="font-['Poppins',sans-serif] text-red-800/90 text-[14px] md:text-[15px] leading-relaxed">
-              Processing typically takes 2–4 weeks. YNHH will contact you by mail or
-              phone with your determination. If you are approved, you will receive a
-              letter stating your coverage level. <strong>Keep this letter safe — you
-              will need it for future YNHH appointments.</strong> If you are denied,
-              contact HAVEN’s MDIC team — we can help you understand why and whether
-              to appeal.
-            </p>
+          <div className={`${CALLOUT} mt-6`}>
+            <span className="font-bold">After you submit:</span> processing
+            usually takes 2–4 weeks. YNHH will contact you by mail or phone with
+            your decision. If you are approved, keep your approval letter safe —
+            you will need it at future YNHH appointments. If you are denied,
+            contact HAVEN&apos;s MDIC team; we can help you understand why and
+            whether to appeal.
           </div>
         </div>
       </div>
 
-      {/* ── Renewal Timeline ── */}
-      <div className="w-full bg-[#00356b]">
-        <div className={`${SECTION} py-12 md:py-16`}>
-          <div className={`${INNER} grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center`}>
-            <div>
-              <p className="font-['Poppins',sans-serif] font-semibold text-[12px] uppercase tracking-wider text-[#8DC63F] mb-2">Don&apos;t forget — Free Care expires</p>
-              <h3 className="font-['Merriweather',serif] font-bold text-white text-[24px] md:text-[28px] mb-3">You must renew every 6 months</h3>
-              <p className="font-['Poppins',sans-serif] text-white/70 text-[15px] md:text-[16px] leading-relaxed">
-                Free Care is not a one-time approval. YNHH reassesses your
-                eligibility approximately every 6 months. If you miss your renewal
-                window, your coverage lapses — even if you are in the middle of
-                treatment. Set a reminder now.
-              </p>
-              <div className="mt-5 bg-[#8DC63F]/10 border border-[#8DC63F]/25 rounded-lg px-4 py-3">
-                <p className="font-['Poppins',sans-serif] text-white/90 text-[14px] md:text-[15px] leading-relaxed">
-                  <strong className="text-[#8DC63F]">HAVEN&apos;s MDIC team will remind you.</strong> When you apply through HAVEN, we track your renewal date and alert you when it is time to re-apply. You do not have to remember on your own.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              {RENEWAL_STEPS.map((r) => (
-                <div key={r.label} className="flex items-center gap-3.5 px-4 py-3 bg-white/[0.05] border border-white/10 rounded-lg">
-                  <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${r.color}`} />
-                  <p className="font-['Poppins',sans-serif] text-white/80 text-[14px] leading-snug">
-                    <strong className="text-white">{r.label}</strong> {r.text}
-                  </p>
-                </div>
-              ))}
-            </div>
+      <Divider />
+
+      {/* ── Renewing your coverage ── */}
+      <div className={`${SECTION} py-12 md:py-16`}>
+        <div className={INNER}>
+          <h3 className={TITLE}>Renewing your coverage</h3>
+          <div className={CALLOUT}>
+            <span className="font-bold">
+              Free Care expires — you must renew about every 6 months.
+            </span>{" "}
+            It is not a one-time approval. If you miss your renewal window, your
+            coverage lapses, even in the middle of treatment. When you apply
+            through HAVEN, our MDIC team tracks your renewal date and reminds you
+            when it is time. Renewals are the best time to file on your own using
+            this guide — the process is the same, and you already have everything
+            you need.
           </div>
         </div>
       </div>
+
+      <Divider />
 
       {/* ── FAQ ── */}
       <div className={`${SECTION} py-12 md:py-16`}>
         <div className={INNER}>
-          <p className={`${EYEBROW} text-[#00356b]`}>Common questions</p>
-          <h3 className={TITLE}>Questions patients ask most</h3>
+          <h3 className={TITLE}>Frequently asked questions</h3>
 
           <div className="flex flex-col gap-2.5 mt-6">
             {FAQS.map((f, i) => {
               const open = !!openFaq[i];
               return (
-                <div key={i} className="border border-[#00356b]/15 rounded-lg overflow-hidden">
+                <div key={i} className="border border-[#00356b]/20">
                   <button
                     onClick={() => setOpenFaq((p) => ({ ...p, [i]: !p[i] }))}
                     aria-expanded={open}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left hover:bg-[#f7f9fc] transition-colors"
+                    className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-[#00356b]/5 transition-colors"
                   >
-                    <span className="font-['Poppins',sans-serif] font-medium text-[#00356b] text-[15px] md:text-[16px]">{f.q}</span>
-                    <Plus className={`w-5 h-5 shrink-0 transition-transform duration-200 ${open ? "rotate-45 text-emerald-600" : "text-[#00356b]/50"}`} strokeWidth={2.5} />
+                    <span className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px]">{f.q}</span>
+                    <ChevronDown className={`w-5 h-5 shrink-0 text-[#00356b] transition-transform duration-300 ${open ? "rotate-180" : ""}`} strokeWidth={2.5} />
                   </button>
                   {open && (
-                    <div className="px-4 pb-4 pt-1 bg-[#f7f9fc] font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed [&_strong]:font-semibold [&_strong]:text-[#00356b]">
+                    <div className="px-5 pb-5 pt-1 font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed [&_strong]:font-semibold [&_strong]:text-[#00356b]">
                       {f.a}
                     </div>
                   )}
@@ -830,16 +517,16 @@ export function FreeCareGuide() {
       </div>
 
       {/* ── Help Bar ── */}
-      <div className="w-full bg-emerald-50 border-y border-emerald-200">
+      <div className="w-full bg-[#00356b]/5 border-y border-[#00356b]/15">
         <div className={`${SECTION} py-5`}>
           <div className={`${INNER} flex flex-col md:flex-row md:items-center md:justify-between gap-3`}>
-            <p className="font-['Poppins',sans-serif] font-medium text-emerald-800 text-[14px] md:text-[15px]">
+            <p className="font-['Poppins',sans-serif] font-medium text-[#00356b] text-[14px] md:text-[15px]">
               Need help with your Free Care application? HAVEN&apos;s MDIC team is here every Saturday.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <a href="tel:2032000673" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-emerald-800 text-[14px]"><Phone className="w-4 h-4" /> <strong>203-200-0673</strong></a>
-              <a href="mailto:hfc.billing@yale.edu" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-emerald-800 text-[14px]"><Mail className="w-4 h-4" /> <strong>hfc.billing@yale.edu</strong></a>
-              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-emerald-800 text-[14px]"><AlertTriangle className="w-4 h-4" /> <strong>Saturdays 8:30 AM – 1:00 PM</strong></span>
+              <a href="tel:2032000673" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Phone className="w-4 h-4" /> <strong>203-200-0673</strong></a>
+              <a href="mailto:hfc.billing@yale.edu" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Mail className="w-4 h-4" /> <strong>hfc.billing@yale.edu</strong></a>
+              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 1:00 PM</strong></span>
             </div>
           </div>
         </div>
