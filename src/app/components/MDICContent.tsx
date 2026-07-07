@@ -31,7 +31,7 @@ function LanguageDownloadDropdown({
   }, []);
 
   return (
-    <div ref={ref} className="relative inline-block">
+    <div ref={ref} className="inline-block">
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -46,7 +46,7 @@ function LanguageDownloadDropdown({
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 bg-white shadow-xl border border-gray-200 py-1 min-w-[200px] z-50">
+        <div className="mt-1 bg-white shadow-xl border border-gray-200 py-1 min-w-[200px]">
           {docs.map((doc) => (
             <a
               key={doc.label}
@@ -337,36 +337,6 @@ export function MDICContent() {
             and we&apos;ll help you figure out which bill is which.
           </p>
 
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
-            Whichever bill you receive, here are the key parts to look for:
-          </p>
-          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-3 list-disc pl-6 md:pl-8 mb-6">
-            <li>
-              <span className="font-semibold">Guarantor &amp; account number</span> — the
-              person responsible for the balance and the account the charges
-              belong to. Have these ready whenever you call with questions.
-            </li>
-            <li>
-              <span className="font-semibold">Statement date &amp; date of service</span> — when
-              the statement was issued and when you received care. (For privacy,
-              the date and type of service may only appear after you log in to
-              MyChart.)
-            </li>
-            <li>
-              <span className="font-semibold">Charges</span> — the full cost of the
-              services provided before any insurance or assistance is applied.
-            </li>
-            <li>
-              <span className="font-semibold">Payments &amp; adjustments</span> — amounts
-              already paid by you or your insurance, plus any discounts or
-              financial assistance credited to the account.
-            </li>
-            <li>
-              <span className="font-semibold">Balance / amount due</span> — what is still
-              owed after payments and adjustments. This is the figure to review
-              before paying or asking for help.
-            </li>
-          </ul>
           <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
             <p>
               <span className="font-bold">Need help reading either bill?</span>{" "}
@@ -417,68 +387,19 @@ export function MDICContent() {
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
             Application Assistance
           </h3>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
-            We provide hands-on support for applying to the following programs:
-          </p>
-          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-3 list-disc pl-6 md:pl-8 mb-8">
-            <li>
-              <span className="font-semibold">Medicaid &amp; HUSKY</span> —
-              Connecticut&apos;s public health insurance programs for qualifying
-              low-income individuals and families.
-            </li>
-            <li>
-              <span className="font-semibold">YNHH Financial Assistance</span> —
-              Yale New Haven Hospital&apos;s program to provide free or
-              reduced-cost care to patients who qualify based on income.
-            </li>
-          </ul>
-
-          {/* What You'll Need: Proof of Income */}
-          <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[19px] md:text-[22px] mb-3">
-            What You&apos;ll Need: Proof of Income
-          </h4>
-          <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-4">
-            Both Medicaid/HUSKY and YNHH Financial Assistance require proof of
-            income as part of the application process. This applies to you and,
-            if applicable, your spouse or household members. Commonly accepted
-            documents include:
-          </p>
-          <ul className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-2 list-disc pl-6 md:pl-8 mb-4">
-            <li>Recent pay stubs (typically the last 2–4)</li>
-            <li>Most recent federal tax return</li>
-            <li>Social Security award letters or benefit statements</li>
-            <li>Documentation of any other household income sources</li>
-          </ul>
-          <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-8">
-            Our MDIC team will walk you through exactly what is needed for your
-            specific situation. If you are unsure what applies to you, reach out
-            at{" "}
-            <a
-              href="mailto:hfc.billing@yale.edu"
-              className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
-            >
-              hfc.billing@yale.edu
-            </a>{" "}
-            before your appointment and we will help you prepare.
-          </p>
-
-          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-4 mb-10 md:mb-12 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
-            <span className="font-bold">
-              Important: YNHH Financial Assistance is not insurance.
-            </span>{" "}
-            It is Yale New Haven Hospital&apos;s commitment to ensuring that
-            patients who cannot afford care still receive it. It covers services
-            at YNHH facilities but does not function like a health insurance plan
-            and is not transferable to other providers.
-          </div>
-
           <div className="space-y-4">
             <ResourceDropdown title="YNHH Financial Assistance">
               <p>
-                Yale New Haven Hospital offers financial assistance to eligible patients. MDIC can help you navigate the application process.
+                Yale New Haven Hospital&apos;s program provides free or reduced-cost care to patients who qualify based on income. MDIC can help you navigate the application process at no cost.
+              </p>
+              <p>
+                <span className="font-semibold">Not insurance:</span> It covers services at YNHH facilities but does not function like a health insurance plan and is not transferable to other providers.
+              </p>
+              <p>
+                <span className="font-semibold">Proof of income</span> is required — for you and, if applicable, household members. Recent pay stubs, your most recent federal tax return, or Social Security benefit statements are commonly accepted.
               </p>
               <p className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-4 py-3 text-[14px] md:text-[16px]">
-                <span className="font-bold">Remember:</span> YNHH Financial Assistance coverage expires every 6 months. You must renew before your coverage lapses to maintain uninterrupted free care. Contact MDIC ahead of your expiration date to start the renewal.
+                <span className="font-bold">Remember:</span> Coverage expires every 6 months. You must renew before it lapses to maintain uninterrupted free care, and renewal can take 6 to 8 weeks — contact MDIC ahead of your expiration date to start the process.
               </p>
               <p>
                 Download the guide in your preferred language:
@@ -495,10 +416,13 @@ export function MDICContent() {
 
             <ResourceDropdown title="Medicaid / HUSKY">
               <p>
-                Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible individuals and families.
+                Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible low-income individuals and families.
               </p>
               <p>
-                MDIC can help you determine your eligibility and assist with the application process. Contact us at{" "}
+                <span className="font-semibold">Proof of income</span> is required as part of the application — recent pay stubs, your most recent federal tax return, or Social Security benefit statements.
+              </p>
+              <p>
+                MDIC can help you determine your eligibility and assist with the application process at no cost. Contact us at{" "}
                 <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">
                   hfc.billing@yale.edu
                 </a>{" "}
@@ -523,9 +447,9 @@ export function MDICContent() {
           </h3>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed max-w-[680px] mx-auto">
             A complete, plain-language walkthrough of the Yale New Haven Health
-            Financial Assistance (Free Care) application — what it is, whether you
-            qualify, how to fill out every section, and how to submit. You can do
-            this yourself, and our MDIC team is here to help.
+            Financial Assistance (Free Care) application — what it is, how to fill
+            out every section, and how to submit. You can do this yourself, and
+            our MDIC team is here to help.
           </p>
           <div className="flex justify-center mt-5">
             <ArrowDown className="w-6 h-6 text-[#00356b]/40" />
