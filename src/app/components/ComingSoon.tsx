@@ -101,6 +101,17 @@ export function ComingSoon() {
             Donate &#10084;
           </a>
         </div>
+
+        {/* Recruitment note */}
+        <p className="mt-8 font-['Poppins',sans-serif] text-[#64748b] text-[13px] md:text-[14px] text-center leading-relaxed max-w-xl">
+          For all recruitment related inquiries, please contact{" "}
+          <a
+            href="mailto:hfc.recruitment@yale.edu"
+            className="text-[#00356b] font-semibold hover:underline break-all"
+          >
+            hfc.recruitment@yale.edu
+          </a>
+        </p>
       </main>
 
       <footer className="py-6 text-center">
