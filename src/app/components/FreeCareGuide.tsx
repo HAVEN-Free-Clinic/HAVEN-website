@@ -39,79 +39,79 @@ interface FormStep {
 const FORM_STEPS: FormStep[] = [
   {
     num: 1,
-    title: "Section 1 — Patient information",
-    subtitle: "Your basic personal details — about 2 minutes to complete",
+    title: "Section 1: Patient information",
+    subtitle: "Your basic personal details, about 2 minutes to complete",
     intro:
-      'This is the top of the application. It identifies who is applying. Fill out every line — leave nothing blank. If you don’t have a medical record number, write "N/A" — it is not required.',
+      'This is the top of the application. It identifies who is applying. Fill out every line. Leave nothing blank. If you don’t have a medical record number, write "N/A". It is not required.',
     fields: [
-      { name: "Last name and First name", required: true, what: "Write your legal name exactly as it appears on any ID or medical paperwork. Use the same name consistently — misspellings can slow processing.", example: "García, Maria", tip: "Use your full legal name, not a nickname." },
-      { name: "Street address, City, State, Zip code", required: true, what: "Write your current home address. If you stay with someone else, use their address. YNHH will mail your approval letter here — make sure it is correct.", example: "123 Grand Ave, New Haven, CT 06511", tip: "If your mailing address is different from where you live, note both." },
+      { name: "Last name and First name", required: true, what: "Write your legal name exactly as it appears on any ID or medical paperwork. Use the same name consistently. Misspellings can slow processing.", example: "García, Maria", tip: "Use your full legal name, not a nickname." },
+      { name: "Street address, City, State, Zip code", required: true, what: "Write your current home address. If you stay with someone else, use their address. YNHH will mail your approval letter here. Make sure it is correct.", example: "123 Grand Ave, New Haven, CT 06511", tip: "If your mailing address is different from where you live, note both." },
       { name: "Date of birth", required: true, what: "Write your birth date in MM/DD/YYYY format.", example: "03/15/1980" },
       { name: "Telephone number", required: true, what: "A number where YNHH can reach you. If you don’t have a personal phone, write a number of someone who can give you a message.", example: "(203) 555-0100", tip: "YNHH may call you to verify information or inform you of your decision." },
-      { name: "Medical record number", required: false, what: "This is a number assigned by YNHH when you receive care there. You can find it on any YNHH bill, discharge papers, or by calling 855-547-4584. If you don’t have it, leave it blank — it is optional.", example: "MRN: 1234567", tip: "Check the top of any YNHH bill — the MRN is usually printed there." },
+      { name: "Medical record number", required: false, what: "This is a number assigned by YNHH when you receive care there. You can find it on any YNHH bill, discharge papers, or by calling 855-547-4584. If you don’t have it, leave it blank. It is optional.", example: "MRN: 1234567", tip: "Check the top of any YNHH bill. The MRN is usually printed there." },
     ],
   },
   {
     num: 2,
-    title: "Section 2 — Family information",
-    subtitle: "List the people who depend on you — spouse and children only",
+    title: "Section 2: Family information",
+    subtitle: "List the people who depend on you: spouse and children only",
     intro:
-      "This section asks about your household. YNHH uses this to calculate your household size, which affects your eligibility level. Be accurate — household size matters significantly.",
+      "This section asks about your household. YNHH uses this to calculate your household size, which affects your eligibility level. Be accurate. Household size matters significantly.",
     fields: [
-      { name: "Name of family member", required: true, what: "List your legal spouse AND any dependent children who live with you. “Dependent” means they rely on your household for financial support — typically children under 18 or full-time students.", example: "García, Luis (spouse) | García, Sofia (daughter)", warning: "Do NOT include: non-married partners, roommates, adult children who support themselves, or other family members who do not live with you or depend on you financially." },
+      { name: "Name of family member", required: true, what: "List your legal spouse AND any dependent children who live with you. “Dependent” means they rely on your household for financial support, typically children under 18 or full-time students.", example: "García, Luis (spouse) | García, Sofia (daughter)", warning: "Do NOT include: non-married partners, roommates, adult children who support themselves, or other family members who do not live with you or depend on you financially." },
       { name: "Relationship to applicant", required: true, what: "Write how each person is related to you.", example: "Spouse, Son, Daughter" },
       { name: "Date of birth", required: true, what: "Write each family member’s birth date.", example: "07/22/2010" },
     ],
   },
   {
     num: 3,
-    title: "Section 3 — Financial information (income)",
-    subtitle: "Every source of household income — this is the most important section",
+    title: "Section 3: Financial information (income)",
+    subtitle: "Every source of household income. This is the most important section",
     intro:
-      "This is the section most people find confusing. You need to list every source of income for yourself AND your spouse. Only include income from your spouse — not from other household members unless they are your spouse. Report the amounts honestly — underreporting is a violation that can result in rejection or repayment demands.",
+      "This is the section most people find confusing. You need to list every source of income for yourself AND your spouse. Only include income from your spouse, not from other household members unless they are your spouse. Report the amounts honestly. Underreporting is a violation that can result in rejection or repayment demands.",
     incomeTable: true,
     fields: [
-      { name: "How to enter amounts", required: true, what: 'For each income type that applies to you, write the dollar amount AND circle whether it is weekly, biweekly (every 2 weeks), or monthly. Only fill in rows that apply to you — leave the rest blank.', example: "Gross wages: $800 biweekly | Social Security: $450 monthly", tip: 'If you are paid every two weeks, circle "Biweekly." If twice a month, circle "Monthly" and calculate the monthly total.' },
-      { name: "Gross wages / earnings (before taxes)", required: false, what: 'This is your pay BEFORE taxes and deductions are taken out. Look at your pay stub — use the "gross" amount, not the "net" amount you actually receive.', example: "If your paycheck stub says Gross: $950 and you are paid biweekly, write $950 and circle Biweekly.", warning: "Use GROSS (before taxes) — not the amount deposited in your bank account." },
-      { name: "Supported by other individual", required: false, what: "If someone else gives you money to help with food, rent, or other living expenses — report that amount here.", example: "My brother gives me $300/month → write $300, circle Monthly" },
+      { name: "How to enter amounts", required: true, what: 'For each income type that applies to you, write the dollar amount AND circle whether it is weekly, biweekly (every 2 weeks), or monthly. Only fill in rows that apply to you. Leave the rest blank.', example: "Gross wages: $800 biweekly | Social Security: $450 monthly", tip: 'If you are paid every two weeks, circle "Biweekly." If twice a month, circle "Monthly" and calculate the monthly total.' },
+      { name: "Gross wages / earnings (before taxes)", required: false, what: 'This is your pay BEFORE taxes and deductions are taken out. Look at your pay stub. Use the "gross" amount, not the "net" amount you actually receive.', example: "If your paycheck stub says Gross: $950 and you are paid biweekly, write $950 and circle Biweekly.", warning: "Use GROSS (before taxes), not the amount deposited in your bank account." },
+      { name: "Supported by other individual", required: false, what: "If someone else gives you money to help with food, rent, or other living expenses, report that amount here.", example: "My brother gives me $300/month → write $300, circle Monthly" },
       { name: "Social Security / SSI benefits", required: false, what: "Include any Social Security retirement, disability (SSDI), or Supplemental Security Income (SSI) you receive.", example: "Monthly SSI payment of $943 → write $943, circle Monthly", tip: "Find your exact amount on your SSA award letter or at ssa.gov." },
-      { name: "Liquid assets", required: false, what: "This is different from income. Liquid assets means money you can access quickly — like cash, savings accounts, or gold. This is NOT your regular income — it is what you currently have saved or in hand.", example: "If you have $500 in a savings account, write $500.", tip: "Small savings amounts (under $1,000) typically do not affect eligibility." },
+      { name: "Liquid assets", required: false, what: "This is different from income. Liquid assets means money you can access quickly, like cash, savings accounts, or gold. This is NOT your regular income. It is what you currently have saved or in hand.", example: "If you have $500 in a savings account, write $500.", tip: "Small savings amounts (under $1,000) typically do not affect eligibility." },
     ],
   },
   {
     num: 4,
-    title: "Section 4 — Health insurance",
+    title: "Section 4: Health insurance",
     subtitle: "Even if you have coverage, you must answer this section",
     intro:
-      "Answer honestly — having some insurance does not automatically disqualify you. YNHH needs to know what coverage exists so they can coordinate benefits correctly.",
+      "Answer honestly. Having some insurance does not automatically disqualify you. YNHH needs to know what coverage exists so they can coordinate benefits correctly.",
     fields: [
       { name: "Are you covered by any health insurance?", required: true, what: "Answer YES or NO. This includes Medicare, Medicaid/HUSKY, any employer insurance, or coverage from another country. If you are not sure, call HAVEN at 203-200-0673 and we will help you figure it out.", example: "If you have HUSKY: YES. If no coverage at all: NO.", tip: "Even if your insurance has lapsed or doesn’t cover what you need, you may still qualify for Free Care to cover the remaining balance." },
       { name: "Policy holder, insurer, policy number", required: false, what: "If you answered YES to having insurance, fill in these details. Your insurance card has all three pieces of information.", example: "Policy holder: Maria García | Insurer: Anthem | Policy No.: XYZ123456", tip: "Your policy number is on the front of your insurance card." },
-      { name: "Health Savings Account (HSA) — Question 4a", required: true, what: "Answer YES or NO. An HSA is a special savings account some employers offer to help pay medical costs. Most people do not have one. If you are not sure, answer NO.", tip: "If your employer has never mentioned an HSA, you almost certainly don’t have one." },
+      { name: "Health Savings Account (HSA), Question 4a", required: true, what: "Answer YES or NO. An HSA is a special savings account some employers offer to help pay medical costs. Most people do not have one. If you are not sure, answer NO.", tip: "If your employer has never mentioned an HSA, you almost certainly don’t have one." },
     ],
   },
   {
     num: 5,
-    title: "Section 5 — Certification and signature",
-    subtitle: "Read carefully before signing — this is a legal statement",
+    title: "Section 5: Certification and signature",
+    subtitle: "Read carefully before signing. This is a legal statement",
     intro:
       "Before you sign, you must read and understand each statement. By signing, you are certifying that everything on the application is true. Incorrect or false information can result in rejection OR being required to repay the assistance.",
     fields: [
       { name: "The statements you are agreeing to", required: true, what: "You are agreeing to six things: (1) everything you wrote is true, (2) YNHH can verify your information, (3) YNHH can check your credit report, (4) if you receive money from a lawsuit related to this care you will repay Free Care, (5) you will tell YNHH if your income or situation changes, and (6) YNHH may need to share your health information to process your application.", warning: "This is a legal certification. Do not sign if you have not read every checkbox. Do not write information you know to be false." },
-      { name: "Signature", required: true, what: "Sign your legal name — the same name that is in Section 1. Sign in pen, not pencil.", example: "Maria García (not MG or a nickname)", tip: "If you need someone to sign for you as a legal guardian, they sign here and print their name below." },
+      { name: "Signature", required: true, what: "Sign your legal name, the same name that is in Section 1. Sign in pen, not pencil.", example: "Maria García (not MG or a nickname)", tip: "If you need someone to sign for you as a legal guardian, they sign here and print their name below." },
       { name: "Date", required: true, what: "Write today’s date in MM/DD/YYYY format next to your signature.", example: "04/15/2025", tip: "An application without a date may be rejected." },
     ],
   },
 ];
 
 const INCOME_ROWS: [string, string, string, boolean][] = [
-  ["Gross wages / earnings (before taxes)", "Yes — your gross pay", "Your paycheck before deductions", true],
-  ["Supported by other individual", "Yes — money someone gives you", "Family member pays your rent", true],
-  ["Child support or alimony received", "Yes — if you receive it", "Court-ordered payments you receive", true],
-  ["Disability benefits", "Yes — SSDI or private disability", "Monthly disability check", true],
-  ["Social Security / SSI benefits", "Yes — include all SS income", "Monthly SSA payment", true],
-  ["Unemployment benefits", "Yes — if currently receiving", "Weekly unemployment payment", true],
-  ["Self-employment earnings", "Yes — net earnings", "Income from your own business", true],
+  ["Gross wages / earnings (before taxes)", "Yes, your gross pay", "Your paycheck before deductions", true],
+  ["Supported by other individual", "Yes, money someone gives you", "Family member pays your rent", true],
+  ["Child support or alimony received", "Yes, if you receive it", "Court-ordered payments you receive", true],
+  ["Disability benefits", "Yes, SSDI or private disability", "Monthly disability check", true],
+  ["Social Security / SSI benefits", "Yes, include all SS income", "Monthly SSA payment", true],
+  ["Unemployment benefits", "Yes, if currently receiving", "Weekly unemployment payment", true],
+  ["Self-employment earnings", "Yes, net earnings", "Income from your own business", true],
   ["Pension benefits", "Yes", "Retirement pension payments", true],
   ["Rental income", "Yes", "Rent you receive from tenants", true],
   ["Income from children or other household members (not spouse)", "Not included", "Your adult child’s job income", false],
@@ -120,7 +120,7 @@ const INCOME_ROWS: [string, string, string, boolean][] = [
 
 const POI_CARDS = [
   { icon: Banknote, situation: "Paid by check or direct deposit", doc: "2 recent pay stubs", detail: "Must be from the past 6 months. Get them from your employer or your bank app. Both stubs must show your name and the pay amount." },
-  { icon: Coins, situation: "Paid in cash by employer", doc: "Letter from your employer", detail: "Your employer writes a letter confirming your pay. Use the template below — fill in the blanks and have your employer sign it." },
+  { icon: Coins, situation: "Paid in cash by employer", doc: "Letter from your employer", detail: "Your employer writes a letter confirming your pay. Use the template below. Fill in the blanks and have your employer sign it." },
   { icon: Home, situation: "Supported by family or a friend", doc: "Letter from the person supporting you", detail: "The person supporting you writes a letter confirming what they give you monthly. Use the template below." },
   { icon: ClipboardList, situation: "Unemployed with no income", doc: "Letter from financial supporter", detail: "If no one supports you and you have no income, bring a letter saying so. HAVEN’s MDIC team can help you write this. Call us at 203-200-0673." },
   { icon: Landmark, situation: "Receiving Social Security or disability", doc: "SSA award letter or benefit statement", detail: "Get this from SSA.gov or the letter Social Security mailed you. Must show your benefit amount. Call 800-772-1213 if you need a copy." },
@@ -130,20 +130,20 @@ const POI_CARDS = [
 const SUBMIT_CARDS = [
   { icon: Mailbox, title: "Mail it", desc: "Print, complete, sign, and mail your application with proof of income attached. Allow 2–3 weeks for processing.", detail: "Yale New Haven Health\nSBO, Attn: Financial Assistance\nPO Box 1403\nNew Haven, CT 06505" },
   { icon: Mail, title: "Email proof of income", desc: "Send photos or scans of your proof of income documents directly to the HAVEN billing team, who will submit with your application.", detail: "hfc.billing@yale.edu" },
-  { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 1:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
-  { icon: Phone, title: "Call YNHH directly", desc: "If you have questions about your application status, a specific bill, or need help — call YNHH’s financial assistance line directly.", detail: "855-547-4584\nYNHH Financial Assistance" },
+  { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 12:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
+  { icon: Phone, title: "Call YNHH directly", desc: "If you have questions about your application status, a specific bill, or need help, call YNHH’s financial assistance line directly.", detail: "855-547-4584\nYNHH Financial Assistance" },
 ];
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
-  { q: "Can I apply even if I already have a large hospital bill?", a: <>Yes — <strong>absolutely apply.</strong> Free Care can be applied retroactively to bills you already have. Bring the bill to HAVEN’s MDIC team or call YNHH at 855-547-4584. Do not wait — the sooner you apply, the better your chances of having the bill covered or reduced.</> },
+  { q: "Can I apply even if I already have a large hospital bill?", a: <>Yes, <strong>absolutely apply.</strong> Free Care can be applied retroactively to bills you already have. Bring the bill to HAVEN’s MDIC team or call YNHH at 855-547-4584. Do not wait. The sooner you apply, the better your chances of having the bill covered or reduced.</> },
   { q: "I don’t have legal immigration status. Can I still apply?", a: <><strong>Yes.</strong> The Free Care application explicitly states that non-citizens are welcome to apply. Immigration status is not a disqualifying factor for this program. Your information is protected.</> },
-  { q: "What if YNHH denies my application?", a: "Contact HAVEN’s MDIC team immediately. We can help you understand the reason for denial, correct any errors on the application, and determine whether to appeal. Denials are sometimes due to missing documentation — not ineligibility." },
-  { q: "Does applying for Free Care affect my credit score?", a: 'YNHH may request your credit report as part of the application (you agreed to this in Section 5). However, this is a "soft pull" for assistance purposes — it does not affect your credit score the way a loan application would.' },
+  { q: "What if YNHH denies my application?", a: "Contact HAVEN’s MDIC team immediately. We can help you understand the reason for denial, correct any errors on the application, and determine whether to appeal. Denials are sometimes due to missing documentation, not ineligibility." },
+  { q: "Does applying for Free Care affect my credit score?", a: 'YNHH may request your credit report as part of the application (you agreed to this in Section 5). However, this is a "soft pull" for assistance purposes. It does not affect your credit score the way a loan application would.' },
   { q: "What if my income changes after I am approved?", a: "You are required to tell YNHH if your income or situation changes significantly. This is stated in Section 5. If your income increases substantially, your Free Care level may be adjusted or discontinued." },
-  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673 — we will help you find a solution." },
-  { q: "How will I know if I am approved?", a: "YNHH will mail you a determination letter. Processing usually takes 2–4 weeks. If you haven’t heard anything after 4 weeks, call 855-547-4584 to check your status. Keep the approval letter — you will need to show it at future YNHH appointments." },
-  { q: "Does Free Care cover care at Fair Haven Community Health or other clinics?", a: <><strong>No.</strong> Free Care only applies to Yale New Haven Health facilities — Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated YNHH practices. It does not cover care at Fair Haven, Cornell Scott, or other non-YNHH locations.</> },
-  { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at 203-200-0673." },
+  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673. We will help you find a solution." },
+  { q: "How will I know if I am approved?", a: "YNHH will mail you a determination letter. Processing usually takes 2–4 weeks. If you haven’t heard anything after 4 weeks, call 855-547-4584 to check your status. Keep the approval letter. You will need to show it at future YNHH appointments." },
+  { q: "Does Free Care cover care at Fair Haven Community Health or other clinics?", a: <><strong>No.</strong> Free Care only applies to Yale New Haven Health facilities: Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated YNHH practices. It does not cover care at Fair Haven, Cornell Scott, or other non-YNHH locations.</> },
+  { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at (203) 200-0673." },
 ];
 
 /* ─────────────────────────── Helpers ─────────────────────────── */
@@ -196,7 +196,7 @@ export function FreeCareGuide() {
           <p className={`${DESC} mb-4`}>
             Free Care is Yale New Haven Health&apos;s commitment to help patients
             who cannot afford their medical bills. It is{" "}
-            <strong className="text-[#00356b]">not insurance</strong> — it covers
+            <strong className="text-[#00356b]">not insurance</strong>. It covers
             care at YNHH facilities only, and you must renew it about every 6
             months.
           </p>
@@ -206,7 +206,7 @@ export function FreeCareGuide() {
             is no card, and it only applies at Yale New Haven Health facilities.
             You apply, provide proof of income, and are approved for roughly 6
             months before renewing. It can be applied to bills you already have,
-            and non-citizens are welcome to apply — immigration status does not
+            and non-citizens are welcome to apply. Immigration status does not
             disqualify you.
           </div>
 
@@ -217,7 +217,7 @@ export function FreeCareGuide() {
               HAVEN&apos;s MDIC team will help you through it the first time.
             </strong>{" "}
             After that, for your 6-month renewals, we encourage you to file on
-            your own using this guide — and we&apos;re here whenever you get
+            your own using this guide. We&apos;re here whenever you get
             stuck.
           </p>
 
@@ -319,7 +319,7 @@ export function FreeCareGuide() {
                               ))}
                               <tr className="bg-[#f7f9fc] font-semibold">
                                 <td className="px-3 py-2 text-[#00356b]">TOTAL INCOME</td>
-                                <td className="px-3 py-2 text-black/70" colSpan={2}>Add all &quot;Yes&quot; amounts together — one total for you, one for your spouse</td>
+                                <td className="px-3 py-2 text-black/70" colSpan={2}>Add all &quot;Yes&quot; amounts together: one total for you, one for your spouse</td>
                               </tr>
                             </tbody>
                           </table>
@@ -372,7 +372,7 @@ export function FreeCareGuide() {
         <div className={INNER}>
           <h3 className={TITLE}>Proof of income</h3>
           <p className={DESC}>
-            This is the step people most often get wrong — a missing or incorrect
+            This is the step people most often get wrong. A missing or incorrect
             proof of income is the most common reason an application stalls. You
             must attach proof of income to your application. Find your situation
             below.
@@ -392,7 +392,7 @@ export function FreeCareGuide() {
           </div>
 
           <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[12px] uppercase tracking-wider mt-10 mb-5">
-            Letter templates — fill in the blanks and have the person sign
+            Letter templates: fill in the blanks and have the person sign
           </p>
 
           <div className="bg-white border border-[#00356b]/20 border-l-4 border-l-[#00356b] p-5 mb-4">
@@ -424,7 +424,7 @@ export function FreeCareGuide() {
             <span className="font-bold">Submitting your proof of income:</span>{" "}
             email photos or scans to{" "}
             <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">hfc.billing@yale.edu</a>,
-            or drop it off at HAVEN any Saturday, 8:30 AM – 1:00 PM.
+            or drop it off at HAVEN any Saturday, 8:30 AM – 12:00 PM.
           </div>
         </div>
       </div>
@@ -456,8 +456,8 @@ export function FreeCareGuide() {
           <div className={`${CALLOUT} mt-6`}>
             <span className="font-bold">After you submit:</span> processing
             usually takes 2–4 weeks. YNHH will contact you by mail or phone with
-            your decision. If you are approved, keep your approval letter safe —
-            you will need it at future YNHH appointments. If you are denied,
+            your decision. If you are approved, keep your approval letter safe.
+            You will need it at future YNHH appointments. If you are denied,
             contact HAVEN&apos;s MDIC team; we can help you understand why and
             whether to appeal.
           </div>
@@ -472,13 +472,13 @@ export function FreeCareGuide() {
           <h3 className={TITLE}>Renewing your coverage</h3>
           <div className={CALLOUT}>
             <span className="font-bold">
-              Free Care expires — you must renew about every 6 months.
+              Free Care expires. You must renew about every 6 months.
             </span>{" "}
             It is not a one-time approval. If you miss your renewal window, your
             coverage lapses, even in the middle of treatment. When you apply
             through HAVEN, our MDIC team tracks your renewal date and reminds you
             when it is time. Renewals are the best time to file on your own using
-            this guide — the process is the same, and you already have everything
+            this guide. The process is the same, and you already have everything
             you need.
           </div>
         </div>
@@ -526,7 +526,7 @@ export function FreeCareGuide() {
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a href="tel:2032000673" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Phone className="w-4 h-4" /> <strong>203-200-0673</strong></a>
               <a href="mailto:hfc.billing@yale.edu" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Mail className="w-4 h-4" /> <strong>hfc.billing@yale.edu</strong></a>
-              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 1:00 PM</strong></span>
+              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 12:00 PM</strong></span>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ export function GoetschEndowmentContent() {
               href={LEARN_MORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors"
             >
               Learn More
               <ExternalLink className="w-4 h-4" />

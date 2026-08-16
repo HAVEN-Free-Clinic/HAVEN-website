@@ -3,10 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import svgPaths from "@/lib/svg-paths";
+import { HavenLogo } from "@/app/components/HavenLogo";
+import { DONATE_URL } from "@/lib/links";
+import { MyChart } from "@/app/components/BrandText";
 
-const DONATE_URL =
-  "https://givetoday.yale.edu/campaigns/67229/donations/new?designation_id=16596";
 
 const aboutDropdownItems = [
   { label: "About Us", to: "/about" },
@@ -45,7 +45,6 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
   const servicesTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const textColor = isScrolled ? "text-black" : "text-white";
-  const strokeColor = isScrolled ? "black" : "white";
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -91,24 +90,14 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="notranslate flex items-center gap-1 hover:opacity-90 transition-opacity">
-          <div className="relative w-[52px] h-[52px] flex items-center justify-center">
-            <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
-              <path
-                d={svgPaths.pd9d0700}
-                stroke={strokeColor}
-                strokeWidth="2.47477"
-                className="transition-colors duration-300"
-              />
-            </svg>
-            <span className={`relative font-['Poppins',sans-serif] text-[11px] ${textColor} z-10 transition-colors duration-300`}>
-              HAVEN
-            </span>
-          </div>
-          <div className={`font-['Poppins',sans-serif] text-[12px] md:text-[14px] ${textColor} leading-tight ml-1 transition-colors duration-300`}>
-            <p>Free Clinic</p>
-            <p>La Cl&iacute;nica Gratuita</p>
-          </div>
+        <Link
+          href="/"
+          aria-label="HAVEN Free Clinic, home"
+          className="notranslate flex items-center hover:opacity-90 transition-opacity"
+        >
+          <HavenLogo
+            className={`h-[44px] md:h-[52px] w-auto ${textColor} transition-colors duration-300`}
+          />
         </Link>
 
         {/* Desktop Nav + Buttons */}
@@ -222,7 +211,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
 
         {/* Mobile Menu Button */}
         <button
-          className={`lg:hidden ${textColor} transition-colors duration-300`}
+          className={`lg:hidden w-11 h-11 -mr-2 flex items-center justify-center ${textColor} transition-colors duration-300`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -235,8 +224,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen
-            ? "max-h-[600px] opacity-100"
-            : "max-h-0 opacity-0"
+            ? "max-h-[600px] opacity-100 visible"
+            : "max-h-0 opacity-0 invisible"
         }`}
       >
         <div className="px-6 pb-6">
@@ -331,6 +320,18 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               }`}
             >
               FAQs
+            </Link>
+            {/* MyChart is hidden in the TopBar below the sm breakpoint, so
+                without this a phone user can only reach the patient portal
+                from the footer. */}
+            <Link
+              href="/mychart"
+              onClick={() => setMobileOpen(false)}
+              className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              <MyChart />
             </Link>
             <div className="flex gap-3 mt-2">
               <Link

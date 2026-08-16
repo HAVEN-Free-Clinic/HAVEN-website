@@ -154,9 +154,8 @@ export function ReferralsContent() {
               financially out of reach.
             </p>
             <p>
-              This is one of the most meaningful ways we extend care beyond our
-              walls and ensure that a specialist referral does not become a dead
-              end for our patients.
+              It means a referral from us is usually something you can actually
+              afford to follow through on.
             </p>
           </div>
         </div>

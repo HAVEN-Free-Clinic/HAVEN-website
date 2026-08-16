@@ -1,4 +1,5 @@
-import svgPaths from "@/lib/svg-paths";
+import Link from "next/link";
+import { HavenLogo } from "@/app/components/HavenLogo";
 
 export function ComingSoon() {
   return (
@@ -8,19 +9,11 @@ export function ComingSoon() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
         {/* Wordmark */}
-        <div className="notranslate flex items-center gap-2" role="img" aria-label="HAVEN Free Clinic">
-          <div className="relative w-[64px] h-[64px] flex items-center justify-center">
-            <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
-              <path d={svgPaths.pd9d0700} stroke="#00356b" strokeWidth="2.47477" />
-            </svg>
-            <span className="relative font-['Poppins',sans-serif] text-[13px] text-[#00356b] z-10">
-              HAVEN
-            </span>
-          </div>
-          <div className="font-['Poppins',sans-serif] text-[15px] md:text-[17px] text-[#00356b] leading-tight">
-            <p>Free Clinic</p>
-            <p>La Cl&iacute;nica Gratuita</p>
-          </div>
+        <div className="notranslate">
+          <HavenLogo
+            title="HAVEN Free Clinic, La Cl&iacute;nica Gratuita"
+            className="h-[56px] md:h-[68px] w-auto text-[#00356b]"
+          />
         </div>
 
         {/* Pill */}
@@ -81,7 +74,7 @@ export function ComingSoon() {
         </div>
 
         {/* Actions */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
           <a
             href="https://mychart.ynhhs.org"
             target="_blank"
@@ -89,7 +82,7 @@ export function ComingSoon() {
             aria-label="Access MyChart (opens in a new tab)"
             className="inline-block bg-[#00356b] hover:bg-[#002a55] transition-colors text-white font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
           >
-            Access MyChart &rarr;
+            <span className="notranslate" translate="no">MyChart</span>&nbsp;&rarr;
           </a>
           <a
             href="https://givetoday.yale.edu/campaigns/67229/donations/new?designation_id=16596"
@@ -100,10 +93,31 @@ export function ComingSoon() {
           >
             Donate &#10084;
           </a>
+          <Link
+            href="/get-involved"
+            className="inline-block bg-white hover:bg-[#d6e8f7] transition-colors text-[#00356b] border-2 border-[#00356b] font-['Poppins',sans-serif] font-semibold text-[14px] md:text-[15px] px-7 py-3 rounded-lg"
+          >
+            Volunteer With Us &rarr;
+          </Link>
         </div>
 
-        {/* Recruitment note */}
-        <p className="mt-8 font-['Poppins',sans-serif] text-[#64748b] text-[13px] md:text-[14px] text-center leading-relaxed max-w-xl">
+        {/* Volunteer recruitment note */}
+        <p className="mt-8 font-['Poppins',sans-serif] text-[#334155] text-[14px] md:text-[15px] text-center leading-relaxed max-w-xl">
+          <span className="font-semibold text-[#00356b]">
+            Fall Volunteer Recruitment 2026 is open.
+          </span>{" "}
+          Applications are due Saturday, September 12th at 11:59 PM EDT.{" "}
+          <Link
+            href="/get-involved"
+            className="text-[#00356b] font-semibold underline hover:no-underline"
+          >
+            See volunteer details
+          </Link>
+          .
+        </p>
+
+        {/* Recruitment contact */}
+        <p className="mt-4 font-['Poppins',sans-serif] text-[#64748b] text-[13px] md:text-[14px] text-center leading-relaxed max-w-xl">
           For all recruitment related inquiries, please contact{" "}
           <a
             href="mailto:hfc.recruitment@yale.edu"

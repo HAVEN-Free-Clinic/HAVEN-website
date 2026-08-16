@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, X } from "lucide-react";
+import { X, PhoneCall, Wallet } from "lucide-react";
+import { PharmacyMap } from "@/app/components/PharmacyMap";
+import { MyChart } from "@/app/components/BrandText";
 
 /* ─── Sub-components ─── */
 
@@ -14,6 +16,34 @@ function Divider() {
 
 export function MedicationContent() {
   const [showBadge, setShowBadge] = useState(false);
+  const closeBadgeRef = useRef<HTMLButtonElement>(null);
+  const badgeOpenerRef = useRef<HTMLButtonElement>(null);
+
+  /*
+   * Escape used to be wired to onKeyDown on the overlay div, which never
+   * receives key events because nothing inside it holds focus by default.
+   * Listening on the document fixes that, and moving focus into the dialog
+   * (then back to the button that opened it) keeps keyboard users oriented.
+   */
+  useEffect(() => {
+    if (!showBadge) return;
+
+    closeBadgeRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setShowBadge(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      badgeOpenerRef.current?.focus();
+    };
+  }, [showBadge]);
 
   return (
     <section className="bg-white w-full">
@@ -25,15 +55,23 @@ export function MedicationContent() {
           aria-modal="true"
           aria-label="HAVEN Patient Badge"
           onClick={() => setShowBadge(false)}
-          onKeyDown={(e) => { if (e.key === "Escape") setShowBadge(false); }}
         >
+          {/*
+            The badge stays in English no matter what language the patient is
+            reading the site in: the person who reads it is the pharmacist
+            behind the counter, not the patient holding the phone. A translated
+            badge asks a pharmacist to act on instructions they cannot read.
+          */}
           <div
-            className="bg-white w-full max-w-lg mx-auto p-8 md:p-12 relative"
+            className="notranslate bg-white w-full max-w-lg mx-auto p-8 md:p-12 relative"
+            translate="no"
+            lang="en"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              ref={closeBadgeRef}
               onClick={() => setShowBadge(false)}
-              className="absolute top-4 right-4 text-black/40 hover:text-black transition-colors"
+              className="absolute top-2 right-2 w-11 h-11 flex items-center justify-center text-[#00356b]/70 hover:text-[#00356b] transition-colors"
               aria-label="Close"
             >
               <X className="w-6 h-6" />
@@ -71,12 +109,13 @@ export function MedicationContent() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <button
+              ref={badgeOpenerRef}
               onClick={() => setShowBadge(true)}
               className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#00356b]/90 transition-colors duration-200"
             >
               I Am a HAVEN Patient
             </button>
-            <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-2">
+            <p className="font-['Poppins',sans-serif] text-black/70 text-[13px] md:text-[14px] mt-2">
               Show this at the pharmacy when picking up your medication
             </p>
           </div>
@@ -87,6 +126,40 @@ export function MedicationContent() {
             pressure cuffs, splints, and bandages can be obtained through online
             ordering as needed.
           </p>
+
+          {/* Cost-sharing PSA — the detailed policy is further down the page. */}
+          <div className="mt-8 border border-[#00356b]/20 bg-[#f7f9fc] px-6 md:px-8 py-6 md:py-7 flex items-start gap-4 md:gap-5">
+            <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <Wallet className="w-5 h-5 text-[#00356b]" />
+            </div>
+            <div>
+              <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+                What you may be asked to pay
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
+                Your visit is free. Medications are too, with one exception: if a
+                medication costs{" "}
+                <span className="font-semibold">less than $25</span>, we ask you
+                to cover it at the pharmacy. Anything{" "}
+                <span className="font-semibold">$25 or more</span> is still on
+                us.
+              </p>
+              <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mt-3">
+                If that is hard to afford, say so. We waive it, and{" "}
+                <span className="font-semibold">
+                  no one is ever denied a medication because they cannot pay
+                </span>
+                .{" "}
+                <a
+                  href="#cost-sharing"
+                  className="text-[#00356b] font-semibold underline hover:no-underline"
+                >
+                  Read the full policy
+                </a>
+                .
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -97,40 +170,44 @@ export function MedicationContent() {
       </div>
 
       {/* ── Pharmacy Information ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+      <div
+        id="pharmacies"
+        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12"
+      >
         <div className="max-w-4xl mx-auto">
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-            Pharmacy Information
+            Where to Pick Up Your Medication
           </h3>
 
-          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
-            <p className="leading-relaxed">
-              We are partnered with the following pharmacies to provide you with
-              low-cost options and alternatives. Pick-up is still available at
-              personal pharmacies, but lowered cost is not guaranteed.
-            </p>
-
-            <div>
-              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
-                Pickup Locations
-              </h4>
-              <ul className="leading-relaxed list-disc pl-6 space-y-2">
-                <li>CVS Pharmacy — 123 Church St., New Haven, CT 06510</li>
-                <li>Stop &amp; Shop — West Haven, Amity, and East Haven locations</li>
-                <li>ShopRite</li>
-                <li>Dispensary of Hope</li>
-              </ul>
+          {/* Call-your-pharmacy PSA */}
+          <div className="bg-[#00356b] px-6 md:px-8 py-6 md:py-7 mb-8 md:mb-10 flex items-start gap-4 md:gap-5">
+            <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+              <PhoneCall className="w-5 h-5 text-white" />
             </div>
-
             <div>
-              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
-                Pickup Instructions
+              <h4 className="font-['Poppins',sans-serif] font-semibold text-white text-[17px] md:text-[19px] mb-2">
+                Call your pharmacy before you run out
               </h4>
-              <p className="leading-relaxed">
-                Drug pick-up should be made available at the pharmacy we assigned
-                you around 3 days after your clinic visit.
+              <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
+                Most refills can be handled by the pharmacy in one phone call,
+                without waiting for Saturday. Find your pharmacy on the map
+                below, tap the number, and ask whether you have refills left. If
+                they say no, then call us.
               </p>
             </div>
+          </div>
+
+          <PharmacyMap />
+
+          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] mt-8 md:mt-10">
+            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              Pickup Instructions
+            </h4>
+            <p className="leading-relaxed">
+              Your prescription should be ready at the pharmacy we assigned you
+              about 3 days after your clinic visit. Call ahead before you make
+              the trip.
+            </p>
           </div>
         </div>
       </div>
@@ -230,7 +307,10 @@ export function MedicationContent() {
       </div>
 
       {/* ── Medication Cost-Sharing ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+      <div
+        id="cost-sharing"
+        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12"
+      >
         <div className="max-w-4xl mx-auto">
           <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
             Medication Cost-Sharing
@@ -238,12 +318,10 @@ export function MedicationContent() {
 
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
             <p className="leading-relaxed">
-              HAVEN Free Clinic is a community-supported organization. Each year,
-              we rely on the generosity of our donors and volunteers to keep our
-              doors open and our services free. In alignment with models used by
-              other community health clinics, HAVEN has reinstated a medication
-              cost-sharing policy to support the long-term sustainability of our
-              clinic and our ability to invest in our mission.
+              HAVEN runs on donations and volunteer hours. Like many other free
+              clinics, we now ask patients to help cover some of the cheaper
+              medications. That is what lets us keep paying for the expensive
+              ones and take on more patients.
             </p>
 
             <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 md:px-8 py-6 md:py-8">
@@ -253,10 +331,10 @@ export function MedicationContent() {
               <ul className="list-disc pl-6 md:pl-7 space-y-2.5 leading-relaxed text-[15px] md:text-[17px]">
                 <li>
                   Patients are responsible for covering the cost of medications
-                  priced <span className="font-semibold">under $20</span>.
+                  priced <span className="font-semibold">under $25</span>.
                 </li>
                 <li>
-                  Medications <span className="font-semibold">at or above $20</span>{" "}
+                  Medications <span className="font-semibold">at or above $25</span>{" "}
                   continue to be provided at no cost to the patient.
                 </li>
                 <li>
@@ -296,7 +374,7 @@ export function MedicationContent() {
               Have questions about this policy or need to request a waiver? Please
               speak with your care team or send us a Care Message through{" "}
               <a href="/mychart" className="underline hover:text-[#00356b]/70 transition-colors">
-                MyChart
+                <MyChart />
               </a>
               .
             </p>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, Phone, Voicemail, AlertTriangle } from "lucide-react";
+import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Tabs ─── */
 
@@ -65,7 +66,7 @@ const whatToExpectItems: AccordionItemData[] = [
           services, pharmacy, or behavioral health teams
         </li>
         <li>
-          Please expect to be at the clinic for 1 to 2 hours — we
+          Please expect to be at the clinic for 1 to 2 hours. We
           appreciate your patience as we work to provide thorough care
         </li>
       </ul>
@@ -94,7 +95,7 @@ const whatToExpectItems: AccordionItemData[] = [
         </li>
         <li>
           For urgent concerns between visits, call our clinic line and
-          leave a message — a team member will return your call
+          leave a message. A team member will return your call
         </li>
       </ul>
     ),
@@ -106,28 +107,31 @@ const whatToExpectItems: AccordionItemData[] = [
       <ul className="list-disc pl-8 md:pl-12 space-y-2">
         <li>
           <span className="font-medium">&quot;I need insurance to be seen.&quot;</span>{" "}
-          — HAVEN serves uninsured and underinsured patients. You do not
-          need insurance to receive care
+          HAVEN is for adults who have no health insurance at all. You do not
+          need insurance to be seen here. But if you already have coverage,
+          including HUSKY, you are not eligible and we will point you to a
+          clinic that can see you
         </li>
         <li>
           <span className="font-medium">&quot;I need to be a U.S. citizen.&quot;</span>{" "}
-          — We welcome all patients regardless of immigration or
+          We welcome all patients regardless of immigration or
           citizenship status
         </li>
         <li>
           <span className="font-medium">&quot;Student-run means lower quality.&quot;</span>{" "}
-          — All care is supervised by licensed Yale physicians. Student
+          All care is supervised by licensed Yale physicians. Student
           clinicians work under direct attending oversight
         </li>
         <li>
           <span className="font-medium">&quot;I can only come once.&quot;</span>{" "}
-          — We encourage ongoing care. Many of our patients return
+          We encourage ongoing care. Many of our patients return
           regularly for chronic condition management and preventive visits
         </li>
         <li>
           <span className="font-medium">&quot;There is a fee I don&apos;t know about.&quot;</span>{" "}
-          — Our services are provided at no cost to eligible patients.
-          There are no hidden fees
+          Your visit is free and there are no hidden fees. The one cost we
+          ask patients to cover is medications priced under $25, and we waive
+          that for anyone who cannot afford it
         </li>
       </ul>
     ),
@@ -157,7 +161,7 @@ function AccordionItem({ item }: { item: AccordionItemData }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6 visible" : "max-h-0 invisible"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
@@ -216,7 +220,11 @@ function BookingCancellingPanel() {
           soon as possible. You can reach us in either of the following ways:
         </p>
         <ul className="list-disc pl-8 md:pl-12 space-y-2 mt-4 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
-          <li>Send a Care Message through your MyChart patient portal</li>
+          <li>
+            <BrandText>
+              Send a Care Message through your MyChart patient portal
+            </BrandText>
+          </li>
           <li>Call us at (203) 200-0673 to speak with a staff member</li>
         </ul>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
@@ -226,7 +234,7 @@ function BookingCancellingPanel() {
       </div>
 
       {/* No-Show Policy */}
-      <div>
+      <div id="no-show-policy" className="scroll-mt-24">
         <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
           No-Show Policy
         </h3>
@@ -235,7 +243,7 @@ function BookingCancellingPanel() {
           prior notice. This policy is designed to ensure we can continue
           serving all of our patients equitably and efficiently.
         </p>
-        <div className="bg-[#fef7ed] border-l-4 border-amber-400 px-6 py-5 mt-5 max-w-[1000px]">
+        <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-6 py-5 mt-5 max-w-[1000px]">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
             If you <span className="font-semibold">no-show 3 or more
             consecutive appointments</span>, we will be unable to reschedule
@@ -280,7 +288,7 @@ function ProviderDirectoryPanel() {
       <div className="bg-[#00356b] px-6 md:px-10 py-6 md:py-8 space-y-4">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
           <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
-            HAVEN Free Clinic — General Inquiries
+            HAVEN Free Clinic: General Inquiries
           </span>
           <a
             href="mailto:haven.free.clinic@yale.edu"
@@ -317,12 +325,10 @@ export function VisitorGuideContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            This Visitor Guide is designed to help you feel prepared and
-            comfortable during your visit. Here you'll find essential
-            information about check-in procedures, clinic hours, what to expect
-            during your appointment, and how to access additional resources. Our
-            goal is to make your experience as smooth, informed, and supportive
-            as possible.
+            Here is what a Saturday at HAVEN actually looks like: how to check
+            in, how long to plan for, what happens during your appointment, and
+            how to book or cancel one. If anything below is still unclear, call
+            us at (203) 200-0673 and we will walk you through it.
           </p>
         </div>
       </div>
@@ -424,10 +430,10 @@ export function VisitorGuideContent() {
             </ul>
             <a
               href="tel:2032000673"
-              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 mt-6 hover:bg-[#4a90c4] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 mt-6 hover:bg-[#00356b]/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Call the Triage Line — (203) 200-0673
+              Call the Triage Line: (203) 200-0673
             </a>
           </div>
 

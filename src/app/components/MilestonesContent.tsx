@@ -26,32 +26,39 @@ const ANNUAL_REPORTS: AnnualReport[] = [
   },
 ];
 
+/*
+ * Linked by DOI rather than by publisher URL. The old direct links rotted:
+ * two Project MUSE URLs 404'd and the PLOS ONE link silently redirected to the
+ * journal homepage instead of the article. A DOI is the permanent identifier —
+ * it follows the article wherever the publisher moves it.
+ */
+
 const RESEARCH_ARTICLES: ResearchArticle[] = [
   {
     authors: "Scott EA, Swartz MK.",
     title:
       "Interprofessional student experiences on the HAVEN free clinic leadership board.",
-    url: "https://www.tandfonline.com/doi/abs/10.3109/13561820.2014.934339?journalCode=ijic20",
+    url: "https://doi.org/10.3109/13561820.2014.934339",
   },
   {
     authors:
       "Peluso MJ, Hung A, Lukasiewicz A, Chang H, Ramallo J, Bartlett M, Friedland G, Ellis P.",
     title:
       "Successful Management of Latent Tuberculosis Infection in an Underserved Community by a Student-run Free Clinic.",
-    url: "https://muse.jhu.edu/login?auth=0&type=summary&url=/journals/journal_of_health_care_for_the_poor_and_underserved/v025/25.2.peluso.html",
+    url: "https://doi.org/10.1353/hpu.2014.0109",
   },
   {
     authors: "Butala NM, Chang H, Horwitz LI, Bartlett M, & Ellis P.",
     title:
       "Improving Quality of Preventive Care at a Student-Run Free Clinic.",
-    url: "https://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0081441",
+    url: "https://doi.org/10.1371/journal.pone.0081441",
   },
   {
     authors:
       "Butala NM, Murk W, Horwitz LI, Graber LK, Bridger L, Ellis P.",
     title:
       "What is the quality of preventive care provided in a student-run free clinic?",
-    url: "https://muse.jhu.edu/journals/journal_of_health_care_for_the_poor_and_underserved/v023/23.1.butala.html",
+    url: "https://doi.org/10.1353/hpu.2012.0034",
   },
 ];
 

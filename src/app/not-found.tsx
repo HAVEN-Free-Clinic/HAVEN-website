@@ -45,13 +45,13 @@ export default function NotFound() {
       </section>
 
       {/* Action section */}
-      <section className="flex-1 bg-gray-50">
+      <section className="flex-1 bg-[#f7f9fc]">
         <div className="max-w-[900px] mx-auto px-6 py-12 md:py-16">
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link
               href="/"
-              className="flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-bold text-[15px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors w-full sm:w-auto justify-center"
+              className="flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-bold text-[15px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors w-full sm:w-auto justify-center"
             >
               <Home className="w-4 h-4" />
               Back to Home
@@ -65,7 +65,7 @@ export default function NotFound() {
             </button>
             <button
               onClick={() => window.location.reload()}
-              className="flex items-center gap-2 bg-white text-gray-700 border-2 border-gray-300 font-['Poppins',sans-serif] font-bold text-[15px] px-8 py-3.5 hover:bg-gray-50 transition-colors w-full sm:w-auto justify-center"
+              className="flex items-center gap-2 bg-white text-[#00356b] border-2 border-[#00356b]/30 font-['Poppins',sans-serif] font-bold text-[15px] px-8 py-3.5 hover:border-[#00356b] hover:bg-[#00356b]/5 transition-colors w-full sm:w-auto justify-center"
             >
               <RefreshCw className="w-4 h-4" />
               Try Again
@@ -74,10 +74,10 @@ export default function NotFound() {
 
           {/* Helpful links */}
           <div className="text-center mb-10">
-            <h2 className="font-['Merriweather',serif] font-bold text-gray-900 text-[22px] sm:text-[26px] mb-2">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] mb-2">
               Helpful Links
             </h2>
-            <p className="font-['Poppins',sans-serif] text-gray-500 text-[15px]">
+            <p className="font-['Poppins',sans-serif] text-black/60 text-[15px]">
               Here are some pages that might help you find what you need.
             </p>
           </div>
@@ -118,12 +118,12 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group bg-white p-5 border border-gray-200 hover:border-[#00356b]/30 hover:shadow-md transition-all"
+                className="group bg-white p-5 border border-[#00356b]/15 hover:border-[#00356b]/40 hover:shadow-md transition-all"
               >
-                <p className="font-['Poppins',sans-serif] font-bold text-gray-900 text-[16px] group-hover:text-[#00356b] transition-colors mb-1">
+                <p className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[16px] group-hover:text-[#00356b] transition-colors mb-1">
                   {link.label}
                 </p>
-                <p className="font-['Poppins',sans-serif] text-gray-500 text-[13px]">
+                <p className="font-['Poppins',sans-serif] text-black/60 text-[13px]">
                   {link.desc}
                 </p>
               </Link>
@@ -131,11 +131,11 @@ export default function NotFound() {
           </div>
 
           {/* Contact fallback */}
-          <div className="mt-12 bg-white border border-gray-200 p-6 sm:p-8 text-center">
-            <h3 className="font-['Merriweather',serif] font-bold text-gray-900 text-[18px] sm:text-[20px] mb-2">
+          <div className="mt-12 bg-white border border-[#00356b]/15 p-6 sm:p-8 text-center">
+            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[18px] sm:text-[20px] mb-2">
               Still need help?
             </h3>
-            <p className="font-['Poppins',sans-serif] text-gray-500 text-[15px] mb-5">
+            <p className="font-['Poppins',sans-serif] text-black/60 text-[15px] mb-5">
               If you need immediate assistance, don&apos;t hesitate to reach out.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -146,7 +146,7 @@ export default function NotFound() {
                 <Phone className="w-4 h-4" />
                 (203) 200-0673
               </a>
-              <span className="hidden sm:inline text-gray-300">|</span>
+              <span className="hidden sm:inline text-[#00356b]/30">|</span>
               <a
                 href="mailto:haven.free.clinic@yale.edu"
                 className="text-[#00356b] font-['Poppins',sans-serif] font-bold text-[15px] hover:underline"

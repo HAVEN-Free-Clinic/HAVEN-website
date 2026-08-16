@@ -106,7 +106,7 @@ export function OurMissionContent() {
 
             <Link
               href="/eligibility"
-              className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors"
+              className="inline-block bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[20px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors"
             >
               See If You Qualify
             </Link>
@@ -192,7 +192,7 @@ export function OurMissionContent() {
                   (203) 200-0673
                 </a>
                 <p className="font-['Poppins',sans-serif] text-[#00356b]/50 text-[12px] mt-1">
-                  Leave a voicemail — 24hr callback
+                  Leave a voicemail. 24hr callback.
                 </p>
               </div>
             </div>

@@ -38,7 +38,7 @@ const CARE_TIERS = [
     title: "Community Health Centers",
     tagline: "Ongoing primary care for everyone",
     bestFor:
-      "Non-emergency illnesses and regular, ongoing primary care — especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
+      "Non-emergency illnesses and regular, ongoing primary care, especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
     cost: "Centers like Fair Haven Community Health Care and Cornell Scott-Hill Health Center welcome patients regardless of insurance or ability to pay.",
     access:
       "Contact the health center directly to become a patient and schedule an appointment.",
@@ -50,7 +50,7 @@ const CARE_TIERS = [
     tagline: "Free care for uninsured adults",
     bestFor:
       "Free primary care and wraparound support if you're an uninsured adult (18–65) without a current primary care provider who meets our eligibility criteria.",
-    cost: "All care at HAVEN is completely free.",
+    cost: "Your visit is free. The only thing we ask you to cover is medications that cost less than $25, and we waive that if it is a hardship.",
     access:
       "Check your eligibility above, then reach out to establish care. Our clinic runs on Saturdays.",
   },
@@ -153,7 +153,7 @@ function EligibilityChecker() {
       <div className="flex flex-col items-center">
         <button
           onClick={handleStart}
-          className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 hover:bg-[#4a90c4] transition-colors shadow-md flex items-center gap-3"
+          className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 hover:bg-[#00356b]/90 transition-colors shadow-md flex items-center gap-3"
         >
           See If I Qualify
           <ChevronRight className="w-5 h-5" />
@@ -206,7 +206,7 @@ function EligibilityChecker() {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => handleAnswer(true)}
-              className="flex-1 max-w-[200px] bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#4a90c4] transition-colors"
+              className="flex-1 max-w-[200px] bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#00356b]/90 transition-colors"
             >
               Yes
             </button>
@@ -241,7 +241,7 @@ function EligibilityChecker() {
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673
@@ -255,21 +255,21 @@ function EligibilityChecker() {
           </div>
         ) : (
           <div className="flex flex-col items-center text-center gap-5">
-            <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center">
-              <XCircle className="w-10 h-10 text-amber-500" />
+            <div className="w-20 h-20 rounded-full bg-[#00356b]/10 flex items-center justify-center">
+              <XCircle className="w-10 h-10 text-[#00356b]/70" />
             </div>
             <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Not Qualify
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you may not meet all of our current
-              eligibility criteria. However, we encourage you to reach out — we
+              eligibility criteria. However, we encourage you to reach out. We
               may still be able to help or connect you with other resources.
               Leave a voicemail and expect a call back within 24 hours.
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673

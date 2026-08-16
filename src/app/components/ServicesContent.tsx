@@ -21,7 +21,7 @@ import { HealthcareNavigator } from "@/app/components/HealthcareNavigator";
 /* ─── Scope of Care ─── */
 
 const HAVEN_PROVIDES = [
-  "Primary care visits — checkups, illness, physicals",
+  "Primary care visits: checkups, illness, physicals",
   "Chronic disease management: diabetes, hypertension, asthma",
   "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
   "Behavioral health screenings and warm referrals",
@@ -36,7 +36,8 @@ const HAVEN_PROVIDES = [
 ];
 
 const OUTSIDE_SCOPE = [
-  "Emergency or life-threatening care — call 911 or go to the ER",
+  "Emergency or life-threatening care. Call 911 or go to the ER",
+  "Prenatal care. We do not see patients who are pregnant, but we will connect you with prenatal care",
   "Insulin-dependent or highly complex diabetes management",
   "Surgery, imaging, oncology, or complex specialist procedures",
   "Licensed social work or crisis intervention",
@@ -86,9 +87,9 @@ const resources = [
   },
   {
     label: "Behavioral Health",
-    description: "Individual and group sessions for mental health and wellness support. Group meets the first Saturday of each month.",
+    description: "Screenings, psycho-education, and warm referrals to partner clinics for ongoing treatment. Group meets the first Saturday of each month.",
     icon: Brain,
-    to: "/services/patient-care",
+    to: "/services/behavioral-health",
   },
   {
     label: "Education",
@@ -137,11 +138,10 @@ export function ServicesContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14 lg:pb-16">
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            Welcome to HAVEN Free Clinic, where we are committed to providing{" "}
-            <span className="font-semibold">comprehensive</span> and{" "}
-            <span className="font-semibold">compassionate healthcare services</span>{" "}
-            to our community. Below are the various services we offer to address
-            the diverse needs of our patients.
+            Your visit at HAVEN is free, and you do not need insurance to be
+            seen. Below is everything we offer, from checkups and lab work to
+            help with your medications, your bills, and getting in to see a
+            specialist. Interpreters are available at every visit.
           </p>
         </div>
       </div>
@@ -175,7 +175,7 @@ export function ServicesContent() {
                 </h3>
                 <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
                   A 3-to-5-year care navigation program that goes beyond managing
-                  your health today — helping you understand your conditions,
+                  your health today, helping you understand your conditions,
                   connect with resources, and build a roadmap toward permanent
                   coverage and a long-term provider.
                 </p>

@@ -13,7 +13,7 @@ const reasons = [
   {
     icon: Droplet,
     title: "Diabetes complications",
-    text: "Gum disease can make blood sugar harder to control, and uncontrolled diabetes in turn worsens oral health — a cycle that makes managing both conditions more difficult.",
+    text: "Gum disease can make blood sugar harder to control, and uncontrolled diabetes in turn worsens oral health. This cycle makes managing both conditions more difficult.",
   },
   {
     icon: Smile,
@@ -120,7 +120,7 @@ export function DentalContent() {
             <p>
               We encourage you to reach out to us as early as possible so we can
               begin the coordination process. If you are experiencing acute
-              dental pain, please let your care team know — we will do our best to
+              dental pain, please let your care team know. We will do our best to
               prioritize urgent situations.
             </p>
           </div>

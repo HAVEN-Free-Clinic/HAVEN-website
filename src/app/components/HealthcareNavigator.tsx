@@ -33,7 +33,7 @@ const LEVELS: Level[] = [
     id: "specialist",
     tier: "Specialist",
     title: "Specialist doctors",
-    body: "Focused on one area of medicine. Usually require a referral and insurance — but HAVEN can help.",
+    body: "Focused on one area of medicine. Usually require a referral and insurance, but HAVEN can help.",
     icon: Stethoscope,
     accent: "blue",
   },
@@ -48,7 +48,7 @@ const LEVELS: Level[] = [
   {
     id: "haven",
     tier: "HAVEN",
-    title: "HAVEN Free Clinic — you are here",
+    title: "HAVEN Free Clinic (you are here)",
     body: "Free primary care every Saturday. No insurance needed. Your bridge to the whole healthcare system.",
     icon: Compass,
     accent: "blue",
@@ -58,7 +58,7 @@ const LEVELS: Level[] = [
     id: "community",
     tier: "Community",
     title: "Community resources",
-    body: "Food, housing, mental health, social services. These aren't healthcare — but they deeply affect your health.",
+    body: "Food, housing, mental health, social services. These aren't healthcare, but they deeply affect your health.",
     icon: HeartHandshake,
     accent: "blue",
   },
@@ -77,12 +77,12 @@ export function HealthcareNavigator() {
         Navigating US Healthcare
       </h2>
       <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b]/70 text-[16px] md:text-[18px] mb-4">
-        The healthcare system — and where HAVEN fits
+        The healthcare system and where HAVEN fits
       </p>
       <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
-        The American healthcare system is complex. HAVEN is your bridge —
-        helping you understand it, access it, and navigate it with confidence.
-        Click each level to learn more.
+        The American healthcare system is confusing even for people who work in
+        it. Below is how the pieces fit together and where HAVEN sits among
+        them. Click any level to see what it covers.
       </p>
 
       <div className="space-y-3 md:space-y-4">
@@ -156,7 +156,7 @@ export function HealthcareNavigator() {
 
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isOpen ? "max-h-[600px]" : "max-h-0"
+                  isOpen ? "max-h-[600px] visible" : "max-h-0 invisible"
                 }`}
               >
                 <p

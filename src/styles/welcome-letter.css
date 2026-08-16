@@ -1,0 +1,298 @@
+/*
+ * Opening welcome letter.
+ *
+ * One continuous shot: a sealed envelope settles, the wax seal breaks, the flap
+ * swings back on its top edge, and the letter — the real letter, with its real
+ * text, not a stand-in — rises out of the pocket and grows until you can read
+ * it. The element that starts tucked inside the envelope is the same element
+ * you end up reading.
+ *
+ * The whole sequence is one 3s timeline. Percentages below are shares of it:
+ *
+ *    0 – 12%   envelope settles into place
+ *   21 – 35%   seal breaks
+ *   23 – 57%   flap swings open
+ *   57 – 79%   letter rises out of the pocket
+ *   80 – 100%  letter grows to full size, envelope recedes
+ *
+ * LAYERING — the fiddly part. The letter has to paint *between* the envelope's
+ * back panel and its front pocket, which only works if they all share one
+ * stacking context. So `.haven-env` is a bare positioning box: no transform, no
+ * opacity, no preserve-3d, nothing that would create a stacking context and
+ * trap its children behind the letter. Each envelope piece carries its own
+ * fade instead, and the flap gets its 3D from the `perspective` on the stage.
+ * Do not add a transform or opacity to `.haven-env`.
+ *
+ *   z-index 1  back panel        (inside of the envelope)
+ *   z-index 2  letter, tucked    ← rises through here
+ *   z-index 3  front pocket      (letter slides up behind this)
+ *   z-index 4  flap              (drops to 0 once swung open)
+ *   z-index 5  wax seal
+ *   z-index 6  letter, emerged
+ *
+ * Everything collapses to the finished, readable letter under
+ * prefers-reduced-motion.
+ */
+
+.haven-letter-stage {
+  perspective: 1600px;
+  perspective-origin: 50% 50%;
+}
+
+/* ─── The envelope ─── */
+
+/*
+ * Centred with margins rather than a transform, deliberately — see LAYERING.
+ * Sized off --env-w so every piece and the keyframes stay in agreement.
+ */
+.haven-env {
+  --env-w: min(430px, 82vw);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--env-w);
+  height: calc(var(--env-w) / 1.5);
+  /* Pull back by half the box to centre it: height is --env-w / 1.5, so half
+     of that is --env-w / 3. */
+  margin-left: calc(var(--env-w) / -2);
+  margin-top: calc(var(--env-w) / -3);
+  pointer-events: none;
+}
+
+/* Shared arrival and exit for the envelope pieces. */
+@keyframes haven-env-piece {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Back panel — the inside of the envelope, revealed as the flap lifts. */
+.haven-env-back {
+  position: absolute;
+  inset: 0;
+  background: #c9bda6;
+  z-index: 1;
+  animation: haven-env-piece 3000ms linear both;
+}
+
+/* Front pocket. The letter slides up from behind this; the notch is where the
+   flap seats when the envelope is sealed. */
+.haven-env-front {
+  position: absolute;
+  inset: 0;
+  background: #e9e1d0;
+  z-index: 3;
+  clip-path: polygon(0 0, 50% 46%, 100% 0, 100% 100%, 0 100%);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  animation: haven-env-piece 3000ms linear both;
+}
+
+/* Flap — hinged on its top edge, swings up and over behind the envelope. */
+.haven-env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background: #dbd1bb;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  /* The perspective has to live in the flap's own transform. A `perspective`
+     property on an ancestor only reaches its direct children, and putting one
+     on `.haven-env` would make it a stacking context and break the layering
+     above. Without this the rotateX renders flat and the flap just squashes
+     instead of swinging open.
+     Backface stays visible on purpose: past 90 degrees you are looking at the
+     inside of the flap, which is what an opened envelope actually shows. */
+  z-index: 4;
+  animation: haven-env-flap 3000ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes haven-env-flap {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(0deg);
+    z-index: 4;
+  }
+  12%,
+  23% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg);
+    z-index: 4;
+  }
+  39% {
+    z-index: 4;
+  }
+  40% {
+    z-index: 0;
+  }
+  57% {
+    transform: perspective(1200px) rotateX(-168deg);
+    z-index: 0;
+  }
+  80% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(-168deg);
+    z-index: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(-168deg);
+    z-index: 0;
+  }
+}
+
+/* Wax seal, breaking as the flap gives. */
+.haven-env-seal {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: #00356b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  animation: haven-env-seal 3000ms ease-in both;
+}
+
+@keyframes haven-env-seal {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  12%,
+  21% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  35%,
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+/* ─── The letter ─── */
+
+/*
+ * Stays in normal flow so it can scroll when it is taller than the phone
+ * screen. --letter-tuck is the scale it sits at inside the envelope: small
+ * enough that the whole page fits within the envelope's bounds, so no corner
+ * of it pokes out past an edge with nothing to cover it.
+ */
+.haven-letter-paper {
+  --letter-tuck: 0.3;
+  position: relative;
+  transform-origin: center center;
+  animation: haven-letter-emerge 3000ms cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+
+/*
+ * The letter is a tall element; on small screens it is taller still, and at
+ * tuck scale its bottom edge would hang below the envelope it is meant to be
+ * sitting inside. Shrinking the tuck keeps it swallowed.
+ */
+@media (max-width: 640px) {
+  .haven-letter-paper {
+    --letter-tuck: 0.2;
+  }
+}
+
+/*
+ * No opacity trickery here. While tucked, the letter sits entirely within the
+ * envelope's bounds and is genuinely hidden by the flap and the front pocket.
+ * When the flap swings away, the notch uncovers the top of the letter — you
+ * see the real page sitting down in the envelope — and then it slides up out
+ * of the pocket. That is what makes it read as coming out rather than
+ * appearing on top.
+ */
+@keyframes haven-letter-emerge {
+  0%,
+  57% {
+    transform: translateY(0) scale(var(--letter-tuck));
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  79% {
+    /* Far enough that the top clears the envelope, but the bottom edge is
+       still swallowed by the pocket. */
+    transform: translateY(-120px) scale(var(--letter-tuck));
+    z-index: 2;
+  }
+  80% {
+    z-index: 6;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    z-index: 6;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ─── Backdrop and exit ─── */
+
+.haven-letter-backdrop {
+  animation: haven-letter-backdrop 400ms ease-out both;
+}
+
+@keyframes haven-letter-backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.haven-letter-closing {
+  animation: haven-letter-exit 260ms ease-in both;
+}
+
+@keyframes haven-letter-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.99);
+  }
+}
+
+/* ─── Reduced motion: no theatre, just the letter ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .haven-env-back,
+  .haven-env-front,
+  .haven-env-flap,
+  .haven-env-seal,
+  .haven-letter-paper,
+  .haven-letter-backdrop,
+  .haven-letter-closing {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .haven-env {
+    display: none;
+  }
+
+  .haven-letter-paper {
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  }
+}

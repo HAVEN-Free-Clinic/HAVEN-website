@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Data ─── */
 
@@ -68,9 +69,9 @@ const faqs: FAQ[] = [
     answer: (
       <div>
         <p className="mb-2">
-          If you can't make an appointment, please let us know as soon as possible — send a Care Message through your{" "}
+          If you can't make an appointment, please let us know as soon as possible. Send a Care Message through your{" "}
           <Link href="/mychart" className="text-[#00356b] underline hover:opacity-80">
-            MyChart patient portal
+            <BrandText>MyChart patient portal</BrandText>
           </Link>{" "}
           or call{" "}
           <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
@@ -115,7 +116,7 @@ const faqs: FAQ[] = [
     question: "Where is the clinic located?",
     answer: (
       <p>
-        800 Howard Avenue, New Haven, CT — in the Yale Physicians Building. Free parking is available in the Howard Avenue Garage, to the left of the building. For more details, visit our{" "}
+        800 Howard Avenue, New Haven, CT. We are in the Yale Physicians Building. Free parking is available in the Howard Avenue Garage, to the left of the building. For more details, visit our{" "}
         <Link href="/visitor-guide" className="text-[#00356b] underline hover:opacity-80">
           visitor guide
         </Link>
@@ -131,7 +132,7 @@ const faqs: FAQ[] = [
           Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
         </p>
         <p>
-          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $20, while medications at or above $20 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
+          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $25, while medications at or above $25 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
           <Link href="/services/medication" className="text-[#00356b] underline hover:opacity-80">
             medication page
           </Link>{" "}
@@ -169,7 +170,7 @@ const faqs: FAQ[] = [
           As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions, including hypertension, high cholesterol, non-insulin-dependent (Type 2) diabetes, asthma and other stable respiratory conditions, common infections and acute illnesses, preventive care and screenings, and medication management for stable chronic conditions.
         </p>
         <p className="mb-2">
-          Some conditions fall outside our scope — including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
+          Some conditions fall outside our scope, including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
         </p>
         <p>
           See our{" "}
@@ -236,7 +237,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6 visible" : "max-h-0 invisible"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">

@@ -183,7 +183,7 @@ export function ClinicSchedule() {
             </h2>
           </div>
           <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed mb-10 md:mb-14">
-            Open Saturdays — call{" "}
+            Open Saturdays. Call{" "}
             <a
               href="tel:2032000673"
               className="text-[#00356b] underline hover:opacity-80"
