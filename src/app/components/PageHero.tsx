@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Phrase } from "@/app/components/Phrase";
 
 interface PageHeroProps {
   imageSrc: string;
@@ -28,7 +29,7 @@ export function PageHero({ imageSrc, imageAlt, title, tall = false }: PageHeroPr
       <div className="absolute left-1/2 -translate-x-1/2 top-[20%] w-[600px] h-[300px] bg-black/15 blur-[75px] rounded-[400px]" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-[140px] sm:pt-[160px] md:pt-[180px] lg:pt-[220px]">
         <h1 className="font-['Merriweather',serif] font-bold text-white text-[30px] sm:text-[38px] md:text-[46px] lg:text-[50px] leading-tight">
-          {title}
+          <Phrase>{title}</Phrase>
         </h1>
       </div>
     </section>

@@ -25,7 +25,7 @@ export function FiveKSection() {
           <p className="font-['Poppins',sans-serif] text-black text-[16px] md:text-[20px] lg:text-[22px] mb-4 max-w-[500px] mx-auto">
             With the help of our volunteers, sponsors, and
             donors we raised over{" "}
-            <span className="font-semibold">$60,783</span> for
+            <span className="font-semibold">$61,598</span> for
             the clinic!
           </p>
           <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[17px] lg:text-[19px]">

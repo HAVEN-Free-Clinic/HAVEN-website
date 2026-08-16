@@ -17,6 +17,7 @@ import {
   Users,
   Download,
 } from "lucide-react";
+import { BrandText, MyChart } from "@/app/components/BrandText";
 
 const MYCHART_LOGIN_URL = "https://mychart.ynhhs.org";
 
@@ -104,7 +105,7 @@ const faqs = [
   {
     question: "Is my information secure on MyChart?",
     answer:
-      "Absolutely. MyChart uses industry-standard encryption and security protocols to protect your personal health information. All communications within the portal are private and attached to your account only.",
+      "Yes. MyChart uses industry-standard encryption and security protocols to protect your personal health information. All communications within the portal are private and attached to your account only.",
   },
   {
     question: "How do I cancel or reschedule an appointment?",
@@ -136,8 +137,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         aria-expanded={open}
         className="w-full flex items-center justify-between py-5 md:py-6 text-left gap-4 group"
       >
-        <span className="font-['Poppins',sans-serif] font-normal text-[15px] sm:text-[16px] md:text-[17px] text-[#00356b] group-hover:text-[#4a90c4] transition-colors">
-          {question}
+        <span className="font-['Poppins',sans-serif] font-normal text-[15px] sm:text-[16px] md:text-[17px] text-[#00356b] group-hover:text-[#00356b]/70 transition-colors">
+          <BrandText>{question}</BrandText>
         </span>
         <ChevronDown
           className={`w-5 h-5 text-[#00356b]/50 shrink-0 transition-transform duration-300 ${
@@ -147,11 +148,11 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[600px] opacity-100 pb-5 md:pb-6" : "max-h-0 opacity-0"
+          open ? "max-h-[600px] opacity-100 pb-5 md:pb-6 visible" : "max-h-0 opacity-0 invisible"
         }`}
       >
         <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed pr-10">
-          {answer}
+          <BrandText>{answer}</BrandText>
         </p>
       </div>
     </div>
@@ -167,11 +168,13 @@ export function MyChartContent() {
           {/* Sign Up */}
           <div>
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4 md:mb-6">
-              Sign Up for MyChart
+              <BrandText>Sign Up for MyChart</BrandText>
             </h2>
             <p className="font-['Poppins',sans-serif] text-black/75 text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed mb-4">
-              MyChart is a free, secure online portal that gives you access to
-              your HAVEN Free Clinic health information anytime, anywhere.
+              <BrandText>
+                MyChart is a free, secure online portal that gives you access
+                to your HAVEN Free Clinic health information anytime, anywhere.
+              </BrandText>{" "}
               Manage appointments, message your care team, view test results,
               and more.
             </p>
@@ -187,9 +190,9 @@ export function MyChartContent() {
               href={MYCHART_LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors duration-300"
             >
-              Log In to MyChart
+              <BrandText>Log In to MyChart</BrandText>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
@@ -205,7 +208,7 @@ export function MyChartContent() {
                   Urgent Medical Matters
                 </h3>
                 <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed">
-                  MyChart should only be used for{" "}
+                  <BrandText>MyChart should only be used for </BrandText>
                   <span className="font-semibold">non-urgent</span> medical
                   matters. If you are experiencing a medical emergency, please
                   call <span className="font-semibold">911</span> immediately.
@@ -225,10 +228,10 @@ export function MyChartContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] mb-4 md:mb-6 text-center">
-            With MyChart You Can...
+            <BrandText>With MyChart You Can...</BrandText>
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] md:text-[18px] text-center max-w-[600px] mx-auto mb-12 md:mb-16">
-            Access a full suite of tools to manage your health from any device.
+            From a phone, tablet, or computer — no app required.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature) => {
@@ -284,7 +287,7 @@ export function MyChartContent() {
                 >
                   <ExternalLink className="w-4 h-4 text-[#00356b]/50 group-hover:text-[#00356b] transition-colors shrink-0" />
                   <span className="font-['Poppins',sans-serif] text-[#00356b] text-[15px] md:text-[16px] font-medium group-hover:underline">
-                    {resource.label}
+                    <BrandText>{resource.label}</BrandText>
                   </span>
                 </a>
               ))}
@@ -302,8 +305,11 @@ export function MyChartContent() {
               </h2>
             </div>
             <p className="font-['Poppins',sans-serif] text-black/70 text-[15px] md:text-[16px] leading-relaxed mb-4">
-              Need to manage a family member&apos;s health information? MyChart
-              proxy access allows you to view and manage records for your
+              Need to manage a family member&apos;s health information?{" "}
+              <BrandText>
+                MyChart proxy access allows you to view and manage records for
+                your
+              </BrandText>{" "}
               children, elderly parents, or other dependents.
             </p>
             <p className="font-['Poppins',sans-serif] text-black/70 text-[15px] md:text-[16px] leading-relaxed mb-6">
@@ -334,11 +340,11 @@ export function MyChartContent() {
             Frequently Asked Questions
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] md:text-[18px] text-center max-w-[600px] mx-auto mb-10 md:mb-14">
-            Have questions about MyChart? Find answers to common questions
+            <BrandText>Have questions about MyChart?</BrandText> Find answers to common questions
             below. For anything else, please{" "}
             <a
               href="tel:2032000673"
-              className="text-[#00356b] underline hover:text-[#4a90c4] transition-colors"
+              className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
             >
               contact us
             </a>
@@ -366,12 +372,12 @@ export function MyChartContent() {
                   <Smartphone className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px]">
-                  MyChart Mobile App
+                  <BrandText>MyChart Mobile App</BrandText>
                 </h2>
               </div>
               <p className="font-['Poppins',sans-serif] text-black/70 text-[16px] md:text-[18px] leading-relaxed mb-6 md:mb-8">
                 Take your health information with you wherever you go. The
-                MyChart mobile app gives you the same features as the web
+                <BrandText>MyChart mobile app gives you the same features as the web</BrandText>{" "}
                 portal, optimized for your phone or tablet.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -423,7 +429,7 @@ export function MyChartContent() {
                     <ShieldCheck className="w-8 h-8 text-[#00356b]" />
                   </div>
                   <p className="font-['Merriweather',serif] font-bold text-[#00356b] text-[18px] mb-1 text-center">
-                    MyChart
+                    <MyChart />
                   </p>
                   <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[11px] text-center">
                     Your health, your way

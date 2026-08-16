@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight, Check, X } from "lucide-react";
+import { BrandText } from "@/app/components/BrandText";
+import { VACCINES } from "@/lib/vaccines";
 
 /* ─── Scope of Care ─── */
 
@@ -23,6 +25,7 @@ const HAVEN_PROVIDES = [
 
 const OUTSIDE_SCOPE = [
   "Emergency or life-threatening care — call 911 or go to the ER",
+  "Prenatal care — we do not see patients who are pregnant, but we will connect you with prenatal care",
   "Insulin-dependent or highly complex diabetes management",
   "Surgery, imaging, oncology, or complex specialist procedures",
   "Licensed social work or crisis intervention",
@@ -61,7 +64,7 @@ function DepartmentAccordion({ dept }: { dept: DepartmentData }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6 visible" : "max-h-0 invisible"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
@@ -80,9 +83,8 @@ const departments: DepartmentData[] = [
     content: (
       <div className="space-y-4 md:space-y-6">
         <p>
-          Our Primary Care Department is dedicated to providing comprehensive,
-          patient-centered care for individuals. We address everyday health needs,
-          including{" "}
+          Primary Care is where most patients start. We handle everyday health
+          needs, including{" "}
           <span className="font-medium">
             prevention, early detection, and long-term health
           </span>{" "}
@@ -143,12 +145,11 @@ const departments: DepartmentData[] = [
         </div>
         <p className="font-medium">Vaccines Available at HAVEN</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Shingles (Shingrix)</li>
-          <li>HPV (Gardasil)</li>
-          <li>Hepatitis B (Heplisav-B)</li>
-          <li>Tetanus, diphtheria, and pertussis (Tdap / Boostrix)</li>
-          <li>Pneumococcal (PCV)</li>
-          <li>Hepatitis A &amp; B (Twinrix)</li>
+          {VACCINES.map((vaccine) => (
+            <li key={vaccine}>
+              <BrandText>{vaccine}</BrandText>
+            </li>
+          ))}
         </ul>
         <p className="font-medium">COVID-19 &amp; Flu Vaccines</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">

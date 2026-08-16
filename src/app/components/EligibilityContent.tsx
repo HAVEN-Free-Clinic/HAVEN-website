@@ -50,7 +50,7 @@ const CARE_TIERS = [
     tagline: "Free care for uninsured adults",
     bestFor:
       "Free primary care and wraparound support if you're an uninsured adult (18–65) without a current primary care provider who meets our eligibility criteria.",
-    cost: "All care at HAVEN is completely free.",
+    cost: "Your visit is free. The only thing we ask you to cover is medications that cost less than $25, and we waive that if it is a hardship.",
     access:
       "Check your eligibility above, then reach out to establish care. Our clinic runs on Saturdays.",
   },
@@ -153,7 +153,7 @@ function EligibilityChecker() {
       <div className="flex flex-col items-center">
         <button
           onClick={handleStart}
-          className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 hover:bg-[#4a90c4] transition-colors shadow-md flex items-center gap-3"
+          className="bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] md:text-[22px] px-10 py-4 hover:bg-[#00356b]/90 transition-colors shadow-md flex items-center gap-3"
         >
           See If I Qualify
           <ChevronRight className="w-5 h-5" />
@@ -206,7 +206,7 @@ function EligibilityChecker() {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => handleAnswer(true)}
-              className="flex-1 max-w-[200px] bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#4a90c4] transition-colors"
+              className="flex-1 max-w-[200px] bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] py-3.5 hover:bg-[#00356b]/90 transition-colors"
             >
               Yes
             </button>
@@ -241,7 +241,7 @@ function EligibilityChecker() {
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673
@@ -269,7 +269,7 @@ function EligibilityChecker() {
             </p>
             <a
               href="tel:2032000673"
-              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#4a90c4] transition-colors flex items-center gap-2"
+              className="mt-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Call (203) 200-0673

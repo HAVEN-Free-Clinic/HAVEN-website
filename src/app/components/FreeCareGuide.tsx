@@ -130,7 +130,7 @@ const POI_CARDS = [
 const SUBMIT_CARDS = [
   { icon: Mailbox, title: "Mail it", desc: "Print, complete, sign, and mail your application with proof of income attached. Allow 2–3 weeks for processing.", detail: "Yale New Haven Health\nSBO, Attn: Financial Assistance\nPO Box 1403\nNew Haven, CT 06505" },
   { icon: Mail, title: "Email proof of income", desc: "Send photos or scans of your proof of income documents directly to the HAVEN billing team, who will submit with your application.", detail: "hfc.billing@yale.edu" },
-  { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 1:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
+  { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 12:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
   { icon: Phone, title: "Call YNHH directly", desc: "If you have questions about your application status, a specific bill, or need help — call YNHH’s financial assistance line directly.", detail: "855-547-4584\nYNHH Financial Assistance" },
 ];
 
@@ -143,7 +143,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673 — we will help you find a solution." },
   { q: "How will I know if I am approved?", a: "YNHH will mail you a determination letter. Processing usually takes 2–4 weeks. If you haven’t heard anything after 4 weeks, call 855-547-4584 to check your status. Keep the approval letter — you will need to show it at future YNHH appointments." },
   { q: "Does Free Care cover care at Fair Haven Community Health or other clinics?", a: <><strong>No.</strong> Free Care only applies to Yale New Haven Health facilities — Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated YNHH practices. It does not cover care at Fair Haven, Cornell Scott, or other non-YNHH locations.</> },
-  { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 1:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at 203-200-0673." },
+  { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at (203) 200-0673." },
 ];
 
 /* ─────────────────────────── Helpers ─────────────────────────── */
@@ -424,7 +424,7 @@ export function FreeCareGuide() {
             <span className="font-bold">Submitting your proof of income:</span>{" "}
             email photos or scans to{" "}
             <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">hfc.billing@yale.edu</a>,
-            or drop it off at HAVEN any Saturday, 8:30 AM – 1:00 PM.
+            or drop it off at HAVEN any Saturday, 8:30 AM – 12:00 PM.
           </div>
         </div>
       </div>
@@ -526,7 +526,7 @@ export function FreeCareGuide() {
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a href="tel:2032000673" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Phone className="w-4 h-4" /> <strong>203-200-0673</strong></a>
               <a href="mailto:hfc.billing@yale.edu" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Mail className="w-4 h-4" /> <strong>hfc.billing@yale.edu</strong></a>
-              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 1:00 PM</strong></span>
+              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 12:00 PM</strong></span>
             </div>
           </div>
         </div>

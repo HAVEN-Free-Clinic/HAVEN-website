@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import svgPaths from "@/lib/svg-paths";
+import { DONATE_URL } from "@/lib/links";
+import { MyChart } from "@/app/components/BrandText";
 
-const DONATE_URL =
-  "https://givetoday.yale.edu/campaigns/67229/donations/new?designation_id=16596";
 
 const aboutDropdownItems = [
   { label: "About Us", to: "/about" },
@@ -222,7 +222,7 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
 
         {/* Mobile Menu Button */}
         <button
-          className={`lg:hidden ${textColor} transition-colors duration-300`}
+          className={`lg:hidden w-11 h-11 -mr-2 flex items-center justify-center ${textColor} transition-colors duration-300`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -235,8 +235,8 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen
-            ? "max-h-[600px] opacity-100"
-            : "max-h-0 opacity-0"
+            ? "max-h-[600px] opacity-100 visible"
+            : "max-h-0 opacity-0 invisible"
         }`}
       >
         <div className="px-6 pb-6">
@@ -331,6 +331,18 @@ export function Navbar({ isScrolled = false }: NavbarProps) {
               }`}
             >
               FAQs
+            </Link>
+            {/* MyChart is hidden in the TopBar below the sm breakpoint, so
+                without this a phone user can only reach the patient portal
+                from the footer. */}
+            <Link
+              href="/mychart"
+              onClick={() => setMobileOpen(false)}
+              className={`font-['Poppins',sans-serif] font-medium text-[16px] tracking-wide hover:opacity-80 transition-opacity ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              <MyChart />
             </Link>
             <div className="flex gap-3 mt-2">
               <Link

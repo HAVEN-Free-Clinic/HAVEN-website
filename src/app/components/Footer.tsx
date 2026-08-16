@@ -1,6 +1,8 @@
 import svgPaths from "@/lib/svg-paths";
 import Link from "next/link";
 import { CalendarClock } from "lucide-react";
+import { Phrase } from "@/app/components/Phrase";
+import { STAFF_PORTAL_URL } from "@/lib/links";
 
 export function Footer() {
   return (
@@ -85,16 +87,33 @@ export function Footer() {
               href={link.to}
               className="font-['Poppins',sans-serif] text-white/80 hover:text-white text-[14px] md:text-[16px] transition-colors"
             >
-              {link.label}
+              <Phrase>{link.label}</Phrase>
             </Link>
           ))}
+        </div>
+
+        {/* Design credit */}
+        <div className="mt-6 pt-6 border-t border-white/20 text-center">
+          <p className="font-['Poppins',sans-serif] text-white/80 text-[14px] md:text-[15px] leading-relaxed max-w-[620px] mx-auto">
+            This site was designed in collaboration with{" "}
+            <a
+              href="https://www.dfayale.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:no-underline"
+            >
+              Design for America at Yale
+            </a>
+            , whose students shaped how it looks and how patients move through
+            it. We are grateful for their work.
+          </p>
         </div>
 
         {/* Copyright */}
         <div className="mt-6 pt-6 border-t border-white/20 text-center">
           <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px]">&copy; {new Date().getFullYear()} HAVEN Free Clinic. All Rights Reserved.</p>
           <a
-            href="https://hub.havenfreeclinic.com"
+            href={STAFF_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-3 font-['Poppins',sans-serif] text-white/50 hover:text-white/80 text-[13px] transition-colors"

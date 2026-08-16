@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Data ─── */
 
@@ -70,7 +71,7 @@ const faqs: FAQ[] = [
         <p className="mb-2">
           If you can't make an appointment, please let us know as soon as possible — send a Care Message through your{" "}
           <Link href="/mychart" className="text-[#00356b] underline hover:opacity-80">
-            MyChart patient portal
+            <BrandText>MyChart patient portal</BrandText>
           </Link>{" "}
           or call{" "}
           <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
@@ -131,7 +132,7 @@ const faqs: FAQ[] = [
           Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
         </p>
         <p>
-          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $20, while medications at or above $20 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
+          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $25, while medications at or above $25 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
           <Link href="/services/medication" className="text-[#00356b] underline hover:opacity-80">
             medication page
           </Link>{" "}
@@ -236,7 +237,7 @@ function AccordionItem({ faq }: { faq: FAQ }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6 visible" : "max-h-0 invisible"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">

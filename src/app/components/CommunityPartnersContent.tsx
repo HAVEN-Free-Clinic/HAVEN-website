@@ -121,7 +121,7 @@ export function CommunityPartnersContent() {
               {YALE_SCHOOLS.map((school) => (
                 <div
                   key={school.name}
-                  className="flex items-center justify-center p-3 md:p-4 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 w-[80px] h-[80px] md:w-[100px] md:h-[100px]"
+                  className="flex items-center justify-center p-3 md:p-4 bg-[#f7f9fc] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 w-[80px] h-[80px] md:w-[100px] md:h-[100px]"
                 >
                   <Image
                     src={school.logo}
@@ -140,7 +140,7 @@ export function CommunityPartnersContent() {
             {OTHER_PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className="flex items-center justify-center p-5 md:p-6 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 h-[100px] md:h-[120px]"
+                className="flex items-center justify-center p-5 md:p-6 bg-[#f7f9fc] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200 h-[100px] md:h-[120px]"
               >
                 <Image
                   src={partner.logo}
@@ -171,7 +171,7 @@ export function CommunityPartnersContent() {
             {STEERING_COMMITTEE.map((member) => (
               <div
                 key={member.name}
-                className="flex items-start gap-4 p-4 bg-[#f7f9fb] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200"
+                className="flex items-start gap-4 p-4 bg-[#f7f9fc] border border-[#00356b]/8 hover:border-[#00356b]/20 hover:shadow-sm transition-all duration-200"
               >
                 {/* Icon */}
                 <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0 mt-0.5">

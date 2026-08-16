@@ -2,15 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronDown, Check, Globe } from "lucide-react";
-
-const LANGUAGES = [
-  { code: "en", label: "English" },
-  { code: "es", label: "Español" },
-  { code: "ht", label: "Kreyòl Ayisyen" },
-  { code: "fa", label: "فارسی" },
-  { code: "fr", label: "Français" },
-  { code: "ar", label: "العربية" },
-];
+import {
+  LANGUAGES,
+  clearGoogTransCookies,
+  getCurrentLangFromCookie,
+  setGoogTransCookie,
+} from "@/lib/translate";
 
 declare global {
   interface Window {
@@ -23,45 +20,19 @@ function getComboBox(): HTMLSelectElement | null {
   return document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
 }
 
-function getCurrentLangFromCookie(): string {
-  if (typeof document === "undefined") return "en";
-  const match = document.cookie.match(/googtrans=\/en\/(\w+)/);
-  return match?.[1] || "en";
-}
-
-function clearGoogTransCookies() {
-  // Clear for all possible path/domain combinations
-  const hostname = window.location.hostname;
-  const domainParts = hostname.split(".");
-  const domains = [
-    "",
-    hostname,
-    "." + hostname,
-  ];
-  // Also try parent domains (e.g. .example.com from sub.example.com)
-  if (domainParts.length > 2) {
-    domains.push("." + domainParts.slice(-2).join("."));
-  }
-
-  const paths = ["/", ""];
-  const expires = "expires=Thu, 01 Jan 1970 00:00:00 UTC";
-
-  for (const domain of domains) {
-    for (const path of paths) {
-      const domainPart = domain ? `; domain=${domain}` : "";
-      const pathPart = path ? `; path=${path}` : "";
-      document.cookie = `googtrans=; ${expires}${pathPart}${domainPart}`;
-    }
-  }
-}
-
 export function TranslateDropdown() {
   const [open, setOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState(() =>
-    getCurrentLangFromCookie()
-  );
+  // Must start as "en" to match the server-rendered HTML. Reading the cookie
+  // during the first render makes the label disagree with the markup React
+  // hydrates against, which throws away the tree. Sync it right after mount
+  // instead.
+  const [currentLang, setCurrentLang] = useState("en");
   const [ready, setReady] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setCurrentLang(getCurrentLangFromCookie());
+  }, []);
 
   // Inject styles to hide Google Translate chrome (once, persist forever)
   useEffect(() => {
@@ -177,8 +148,7 @@ export function TranslateDropdown() {
         setCurrentLang(langCode);
       } else {
         // Combo not ready yet — set cookie and reload
-        document.cookie = `googtrans=/en/${langCode}; path=/;`;
-        document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${window.location.hostname}`;
+        setGoogTransCookie(langCode);
         window.location.reload();
       }
     },
@@ -199,7 +169,7 @@ export function TranslateDropdown() {
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label="Select language"
-        className="flex items-center gap-1.5 text-white font-['Poppins',sans-serif] text-[14px] md:text-[16px] hover:opacity-80 transition-opacity"
+        className="flex items-center gap-1.5 min-h-[44px] py-2.5 pr-2 text-white font-['Poppins',sans-serif] text-[14px] md:text-[16px] hover:opacity-80 transition-opacity"
       >
         <Globe className="w-4 h-4 shrink-0" aria-hidden="true" />
         <span>{currentLabel}</span>

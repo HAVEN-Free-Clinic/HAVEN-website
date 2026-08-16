@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Download, ArrowDown, Stethoscope, Building2 } from "lucide-react";
 import { FreeCareGuide } from "@/app/components/FreeCareGuide";
+import { BrandText } from "@/app/components/BrandText";
 /* ─── Language Dropdown for PDFs ─── */
 
 interface LanguageDoc {
@@ -94,7 +95,7 @@ function ResourceDropdown({ title, children }: ResourceDropdownProps) {
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[2000px]" : "max-h-0"
+          open ? "max-h-[2000px] visible" : "max-h-0 invisible"
         }`}
       >
         <div className="px-6 md:px-8 pb-6 md:pb-8 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed space-y-4">
@@ -184,7 +185,7 @@ export function MDICContent() {
           {/* Expandable Guide Content */}
           <div
             className={`overflow-hidden transition-all duration-300 ease-in-out w-full ${
-              guideOpen ? "max-h-[5000px] mt-8" : "max-h-0"
+              guideOpen ? "max-h-[5000px] mt-8 visible" : "max-h-0 invisible"
             }`}
           >
             <div className="bg-[#00356b]/5 px-6 md:px-10 py-6 md:py-8 text-left">
@@ -293,7 +294,7 @@ export function MDICContent() {
                 >
                   patient.services@yale.edu
                 </a>
-                . Pay online through MyChart.
+                . <BrandText>Pay online through MyChart.</BrandText>
               </p>
             </div>
 
@@ -320,7 +321,7 @@ export function MDICContent() {
                 <a href="tel:8555474584" className="text-[#00356b] font-semibold hover:underline">
                   (855) 547-4584
                 </a>
-                , Mon–Fri 7:30 am–5:00 pm. Pay online through MyChart.
+                , Mon–Fri 7:30 am–5:00 pm. <BrandText>Pay online through MyChart.</BrandText>
               </p>
             </div>
           </div>

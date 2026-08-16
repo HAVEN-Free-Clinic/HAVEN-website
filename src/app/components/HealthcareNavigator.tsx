@@ -80,9 +80,9 @@ export function HealthcareNavigator() {
         The healthcare system — and where HAVEN fits
       </p>
       <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
-        The American healthcare system is complex. HAVEN is your bridge —
-        helping you understand it, access it, and navigate it with confidence.
-        Click each level to learn more.
+        The American healthcare system is confusing even for people who work in
+        it. Below is how the pieces fit together and where HAVEN sits among
+        them. Click any level to see what it covers.
       </p>
 
       <div className="space-y-3 md:space-y-4">
@@ -156,7 +156,7 @@ export function HealthcareNavigator() {
 
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isOpen ? "max-h-[600px]" : "max-h-0"
+                  isOpen ? "max-h-[600px] visible" : "max-h-0 invisible"
                 }`}
               >
                 <p

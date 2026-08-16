@@ -12,6 +12,27 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+/* ─── Where patients transition after HAVEN ─── */
+
+const AFTER_HAVEN = [
+  {
+    name: "Fair Haven Community Health Care",
+    description:
+      "A federally qualified health center on Grand Avenue offering primary care, dental, and behavioral health, with weekday hours and Spanish-speaking staff. Fees are set on a sliding scale based on your income.",
+    phone: "(203) 777-7411",
+    tel: "2037777411",
+    href: "https://www.fhchc.org/",
+  },
+  {
+    name: "Cornell Scott-Hill Health Center",
+    description:
+      "A federally qualified health center with locations across Greater New Haven, offering adult medicine, dental, behavioral health, pharmacy, and walk-in convenient care. Fees are set on a sliding scale based on your income.",
+    phone: "(203) 503-3000",
+    tel: "2035033000",
+    href: "https://www.cornellscott.org/",
+  },
+];
+
 /* ─── Social Determinants of Health Screening ─── */
 
 interface SDOHQuestion {
@@ -134,7 +155,7 @@ function SDOHScreening() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="tel:211"
-              className="inline-flex items-center justify-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-6 py-3 hover:bg-[#4a90c4] transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-6 py-3 hover:bg-[#00356b]/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
               Call 2-1-1
@@ -330,7 +351,7 @@ function AccordionItem({ item }: { item: ResourceItem }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[5000px] pb-6" : "max-h-0"
+          open ? "max-h-[5000px] pb-6 visible" : "max-h-0 invisible"
         }`}
       >
         <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
@@ -380,9 +401,8 @@ export function SocialServicesContent() {
               </h3>
             </div>
             <p className="font-['Poppins',sans-serif] text-white/90 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-4">
-              At the heart of HAVEN Free Clinic is the Compass Program — our
-              signature 3-to-5-year care navigation program designed to do more
-              than manage your health today.
+              Compass is our long-term care navigation program. It runs for 3
+              to 5 years, and the same team stays with you the whole way.
             </p>
             <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed mb-8">
               Through Compass, we work with you to:
@@ -416,10 +436,82 @@ export function SocialServicesContent() {
             </div>
 
             <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
-              The ultimate goal of the Compass Program is to help you establish
-              care with a permanent provider, so you have consistent, reliable
-              access to healthcare beyond your time with us. Ask your care team
-              how to enroll, or let us know if you&apos;d like to learn more.
+              The goal of Compass is to help you establish care with a permanent
+              provider, so you have reliable access to healthcare beyond your
+              time with us. Ask your care team how to enroll, or let us know if
+              you&apos;d like to learn more.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="w-full h-px bg-[#00356b]/10" />
+        </div>
+      </div>
+
+      {/* ── Where You Go After HAVEN ── */}
+      <div
+        id="after-haven"
+        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 md:pb-16"
+      >
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-5">
+            Where You Go After HAVEN
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
+            HAVEN is a Saturday clinic staffed by students, so we are not meant
+            to be your provider forever. Compass ends with a handoff: your care
+            team helps you get coverage and a primary care home that is open
+            during the week. Most of our patients move on to one of these two
+            community health centers. Both are federally qualified health
+            centers, which means they accept patients regardless of insurance
+            status and charge on a sliding scale based on what you earn.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+            {AFTER_HAVEN.map((clinic) => (
+              <div
+                key={clinic.name}
+                className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7 flex flex-col"
+              >
+                <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2.5">
+                  {clinic.name}
+                </h4>
+                <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed mb-5 flex-1">
+                  {clinic.description}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <a
+                    href={`tel:${clinic.tel}`}
+                    className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px] hover:underline"
+                  >
+                    <Phone className="w-4 h-4 shrink-0" />
+                    {clinic.phone}
+                  </a>
+                  <a
+                    href={clinic.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[15px] md:text-[16px] underline hover:no-underline"
+                  >
+                    Visit website
+                    <ExternalLink className="w-4 h-4 shrink-0" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+              <span className="font-semibold text-[#00356b]">
+                You do not have to make this call alone.
+              </span>{" "}
+              Tell your care team you are ready to transition and they will help
+              you pick a clinic, make the first appointment, and send your
+              records so your new provider knows your history.
             </p>
           </div>
         </div>

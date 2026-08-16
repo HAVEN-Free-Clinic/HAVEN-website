@@ -121,7 +121,24 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+  }
+
+  /*
+   * Keyboard focus. The previous rule painted a translucent mid-grey outline on
+   * every element (1.5:1 against white) — technically present, practically
+   * invisible. Brand blue with an offset reads clearly on both the white page
+   * and the blue section blocks.
+   */
+  :focus-visible {
+    outline: 2px solid #00356b;
+    outline-offset: 2px;
+  }
+
+  /* On the dark blue blocks, flip to white so the ring stays visible. */
+  .bg-\[\#00356b\] :focus-visible,
+  footer :focus-visible {
+    outline-color: #ffffff;
   }
 
   body {
