@@ -198,10 +198,10 @@ export function MyChartContent() {
           </div>
 
           {/* Urgent Notice */}
-          <div className="bg-[#fef7ed] border border-amber-200 px-6 py-6 md:px-8 md:py-8 self-start">
+          <div className="bg-red-50 border border-red-200 px-6 py-6 md:px-8 md:py-8 self-start">
             <div className="flex items-start gap-4">
-              <div className="w-11 h-11 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                <AlertTriangle className="w-5 h-5 text-amber-600" />
+              <div className="w-11 h-11 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+                <AlertTriangle className="w-5 h-5 text-red-700" />
               </div>
               <div>
                 <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[20px] md:text-[22px] mb-3">
@@ -231,7 +231,7 @@ export function MyChartContent() {
             <BrandText>With MyChart You Can...</BrandText>
           </h2>
           <p className="font-['Poppins',sans-serif] text-black/60 text-[16px] md:text-[18px] text-center max-w-[600px] mx-auto mb-12 md:mb-16">
-            From a phone, tablet, or computer — no app required.
+            From a phone, tablet, or computer. No app required.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature) => {

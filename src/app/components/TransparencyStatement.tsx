@@ -16,7 +16,7 @@ const FACTS = [
   },
   {
     label: "When we are open",
-    body: "Saturday mornings, 8:30am to 12:00pm. That is the whole clinic — we are not open on weekdays or after hours.",
+    body: "Saturday mornings, 8:30am to 12:00pm. That is the whole clinic. We are not open on weekdays or after hours.",
   },
   {
     label: "What it costs",

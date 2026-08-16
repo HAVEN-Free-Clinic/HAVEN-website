@@ -77,7 +77,7 @@ const PARTNERS: Partner[] = [
     name: "Connecticut Mental Health Center",
     org: "Includes the Hispanic Clinic",
     lead: "Long-term treatment for adults living in the greater New Haven area.",
-    body: "CMHC is the state mental health center run together by Yale and Connecticut's Department of Mental Health and Addiction Services. It gives priority to adults who live in its greater New Haven catchment area, so it is worth calling to check whether your town is covered. The Hispanic Clinic is not a separate place — it is CMHC's bilingual, bicultural program, running since 1973, for Spanish-speaking adults 18 and over who are on state assistance or have no coverage. Fees at the Hispanic Clinic are based on what you can afford, and it accepts patients from a wider area than the main clinic.",
+    body: "CMHC is the state mental health center run together by Yale and Connecticut's Department of Mental Health and Addiction Services. It gives priority to adults who live in its greater New Haven catchment area, so it is worth calling to check whether your town is covered. The Hispanic Clinic is not a separate place. It is CMHC's bilingual, bicultural program, running since 1973, for Spanish-speaking adults 18 and over who are on state assistance or have no coverage. Fees at the Hispanic Clinic are based on what you can afford, and it accepts patients from a wider area than the main clinic.",
     address: "34 Park St, New Haven, CT 06519",
     mapQuery: "Connecticut Mental Health Center, 34 Park St, New Haven, CT 06519",
     phoneLabel: "Main number",
@@ -102,7 +102,7 @@ export function BehavioralHealthContent() {
             <p>
               Our Behavioral Health Department focuses on principles of{" "}
               <span className="font-medium">psycho-education</span> and
-              knowledge — helping patients understand their mental health and
+              knowledge, helping patients understand their mental health and
               build skills to support their well-being.
             </p>
             <p className="font-medium text-[#00356b] border-l-4 border-[#00356b] pl-5">
@@ -119,11 +119,11 @@ export function BehavioralHealthContent() {
       {/* ── Emergency Callout ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-[#fef7ed] border border-amber-200 p-6 md:p-7 flex items-start gap-4">
-            <div className="w-11 h-11 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-              <Phone className="w-5 h-5 text-amber-800" />
+          <div className="bg-red-50 border border-red-200 p-6 md:p-7 flex items-start gap-4">
+            <div className="w-11 h-11 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <Phone className="w-5 h-5 text-red-700" />
             </div>
-            <p className="font-['Poppins',sans-serif] font-medium text-amber-800 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
+            <p className="font-['Poppins',sans-serif] font-medium text-red-900 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               If you are experiencing a mental health emergency, please call{" "}
               <a href="tel:988" className="underline font-bold">
                 988
@@ -202,7 +202,7 @@ export function BehavioralHealthContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
             Because we do not provide treatment directly, we refer patients to
             partner clinics in the community for ongoing mental health care. You
-            do not have to wait for us to make the referral — you can contact
+            do not have to wait for us to make the referral. You can contact
             either of these yourself.
           </p>
 

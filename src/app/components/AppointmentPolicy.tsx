@@ -19,8 +19,8 @@ export function AppointmentPolicy() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-4 md:mb-6">
-            <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-              <CalendarX className="w-6 h-6 text-amber-800" />
+            <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+              <CalendarX className="w-6 h-6 text-[#00356b]" />
             </div>
             <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px]">
               If you cannot make it, call us
@@ -33,7 +33,7 @@ export function AppointmentPolicy() {
             telling us, that time cannot go to anyone else.
           </p>
 
-          <div className="bg-[#fef7ed] border-l-4 border-amber-400 px-5 py-5 md:px-6 md:py-6">
+          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-5 py-5 md:px-6 md:py-6">
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
               <span className="font-semibold">Our no-show policy:</span> if you
               miss{" "}

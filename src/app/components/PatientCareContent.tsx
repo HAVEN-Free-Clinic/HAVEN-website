@@ -9,7 +9,7 @@ import { VACCINES } from "@/lib/vaccines";
 /* ─── Scope of Care ─── */
 
 const HAVEN_PROVIDES = [
-  "Primary care visits — checkups, illness, physicals",
+  "Primary care visits: checkups, illness, physicals",
   "Chronic disease management: diabetes, hypertension, asthma",
   "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
   "Behavioral health screenings and warm referrals",
@@ -24,8 +24,8 @@ const HAVEN_PROVIDES = [
 ];
 
 const OUTSIDE_SCOPE = [
-  "Emergency or life-threatening care — call 911 or go to the ER",
-  "Prenatal care — we do not see patients who are pregnant, but we will connect you with prenatal care",
+  "Emergency or life-threatening care. Call 911 or go to the ER",
+  "Prenatal care. We do not see patients who are pregnant, but we will connect you with prenatal care",
   "Insulin-dependent or highly complex diabetes management",
   "Surgery, imaging, oncology, or complex specialist procedures",
   "Licensed social work or crisis intervention",
@@ -122,7 +122,7 @@ const departments: DepartmentData[] = [
           </span>{" "}
           to help protect your health.{" "}
           <span className="font-medium">
-            Vaccine availability varies — please ask your provider about what is
+            Vaccine availability varies. Please ask your provider about what is
             currently in stock.
           </span>
         </p>
@@ -131,7 +131,7 @@ const departments: DepartmentData[] = [
             <span className="font-semibold text-[#00356b]">
               You must be an established HAVEN patient to receive a vaccine.
             </span>{" "}
-            Vaccines are offered as part of your ongoing care at the clinic — we
+            Vaccines are offered as part of your ongoing care at the clinic. We
             are not able to provide standalone or walk-in vaccine-only visits. If
             you are not yet a patient,{" "}
             <Link
@@ -190,8 +190,8 @@ const departments: DepartmentData[] = [
           Learn more on our Behavioral Health page
           <ArrowRight className="w-4 h-4" />
         </Link>
-        <div className="bg-[#fef7ed] border border-amber-200 p-4 md:p-5">
-          <p className="font-medium text-amber-800">
+        <div className="bg-red-50 border border-red-200 p-4 md:p-5">
+          <p className="font-medium text-red-900">
             If you are experiencing a mental health emergency, please call{" "}
             <a href="tel:988" className="underline font-bold">988</a>{" "}
             (Suicide &amp; Crisis Lifeline). Our department is not equipped to
@@ -286,7 +286,7 @@ const departments: DepartmentData[] = [
         <p className="font-medium">
           If you have questions about reproductive or sexual health, need
           counseling, or want to schedule a visit, please let our clinic staff
-          know — we're here to help.
+          know. We're here to help.
         </p>
       </div>
     ),
@@ -300,7 +300,7 @@ const departments: DepartmentData[] = [
           <span className="font-medium">
             diagnostic testing
           </span>{" "}
-          to support patient care — including routine blood work, screenings,
+          to support patient care, including routine blood work, screenings,
           infectious disease testing, chronic condition monitoring, and specimen
           collection.
         </p>
@@ -318,7 +318,7 @@ const departments: DepartmentData[] = [
             Monday – Friday, 7:30 AM – 5:00 PM
           </p>
           <p className="text-black/60 text-[14px] mt-2">
-            No appointment needed — just bring your lab order from your provider.
+            No appointment needed. Just bring your lab order from your provider.
           </p>
         </div>
       </div>

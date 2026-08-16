@@ -38,7 +38,7 @@ const CARE_TIERS = [
     title: "Community Health Centers",
     tagline: "Ongoing primary care for everyone",
     bestFor:
-      "Non-emergency illnesses and regular, ongoing primary care — especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
+      "Non-emergency illnesses and regular, ongoing primary care, especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
     cost: "Centers like Fair Haven Community Health Care and Cornell Scott-Hill Health Center welcome patients regardless of insurance or ability to pay.",
     access:
       "Contact the health center directly to become a patient and schedule an appointment.",
@@ -255,15 +255,15 @@ function EligibilityChecker() {
           </div>
         ) : (
           <div className="flex flex-col items-center text-center gap-5">
-            <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center">
-              <XCircle className="w-10 h-10 text-amber-500" />
+            <div className="w-20 h-20 rounded-full bg-[#00356b]/10 flex items-center justify-center">
+              <XCircle className="w-10 h-10 text-[#00356b]/70" />
             </div>
             <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] md:text-[28px]">
               You May Not Qualify
             </h3>
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you may not meet all of our current
-              eligibility criteria. However, we encourage you to reach out — we
+              eligibility criteria. However, we encourage you to reach out. We
               may still be able to help or connect you with other resources.
               Leave a voicemail and expect a call back within 24 hours.
             </p>

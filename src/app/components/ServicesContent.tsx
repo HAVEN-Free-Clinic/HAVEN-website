@@ -21,7 +21,7 @@ import { HealthcareNavigator } from "@/app/components/HealthcareNavigator";
 /* ─── Scope of Care ─── */
 
 const HAVEN_PROVIDES = [
-  "Primary care visits — checkups, illness, physicals",
+  "Primary care visits: checkups, illness, physicals",
   "Chronic disease management: diabetes, hypertension, asthma",
   "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
   "Behavioral health screenings and warm referrals",
@@ -36,8 +36,8 @@ const HAVEN_PROVIDES = [
 ];
 
 const OUTSIDE_SCOPE = [
-  "Emergency or life-threatening care — call 911 or go to the ER",
-  "Prenatal care — we do not see patients who are pregnant, but we will connect you with prenatal care",
+  "Emergency or life-threatening care. Call 911 or go to the ER",
+  "Prenatal care. We do not see patients who are pregnant, but we will connect you with prenatal care",
   "Insulin-dependent or highly complex diabetes management",
   "Surgery, imaging, oncology, or complex specialist procedures",
   "Licensed social work or crisis intervention",
@@ -139,7 +139,7 @@ export function ServicesContent() {
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             Your visit at HAVEN is free, and you do not need insurance to be
-            seen. Below is everything we offer — from checkups and lab work to
+            seen. Below is everything we offer, from checkups and lab work to
             help with your medications, your bills, and getting in to see a
             specialist. Interpreters are available at every visit.
           </p>
@@ -175,7 +175,7 @@ export function ServicesContent() {
                 </h3>
                 <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
                   A 3-to-5-year care navigation program that goes beyond managing
-                  your health today — helping you understand your conditions,
+                  your health today, helping you understand your conditions,
                   connect with resources, and build a roadmap toward permanent
                   coverage and a long-term provider.
                 </p>

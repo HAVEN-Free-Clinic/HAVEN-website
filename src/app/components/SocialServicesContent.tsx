@@ -95,7 +95,7 @@ function SDOHScreening() {
       </h3>
       <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-5">
         Your health is shaped by more than what happens in the clinic. Check any
-        of the following that apply to you to see how we can help — and bring
+        of the following that apply to you to see how we can help. Bring
         anything you check to your next visit so our care team can connect you
         with support.
       </p>
@@ -103,8 +103,8 @@ function SDOHScreening() {
       <div className="flex items-start gap-2.5 mb-8 text-[#00356b]">
         <Lock className="w-4 h-4 shrink-0 mt-0.5" />
         <p className="font-['Poppins',sans-serif] text-[13px] sm:text-[14px] leading-relaxed">
-          This screening is completely private. Your answers stay on your device
-          — nothing is saved, sent, or shared.
+          This screening is completely private. Your answers stay on your
+          device. Nothing is saved, sent, or shared.
         </p>
       </div>
 
@@ -542,9 +542,9 @@ export function SocialServicesContent() {
               Connecticut 211
             </h3>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[640px]">
-              211 is a free, confidential service that connects you to essential
-              health and human services across Connecticut — food, housing,
-              utility assistance, transportation, and more — available 24/7.
+              211 is a free, confidential service available 24/7. It connects
+              you to essential health and human services across Connecticut:
+              food, housing, utility assistance, transportation, and more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               <a

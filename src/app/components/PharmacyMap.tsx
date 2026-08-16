@@ -39,7 +39,7 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "CVS Pharmacy, 123 Church St, New Haven, CT 06510",
     phone: "(203) 498-9442",
     tel: "2034989442",
-    note: "Closest to the clinic — about a 10 minute drive from 800 Howard Ave.",
+    note: "Closest to the clinic. About a 10 minute drive from 800 Howard Ave.",
   },
   {
     name: "Stop & Shop Pharmacy",
@@ -106,7 +106,7 @@ export function PharmacyMap() {
           <div className="px-5 py-4 border-t border-[#00356b]/15 flex flex-wrap items-center justify-between gap-3">
             <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[15px]">
               <span className="font-semibold text-[#00356b]">{active.name}</span>
-              {" — "}
+              {", "}
               {active.address}
             </p>
             <a

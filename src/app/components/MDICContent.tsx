@@ -131,7 +131,7 @@ export function MDICContent() {
             Assistance coverage expires every 6 months and must be renewed before
             it lapses to ensure uninterrupted coverage. The renewal process can
             take <span className="font-bold">6 to 8 weeks</span>, so don&apos;t
-            wait until your coverage expires — contact MDIC well before your
+            wait until your coverage expires. Contact MDIC well before your
             expiration date to begin the process.
           </p>
         </div>
@@ -159,8 +159,8 @@ export function MDICContent() {
               className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
             >
               hfc.billing@yale.edu
-            </a>{" "}
-            — we may be able to help reduce or eliminate the balance. See the
+            </a>
+            . We may be able to help reduce or eliminate the balance. See the
             MDIC/Billing Guide below for how HAVEN can assist and what documents
             are required.
           </p>
@@ -257,7 +257,7 @@ export function MDICContent() {
             Understanding Your Bill
           </h3>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
-            Medical bills can be confusing — and Yale&apos;s medical system has{" "}
+            Medical bills can be confusing. Yale&apos;s medical system has{" "}
             <span className="font-semibold">two separate billing organizations</span>.
             A single visit can produce a bill from each. Knowing which is which
             tells you who to contact.
@@ -313,7 +313,7 @@ export function MDICContent() {
                 </div>
               </div>
               <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mb-3">
-                Covers hospital and facility charges — the facility where you were
+                Covers hospital and facility charges: the facility where you were
                 seen and hospital services such as labs and imaging.
               </p>
               <p className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[15px] leading-relaxed">
@@ -397,10 +397,10 @@ export function MDICContent() {
                 <span className="font-semibold">Not insurance:</span> It covers services at YNHH facilities but does not function like a health insurance plan and is not transferable to other providers.
               </p>
               <p>
-                <span className="font-semibold">Proof of income</span> is required — for you and, if applicable, household members. Recent pay stubs, your most recent federal tax return, or Social Security benefit statements are commonly accepted.
+                <span className="font-semibold">Proof of income</span> is required for you and, if applicable, household members. Recent pay stubs, your most recent federal tax return, or Social Security benefit statements are commonly accepted.
               </p>
               <p className="bg-[#00356b]/5 border-l-4 border-[#00356b] px-4 py-3 text-[14px] md:text-[16px]">
-                <span className="font-bold">Remember:</span> Coverage expires every 6 months. You must renew before it lapses to maintain uninterrupted free care, and renewal can take 6 to 8 weeks — contact MDIC ahead of your expiration date to start the process.
+                <span className="font-bold">Remember:</span> Coverage expires every 6 months. You must renew before it lapses to maintain uninterrupted free care, and renewal can take 6 to 8 weeks. Contact MDIC ahead of your expiration date to start the process.
               </p>
               <p>
                 Download the guide in your preferred language:
@@ -420,7 +420,7 @@ export function MDICContent() {
                 Medicaid (known as HUSKY in Connecticut) is a state and federal program that provides free or low-cost health coverage for eligible low-income individuals and families.
               </p>
               <p>
-                <span className="font-semibold">Proof of income</span> is required as part of the application — recent pay stubs, your most recent federal tax return, or Social Security benefit statements.
+                <span className="font-semibold">Proof of income</span> is required as part of the application: recent pay stubs, your most recent federal tax return, or Social Security benefit statements.
               </p>
               <p>
                 MDIC can help you determine your eligibility and assist with the application process at no cost. Contact us at{" "}
@@ -448,7 +448,7 @@ export function MDICContent() {
           </h3>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed max-w-[680px] mx-auto">
             A complete, plain-language walkthrough of the Yale New Haven Health
-            Financial Assistance (Free Care) application — what it is, how to fill
+            Financial Assistance (Free Care) application: what it is, how to fill
             out every section, and how to submit. You can do this yourself, and
             our MDIC team is here to help.
           </p>
@@ -474,8 +474,8 @@ export function MDICContent() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 py-10 md:py-12 text-center">
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[640px] mx-auto mb-6">
-              Have questions about insurance, bills, or coverage? Contact MDIC —
-              we&apos;re here to help you every step of the way.
+              Have questions about insurance, bills, or coverage? Contact MDIC.
+              We&apos;re here to help you every step of the way.
             </p>
             <a
               href="mailto:hfc.billing@yale.edu"

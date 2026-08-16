@@ -197,7 +197,7 @@ export function EducationContent() {
               routine and preventive vaccines in clinic to help protect your
               health.{" "}
               <span className="font-medium">
-                Vaccine availability varies — please ask your provider about what
+                Vaccine availability varies. Please ask your provider about what
                 is currently in stock.
               </span>
             </p>
@@ -208,7 +208,7 @@ export function EducationContent() {
               <span className="font-semibold text-[#00356b]">
                 You must be an established HAVEN patient to receive a vaccine.
               </span>{" "}
-              Vaccines are offered as part of your ongoing care at the clinic — we
+              Vaccines are offered as part of your ongoing care at the clinic. We
               are not able to provide standalone or walk-in vaccine-only visits.
               If you are not yet a patient,{" "}
               <Link

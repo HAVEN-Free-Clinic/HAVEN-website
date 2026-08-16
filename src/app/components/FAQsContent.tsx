@@ -69,7 +69,7 @@ const faqs: FAQ[] = [
     answer: (
       <div>
         <p className="mb-2">
-          If you can't make an appointment, please let us know as soon as possible — send a Care Message through your{" "}
+          If you can't make an appointment, please let us know as soon as possible. Send a Care Message through your{" "}
           <Link href="/mychart" className="text-[#00356b] underline hover:opacity-80">
             <BrandText>MyChart patient portal</BrandText>
           </Link>{" "}
@@ -116,7 +116,7 @@ const faqs: FAQ[] = [
     question: "Where is the clinic located?",
     answer: (
       <p>
-        800 Howard Avenue, New Haven, CT — in the Yale Physicians Building. Free parking is available in the Howard Avenue Garage, to the left of the building. For more details, visit our{" "}
+        800 Howard Avenue, New Haven, CT. We are in the Yale Physicians Building. Free parking is available in the Howard Avenue Garage, to the left of the building. For more details, visit our{" "}
         <Link href="/visitor-guide" className="text-[#00356b] underline hover:opacity-80">
           visitor guide
         </Link>
@@ -170,7 +170,7 @@ const faqs: FAQ[] = [
           As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions, including hypertension, high cholesterol, non-insulin-dependent (Type 2) diabetes, asthma and other stable respiratory conditions, common infections and acute illnesses, preventive care and screenings, and medication management for stable chronic conditions.
         </p>
         <p className="mb-2">
-          Some conditions fall outside our scope — including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
+          Some conditions fall outside our scope, including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
         </p>
         <p>
           See our{" "}

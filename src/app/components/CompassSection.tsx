@@ -17,7 +17,7 @@ const STAGES = [
   },
   {
     step: "When you are ready",
-    body: "We hand you off to a permanent primary care provider who is open during the week — and we help make that first appointment.",
+    body: "We hand you off to a permanent primary care provider who is open during the week, and we help make that first appointment.",
   },
 ];
 
@@ -44,9 +44,9 @@ export function CompassSection() {
 
             <p className="font-['Poppins',sans-serif] text-white/90 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8 md:mb-10">
               A Saturday clinic staffed by students should not be anyone&apos;s
-              doctor forever. Compass is how we make sure it is not — a three to
-              five year plan that ends with you having coverage and a permanent
-              provider of your own.
+              doctor forever. Compass is how we make sure it is not. We follow a
+              three to five year plan that ends with you having coverage and a
+              permanent provider of your own.
             </p>
 
             <ol className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 mb-8 md:mb-10">
