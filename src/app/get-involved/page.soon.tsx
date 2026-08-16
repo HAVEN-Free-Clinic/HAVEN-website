@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import svgPaths from "@/lib/svg-paths";
+import { HavenLogo } from "@/app/components/HavenLogo";
 import { PageHero } from "@/app/components/PageHero";
 import { GetInvolvedContent } from "@/app/components/GetInvolvedContent";
 import { FiveKSection } from "@/app/components/FiveKSection";
@@ -33,26 +33,7 @@ export default function ComingSoonGetInvolvedPage() {
             className="notranslate flex items-center gap-2 hover:opacity-90 transition-opacity"
             aria-label="HAVEN Free Clinic home"
           >
-            <div className="relative w-[52px] h-[52px] md:w-[60px] md:h-[60px] flex items-center justify-center shrink-0">
-              <svg
-                className="absolute inset-0 w-full h-full"
-                fill="none"
-                viewBox="0 0 73.6439 76"
-              >
-                <path
-                  d={svgPaths.pd9d0700}
-                  stroke="white"
-                  strokeWidth="2.47477"
-                />
-              </svg>
-              <span className="relative font-['Poppins',sans-serif] text-[11px] md:text-[12px] text-white z-10">
-                HAVEN
-              </span>
-            </div>
-            <div className="hidden sm:block font-['Poppins',sans-serif] text-[14px] md:text-[16px] text-white leading-tight">
-              <p>Free Clinic</p>
-              <p>La Cl&iacute;nica Gratuita</p>
-            </div>
+            <HavenLogo className="h-[40px] md:h-[46px] w-auto text-white" />
           </Link>
 
           <Link

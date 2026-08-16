@@ -1,5 +1,5 @@
 import Link from "next/link";
-import svgPaths from "@/lib/svg-paths";
+import { HavenLogo } from "@/app/components/HavenLogo";
 
 export function ComingSoon() {
   return (
@@ -9,19 +9,11 @@ export function ComingSoon() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
         {/* Wordmark */}
-        <div className="notranslate flex items-center gap-2" role="img" aria-label="HAVEN Free Clinic">
-          <div className="relative w-[64px] h-[64px] flex items-center justify-center">
-            <svg className="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 73.6439 76">
-              <path d={svgPaths.pd9d0700} stroke="#00356b" strokeWidth="2.47477" />
-            </svg>
-            <span className="relative font-['Poppins',sans-serif] text-[13px] text-[#00356b] z-10">
-              HAVEN
-            </span>
-          </div>
-          <div className="font-['Poppins',sans-serif] text-[15px] md:text-[17px] text-[#00356b] leading-tight">
-            <p>Free Clinic</p>
-            <p>La Cl&iacute;nica Gratuita</p>
-          </div>
+        <div className="notranslate">
+          <HavenLogo
+            title="HAVEN Free Clinic, La Cl&iacute;nica Gratuita"
+            className="h-[56px] md:h-[68px] w-auto text-[#00356b]"
+          />
         </div>
 
         {/* Pill */}

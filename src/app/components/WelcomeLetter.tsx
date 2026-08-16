@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { OVERLAY_ATTR, OVERLAY_CLOSED_EVENT } from "@/lib/translate";
-import svgPaths from "@/lib/svg-paths";
+import { HavenLogo } from "@/app/components/HavenLogo";
 
 /*
  * ─── Editing this letter ───
@@ -181,15 +181,11 @@ export function WelcomeLetter() {
             <div className="haven-env-seal">
               <svg
                 className="w-[30px] h-[30px]"
+                viewBox="0 0 40 40"
                 fill="none"
-                viewBox="0 0 73.6439 76"
                 aria-hidden="true"
               >
-                <path
-                  d={svgPaths.pd9d0700}
-                  stroke="#ffffff"
-                  strokeWidth="3.4"
-                />
+                <circle cx="20" cy="20" r="18" stroke="#ffffff" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -206,29 +202,9 @@ export function WelcomeLetter() {
             <X className="w-5 h-5" strokeWidth={2.5} />
           </button>
 
-          {/* Letterhead — the clinic logo lockup, matching the navbar. */}
-          <div className="notranslate flex items-center gap-1 mb-5 sm:mb-6">
-            <div className="relative w-[52px] h-[52px] flex items-center justify-center shrink-0">
-              <svg
-                className="absolute inset-0 w-full h-full"
-                fill="none"
-                viewBox="0 0 73.6439 76"
-                aria-hidden="true"
-              >
-                <path
-                  d={svgPaths.pd9d0700}
-                  stroke="#00356b"
-                  strokeWidth="2.47477"
-                />
-              </svg>
-              <span className="relative font-['Poppins',sans-serif] text-[11px] text-[#00356b] z-10">
-                HAVEN
-              </span>
-            </div>
-            <div className="font-['Poppins',sans-serif] text-[13px] sm:text-[14px] text-[#00356b] leading-tight ml-1">
-              <p>Free Clinic</p>
-              <p>La Cl&iacute;nica Gratuita</p>
-            </div>
+          {/* Letterhead: the clinic logo lockup, matching the navbar. */}
+          <div className="notranslate mb-5 sm:mb-6">
+            <HavenLogo className="h-[44px] sm:h-[52px] w-auto text-[#00356b]" />
           </div>
 
           <h2
