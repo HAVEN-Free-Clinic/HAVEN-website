@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { PageHero } from "@/app/components/PageHero";
 import { BehavioralHealthContent } from "@/app/components/BehavioralHealthContent";
 
-export const metadata: Metadata = {
-  title: "Behavioral Health | HAVEN Free Clinic",
+export const metadata: Metadata = pageMetadata({
+  title: "Behavioral Health",
   description:
-    "HAVEN Free Clinic's Behavioral Health Department offers psycho-education, coping skills, and connections to long-term mental health care through community partners.",
-};
+    "HAVEN Free Clinic's Behavioral Health team offers psycho-education, coping skills, and connections to long-term mental health care via community partners.",
+  path: "/services/behavioral-health",
+});
 
 export default function BehavioralHealthPage() {
   return (

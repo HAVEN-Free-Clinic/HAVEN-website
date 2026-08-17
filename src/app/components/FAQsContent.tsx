@@ -7,6 +7,12 @@ import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Data ─── */
 
+/*
+ * These questions are also published as FAQPage structured data. The plain-text
+ * copy of each answer lives in lib/faqs.ts and is rendered into JSON-LD by
+ * app/faqs/page.tsx. Google requires the answer in the markup to match the
+ * answer on the page, so edits here need a matching edit there.
+ */
 interface FAQ {
   question: string;
   answer: React.ReactNode;
