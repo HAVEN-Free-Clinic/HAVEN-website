@@ -9,7 +9,6 @@ import {
   Megaphone,
   Mail,
   ArrowRight,
-  Download,
   CheckCircle2,
   Users,
   ShieldCheck,
@@ -27,7 +26,7 @@ const WHAT_WE_LOOK_FOR = [
 
 const RECRUITMENT_TIMELINE = [
   {
-    label: "August",
+    label: "August 28th",
     description: "Applications open for the upcoming fall term.",
   },
   {
@@ -110,10 +109,14 @@ export function GetInvolvedContent() {
               Fall Volunteer Recruitment 2026
             </h3>
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-3">
-              Applications for Fall 2026 volunteer positions are now open. We
-              welcome students across all health professions programs, graduate
-              students, and community members who want to serve uninsured adults
-              in Greater New Haven alongside our student-run team.
+              Applications for Fall 2026 volunteer positions open{" "}
+              <span className="font-bold">
+                Friday, August 28th, 2026 at 12:00 AM EDT
+              </span>
+              . We welcome students across all health professions programs,
+              graduate students, and community members who want to serve
+              uninsured adults in Greater New Haven alongside our student-run
+              team.
             </p>
             <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
               Applications due{" "}
@@ -140,16 +143,6 @@ export function GetInvolvedContent() {
                   Apply Now
                 </span>
                 <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-[#00356b]" />
-              </a>
-              <a
-                href="/docs/haven-board-director-positions-2026-2027.pdf"
-                download
-                className="border-2 border-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-white/10 transition-colors"
-              >
-                <span className="font-['Poppins',sans-serif] font-semibold text-white text-[16px] sm:text-[18px] md:text-[22px]">
-                  View Position Descriptions
-                </span>
-                <Download className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </a>
             </div>
           </div>
@@ -356,8 +349,9 @@ export function GetInvolvedContent() {
             <span className="font-semibold text-[#00356b]">
               Interested in volunteering?
             </span>{" "}
-            Applications for our Fall 2026 cycle are open now and close Saturday,
-            September 12th, 2026 at 11:59 PM EDT.
+            Applications for our Fall 2026 cycle open Friday, August 28th, 2026
+            at 12:00 AM EDT and close Saturday, September 12th, 2026 at 11:59 PM
+            EDT.
           </p>
         </div>
       </div>

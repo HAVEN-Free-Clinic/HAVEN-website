@@ -8,7 +8,7 @@ import { FiveKSection } from "@/app/components/FiveKSection";
 export const metadata: Metadata = {
   title: "Get Involved | HAVEN Free Clinic",
   description:
-    "Volunteer at HAVEN Free Clinic or support our mission through donations. Fall Volunteer Recruitment 2026 applications are open through September 12th.",
+    "Volunteer at HAVEN Free Clinic or support our mission through donations. Fall Volunteer Recruitment 2026 applications open August 28th and close September 12th.",
   robots: { index: false, follow: false },
 };
 
