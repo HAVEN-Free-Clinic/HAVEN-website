@@ -9,7 +9,7 @@ import { AppointmentPolicy } from "@/app/components/AppointmentPolicy";
 import { WhoWeServe } from "@/app/components/WhoWeServe";
 import { ServicesSection } from "@/app/components/ServicesSection";
 import { CompassSection } from "@/app/components/CompassSection";
-import { WelcomeLetter } from "@/app/components/WelcomeLetter";
+// import { WelcomeLetter } from "@/app/components/WelcomeLetter";
 
 /*
  * absoluteTitle: the homepage title already ends in the clinic name, so it must
@@ -26,7 +26,14 @@ export const metadata: Metadata = pageMetadata({
 export default function HomePage() {
   return (
     <>
-      <WelcomeLetter />
+      {/*
+        The welcome letter is temporarily disabled while the text is rewritten.
+        To bring it back: uncomment the import above and the <WelcomeLetter />
+        line below. Nothing else was removed — the component, its envelope
+        animation and styles/welcome-letter.css are all still in place, and the
+        letter copy lives in LETTER_PARAGRAPHS in the component.
+      */}
+      {/* <WelcomeLetter /> */}
       <HeroBanner />
       <MissionSection />
       <TransparencyStatement />
