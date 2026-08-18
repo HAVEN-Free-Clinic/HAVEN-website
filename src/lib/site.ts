@@ -25,10 +25,28 @@ export const SITE_TAGLINE = "Free Care for Uninsured Adults, New Haven";
 export const SITE_DESCRIPTION =
   "High-quality health care, free of charge. HAVEN Free Clinic provides free primary care to uninsured adults in the New Haven community.";
 
-/** 1200x630 social share card. Relative — metadataBase makes it absolute. */
+/*
+ * 1200x630 social share card. Relative — metadataBase makes it absolute.
+ *
+ * The card carries the HAVEN wordmark burned into the image, and that is the
+ * point. og:title already begins "HAVEN Free Clinic | …", but several link
+ * previewers strip a site-name prefix from the title when og:site_name repeats
+ * it — so a shared link rendered as "Free Care for Uninsured Adults, New Haven"
+ * over an unbranded photo, with nothing but the domain to say whose clinic it
+ * was. Text inside the image is the one part no previewer rewrites.
+ *
+ * Regenerating it, if the photo or the tagline changes:
+ *   The untouched source photo is public/images/og-photo-source.jpg. Compose
+ *   1200x630 with the photo full-bleed, a Yale-blue gradient scrim over the
+ *   empty wall on the left (clearing before it reaches the people), the
+ *   haven-logo.svg lockup in white at ~436px wide, and one short line of
+ *   Poppins 600 beneath it. Size everything for a third of full size: link
+ *   cards are usually seen around 430px wide, so nothing small survives.
+ */
 export const OG_IMAGE = "/images/og-default.jpg";
 
-export const OG_IMAGE_ALT = "The HAVEN Free Clinic care team with a patient";
+export const OG_IMAGE_ALT =
+  "HAVEN Free Clinic: free care for uninsured adults in New Haven. A clinician and a patient at a computer in the clinic.";
 
 export const CLINIC = {
   phone: "(203) 200-0673",
