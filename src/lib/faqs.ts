@@ -11,6 +11,8 @@
  * that says "see our other page" is worse than omitting the entry entirely.
  */
 
+import { catchmentSentence } from "@/lib/catchment";
+
 export interface FaqEntry {
   question: string;
   answer: string;
@@ -20,7 +22,9 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "Who is eligible to be seen at the clinic?",
     answer:
-      "To be eligible for care at HAVEN Free Clinic you must reside in the Greater New Haven area, be between 18 and 65 years old, have no active medical insurance, and not currently have a primary care provider. Eligible townships include Bethany, Branford, East Haven, Guilford, Hamden, Madison, Meriden, Milford, New Haven, North Branford, North Haven, Orange, Wallingford, West Haven and Woodbridge. Additional criteria may apply and are assessed prior to acceptance.",
+      "To be eligible for care at HAVEN Free Clinic you must reside in the Greater New Haven area, be between 18 and 65 years old, have no active medical insurance, and not currently have a primary care provider. Eligible townships include " +
+      `${catchmentSentence()}. ` +
+      "Additional criteria may apply and are assessed prior to acceptance.",
   },
   {
     question: "How do I make an appointment?",
@@ -30,7 +34,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "What happens if I miss or need to cancel an appointment?",
     answer:
-      "If you cannot make an appointment, let us know as soon as possible by sending a Care Message through the MyChart patient portal or by calling (203) 200-0673, so we can offer your slot to another patient. A no-show is a missed appointment without prior notice. If you no-show three or more consecutive appointments, we will be unable to reschedule future appointments.",
+      "If you cannot make an appointment, let us know as soon as possible by replying to the automated appointment reminder you receive, or by calling (203) 200-0673, so we can offer your slot to another patient. A no-show is a missed appointment without prior notice. If you no-show three or more consecutive appointments, we will be unable to reschedule future appointments.",
   },
   {
     question: "Do you take walk-ins?",

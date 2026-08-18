@@ -3,7 +3,6 @@ import {
   Stethoscope,
   HeartPulse,
   Activity,
-  FlaskConical,
   Brain,
   GraduationCap,
   HeartHandshake,
@@ -66,12 +65,6 @@ const clinicalServices = [
     description: "Management and treatment for chronic conditions such as diabetes, hypertension, and TB.",
     icon: Activity,
     to: "/services/patient-care",
-  },
-  {
-    label: "Lab",
-    description: "On-site blood draws, lab testing, and diagnostic services for patients.",
-    icon: FlaskConical,
-    to: "/services/referrals",
   },
 ];
 

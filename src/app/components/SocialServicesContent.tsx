@@ -50,7 +50,7 @@ const SDOH_QUESTIONS: SDOHQuestion[] = [
   {
     id: "housing",
     text: "I have trouble paying my rent or mortgage, or I'm worried about losing my housing.",
-    resource: "Housing, rental aid, and shelter referrals",
+    resource: "Housing support: rental aid and shelter referrals",
   },
   {
     id: "utilities",
@@ -204,7 +204,13 @@ const resources: ResourceItem[] = [
     ),
   },
   {
-    title: "Housing",
+    /*
+     * "Housing" alone reads as a promise of placement, and patients arrive
+     * expecting a unit. The rename plus the can/cannot split below is the point:
+     * this team navigates and refers, it does not house people. Scope claims
+     * here mirror the "what we do not do" list in ServicesContent.tsx.
+     */
+    title: "Housing Support",
     content: (
       <div className="space-y-3">
         <p>
@@ -212,6 +218,30 @@ const resources: ResourceItem[] = [
           can help connect you with housing resources and support in the New
           Haven area.
         </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 pt-1">
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">
+              What we can do
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>Refer you to shelters, housing programs, and legal aid</li>
+              <li>Help you apply for rental and utility assistance</li>
+              <li>Walk you through 211 and the coordinated access network</li>
+              <li>Follow up with you about it at your next visit</li>
+            </ul>
+          </div>
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b]/30 p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">
+              What we cannot do
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>Place you in housing or assign you a shelter bed</li>
+              <li>Pay your rent, deposit, or utility bills</li>
+              <li>Provide licensed social work or crisis intervention</li>
+              <li>Act as your legal representative in an eviction</li>
+            </ul>
+          </div>
+        </div>
         <ul className="list-disc pl-8 md:pl-12 space-y-2">
           <li>
             Referrals to emergency shelters and transitional housing programs
@@ -257,6 +287,76 @@ const resources: ResourceItem[] = [
           If you are experiencing homelessness or housing instability, please
           let any member of our care team know so we can begin connecting you
           with resources right away.
+        </p>
+      </div>
+    ),
+  },
+  {
+    /*
+     * Added because transportation was already one of the SDOH screening
+     * questions above but had no matching resource section, so checking the box
+     * led nowhere. Deliberately non-specific about programs: HAVEN does not run
+     * a ride benefit, and naming one it cannot deliver would be worse than
+     * naming none.
+     */
+    title: "Transportation",
+    content: (
+      <div className="space-y-3">
+        <p>
+          Getting to an appointment should not be the reason you miss it. If
+          transportation is a barrier for you, tell any member of your care team
+          and we will work through the options with you.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 pt-1">
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">
+              What we can do
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>
+                Connect you with 211, which keeps current transportation
+                resources for Connecticut
+              </li>
+              <li>
+                Take transportation into account when we schedule your visits and
+                referrals
+              </li>
+              <li>
+                Flag it for your patient navigator so it is part of your care
+                plan
+              </li>
+            </ul>
+          </div>
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b]/30 p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">
+              What we cannot do
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>Provide rides to or from the clinic</li>
+              <li>Reimburse bus fare, gas, or rideshare costs</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          Remember that{" "}
+          <span className="font-semibold">parking at the clinic is free</span> in
+          the Howard Avenue Garage if you are able to drive or get a ride.
+        </p>
+        <p>
+          For transportation resources, dial{" "}
+          <a href="tel:211" className="text-[#00356b] hover:underline">
+            2-1-1
+          </a>{" "}
+          or visit{" "}
+          <a
+            href="https://www.211ct.org/"
+            className="text-[#00356b] hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            211ct.org
+          </a>
+          .
         </p>
       </div>
     ),

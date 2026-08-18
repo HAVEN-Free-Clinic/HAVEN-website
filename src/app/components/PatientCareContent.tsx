@@ -154,7 +154,10 @@ const departments: DepartmentData[] = [
         <p className="font-medium">COVID-19 &amp; Flu Vaccines</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>
-            We do not always carry COVID-19 and flu vaccines in clinic. Visit{" "}
+            <span className="font-semibold">
+              HAVEN does not carry COVID-19 or flu vaccines.
+            </span>{" "}
+            We are not able to give you either one at the clinic. Visit{" "}
             <a
               href="https://www.vaccines.gov"
               target="_blank"
@@ -163,7 +166,7 @@ const departments: DepartmentData[] = [
             >
               vaccines.gov
             </a>{" "}
-            to find locations near you offering these vaccines.
+            to find a location near you that offers them.
           </li>
         </ul>
         <p className="font-medium">
