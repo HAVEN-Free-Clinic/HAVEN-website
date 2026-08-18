@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
-import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Data ─── */
 
@@ -75,11 +74,7 @@ const faqs: FAQ[] = [
     answer: (
       <div>
         <p className="mb-2">
-          If you can't make an appointment, please let us know as soon as possible. Send a Care Message through your{" "}
-          <Link href="/mychart" className="text-[#00356b] underline hover:opacity-80">
-            <BrandText>MyChart patient portal</BrandText>
-          </Link>{" "}
-          or call{" "}
+          If you can't make an appointment, please let us know as soon as possible. Reply to the automated appointment reminder you receive, or call{" "}
           <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
             (203) 200-0673
           </a>

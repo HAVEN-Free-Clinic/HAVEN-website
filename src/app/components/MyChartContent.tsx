@@ -110,7 +110,7 @@ const faqs = [
   {
     question: "How do I cancel or reschedule an appointment?",
     answer:
-      "If you can't make an appointment, let us know as soon as possible by sending a Care Message through MyChart or calling the clinic at (203) 200-0673. Notifying us in advance lets us offer your slot to another patient. Please note that no-showing 3 or more consecutive appointments without notice means we will be unable to reschedule future visits. See the Visitor Guide for our full no-show policy.",
+      "If you can't make an appointment, let us know as soon as possible by replying to the automated appointment reminder you receive, or by calling the clinic at (203) 200-0673. Notifying us in advance lets us offer your slot to another patient. Please note that no-showing 3 or more consecutive appointments without notice means we will be unable to reschedule future visits. See the Visitor Guide for our full no-show policy.",
   },
   {
     question: "Should I use MyChart for urgent medical matters?",

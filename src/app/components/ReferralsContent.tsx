@@ -1,4 +1,5 @@
-import { CheckCircle2, Stethoscope, HeartHandshake } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, Stethoscope, HeartHandshake, Phone } from "lucide-react";
 
 /* ─── Arrow icon for CTA buttons ─── */
 
@@ -156,6 +157,63 @@ export function ReferralsContent() {
             <p>
               It means a referral from us is usually something you can actually
               afford to follow through on.
+            </p>
+          </div>
+
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-6 md:p-8 mt-7">
+            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+              What Free Care is
+            </h4>
+            <ul className="list-disc pl-6 space-y-2.5 font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+              <li>
+                It is <span className="font-semibold">charity care</span>, not
+                insurance. There is no card. You apply, show proof of income, and
+                are approved for roughly six months before renewing.
+              </li>
+              <li>
+                It is open to anyone regardless of income or insurance status, and
+                works as a good-faith agreement with the health system to cover
+                the cost of your services.
+              </li>
+              <li>
+                It applies at Yale New Haven Health facilities only, not at Fair
+                Haven, Cornell Scott, or other community health centers.
+              </li>
+              <li>
+                It can be applied to bills you already have, and immigration
+                status does not disqualify you.
+              </li>
+            </ul>
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mt-5">
+              Our Medical Debt &amp; Insurance Counseling team will walk you
+              through the application the first time. See the{" "}
+              <Link
+                href="/services/debt-insurance"
+                className="text-[#00356b] underline hover:opacity-80"
+              >
+                step-by-step Free Care guide
+              </Link>{" "}
+              for the whole form, section by section.
+            </p>
+          </div>
+
+          <div className="bg-[#00356b] p-6 md:p-8 mt-6">
+            <h4 className="font-['Poppins',sans-serif] font-semibold text-white text-[18px] md:text-[20px] mb-2">
+              YNHH central call center
+            </h4>
+            <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-5">
+              For questions about a Free Care application, your approval status,
+              or a specific YNHH bill, call Patient Financial Services directly.
+            </p>
+            <a
+              href="tel:8555474584"
+              className="inline-flex items-center gap-2 bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-7 py-3.5 hover:bg-[#d6e8f7] transition-colors"
+            >
+              <Phone className="w-4 h-4 shrink-0" />
+              (855) 547-4584
+            </a>
+            <p className="font-['Poppins',sans-serif] text-white/70 text-[14px] md:text-[15px] mt-4">
+              Monday–Friday, 7:30 AM – 5:00 PM
             </p>
           </div>
         </div>

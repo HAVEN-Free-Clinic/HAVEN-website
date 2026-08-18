@@ -2,17 +2,15 @@
 
 import { useState } from "react";
 import { ChevronDown, Phone, Voicemail, AlertTriangle } from "lucide-react";
-import { BrandText } from "@/app/components/BrandText";
 
 /* ─── Tabs ─── */
 
-const TAB_KEYS = ["what-to-expect", "booking-cancelling", "provider-directory"] as const;
+const TAB_KEYS = ["what-to-expect", "booking-cancelling"] as const;
 type TabKey = (typeof TAB_KEYS)[number];
 
 const TAB_LABELS: Record<TabKey, string> = {
   "what-to-expect": "What to Expect",
   "booking-cancelling": "Booking/Cancelling",
-  "provider-directory": "Provider Directory",
 };
 
 /* ─── Accordion ─── */
@@ -221,9 +219,8 @@ function BookingCancellingPanel() {
         </p>
         <ul className="list-disc pl-8 md:pl-12 space-y-2 mt-4 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
           <li>
-            <BrandText>
-              Send a Care Message through your MyChart patient portal
-            </BrandText>
+            Reply to the automated appointment reminder you receive before your
+            visit
           </li>
           <li>Call us at (203) 200-0673 to speak with a staff member</li>
         </ul>
@@ -271,45 +268,9 @@ function BookingCancellingPanel() {
           schedule.
         </p>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
-          Questions? Contact us via Care Message or by phone at (203) 200-0673.
-          We&apos;re here to help.
+          Questions? Call us at (203) 200-0673. We&apos;re here to help.
         </p>
       </div>
-    </div>
-  );
-}
-
-/* ─── Provider Directory Tab ─── */
-
-function ProviderDirectoryPanel() {
-  return (
-    <div className="space-y-12 md:space-y-16">
-      {/* Contact emails */}
-      <div className="bg-[#00356b] px-6 md:px-10 py-6 md:py-8 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
-          <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[20px]">
-            HAVEN Free Clinic: General Inquiries
-          </span>
-          <a
-            href="mailto:haven.free.clinic@yale.edu"
-            className="font-['Poppins',sans-serif] font-semibold text-white text-[16px] sm:text-[18px] md:text-[20px] underline underline-offset-4 hover:text-white/80 transition-colors shrink-0"
-          >
-            haven.free.clinic@yale.edu
-          </a>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4">
-          <span className="font-['Poppins',sans-serif] font-medium text-white/90 text-[15px] sm:text-[16px] md:text-[18px]">
-            Billing &amp; Insurance Questions
-          </span>
-          <a
-            href="mailto:hfc.billing@yale.edu"
-            className="font-['Poppins',sans-serif] font-medium text-white/90 text-[15px] sm:text-[16px] md:text-[18px] underline underline-offset-4 hover:text-white/70 transition-colors shrink-0"
-          >
-            hfc.billing@yale.edu
-          </a>
-        </div>
-      </div>
-
     </div>
   );
 }
@@ -372,12 +333,6 @@ export function VisitorGuideContent() {
           {activeTab === "booking-cancelling" && (
             <div role="tabpanel" id="tabpanel-booking-cancelling" aria-labelledby="tab-booking-cancelling">
               <BookingCancellingPanel />
-            </div>
-          )}
-
-          {activeTab === "provider-directory" && (
-            <div role="tabpanel" id="tabpanel-provider-directory" aria-labelledby="tab-provider-directory">
-              <ProviderDirectoryPanel />
             </div>
           )}
         </div>

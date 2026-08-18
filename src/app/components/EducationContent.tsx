@@ -239,7 +239,10 @@ export function EducationContent() {
               COVID-19 &amp; Flu Vaccines
             </h4>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
-              We do not always carry COVID-19 and flu vaccines in clinic. Visit{" "}
+              <span className="font-semibold">
+                HAVEN does not carry COVID-19 or flu vaccines.
+              </span>{" "}
+              We are not able to give you either one at the clinic. Visit{" "}
               <a
                 href="https://www.vaccines.gov"
                 target="_blank"
@@ -248,7 +251,7 @@ export function EducationContent() {
               >
                 vaccines.gov
               </a>{" "}
-              to find locations near you offering these vaccines.
+              to find a location near you that offers them.
             </p>
           </div>
 

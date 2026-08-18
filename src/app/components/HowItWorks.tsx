@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MapPin, Heart } from "lucide-react";
+import { Phone, MapPin, Heart, SquareParking } from "lucide-react";
 
 const steps = [
   {
@@ -14,7 +14,7 @@ const steps = [
     icon: MapPin,
     title: "Visit the Clinic",
     description:
-      "Visit us Saturday mornings from 8:30am-12:00pm at 800 Howard Ave. No insurance needed. Free parking available in the Howard Avenue Garage.",
+      "Visit us Saturday mornings from 8:30am-12:00pm at 800 Howard Ave. No insurance needed.",
   },
   {
     number: "3",
@@ -68,6 +68,25 @@ export function HowItWorks() {
                 )}
               </div>
             ))}
+          </div>
+
+          {/*
+            Free parking earns its own callout: "hospital campus" reads as
+            "expensive garage" to most people, and that assumption stops patients
+            from driving to a visit that costs them nothing. Stated once, plainly,
+            where it cannot be skimmed past.
+          */}
+          <div className="mt-10 md:mt-14 flex items-start gap-4 bg-[#00356b] px-6 md:px-8 py-6 md:py-7">
+            <SquareParking className="w-7 h-7 md:w-8 md:h-8 text-white shrink-0" />
+            <div>
+              <p className="font-['Poppins',sans-serif] font-semibold text-white text-[17px] sm:text-[18px] md:text-[20px] mb-1.5">
+                Parking is free
+              </p>
+              <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
+                Park at no cost in the Howard Avenue Garage, immediately to the
+                left of the building at 800 Howard Avenue.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -28,7 +28,18 @@ const CARE_TIERS = [
     tagline: "Life-threatening emergencies",
     bestFor:
       "Chest pain, trouble breathing, severe bleeding, signs of a stroke, serious injuries, or any situation that feels life-threatening. For a mental health crisis, call or text 988.",
-    cost: "Emergency rooms care for anyone with a medical emergency, regardless of insurance or ability to pay.",
+    cost: (
+      <>
+        Emergency rooms treat anyone with a medical emergency, regardless of
+        insurance or ability to pay. If you are billed afterward, Yale New Haven
+        Health&apos;s{" "}
+        <span className="font-semibold">Free Care program is charity care</span>:
+        it is open to anyone regardless of income or insurance status, and it
+        works as a good-faith agreement with the health system to cover the cost
+        of your services. Ask about it before you leave, or apply later for a
+        bill you already have.
+      </>
+    ),
     access:
       "Call 911 or go to the nearest emergency department. Open 24 hours a day, 7 days a week.",
   },
@@ -39,9 +50,39 @@ const CARE_TIERS = [
     tagline: "Ongoing primary care for everyone",
     bestFor:
       "Non-emergency illnesses and regular, ongoing primary care, especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
-    cost: "Centers like Fair Haven Community Health Care and Cornell Scott-Hill Health Center welcome patients regardless of insurance or ability to pay.",
-    access:
-      "Contact the health center directly to become a patient and schedule an appointment.",
+    cost: (
+      <>
+        Centers like Fair Haven Community Health Care and Cornell Scott-Hill
+        Health Center welcome patients regardless of insurance or ability to pay.
+        Both charge on a{" "}
+        <span className="font-semibold">sliding scale based on your income</span>
+        , so what you pay depends on what you earn.
+      </>
+    ),
+    access: (
+      <>
+        Call the health center directly to become a patient and schedule an
+        appointment.
+        <span className="block mt-2">
+          Fair Haven:{" "}
+          <a
+            href="tel:2037777411"
+            className="font-semibold text-[#00356b] underline hover:opacity-80"
+          >
+            (203) 777-7411
+          </a>
+        </span>
+        <span className="block mt-1">
+          Cornell Scott:{" "}
+          <a
+            href="tel:2035033000"
+            className="font-semibold text-[#00356b] underline hover:opacity-80"
+          >
+            (203) 503-3000
+          </a>
+        </span>
+      </>
+    ),
   },
   {
     icon: Heart,
@@ -50,9 +91,30 @@ const CARE_TIERS = [
     tagline: "Free care for uninsured adults",
     bestFor:
       "Free primary care and wraparound support if you're an uninsured adult (18–65) without a current primary care provider who meets our eligibility criteria.",
-    cost: "Your visit is free. The only thing we ask you to cover is medications that cost less than $25, and we waive that if it is a hardship.",
-    access:
-      "Check your eligibility above, then reach out to establish care. Our clinic runs on Saturdays.",
+    /*
+     * The bridge framing matters as much as the price. Patients arrive thinking
+     * HAVEN is either a one-off walk-in or their doctor for life; it is neither.
+     * Saying so here, in the tier comparison, is the earliest point a patient
+     * can absorb it.
+     */
+    cost: (
+      <>
+        <span className="font-semibold">
+          Free care for uninsured adults, always.
+        </span>{" "}
+        Your visit costs nothing. The only thing we ask you to cover is
+        medications priced under $25, and we waive that if it is a hardship.
+      </>
+    ),
+    access: (
+      <>
+        Check your eligibility above, then reach out to establish care. Our
+        clinic runs on Saturdays. HAVEN is a{" "}
+        <span className="font-semibold">bridge to ongoing care</span>: we treat
+        you now and work with you toward permanent coverage and a weekday primary
+        care provider you keep after us.
+      </>
+    ),
   },
 ];
 
@@ -465,12 +527,12 @@ export function EligibilityContent() {
                 name: "Integrated Refugee & Immigrant Services",
               },
               {
-                abbr: "ULA",
-                name: "Unidad Latina en Acción",
+                abbr: "Junta",
+                name: "Junta for Progressive Action",
               },
               {
-                abbr: "CIRI",
-                name: "Connecticut Institute for Refugees and Immigrants",
+                abbr: "Project Access",
+                name: "Project Access New Haven",
               },
             ].map((partner) => (
               <div

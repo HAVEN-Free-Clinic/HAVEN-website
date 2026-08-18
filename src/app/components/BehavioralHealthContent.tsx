@@ -57,7 +57,7 @@ const PARTNERS: Partner[] = [
   {
     name: "Same Day Access at Fair Haven",
     org: "Fair Haven Community Health Care",
-    lead: "Walk in, no appointment. Adults and children are both welcome.",
+    lead: "Walk in, no appointment necessary, first come first serve. Adults and children are both welcome.",
     body: "If you want to talk to someone soon rather than wait for a referral, this is the fastest door. You show up during the hours below and get seen. They offer one-on-one and group counseling, substance use support, and medication management, and they have Spanish-speaking staff.",
     address: "374 Grand Ave, New Haven, CT 06513",
     mapQuery: "Fair Haven Community Health Care, 374 Grand Ave, New Haven, CT",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { User, MapPin, ShieldCheck, Stethoscope } from "lucide-react";
+import { CATCHMENT_TOWNS } from "@/lib/catchment";
 
 const criteria = [
   { icon: User, text: "Between 18 and 65 years old" },
@@ -39,6 +40,52 @@ export function WhoWeServe() {
                 </span>
               </div>
             ))}
+          </div>
+
+          {/*
+            "Greater New Haven" is the criterion patients most often get wrong,
+            in both directions: people in Meriden or Madison assume they are too
+            far out to call, and people well outside the area make the trip for
+            nothing. Naming the towns is the only version of this that actually
+            answers the question. Rendered from CATCHMENT_TOWNS in lib/catchment
+            so this grid and the FAQ answer can never disagree.
+          */}
+          <div
+            id="catchment-area"
+            className="scroll-mt-24 bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-6 md:p-8 mb-10 md:mb-12"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#00356b] shrink-0" />
+              <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] sm:text-[20px] md:text-[22px]">
+                What counts as Greater New Haven?
+              </h3>
+            </div>
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-5">
+              Our catchment area is the set of towns we draw patients from. If
+              you live in any of these {CATCHMENT_TOWNS.length} towns, you meet
+              the location criterion:
+            </p>
+            <ul className="flex flex-wrap gap-2 md:gap-2.5">
+              {CATCHMENT_TOWNS.map((town) => (
+                <li
+                  key={town}
+                  className="font-['Poppins',sans-serif] text-[#00356b] text-[13px] sm:text-[14px] md:text-[15px] bg-white border border-[#00356b]/20 px-3 py-1.5"
+                >
+                  {town}
+                </li>
+              ))}
+            </ul>
+            <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] leading-relaxed mt-5">
+              Not on the list but nearby? Call us at{" "}
+              <a
+                href="tel:2032000673"
+                className="text-[#00356b] underline hover:opacity-80"
+              >
+                (203) 200-0673
+              </a>{" "}
+              anyway. We would rather talk it through than have you assume the
+              answer is no.
+            </p>
           </div>
 
           <Link
