@@ -46,8 +46,9 @@ export function AppointmentPolicy() {
           </div>
 
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed mt-6">
-            Cancelling is easy and there is no penalty for it. Call us as soon as
-            you know, even if it is the morning of, and we will find you another
+            Cancelling is easy and there is no penalty for it. Reply to the
+            automated appointment reminder you receive, or call us as soon as you
+            know, even if it is the morning of, and we will find you another
             time.
           </p>
 
