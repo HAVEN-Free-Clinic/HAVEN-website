@@ -571,9 +571,9 @@ export function LeadershipBoardContent() {
 
           {/* Medical Directors */}
           <div className="mb-10 md:mb-14">
-            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-10">
               Medical Directors
-            </h3>
+            </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-20">
               {MEDICAL_DIRECTORS.map((director) => (
                 <DirectorCard
@@ -588,9 +588,9 @@ export function LeadershipBoardContent() {
           <div className="w-full h-px bg-[#00356b]/10 mb-10 md:mb-14" />
 
           {/* Student Coordinators heading */}
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-12">
             Student Directors
-          </h3>
+          </h2>
 
           {/* Department sections */}
           {DEPARTMENTS.map((dept) => (

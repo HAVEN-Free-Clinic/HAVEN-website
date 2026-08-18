@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, Phone, Voicemail, AlertTriangle } from "lucide-react";
+import { WALK_IN_CUTOFF } from "@/lib/site";
 
 /* ─── Tabs ─── */
 
@@ -64,8 +65,10 @@ const whatToExpectItems: AccordionItemData[] = [
           services, pharmacy, or behavioral health teams
         </li>
         <li>
-          Please expect to be at the clinic for 1 to 2 hours. We
-          appreciate your patience as we work to provide thorough care
+          Plan for several hours on a first visit, especially if it has
+          been a long time since you last saw a primary care provider.
+          Follow-up visits are usually shorter. We appreciate your
+          patience as we work to provide thorough care
         </li>
       </ul>
     ),
@@ -197,7 +200,7 @@ function BookingCancellingPanel() {
           HAVEN Free Clinic offers both scheduled appointments and limited
           walk-in availability. Scheduled patients are always seen first.
           Walk-ins are welcome on a first come, first served basis, but are only
-          accepted until 10:30 AM, after which we cannot guarantee availability
+          accepted until {WALK_IN_CUTOFF}, after which we cannot guarantee availability
           for that day.
         </p>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px] mt-4">
@@ -231,7 +234,7 @@ function BookingCancellingPanel() {
       </div>
 
       {/* No-Show Policy */}
-      <div id="no-show-policy" className="scroll-mt-24">
+      <div id="no-show-policy" className="scroll-mt-32">
         <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-4 md:mb-8">
           No-Show Policy
         </h3>
@@ -277,8 +280,44 @@ function BookingCancellingPanel() {
 
 /* ─── Main Component ─── */
 
+/** Anchors that live inside the Booking/Cancelling panel. */
+const BOOKING_ANCHORS = ["no-show-policy"];
+
 export function VisitorGuideContent() {
   const [activeTab, setActiveTab] = useState<TabKey>("what-to-expect");
+  /** Anchor we owe a scroll to once its panel has actually rendered. */
+  const [pendingAnchor, setPendingAnchor] = useState<string | null>(null);
+
+  /*
+   * /visitor-guide#no-show-policy is linked from the home page, the FAQ and
+   * MyChart, but that id lives inside the Booking/Cancelling panel, which is
+   * not mounted on load — the visitor landed on "What to Expect" with no scroll
+   * and no policy text anywhere on the page. Switching the tab is only half the
+   * fix: the scroll has to wait for the panel to exist, which is why the target
+   * is parked in state and scrolled in a second effect. On a client-side
+   * navigation the panel is not committed by the next animation frame, so doing
+   * this in a requestAnimationFrame silently scrolled nothing.
+   */
+  useEffect(() => {
+    function syncTabToHash() {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (!id || !BOOKING_ANCHORS.includes(id)) return;
+      setActiveTab("booking-cancelling");
+      setPendingAnchor(id);
+    }
+
+    syncTabToHash();
+    window.addEventListener("hashchange", syncTabToHash);
+    return () => window.removeEventListener("hashchange", syncTabToHash);
+  }, []);
+
+  useEffect(() => {
+    if (!pendingAnchor || activeTab !== "booking-cancelling") return;
+    const el = document.getElementById(pendingAnchor);
+    if (!el) return;
+    el.scrollIntoView({ block: "start" });
+    setPendingAnchor(null);
+  }, [pendingAnchor, activeTab]);
 
   return (
     <section className="bg-white w-full">
@@ -347,16 +386,16 @@ export function VisitorGuideContent() {
       {/* ── Triage Line ── */}
       <div
         id="triage-line"
-        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16"
+        className="scroll-mt-32 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16"
       >
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-4 md:mb-6">
             <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
               <Voicemail className="w-6 h-6 text-[#00356b]" />
             </div>
-            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
               Between-Visit Questions: Our Triage Line
-            </h3>
+            </h2>
           </div>
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
             <p>
@@ -375,9 +414,9 @@ export function VisitorGuideContent() {
           </div>
 
           <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7 mt-7">
-            <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+            <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
               When leaving a voicemail, please include:
-            </h4>
+            </h3>
             <ul className="list-disc pl-6 space-y-2 font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
               <li>Your full name and date of birth</li>
               <li>A callback number where we can reach you</li>

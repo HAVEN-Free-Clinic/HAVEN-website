@@ -10,9 +10,9 @@ const departments = [
     href: "/services/patient-care",
   },
   {
-    title: "Ancillary Departments",
+    title: "Services & Programs",
     description:
-      "Social services, medication assistance, patient education, medical debt counseling, and specialty referrals.",
+      "Patient navigation, the Compass Program, referrals, social services, medication access, insurance counseling, and more.",
     icon: HeartHandshake,
     href: "/services",
   },

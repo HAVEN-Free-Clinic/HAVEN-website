@@ -4,9 +4,9 @@ import { PageHero } from "@/app/components/PageHero";
 import { MedicationContent } from "@/app/components/MedicationContent";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Medication",
+  title: "Medication Access",
   description:
-    "Information about medication services at HAVEN Free Clinic, including pharmacy partnerships and the Pharmaceutical Assistance Program.",
+    "How HAVEN Free Clinic patients get their medications: partner pharmacies, low-cost mail order, charitable supply, refill requests, and our cost-sharing policy.",
   path: "/services/medication",
 });
 
@@ -15,8 +15,8 @@ export default function MedicationPage() {
     <>
       <PageHero
         imageSrc="/images/medication.jpg"
-        imageAlt="Medication Services"
-        title="Medication"
+        imageAlt="Medication Access"
+        title="Medication Access"
       />
       <MedicationContent />
     </>

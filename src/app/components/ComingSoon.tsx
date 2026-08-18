@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HavenLogo } from "@/app/components/HavenLogo";
+import { CLINIC_HOURS } from "@/lib/site";
 
 export function ComingSoon() {
   return (
@@ -39,7 +40,7 @@ export function ComingSoon() {
             <p className="font-['Poppins',sans-serif] text-[#334155] text-[14px] md:text-[15px] leading-relaxed">
               Saturday
               <br />
-              8:30am &ndash; 12:00pm
+              {CLINIC_HOURS}
             </p>
           </div>
           <div className="bg-[#f1f5f9] rounded-xl p-5">

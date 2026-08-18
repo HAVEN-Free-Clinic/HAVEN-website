@@ -7,14 +7,14 @@ const steps = [
     icon: Phone,
     title: "Call Us",
     description:
-      "Call (203) 200-0673 to schedule. Leave a voicemail and we'll return your call within 24 hours. The clinic is open Saturdays only.",
+      "Call (203) 200-0673 to schedule. Leave a voicemail and we'll return your call within 24 hours.",
   },
   {
     number: "2",
     icon: MapPin,
     title: "Visit the Clinic",
     description:
-      "Visit us Saturday mornings from 8:30am-12:00pm at 800 Howard Ave. No insurance needed.",
+      "Come to 800 Howard Avenue, Floor 1, in the Yale Physicians Building. No insurance needed, and nothing to pay.",
   },
   {
     number: "3",

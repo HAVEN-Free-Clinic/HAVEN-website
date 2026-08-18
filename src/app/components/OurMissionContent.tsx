@@ -8,6 +8,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
+import { CLINIC_HOURS } from "@/lib/site";
 
 export function OurMissionContent() {
   return (
@@ -128,7 +129,7 @@ export function OurMissionContent() {
                 </div>
                 <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
                   HAVEN operates on{" "}
-                  <span className="font-semibold">Saturdays (8:30am–12:00pm)</span> out
+                  <span className="font-semibold">Saturdays ({CLINIC_HOURS})</span> out
                   of the{" "}
                   <span className="font-semibold">
                     Yale Physicians Building
@@ -165,7 +166,7 @@ export function OurMissionContent() {
                   Saturdays
                 </p>
                 <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px]">
-                  8:30 AM – 12:00 PM
+                  {CLINIC_HOURS}
                 </p>
               </div>
               <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-5 flex flex-col items-center text-center">

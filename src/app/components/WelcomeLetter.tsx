@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/welcome-letter.css";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { OVERLAY_ATTR, OVERLAY_CLOSED_EVENT } from "@/lib/translate";

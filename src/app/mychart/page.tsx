@@ -6,7 +6,7 @@ import { MyChartContent } from "@/app/components/MyChartContent";
 export const metadata: Metadata = pageMetadata({
   title: "MyChart",
   description:
-    "Access your HAVEN Free Clinic health information through MyChart. View test results, message your care team, and manage appointments.",
+    "Access your HAVEN Free Clinic health information through MyChart. View test results, message your care team, and request prescription refills.",
   path: "/mychart",
 });
 

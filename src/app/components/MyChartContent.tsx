@@ -16,10 +16,12 @@ import {
   Smartphone,
   Users,
   Download,
+  ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
+import { MYCHART_URL } from "@/lib/links";
 import { BrandText, MyChart } from "@/app/components/BrandText";
 
-const MYCHART_LOGIN_URL = "https://mychart.ynhhs.org";
 
 const features = [
   {
@@ -30,15 +32,15 @@ const features = [
   },
   {
     icon: CalendarCheck,
-    title: "Schedule & Cancel Appointments",
+    title: "See Your Upcoming Visits",
     description:
-      "Manage your upcoming visits and make changes to your schedule.",
+      "View your scheduled appointments and visit history in one place.",
   },
   {
     icon: CalendarPlus,
-    title: "Request New Appointments",
+    title: "Ask About an Appointment",
     description:
-      "Request a new appointment with your provider at your convenience.",
+      "Message us about scheduling. HAVEN visits are booked by phone, not through the portal.",
   },
   {
     icon: FileText,
@@ -48,8 +50,8 @@ const features = [
   },
   {
     icon: Pill,
-    title: "Request Prescription Renewals",
-    description: "Submit renewal requests for your current prescriptions.",
+    title: "Request Prescription Refills",
+    description: "Submit refill requests for your current prescriptions.",
   },
   {
     icon: ClipboardList,
@@ -71,36 +73,33 @@ const features = [
   },
 ];
 
-const faqs = [
-  {
-    question: "What is MyChart?",
-    answer:
-      "MyChart is a free, secure online patient portal that gives you convenient access to your HAVEN Free Clinic health information. You can use it from any device with an internet connection to communicate with your care team, view test results, request appointments, and more.",
-  },
-  {
-    question: "How do I sign up for MyChart?",
-    answer:
-      "To create your MyChart account, you need an activation code. You can get one from your after-visit summary, during your next appointment, or by requesting one at the front desk. Your activation code is used once to log in for the first time, after which you will create a unique username and password.",
-  },
+const faqs: { question: string; answer: React.ReactNode }[] = [
   {
     question: "Is MyChart free to use?",
     answer:
       "Yes. MyChart is a completely free service offered to all HAVEN Free Clinic patients. There are no fees or charges to create or use your account.",
   },
   {
-    question: "Can I use MyChart on my phone?",
-    answer:
-      "Yes. The MyChart mobile app is available for both Apple and Android devices. You can download it from the App Store or Google Play. You can also access MyChart through any web browser on your phone or tablet.",
-  },
-  {
-    question: "How do I request prescription renewals through MyChart?",
-    answer:
-      "After logging in, navigate to the Medications section and select the prescription you would like to renew. Follow the prompts to submit your renewal request. Your care team will review and respond to your request, typically within 2–3 business days.",
-  },
-  {
-    question: "Can I access a family member's medical information?",
-    answer:
-      "Yes. MyChart offers proxy access, which allows you to view and manage the health information of a family member or dependent. To set up proxy access, ask at the front desk during your next visit or contact the clinic directly.",
+    question: "How do I request prescription refills through MyChart?",
+    answer: (
+      <>
+        <BrandText>
+          After logging in, go to the Medications section of MyChart and select
+          the prescription you need refilled, then follow the prompts.
+        </BrandText>{" "}
+        Check with your pharmacy first, though — if a refill is already
+        authorized they can fill it immediately. Allow{" "}
+        <span className="font-semibold">3 to 5 business days</span> for your care
+        team to review a request, the same window as calling us, and see our{" "}
+        <Link
+          href="/services/medication"
+          className="text-[#00356b] underline hover:no-underline"
+        >
+          Medication Access page
+        </Link>{" "}
+        for the full process.
+      </>
+    ),
   },
   {
     question: "Is my information secure on MyChart?",
@@ -109,8 +108,29 @@ const faqs = [
   },
   {
     question: "How do I cancel or reschedule an appointment?",
-    answer:
-      "If you can't make an appointment, let us know as soon as possible by replying to the automated appointment reminder you receive, or by calling the clinic at (203) 200-0673. Notifying us in advance lets us offer your slot to another patient. Please note that no-showing 3 or more consecutive appointments without notice means we will be unable to reschedule future visits. See the Visitor Guide for our full no-show policy.",
+    answer: (
+      <>
+        HAVEN appointments are managed by phone, not through the portal. If you
+        can&apos;t make one, let us know as soon as possible by replying to the
+        automated appointment reminder you receive, or by calling the clinic at{" "}
+        <a
+          href="tel:2032000673"
+          className="text-[#00356b] underline hover:no-underline"
+        >
+          (203) 200-0673
+        </a>
+        . Notifying us in advance lets us offer your slot to another patient.
+        No-showing 3 or more consecutive appointments without notice means we
+        will be unable to reschedule future visits. See the{" "}
+        <Link
+          href="/visitor-guide#no-show-policy"
+          className="text-[#00356b] underline hover:no-underline"
+        >
+          Visitor Guide
+        </Link>{" "}
+        for our full no-show policy.
+      </>
+    ),
   },
   {
     question: "Should I use MyChart for urgent medical matters?",
@@ -124,10 +144,22 @@ const resources = [
     label: "MyChart FAQ (YNHH)",
     url: "https://www.ynhh.org/tools/emrfaq",
   },
-  { label: "Patient Forms & Resources", url: "/services" },
+  /*
+   * This used to read "Patient Forms & Resources" and point at /services, which
+   * has no forms on it at all. The only downloadable patient forms on the site
+   * are the Free Care application guides.
+   */
+  { label: "Free Care Application Forms", url: "/services/debt-insurance" },
+  { label: "What to Expect at a Visit", url: "/visitor-guide" },
 ];
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: React.ReactNode;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -151,9 +183,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           open ? "max-h-[600px] opacity-100 pb-5 md:pb-6 visible" : "max-h-0 opacity-0 invisible"
         }`}
       >
-        <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed pr-10">
-          <BrandText>{answer}</BrandText>
-        </p>
+        <div className="font-['Poppins',sans-serif] text-black/70 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed pr-10">
+          {typeof answer === "string" ? <BrandText>{answer}</BrandText> : answer}
+        </div>
       </div>
     </div>
   );
@@ -175,8 +207,8 @@ export function MyChartContent() {
                 MyChart is a free, secure online portal that gives you access
                 to your HAVEN Free Clinic health information anytime, anywhere.
               </BrandText>{" "}
-              Manage appointments, message your care team, view test results,
-              and more.
+              View your upcoming visits, message your care team, see test
+              results, and request refills.
             </p>
             <p className="font-['Poppins',sans-serif] text-black/75 text-[15px] md:text-[16px] leading-relaxed mb-6 md:mb-8">
               To get started, you&apos;ll need an{" "}
@@ -187,7 +219,7 @@ export function MyChartContent() {
               after-visit summary, or by requesting one at the front desk.
             </p>
             <a
-              href={MYCHART_LOGIN_URL}
+              href={MYCHART_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#00356b] text-white font-['Poppins',sans-serif] font-semibold text-[16px] md:text-[18px] px-8 py-3.5 hover:bg-[#00356b]/90 transition-colors duration-300"
@@ -271,26 +303,43 @@ export function MyChartContent() {
               Resources
             </h2>
             <div className="flex flex-col gap-1">
-              {resources.map((resource) => (
-                <a
-                  key={resource.label}
-                  href={resource.url}
-                  target={
-                    resource.url.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    resource.url.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="flex items-center gap-3 py-3.5 px-4 -mx-4 group hover:bg-[#00356b]/5 transition-colors duration-200 rounded-lg"
-                >
-                  <ExternalLink className="w-4 h-4 text-[#00356b]/50 group-hover:text-[#00356b] transition-colors shrink-0" />
-                  <span className="font-['Poppins',sans-serif] text-[#00356b] text-[15px] md:text-[16px] font-medium group-hover:underline">
-                    <BrandText>{resource.label}</BrandText>
-                  </span>
-                </a>
-              ))}
+              {resources.map((resource) => {
+                const external = resource.url.startsWith("http");
+                const className =
+                  "flex items-center gap-3 py-3.5 px-4 -mx-4 group hover:bg-[#00356b]/5 transition-colors duration-200 rounded-lg";
+                const inner = (
+                  <>
+                    {external ? (
+                      <ExternalLink className="w-4 h-4 text-[#00356b]/50 group-hover:text-[#00356b] transition-colors shrink-0" />
+                    ) : (
+                      <ArrowRight className="w-4 h-4 text-[#00356b]/50 group-hover:text-[#00356b] transition-colors shrink-0" />
+                    )}
+                    <span className="font-['Poppins',sans-serif] text-[#00356b] text-[15px] md:text-[16px] font-medium group-hover:underline">
+                      <BrandText>{resource.label}</BrandText>
+                    </span>
+                  </>
+                );
+
+                return external ? (
+                  <a
+                    key={resource.label}
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <Link
+                    key={resource.label}
+                    href={resource.url}
+                    className={className}
+                  >
+                    {inner}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 

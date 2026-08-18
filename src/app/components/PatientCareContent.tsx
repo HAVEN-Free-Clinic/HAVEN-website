@@ -2,37 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, Check, X } from "lucide-react";
-import { BrandText } from "@/app/components/BrandText";
-import { VACCINES } from "@/lib/vaccines";
-
-/* ─── Scope of Care ─── */
-
-const HAVEN_PROVIDES = [
-  "Primary care visits: checkups, illness, physicals",
-  "Chronic disease management: diabetes, hypertension, asthma",
-  "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
-  "Behavioral health screenings and warm referrals",
-  "Lab testing and vaccines",
-  "Low-cost medications through our pharmacy partnerships",
-  "Health education: diabetes, nutrition, self-management",
-  "Referrals to specialists and community resources",
-  "Medical debt counseling and help with YNHH Free Care applications",
-  "Latent TB, H. pylori, and hypertension follow-up care",
-  "Interpretation and cultural navigation",
-  "Longitudinal care coordination for complex health needs",
-];
-
-const OUTSIDE_SCOPE = [
-  "Emergency or life-threatening care. Call 911 or go to the ER",
-  "Prenatal care. We do not see patients who are pregnant, but we will connect you with prenatal care",
-  "Insulin-dependent or highly complex diabetes management",
-  "Surgery, imaging, oncology, or complex specialist procedures",
-  "Licensed social work or crisis intervention",
-  "Housing placement or job placement",
-  "Weekday or after-hours care (Saturdays only)",
-  "Insurance enrollment or Medicaid applications (we refer you)",
-];
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { ScopeSummary } from "@/app/components/ScopeOfCare";
+import { VaccineInfo } from "@/app/components/VaccineInfo";
 
 /* ─── Accordion helper ─── */
 
@@ -113,68 +85,7 @@ const departments: DepartmentData[] = [
   },
   {
     title: "Vaccines",
-    content: (
-      <div className="space-y-4 md:space-y-6">
-        <p>
-          We offer{" "}
-          <span className="font-medium">
-            several routine and preventive vaccines in clinic
-          </span>{" "}
-          to help protect your health.{" "}
-          <span className="font-medium">
-            Vaccine availability varies. Please ask your provider about what is
-            currently in stock.
-          </span>
-        </p>
-        <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] p-4 md:p-5">
-          <p>
-            <span className="font-semibold text-[#00356b]">
-              You must be an established HAVEN patient to receive a vaccine.
-            </span>{" "}
-            Vaccines are offered as part of your ongoing care at the clinic. We
-            are not able to provide standalone or walk-in vaccine-only visits. If
-            you are not yet a patient,{" "}
-            <Link
-              href="/eligibility"
-              className="text-[#00356b] underline hover:text-[#00356b]/70"
-            >
-              see our eligibility information
-            </Link>{" "}
-            to establish care first.
-          </p>
-        </div>
-        <p className="font-medium">Vaccines Available at HAVEN</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          {VACCINES.map((vaccine) => (
-            <li key={vaccine}>
-              <BrandText>{vaccine}</BrandText>
-            </li>
-          ))}
-        </ul>
-        <p className="font-medium">COVID-19 &amp; Flu Vaccines</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>
-            <span className="font-semibold">
-              HAVEN does not carry COVID-19 or flu vaccines.
-            </span>{" "}
-            We are not able to give you either one at the clinic. Visit{" "}
-            <a
-              href="https://www.vaccines.gov"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-[#00356b]/70 transition-colors"
-            >
-              vaccines.gov
-            </a>{" "}
-            to find a location near you that offers them.
-          </li>
-        </ul>
-        <p className="font-medium">
-          If you are interested in receiving a vaccine or have questions about
-          which vaccines you may need, please ask your provider.
-        </p>
-      </div>
-    ),
+    content: <VaccineInfo />,
   },
   {
     title: "Behavioral Health",
@@ -205,12 +116,9 @@ const departments: DepartmentData[] = [
     ),
   },
   {
-    title: "Sexual and Reproductive Health",
+    title: "Sexual & Reproductive Health",
     content: (
       <div className="space-y-4 md:space-y-6">
-        <p className="font-medium">
-          Reproductive &amp; Sexual Health Services
-        </p>
         <p>
           We provide routine and problem-focused reproductive and sexual health
           care for patients of all genders and anatomies. Our goal is to support
@@ -277,8 +185,9 @@ const departments: DepartmentData[] = [
             We do not provide infertility counseling.
           </li>
           <li>
-            Care is available regardless of immigration or legal status, and many
-            services are covered through Connecticut HUSKY or Free Care programs.
+            Care is available regardless of immigration or legal status, and
+            services we refer you out for can often be covered by the YNHH Free
+            Care program.
           </li>
           <li>
             We work closely with other clinic teams to ensure you receive the
@@ -308,13 +217,22 @@ const departments: DepartmentData[] = [
           collection.
         </p>
         <p>
-          Your provider will let you know if any lab work is needed. Most labs
-          are completed{" "}
-          <span className="font-medium">during the week, not on Saturdays.</span>
+          Many specimens are collected in clinic on Saturday by our own lab
+          volunteers, who are trained in venipuncture and supervised before they
+          work with patients. Everything is then processed off site at the Yale
+          New Haven Hospital lab.
+        </p>
+        <p>
+          For anything we cannot collect on the day, your provider will give you
+          a lab order to take to the{" "}
+          <span className="font-medium">
+            hospital&apos;s weekday walk-in lab
+          </span>{" "}
+          in the same building.
         </p>
         <div className="bg-[#f7f9fc] border border-[#00356b]/10 p-4 md:p-5">
           <p className="font-medium text-[#00356b]">
-            Walk-In Lab Hours
+            YNHH Walk-In Lab
           </p>
           <p>
             800 Howard Ave, 2nd Floor<br />
@@ -322,6 +240,8 @@ const departments: DepartmentData[] = [
           </p>
           <p className="text-black/60 text-[14px] mt-2">
             No appointment needed. Just bring your lab order from your provider.
+            This is the hospital&apos;s lab, not HAVEN&apos;s, and it is open
+            during the week rather than on Saturdays.
           </p>
         </div>
       </div>
@@ -394,73 +314,7 @@ export function PatientCareContent() {
 
       {/* ── Scope of Care ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-14">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-            Scope of Care
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* What HAVEN provides */}
-            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-[#00356b]" strokeWidth={2.5} />
-                </div>
-                <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
-                  What HAVEN provides
-                </h4>
-              </div>
-              <ul className="space-y-3">
-                {HAVEN_PROVIDES.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check
-                      className="w-5 h-5 text-[#00356b] shrink-0 mt-0.5"
-                      strokeWidth={2.5}
-                    />
-                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Outside our scope */}
-            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
-                  <X className="w-5 h-5 text-red-700" strokeWidth={2.5} />
-                </div>
-                <h4 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
-                  Outside our scope
-                </h4>
-              </div>
-              <ul className="space-y-3">
-                {OUTSIDE_SCOPE.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <X
-                      className="w-5 h-5 text-red-600 shrink-0 mt-0.5"
-                      strokeWidth={2.5}
-                    />
-                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
-            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
-              When we can&apos;t provide something directly, we connect you to
-              someone who can.{" "}
-              <span className="font-semibold text-[#00356b]">
-                You never leave HAVEN without a next step.
-              </span>
-            </p>
-          </div>
-        </div>
+        <ScopeSummary />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
@@ -472,9 +326,9 @@ export function PatientCareContent() {
       {/* ── Departments ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
-        <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+        <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
           Departments
-        </h3>
+        </h2>
 
         <div>
           {departments.map((dept) => (

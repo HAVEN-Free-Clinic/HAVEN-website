@@ -52,7 +52,7 @@ export function WhoWeServe() {
           */}
           <div
             id="catchment-area"
-            className="scroll-mt-24 bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-6 md:p-8 mb-10 md:mb-12"
+            className="scroll-mt-32 bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-6 md:p-8 mb-10 md:mb-12"
           >
             <div className="flex items-center gap-3 mb-3">
               <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#00356b] shrink-0" />

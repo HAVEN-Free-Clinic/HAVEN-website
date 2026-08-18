@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CLINIC_HOURS, COST_SHARING_SUMMARY } from "@/lib/site";
 
 /*
  * Every fact in this section is stated elsewhere on the site (FAQs, Visitor
@@ -16,11 +17,11 @@ const FACTS = [
   },
   {
     label: "When we are open",
-    body: "Saturday mornings, 8:30am to 12:00pm. That is the whole clinic. We are not open on weekdays or after hours.",
+    body: `Saturday mornings, ${CLINIC_HOURS}. That is the whole clinic. We are not open on weekdays or after hours.`,
   },
   {
     label: "What it costs",
-    body: "Your visit is free. You will not get a bill from us. Medications under $25 are the one cost we ask patients to cover, and we waive that when it is a hardship.",
+    body: `Your visit is free and HAVEN never bills you for it. ${COST_SHARING_SUMMARY} Labs, imaging, or specialist care we arrange for you can still generate a bill from Yale New Haven Health — bring it to us before you pay it.`,
   },
   {
     label: "What we cannot do",
@@ -68,10 +69,17 @@ export function TransparencyStatement() {
             Being a teaching clinic is why we can be free, and it is also why we
             are careful about what we take on.{" "}
             <Link
+              href="/services/scope-of-care"
+              className="text-[#00356b] font-semibold underline hover:no-underline"
+            >
+              Read our full scope of care
+            </Link>
+            , or{" "}
+            <Link
               href="/visitor-guide"
               className="text-[#00356b] font-semibold underline hover:no-underline"
             >
-              Read the visitor guide
+              the visitor guide
             </Link>{" "}
             for what a Saturday at HAVEN actually looks like.
           </p>

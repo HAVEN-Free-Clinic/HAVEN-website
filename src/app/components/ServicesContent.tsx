@@ -12,57 +12,32 @@ import {
   Users,
   Compass,
   Smile,
-  Check,
-  X,
+  Map,
+  ClipboardCheck,
 } from "lucide-react";
-import { HealthcareNavigator } from "@/app/components/HealthcareNavigator";
-
-/* ─── Scope of Care ─── */
-
-const HAVEN_PROVIDES = [
-  "Primary care visits: checkups, illness, physicals",
-  "Chronic disease management: diabetes, hypertension, asthma",
-  "Reproductive & women's health: pap smears, STI screening, contraception, gender-affirming care",
-  "Behavioral health screenings and warm referrals",
-  "Lab testing and vaccines",
-  "Low-cost medications through our pharmacy partnerships",
-  "Health education: diabetes, nutrition, self-management",
-  "Referrals to specialists and community resources",
-  "Medical debt counseling and help with YNHH Free Care applications",
-  "Latent TB, H. pylori, and hypertension follow-up care",
-  "Interpretation and cultural navigation",
-  "Longitudinal care coordination for complex health needs",
-];
-
-const OUTSIDE_SCOPE = [
-  "Emergency or life-threatening care. Call 911 or go to the ER",
-  "Prenatal care. We do not see patients who are pregnant, but we will connect you with prenatal care",
-  "Insulin-dependent or highly complex diabetes management",
-  "Surgery, imaging, oncology, or complex specialist procedures",
-  "Licensed social work or crisis intervention",
-  "Housing placement or job placement",
-  "Weekday or after-hours care (Saturdays only)",
-  "Insurance enrollment or Medicaid applications (we refer you)",
-];
+import { ScopeSummary } from "@/app/components/ScopeOfCare";
 
 /* ─── Clinical Services ─── */
 
 const clinicalServices = [
   {
     label: "Primary Care",
-    description: "Comprehensive primary care including physical exams, screenings, and ongoing health management.",
+    description:
+      "Comprehensive primary care including physical exams, screenings, and ongoing health management.",
     icon: Stethoscope,
     to: "/services/patient-care",
   },
   {
-    label: "Reproductive Health",
-    description: "Sexual and reproductive health services including counseling, contraception, and STI screening.",
+    label: "Sexual & Reproductive Health",
+    description:
+      "Sexual and reproductive health services including counseling, contraception, and STI screening.",
     icon: HeartPulse,
     to: "/services/patient-care",
   },
   {
     label: "Chronic Disease",
-    description: "Management and treatment for chronic conditions such as diabetes, hypertension, and TB.",
+    description:
+      "Management and treatment for chronic conditions such as diabetes, hypertension, and TB.",
     icon: Activity,
     to: "/services/patient-care",
   },
@@ -72,53 +47,46 @@ const clinicalServices = [
 
 const resources = [
   {
-    label: "Patient Navigator",
-    description: "Our Longitudinal Care Coordination (LCC) program pairs patients with dedicated navigators who coordinate ongoing care, follow-ups, and community resources.",
-    icon: Users,
-    to: "/services/social-services",
-    featured: true,
-  },
-  {
     label: "Behavioral Health",
-    description: "Screenings, psycho-education, and warm referrals to partner clinics for ongoing treatment. Group meets the first Saturday of each month.",
+    description:
+      "Screenings, psycho-education, and warm referrals to partner clinics for ongoing treatment. Group meets the first Saturday of each month.",
     icon: Brain,
     to: "/services/behavioral-health",
   },
   {
-    label: "Education",
-    description: "Health literacy programs and wellness education for patients.",
-    icon: GraduationCap,
-    to: "/services/education",
-  },
-  {
     label: "Social Services",
-    description: "Assistance with food, housing, employment, and community resources.",
+    description:
+      "Screening for social needs, then help with food, housing, transportation, employment, legal problems, and community resources.",
     icon: HeartHandshake,
     to: "/services/social-services",
   },
   {
-    label: "Dental Care",
-    description: "Care coordination connecting patients with accessible, affordable community dental resources at no cost.",
-    icon: Smile,
-    to: "/services/dental",
-  },
-  {
     label: "Insurance Counseling",
-    description: "Help with medical bills, insurance enrollment, and financial assistance.",
+    description:
+      "Help with medical bills, YNHH Free Care and Medicaid applications, and debt you already have.",
     icon: Shield,
     to: "/services/debt-insurance",
   },
   {
-    label: "Medication",
-    description: "Pharmacy partnerships and prescription assistance programs.",
+    label: "Medication Access",
+    description:
+      "Pharmacy partnerships, low-cost mail-order options, and prescription assistance programs.",
     icon: Pill,
     to: "/services/medication",
   },
   {
-    label: "Referrals",
-    description: "Specialty care referrals and diagnostic testing coordination.",
-    icon: ArrowRight,
-    to: "/services/referrals",
+    label: "Oral Health Initiative",
+    description:
+      "We do not treat teeth. We triage oral health concerns and coordinate you into community dental care, at no cost to you.",
+    icon: Smile,
+    to: "/services/dental",
+  },
+  {
+    label: "Education",
+    description:
+      "One-on-one counseling on diabetes, blood pressure, nutrition, and managing your own conditions.",
+    icon: GraduationCap,
+    to: "/services/education",
   },
 ];
 
@@ -134,12 +102,13 @@ export function ServicesContent() {
             Your visit at HAVEN is free, and you do not need insurance to be
             seen. Below is everything we offer, from checkups and lab work to
             help with your medications, your bills, and getting in to see a
-            specialist. Interpreters are available at every visit.
+            specialist. Spanish interpreters are available every Saturday; tell
+            us when you schedule if you need another language.
           </p>
         </div>
       </div>
 
-      {/* ── Clinical Services ── */}
+      {/* ── Services and Programs ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
@@ -150,7 +119,7 @@ export function ServicesContent() {
         {/* Featured: The Compass Program */}
         <div className="max-w-4xl mx-auto mb-8 md:mb-10">
           <Link
-            href="/services/social-services#compass"
+            href="/services/compass"
             className="group block bg-[#00356b] px-6 md:px-8 py-7 md:py-9 hover:bg-[#00356b]/95 hover:shadow-lg transition-all"
           >
             <div className="flex items-start gap-5">
@@ -167,10 +136,10 @@ export function ServicesContent() {
                   The Compass Program
                 </h3>
                 <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
-                  A 3-to-5-year care navigation program that goes beyond managing
-                  your health today, helping you understand your conditions,
-                  connect with resources, and build a roadmap toward permanent
-                  coverage and a long-term provider.
+                  A three-to-five-year care navigation program that goes beyond
+                  managing your health today, helping you understand your
+                  conditions, connect with resources, and build a roadmap toward
+                  permanent coverage and a long-term provider.
                 </p>
                 <span className="inline-flex items-center gap-1.5 mt-3 font-['Poppins',sans-serif] font-semibold text-white text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
                   Learn more
@@ -202,29 +171,59 @@ export function ServicesContent() {
             ))}
           </div>
 
-          {/* Featured: Patient Navigator */}
-          {resources.filter((r) => r.featured).map((resource) => (
-            <Link
-              key={resource.label}
-              href={resource.to}
-              className="group border-2 border-[#00356b] px-6 md:px-8 py-6 md:py-8 mt-5 md:mt-6 mb-5 md:mb-6 flex items-start gap-5 hover:bg-[#00356b]/5 hover:shadow-md transition-all"
-            >
-              <div className="w-12 h-12 rounded-full bg-[#00356b] flex items-center justify-center shrink-0">
-                <resource.icon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px] mb-1.5">
-                  {resource.label}
-                </h3>
-                <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
-                  {resource.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+          {/*
+            Referrals sits above Patient Navigation deliberately: it is the
+            service patients most often arrive looking for, and it carries the
+            Free Care prerequisite, which is the thing they most need to know
+            before they get there.
+          */}
+          <Link
+            href="/services/referrals"
+            className="group border-2 border-[#00356b] px-6 md:px-8 py-6 md:py-8 mt-5 md:mt-6 flex items-start gap-5 hover:bg-[#00356b]/5 hover:shadow-md transition-all"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#00356b] flex items-center justify-center shrink-0">
+              <ArrowRight className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px] mb-1.5">
+                Referrals &amp; Specialty Care
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
+                Cardiology, gastroenterology, orthopedics, imaging, and more.
+                We place the referral and work with the YNHH Free Care office so
+                you can afford to go. Dermatology, nephrology, and neurology we
+                now run in house on select Saturdays.
+              </p>
+              <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[14px] md:text-[15px] leading-relaxed mt-2.5">
+                For referrals out to another practice, you need to be an
+                established HAVEN patient with a YNHH Free Care application on
+                file before we can arrange the appointment.
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/services/patient-navigation"
+            className="group border-2 border-[#00356b] px-6 md:px-8 py-6 md:py-8 mt-5 md:mt-6 mb-5 md:mb-6 flex items-start gap-5 hover:bg-[#00356b]/5 hover:shadow-md transition-all"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#00356b] flex items-center justify-center shrink-0">
+              <Users className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px] mb-1.5">
+                Patient Navigation
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
+                Our Longitudinal Care Coordination program pairs you with a
+                navigator who keeps your appointments, referrals, and follow-ups
+                on track between Saturdays, and who you can reach during the
+                week.
+              </p>
+            </div>
+          </Link>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {resources.filter((r) => !r.featured).map((resource) => (
+            {resources.map((resource) => (
               <Link
                 key={resource.label}
                 href={resource.to}
@@ -242,6 +241,14 @@ export function ServicesContent() {
               </Link>
             ))}
           </div>
+
+          <Link
+            href="/about/operations"
+            className="group inline-flex items-center gap-2 mt-8 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[17px] hover:gap-3 transition-all"
+          >
+            See every department that makes the clinic run
+            <ArrowRight className="w-4 h-4 shrink-0" />
+          </Link>
         </div>
       </div>
 
@@ -253,73 +260,7 @@ export function ServicesContent() {
 
       {/* ── Scope of Care ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-8 md:mb-10">
-            Scope of Care
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* What HAVEN provides */}
-            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-[#00356b]" strokeWidth={2.5} />
-                </div>
-                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
-                  What HAVEN provides
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {HAVEN_PROVIDES.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check
-                      className="w-5 h-5 text-[#00356b] shrink-0 mt-0.5"
-                      strokeWidth={2.5}
-                    />
-                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Outside our scope */}
-            <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
-                  <X className="w-5 h-5 text-red-700" strokeWidth={2.5} />
-                </div>
-                <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px]">
-                  Outside our scope
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {OUTSIDE_SCOPE.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <X
-                      className="w-5 h-5 text-red-600 shrink-0 mt-0.5"
-                      strokeWidth={2.5}
-                    />
-                    <span className="font-['Poppins',sans-serif] text-black/80 text-[14px] md:text-[16px] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
-            <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
-              When we can&apos;t provide something directly, we connect you to
-              someone who can.{" "}
-              <span className="font-semibold text-[#00356b]">
-                You never leave HAVEN without a next step.
-              </span>
-            </p>
-          </div>
-        </div>
+        <ScopeSummary />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
@@ -328,9 +269,66 @@ export function ServicesContent() {
         </div>
       </div>
 
-      {/* ── Navigating US Healthcare ── */}
+      {/*
+        ── Guides ──
+        The healthcare-system explainer used to be rendered inline here as a
+        thin five-rung ladder, while /eligibility carried a richer three-tier
+        version of the same idea. Both now live on /navigating-care; this is the
+        door to it.
+      */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16 pb-16 md:pb-20 lg:pb-24">
-        <HealthcareNavigator />
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-4">
+            Guides
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
+            Two things worth reading whether or not you become our patient.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+            <Link
+              href="/navigating-care"
+              className="group bg-[#00356b] p-6 md:p-8 hover:bg-[#00356b]/95 hover:shadow-lg transition-all"
+            >
+              <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center mb-4">
+                <Map className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[18px] md:text-[21px] mb-2">
+                Navigating Healthcare
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
+                Every level of care in the American system, what each one costs,
+                how coverage works in Connecticut, and where HAVEN fits among
+                them.
+              </p>
+              <span className="inline-flex items-center gap-1.5 mt-4 font-['Poppins',sans-serif] font-semibold text-white text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                Read the guide
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+
+            <Link
+              href="/services/scope-of-care"
+              className="group bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-8 hover:border-[#00356b]/40 hover:shadow-md transition-all"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center mb-4">
+                <ClipboardCheck className="w-6 h-6 text-[#00356b]" />
+              </div>
+              <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[18px] md:text-[21px] mb-2">
+                Scope of Care
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
+                Everything HAVEN provides, everything that falls outside what a
+                supervised Saturday clinic can do, and where to go instead for
+                each of them.
+              </p>
+              <span className="inline-flex items-center gap-1.5 mt-4 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                Read our scope
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

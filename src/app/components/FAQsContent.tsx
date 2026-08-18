@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import { CATCHMENT_TOWNS } from "@/lib/catchment";
+import {
+  CLINIC_HOURS_SENTENCE,
+  COST_SHARING_SUMMARY,
+  WALK_IN_CUTOFF,
+} from "@/lib/site";
 
 /* ─── Data ─── */
 
@@ -30,22 +36,16 @@ const faqs: FAQ[] = [
           <li>Not currently have a primary care provider</li>
         </ul>
         <p className="mt-3 mb-2">Eligible areas to be seen include the following townships:</p>
+        {/*
+          Read from lib/catchment.ts rather than hardcoded: this list had
+          already drifted from the canonical array (it said "New Haven (central
+          city)"), and the same array feeds the home page grid and the JSON-LD
+          the FAQ publishes.
+        */}
         <ul className="list-disc pl-8 space-y-1">
-          <li>Bethany</li>
-          <li>Branford</li>
-          <li>East Haven</li>
-          <li>Guilford</li>
-          <li>Hamden</li>
-          <li>Madison</li>
-          <li>Meriden</li>
-          <li>Milford</li>
-          <li>New Haven (central city)</li>
-          <li>North Branford</li>
-          <li>North Haven</li>
-          <li>Orange</li>
-          <li>Wallingford</li>
-          <li>West Haven</li>
-          <li>Woodbridge</li>
+          {CATCHMENT_TOWNS.map((town) => (
+            <li key={town}>{town}</li>
+          ))}
         </ul>
         <p className="mt-3">
           Additional criteria may apply and will be assessed prior to acceptance. You can check your eligibility on our{" "}
@@ -95,7 +95,7 @@ const faqs: FAQ[] = [
     answer: (
       <div>
         <p className="mb-2">
-          We offer both scheduled appointments and limited walk-in availability. Scheduled patients are always seen first. Walk-ins are welcome on a first come, first served basis, but are only accepted until 10:30 AM, after which we cannot guarantee availability for that day.
+          We offer both scheduled appointments and limited walk-in availability. Scheduled patients are always seen first. Walk-ins are welcome on a first come, first served basis, but are only accepted until {WALK_IN_CUTOFF}, after which we cannot guarantee availability for that day.
         </p>
         <p>
           To secure your spot and reduce wait times, we encourage all patients to schedule an appointment in advance by calling{" "}
@@ -110,7 +110,7 @@ const faqs: FAQ[] = [
   {
     question: "When is the clinic open?",
     answer: (
-      <p>Saturdays, 8:30 AM – 12:00 PM.</p>
+      <p>{CLINIC_HOURS_SENTENCE}.</p>
     ),
   },
   {
@@ -133,7 +133,7 @@ const faqs: FAQ[] = [
           Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, but these are not guaranteed and depend on eligibility and availability.
         </p>
         <p>
-          For medications, HAVEN has a cost-sharing policy: patients cover the cost of medications priced under $25, while medications at or above $25 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship. See our{" "}
+          For medications, HAVEN has a cost-sharing policy. {COST_SHARING_SUMMARY} See our{" "}
           <Link href="/services/medication" className="text-[#00356b] underline hover:opacity-80">
             medication page
           </Link>{" "}
@@ -175,10 +175,11 @@ const faqs: FAQ[] = [
         </p>
         <p>
           See our{" "}
-          <Link href="/services/patient-care" className="text-[#00356b] underline hover:opacity-80">
-            patient care page
+          <Link href="/services/scope-of-care" className="text-[#00356b] underline hover:opacity-80">
+            scope of care page
           </Link>{" "}
-          for the full scope of care.
+          for the full list of what we do and do not provide, and where to go
+          for each thing we cannot.
         </p>
       </div>
     ),
@@ -187,9 +188,9 @@ const faqs: FAQ[] = [
     question: "What is the Compass Program?",
     answer: (
       <p>
-        The Compass Program is HAVEN&apos;s signature 3-to-5-year care navigation program. Beyond managing your health today, we work with you to understand your conditions, connect you with community resources and specialists, and build a roadmap toward permanent healthcare coverage and a long-term primary care provider. Ask your care team how to enroll, or learn more on our{" "}
-        <Link href="/services/social-services#compass" className="text-[#00356b] underline hover:opacity-80">
-          social services page
+        The Compass Program is HAVEN&apos;s signature three-to-five-year care navigation program. Beyond managing your health today, we work with you to understand your conditions, connect you with community resources and specialists, and build a roadmap toward permanent healthcare coverage and a long-term primary care provider. Ask your care team how to enroll, or learn more on our{" "}
+        <Link href="/services/compass" className="text-[#00356b] underline hover:opacity-80">
+          Compass page
         </Link>
         .
       </p>
@@ -283,9 +284,9 @@ export function FAQsContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
         <div className="max-w-4xl mx-auto">
         <div className="border border-[#00356b] px-8 md:px-12 lg:px-16 py-8 md:py-10 w-full">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[33px] mb-4 md:mb-5">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[33px] mb-4 md:mb-5">
             Can't find an answer to your question?
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] font-medium text-black text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] mb-3">
             Contact us for further assistance!
           </p>

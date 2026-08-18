@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CalendarClock } from "lucide-react";
 import { Phrase } from "@/app/components/Phrase";
 import { STAFF_PORTAL_URL } from "@/lib/links";
+import { CLINIC, CLINIC_ADDRESS_LINES, CLINIC_HOURS } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -32,29 +33,38 @@ export function Footer() {
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 w-full">
             {/* Contact */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
+              <h2 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Contact Us
-              </h3>
+              </h2>
               <div className="flex flex-col gap-2 font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[16px]">
-                <a href="tel:2032000673" className="hover:underline">(203) 200-0673</a>
-                <a href="mailto:haven.free.clinic@yale.edu" className="hover:underline">
-                  haven.free.clinic@yale.edu
+                <a
+                  href={`tel:${CLINIC.phoneE164.replace(/\D/g, "")}`}
+                  className="hover:underline"
+                >
+                  {CLINIC.phone}
                 </a>
-                <p>Fax: (203) 436-9928</p>
+                <a
+                  href={`mailto:${CLINIC.email}`}
+                  className="hover:underline"
+                >
+                  {CLINIC.email}
+                </a>
+                <p>Fax: {CLINIC.fax.replace("+1-", "").replace(/^(\d{3})-/, "($1) ")}</p>
               </div>
             </div>
 
             {/* Address */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
+              <h2 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Address
-              </h3>
+              </h2>
               <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px] leading-[1.8]">
-                Yale Physicians Building,
-                <br />
-                800 Howard Avenue, Floor 1,
-                <br />
-                New Haven, CT 06519
+                {CLINIC_ADDRESS_LINES.map((line, i) => (
+                  <span key={line}>
+                    {i < CLINIC_ADDRESS_LINES.length - 1 ? `${line},` : line}
+                    {i < CLINIC_ADDRESS_LINES.length - 1 && <br />}
+                  </span>
+                ))}
               </p>
               <p className="font-['Poppins',sans-serif] text-white/70 text-[14px] md:text-[15px] mt-2">
                 Free parking in the Howard Avenue Garage
@@ -63,11 +73,11 @@ export function Footer() {
 
             {/* Hours */}
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
+              <h2 className="font-['Poppins',sans-serif] font-medium text-white text-[20px] md:text-[22px] tracking-wide mb-5">
                 Hours
-              </h3>
+              </h2>
               <p className="font-['Poppins',sans-serif] text-white text-[16px] md:text-[18px]">
-                Saturday: 8:30am - 12:00pm
+                Saturday: {CLINIC_HOURS}
               </p>
             </div>
           </div>
@@ -78,6 +88,14 @@ export function Footer() {
           {[
             { label: "About Us", to: "/about" },
             { label: "Services", to: "/services" },
+            /*
+             * Eligibility and the Visitor Guide are the two highest-intent
+             * patient pages on the site and appeared in neither the navbar nor
+             * the footer — reachable only from body copy or a search result.
+             */
+            { label: "Eligibility", to: "/eligibility" },
+            { label: "Visitor Guide", to: "/visitor-guide" },
+            { label: "Newsletter", to: "/about/newsletter" },
             { label: "Milestones", to: "/milestones" },
             { label: "Get Involved", to: "/get-involved" },
             { label: "FAQs", to: "/faqs" },

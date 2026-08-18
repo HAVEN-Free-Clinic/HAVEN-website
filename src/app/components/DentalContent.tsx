@@ -35,21 +35,54 @@ export function DentalContent() {
       {/* ── Our Role ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-            Our Role in Your Dental Care
-          </h3>
+          <div className="border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4 md:px-6 md:py-5 mb-6 md:mb-8">
+            <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[19px] leading-relaxed">
+              <span className="font-bold text-[#00356b]">
+                HAVEN does not treat teeth.
+              </span>{" "}
+              We do not clean, fill, extract, or perform any dental procedure,
+              and we have no dentist on site. The Oral Health Initiative is a
+              coordination department: we ask about your oral health, work out
+              how urgent it is, and get you booked with a community dental
+              provider who does the treating.
+            </p>
+          </div>
+
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+            What the Oral Health Initiative Does
+          </h2>
           <div className="space-y-4 md:space-y-5 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             <p>
-              HAVEN Free Clinic does not provide direct dental services. However,
-              we believe oral health is a vital part of your overall wellbeing,
-              and we don&apos;t want it to be a gap in your care.
+              Dental and medical care are split apart in this country by
+              insurance, by training, and by the buildings they happen in.
+              Patients fall through the middle, and their health suffers for it.
+              The Oral Health Initiative exists to close that gap for our
+              patients, at no cost to you.
             </p>
+            <ul className="list-disc pl-8 md:pl-12 space-y-2">
+              <li>
+                Ask about your oral health as part of your regular HAVEN visit
+              </li>
+              <li>
+                Triage what you tell us, so urgent pain is treated as urgent
+              </li>
+              <li>
+                Identify community dental providers you can actually afford and
+                actually reach
+              </li>
+              <li>
+                Work with our referrals and insurance counseling teams so cost
+                and paperwork do not stop the appointment happening
+              </li>
+              <li>
+                Follow up with you and with the dental office to confirm the
+                appointment was booked and kept
+              </li>
+            </ul>
             <p>
-              Through our care coordination services, we can connect you, at no
-              cost, with dental resources in our community. Whether you need a
-              routine cleaning, a filling, or more urgent dental attention, our
-              team will help identify options that are accessible and affordable
-              for you.
+              Whether you need a routine cleaning, a filling, or more urgent
+              dental attention, tell your care team. The coordination is ours to
+              do.
             </p>
           </div>
         </div>
@@ -64,9 +97,9 @@ export function DentalContent() {
       {/* ── Why Dental Care Matters ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-10 md:pb-14">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
-            Why Dental Care Matters
-          </h3>
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Why Oral Health Matters
+          </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8 max-w-[760px]">
             Oral health is about far more than your teeth. Untreated dental
             problems can have serious consequences for your overall health and
@@ -82,9 +115,9 @@ export function DentalContent() {
                   <reason.icon className="w-5 h-5 text-[#00356b]" />
                 </div>
                 <div>
-                  <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1.5">
+                  <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-1.5">
                     {reason.title}
-                  </h4>
+                  </h3>
                   <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[15px] leading-relaxed">
                     {reason.text}
                   </p>
@@ -93,7 +126,7 @@ export function DentalContent() {
             ))}
           </div>
           <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mt-8 text-center">
-            Dental care is an essential part of your health.
+            Oral health is an essential part of your health.
           </p>
         </div>
       </div>
