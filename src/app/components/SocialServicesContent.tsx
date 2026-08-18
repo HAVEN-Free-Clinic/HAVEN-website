@@ -1,37 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   ChevronDown,
-  Compass,
-  Map,
-  HeartHandshake,
   Lock,
   LifeBuoy,
   Phone,
   ExternalLink,
+  ClipboardList,
+  Search,
+  Handshake,
+  Car,
+  ArrowRight,
 } from "lucide-react";
-
-/* ─── Where patients transition after HAVEN ─── */
-
-const AFTER_HAVEN = [
-  {
-    name: "Fair Haven Community Health Care",
-    description:
-      "A federally qualified health center on Grand Avenue offering primary care, dental, and behavioral health, with weekday hours and Spanish-speaking staff. Fees are set on a sliding scale based on your income.",
-    phone: "(203) 777-7411",
-    tel: "2037777411",
-    href: "https://www.fhchc.org/",
-  },
-  {
-    name: "Cornell Scott-Hill Health Center",
-    description:
-      "A federally qualified health center with locations across Greater New Haven, offering adult medicine, dental, behavioral health, pharmacy, and walk-in convenient care. Fees are set on a sliding scale based on your income.",
-    phone: "(203) 503-3000",
-    tel: "2035033000",
-    href: "https://www.cornellscott.org/",
-  },
-];
 
 /* ─── Social Determinants of Health Screening ─── */
 
@@ -60,7 +42,7 @@ const SDOH_QUESTIONS: SDOHQuestion[] = [
   {
     id: "transportation",
     text: "I don't have reliable transportation to appointments, work, or daily needs.",
-    resource: "Transportation resources",
+    resource: "Transportation support, including ride vouchers to clinic visits",
   },
   {
     id: "employment",
@@ -69,13 +51,26 @@ const SDOH_QUESTIONS: SDOHQuestion[] = [
   },
   {
     id: "safety",
+    /*
+     * The one screening item where a wrong expectation is dangerous. The old
+     * resource line promised "crisis support", which the scope of care says
+     * plainly that HAVEN does not provide. It now names the referral we can
+     * actually make, and the matching accordion section carries the hotlines.
+     */
     text: "I feel unsafe where I live or in a relationship.",
-    resource: "Confidential safety and crisis support",
+    resource:
+      "Confidential referral to safety services, plus 24/7 hotlines you can call yourself",
   },
   {
     id: "language",
     text: "I need help communicating with providers in my preferred language.",
     resource: "Interpretation and ESOL resources",
+  },
+  {
+    id: "legal",
+    text: "I'm dealing with a legal problem that is affecting my health or housing.",
+    resource:
+      "Referral to our Medical-Legal Partnership for free civil legal help",
   },
 ];
 
@@ -90,14 +85,16 @@ function SDOHScreening() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
-        Social Determinants of Health Screening
-      </h3>
+      <h2
+        id="screening"
+        className="scroll-mt-32 font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-4 md:mb-6"
+      >
+        Try the Screening Yourself
+      </h2>
       <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-5">
-        Your health is shaped by more than what happens in the clinic. Check any
-        of the following that apply to you to see how we can help. Bring
-        anything you check to your next visit so our care team can connect you
-        with support.
+        These are the same kinds of questions our team asks at a visit. Check
+        anything that applies to you to see what support exists, then bring what
+        you checked to your next appointment so we can start on it together.
       </p>
 
       <div className="flex items-start gap-2.5 mb-8 text-[#00356b]">
@@ -137,9 +134,9 @@ function SDOHScreening() {
             <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
               <LifeBuoy className="w-5 h-5 text-[#00356b]" />
             </div>
-            <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] sm:text-[20px] md:text-[22px]">
+            <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] sm:text-[20px] md:text-[22px]">
               You don&apos;t have to navigate this alone
-            </h4>
+            </h3>
           </div>
           <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-4">
             Based on what you shared, these supports may help:
@@ -208,7 +205,7 @@ const resources: ResourceItem[] = [
      * "Housing" alone reads as a promise of placement, and patients arrive
      * expecting a unit. The rename plus the can/cannot split below is the point:
      * this team navigates and refers, it does not house people. Scope claims
-     * here mirror the "what we do not do" list in ServicesContent.tsx.
+     * here mirror the "outside our scope" list in src/lib/scope.ts.
      */
     title: "Housing Support",
     content: (
@@ -220,9 +217,7 @@ const resources: ResourceItem[] = [
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 pt-1">
           <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-4 md:p-5">
-            <p className="font-semibold text-[#00356b] mb-2">
-              What we can do
-            </p>
+            <p className="font-semibold text-[#00356b] mb-2">What we can do</p>
             <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
               <li>Refer you to shelters, housing programs, and legal aid</li>
               <li>Help you apply for rental and utility assistance</li>
@@ -276,7 +271,13 @@ const resources: ResourceItem[] = [
           </li>
           <li>
             Referral to legal aid for tenants facing eviction or unsafe living
-            conditions
+            conditions, including our own{" "}
+            <Link
+              href="/about/operations#mlp"
+              className="text-[#00356b] underline hover:no-underline"
+            >
+              Medical-Legal Partnership
+            </Link>
           </li>
           <li>
             Support navigating the coordinated access network (CAN) for housing
@@ -293,11 +294,10 @@ const resources: ResourceItem[] = [
   },
   {
     /*
-     * Added because transportation was already one of the SDOH screening
-     * questions above but had no matching resource section, so checking the box
-     * led nowhere. Deliberately non-specific about programs: HAVEN does not run
-     * a ride benefit, and naming one it cannot deliver would be worse than
-     * naming none.
+     * The old copy said flatly that we cannot provide rides or cover fares. We
+     * can: the clinic has Uber Health vouchers. Availability is finite, so the
+     * copy commits to the mechanism ("tell us in advance and we will arrange
+     * it") without promising an unlimited benefit.
      */
     title: "Transportation",
     content: (
@@ -307,19 +307,45 @@ const resources: ResourceItem[] = [
           transportation is a barrier for you, tell any member of your care team
           and we will work through the options with you.
         </p>
+
+        <div className="bg-[#00356b] px-5 py-5 md:px-6 md:py-6 flex items-start gap-4">
+          <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+            <Car className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <p className="font-semibold text-white text-[16px] md:text-[18px] mb-1.5">
+              We can arrange a ride to clinic
+            </p>
+            <p className="text-white/90 text-[15px] md:text-[17px] leading-relaxed">
+              HAVEN can provide{" "}
+              <span className="font-semibold">Uber Health ride vouchers</span>{" "}
+              at no cost to you for getting to and from a HAVEN appointment. You
+              do not need a smartphone or an Uber account. Ask your care team,
+              your patient navigator, or the front desk{" "}
+              <span className="font-semibold">
+                at least a few days before your visit
+              </span>{" "}
+              so we can set it up. Vouchers are limited, so tell us early if you
+              need one.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 pt-1">
           <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-4 md:p-5">
-            <p className="font-semibold text-[#00356b] mb-2">
-              What we can do
-            </p>
+            <p className="font-semibold text-[#00356b] mb-2">What we can do</p>
             <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>
+                Arrange an Uber Health voucher for a HAVEN visit when you ask in
+                advance
+              </li>
               <li>
                 Connect you with 211, which keeps current transportation
                 resources for Connecticut
               </li>
               <li>
-                Take transportation into account when we schedule your visits and
-                referrals
+                Take transportation into account when we schedule your visits
+                and referrals
               </li>
               <li>
                 Flag it for your patient navigator so it is part of your care
@@ -332,18 +358,24 @@ const resources: ResourceItem[] = [
               What we cannot do
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
-              <li>Provide rides to or from the clinic</li>
-              <li>Reimburse bus fare, gas, or rideshare costs</li>
+              <li>
+                Guarantee a voucher for every visit, or arrange one the same day
+              </li>
+              <li>
+                Cover rides to appointments outside HAVEN, such as a specialist
+                or a pharmacy
+              </li>
+              <li>Reimburse bus fare or gas you have already paid for</li>
             </ul>
           </div>
         </div>
         <p>
           Remember that{" "}
-          <span className="font-semibold">parking at the clinic is free</span> in
-          the Howard Avenue Garage if you are able to drive or get a ride.
+          <span className="font-semibold">parking at the clinic is free</span>{" "}
+          in the Howard Avenue Garage if you are able to drive or get a ride.
         </p>
         <p>
-          For transportation resources, dial{" "}
+          For transportation resources beyond a clinic visit, dial{" "}
           <a href="tel:211" className="text-[#00356b] hover:underline">
             2-1-1
           </a>{" "}
@@ -398,9 +430,7 @@ const resources: ResourceItem[] = [
         <p>
           We are committed to providing care in a language you are comfortable
           with. HAVEN offers interpretation services and can connect you with
-          English language learning resources. In-person and phone
-          interpretation available during clinic visits in Spanish and other
-          languages
+          English language learning resources.
         </p>
         <ul className="list-disc pl-8 md:pl-12 space-y-2">
           <li>
@@ -423,6 +453,134 @@ const resources: ResourceItem[] = [
             </a>
           </li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    /*
+     * Added because "I feel unsafe" was one of the screening questions with no
+     * resource section behind it — checking the box led nowhere, on the item
+     * where leading nowhere matters most.
+     */
+    title: "Safety",
+    content: (
+      <div className="space-y-3">
+        <div className="bg-red-50 border border-red-200 p-4 md:p-5">
+          <p className="font-semibold text-red-900">
+            If you are in immediate danger, call{" "}
+            <a href="tel:911" className="underline">
+              911
+            </a>
+            . For a mental health crisis, call or text{" "}
+            <a href="tel:988" className="underline">
+              988
+            </a>
+            , the Suicide &amp; Crisis Lifeline, free and 24/7.
+          </p>
+        </div>
+        <p>
+          Feeling unsafe at home or in a relationship affects your health
+          directly, and it is something you can raise with any member of your
+          care team, privately. You will not be pushed into any decision you are
+          not ready to make.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 pt-1">
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b] p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">What we can do</p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>Talk with you privately, away from anyone who came with you</li>
+              <li>Refer you confidentially to domestic violence and safety services</li>
+              <li>
+                Connect you with our Medical-Legal Partnership for protective
+                orders and housing safety
+              </li>
+              <li>Document injuries in your medical record if you want that</li>
+            </ul>
+          </div>
+          <div className="bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 border-l-[#00356b]/30 p-4 md:p-5">
+            <p className="font-semibold text-[#00356b] mb-2">
+              What we cannot do
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[15px] md:text-[16px]">
+              <li>Provide crisis intervention or emergency shelter placement</li>
+              <li>Offer licensed counseling or therapy</li>
+              <li>Respond outside our Saturday clinic hours</li>
+            </ul>
+          </div>
+        </div>
+        <p className="font-semibold text-[#00356b]">
+          Free, confidential, 24/7 — you can call these yourself:
+        </p>
+        <ul className="list-disc pl-8 md:pl-12 space-y-2">
+          <li>
+            <span className="font-semibold">CT Safe Connect</span>, Connecticut&apos;s
+            domestic violence hotline:{" "}
+            <a href="tel:8887742900" className="text-[#00356b] hover:underline">
+              (888) 774-2900
+            </a>
+          </li>
+          <li>
+            <span className="font-semibold">
+              National Domestic Violence Hotline
+            </span>
+            :{" "}
+            <a href="tel:8007997233" className="text-[#00356b] hover:underline">
+              (800) 799-7233
+            </a>
+          </li>
+          <li>
+            <span className="font-semibold">988 Suicide &amp; Crisis Lifeline</span>:
+            call or text{" "}
+            <a href="tel:988" className="text-[#00356b] hover:underline">
+              988
+            </a>
+          </li>
+          <li>
+            <span className="font-semibold">Connecticut 211</span> for shelter and
+            support services:{" "}
+            <a href="tel:211" className="text-[#00356b] hover:underline">
+              2-1-1
+            </a>
+          </li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    /*
+     * Legal need is a social determinant like any other, and the clinic has an
+     * MLP to meet it. The department itself is documented on the operations
+     * page; this entry is the patient-facing door into it.
+     */
+    title: "Legal Support",
+    content: (
+      <div className="space-y-3">
+        <p>
+          Some health problems have a legal cause: a landlord who will not fix
+          mold, a benefits application wrongly denied, an immigration matter
+          hanging over everything else. Through our{" "}
+          <Link
+            href="/about/operations#mlp"
+            className="text-[#00356b] underline hover:no-underline"
+          >
+            Medical-Legal Partnership
+          </Link>
+          , HAVEN patients can be referred to attorneys for free civil legal
+          help.
+        </p>
+        <ul className="list-disc pl-8 md:pl-12 space-y-2">
+          <li>Housing conditions, eviction, and tenants&apos; rights</li>
+          <li>Public benefits that were denied or terminated</li>
+          <li>Health insurance denials and appeals</li>
+          <li>Protective orders and family safety matters</li>
+          <li>Certain immigration and employment matters</li>
+        </ul>
+        <p>
+          Mention it to your care team or your patient navigator and they will
+          make the referral. The Medical-Legal Partnership cannot represent you
+          in a criminal case, and it takes referrals from HAVEN rather than
+          walk-ins.
+        </p>
       </div>
     ),
   },
@@ -462,144 +620,103 @@ function AccordionItem({ item }: { item: ResourceItem }) {
   );
 }
 
+/* ─── How the department works ─── */
+
+const HOW_IT_WORKS = [
+  {
+    icon: ClipboardList,
+    title: "We screen",
+    body: "At your visit, we ask about food, housing, utilities, transportation, safety, language, and legal needs. Not as small talk, as part of the medical record.",
+  },
+  {
+    icon: Search,
+    title: "We find the right resource",
+    body: "Whatever you flag, we match to a specific program, agency, or benefit you are eligible for, and we help you fill out the application.",
+  },
+  {
+    icon: Handshake,
+    title: "We follow up",
+    body: "A referral is not a result. We check back at your next visit to see whether it worked, and start again if it did not.",
+  },
+];
+
+const SECTION = "max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16";
+const INNER = "max-w-4xl mx-auto";
+
+function Divider() {
+  return (
+    <div className={SECTION}>
+      <div className={INNER}>
+        <div className="w-full h-px bg-[#00356b]/10" />
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main Component ─── */
 
 export function SocialServicesContent() {
   return (
     <section className="bg-white w-full">
-      {/* ── Intro Block ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
-        <div className="max-w-4xl mx-auto">
+      {/* ── Intro: what this department actually is ── */}
+      <div className={`${SECTION} pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14`}>
+        <div className={`${INNER} space-y-5`}>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            We treat patients as a whole, helping with a variety of issues
-            including food insecurity, mortgage/rent support and utility/energy
-            assistance, unemployment, English for Speakers of Other Languages
-            (ESOL) courses, clothing resources, and more.
+            Most of what determines your health happens outside a clinic. Where
+            you live, whether you can afford food, whether you have a ride to an
+            appointment, whether anyone speaks your language, whether you feel
+            safe at home. Researchers call these the{" "}
+            <span className="font-semibold text-[#00356b]">
+              social determinants of health
+            </span>
+            , and they account for far more of how long and how well people live
+            than medical care does.
+          </p>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            HAVEN&apos;s Social Services department exists to treat those
+            factors as seriously as we treat blood pressure. We{" "}
+            <span className="font-semibold">screen every patient</span> for
+            unmet social needs, connect you with programs and benefits you
+            qualify for, help you complete the applications, and follow up until
+            something has actually changed.
+          </p>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            What we are not is a social service agency. We do not house people,
+            pay bills, or provide licensed social work or crisis intervention.
+            What we do is know the system, sit with you while you apply, and
+            keep asking until you have what you need.
           </p>
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
-        </div>
-      </div>
+      <Divider />
 
-      {/* ── The Compass Program ── */}
-      <div
-        id="compass"
-        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 md:pb-16"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#00356b] px-6 md:px-10 lg:px-14 py-10 md:py-12 lg:py-14">
-            <div className="flex items-center gap-4 mb-5 md:mb-6">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                <Compass className="w-6 h-6 md:w-7 md:h-7 text-white" />
-              </div>
-              <h3 className="font-['Merriweather',serif] font-bold text-white text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px]">
-                The Compass Program
-              </h3>
-            </div>
-            <p className="font-['Poppins',sans-serif] text-white/90 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-4">
-              Compass is our long-term care navigation program. It runs for 3
-              to 5 years, and the same team stays with you the whole way.
-            </p>
-            <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed mb-8">
-              Through Compass, we work with you to:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 mb-8 md:mb-10">
-              {[
-                {
-                  icon: HeartHandshake,
-                  text: "Understand your health conditions and how to manage them",
-                },
-                {
-                  icon: Map,
-                  text: "Connect you with community resources, specialists, and support services",
-                },
-                {
-                  icon: Compass,
-                  text: "Build a roadmap toward permanent healthcare coverage and a long-term primary care provider",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white/10 border border-white/15 px-5 py-6 flex flex-col gap-3"
-                >
-                  <item.icon className="w-6 h-6 text-white/90" />
-                  <p className="font-['Poppins',sans-serif] text-white/90 text-[14px] md:text-[15px] leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
-              The goal of Compass is to help you establish care with a permanent
-              provider, so you have reliable access to healthcare beyond your
-              time with us. Ask your care team how to enroll, or let us know if
-              you&apos;d like to learn more.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
-        </div>
-      </div>
-
-      {/* ── Where You Go After HAVEN ── */}
-      <div
-        id="after-haven"
-        className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 md:pb-16"
-      >
-        <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-5">
-            Where You Go After HAVEN
-          </h3>
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
-            HAVEN is a Saturday clinic staffed by students, so we are not meant
-            to be your provider forever. Compass ends with a handoff: your care
-            team helps you get coverage and a primary care home that is open
-            during the week. Most of our patients move on to one of these two
-            community health centers. Both are federally qualified health
-            centers, which means they accept patients regardless of insurance
-            status and charge on a sliding scale based on what you earn.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
-            {AFTER_HAVEN.map((clinic) => (
+      {/* ── How the department works ── */}
+      <div className={`${SECTION} pt-10 md:pt-14 pb-10 md:pb-14`}>
+        <div className={INNER}>
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-6 md:mb-8">
+            Screening, Then Follow-Through
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6">
+            {HOW_IT_WORKS.map((step, i) => (
               <div
-                key={clinic.name}
-                className="bg-[#f7f9fc] border border-[#00356b]/10 p-6 md:p-7 flex flex-col"
+                key={step.title}
+                className="bg-[#f7f9fc] border border-[#00356b]/10 px-5 py-6 md:px-6 md:py-7"
               >
-                <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2.5">
-                  {clinic.name}
-                </h4>
-                <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed mb-5 flex-1">
-                  {clinic.description}
-                </p>
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  <a
-                    href={`tel:${clinic.tel}`}
-                    className="inline-flex items-center gap-2 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px] hover:underline"
-                  >
-                    <Phone className="w-4 h-4 shrink-0" />
-                    {clinic.phone}
-                  </a>
-                  <a
-                    href={clinic.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[15px] md:text-[16px] underline hover:no-underline"
-                  >
-                    Visit website
-                    <ExternalLink className="w-4 h-4 shrink-0" />
-                  </a>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                    <step.icon className="w-5 h-5 text-[#00356b]" />
+                  </div>
+                  <span className="font-['Merriweather',serif] font-bold text-[#00356b]/25 text-[28px] leading-none">
+                    {i + 1}
+                  </span>
                 </div>
+                <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-2">
+                  {step.title}
+                </p>
+                <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed">
+                  {step.body}
+                </p>
               </div>
             ))}
           </div>
@@ -607,44 +724,57 @@ export function SocialServicesContent() {
           <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
             <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               <span className="font-semibold text-[#00356b]">
-                You do not have to make this call alone.
+                Working with your navigator.
               </span>{" "}
-              Tell your care team you are ready to transition and they will help
-              you pick a clinic, make the first appointment, and send your
-              records so your new provider knows your history.
+              Social Services and{" "}
+              <Link
+                href="/services/patient-navigation"
+                className="text-[#00356b] font-semibold underline hover:no-underline"
+              >
+                Patient Navigation
+              </Link>{" "}
+              work as one. Whatever you flag on a screening becomes part of the
+              care plan your navigator tracks between visits.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
-        </div>
-      </div>
+      <Divider />
 
-      {/* ── Social Determinants of Health Screening ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 md:pb-16">
+      {/* ── SDOH screening ── */}
+      <div className={`${SECTION} pt-10 md:pt-14 pb-10 md:pb-14`}>
         <SDOHScreening />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
+      <Divider />
+
+      {/* ── Social Service Resources ── */}
+      <div className={`${SECTION} pt-10 md:pt-14 pb-10 md:pb-14`}>
+        <div className={INNER}>
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-6 md:mb-8">
+            Social Service Resources
+          </h2>
+          {resources.map((item) => (
+            <AccordionItem key={item.title} item={item} />
+          ))}
         </div>
       </div>
 
+      <Divider />
+
       {/* ── Connecticut 211 Callout ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto">
+      <div className={`${SECTION} py-12 md:py-16`}>
+        <div className={INNER}>
           <div className="bg-[#00356b]/10 border border-[#00356b]/20 px-8 sm:px-12 md:px-16 lg:px-20 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center gap-5 md:gap-6">
-            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
               Connecticut 211
-            </h3>
+            </h2>
             <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[640px]">
               211 is a free, confidential service available 24/7. It connects
               you to essential health and human services across Connecticut:
-              food, housing, utility assistance, transportation, and more.
+              food, housing, utility assistance, transportation, and more. You
+              do not need to be a HAVEN patient to use it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               <a
@@ -672,21 +802,52 @@ export function SocialServicesContent() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="w-full h-px bg-[#00356b]/10" />
-        </div>
-      </div>
+      <Divider />
 
-      {/* ── Social Service Resources ── */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-            Social Service Resources
-          </h3>
-          {resources.map((item) => (
-            <AccordionItem key={item.title} item={item} />
-          ))}
+      {/* ── Where this leads ── */}
+      <div className={`${SECTION} pt-10 md:pt-14 pb-16 md:pb-20 lg:pb-24`}>
+        <div className={INNER}>
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] mb-4">
+            Where This Leads
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
+            Social needs are rarely one-off. The point of screening for them is
+            to feed a longer plan.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+            <Link
+              href="/services/patient-navigation"
+              className="group bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-7 hover:border-[#00356b]/40 hover:shadow-md transition-all"
+            >
+              <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+                Patient Navigation
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed">
+                The person who tracks everything you flagged, between visits,
+                and makes sure it moves.
+              </p>
+              <span className="inline-flex items-center gap-1.5 mt-3 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                Learn more
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+            <Link
+              href="/services/compass"
+              className="group bg-[#00356b] p-6 md:p-7 hover:bg-[#00356b]/95 hover:shadow-lg transition-all"
+            >
+              <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[17px] md:text-[19px] mb-2">
+                The Compass Program
+              </h3>
+              <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
+                Our three-to-five-year program toward permanent coverage and a
+                primary care provider of your own.
+              </p>
+              <span className="inline-flex items-center gap-1.5 mt-3 font-['Poppins',sans-serif] font-semibold text-white text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                Learn more
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

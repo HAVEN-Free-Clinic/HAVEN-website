@@ -12,13 +12,21 @@ import { MapPin, Phone, ExternalLink } from "lucide-react";
  * list, and the directions links all follow.
  *
  * Addresses and phone numbers below were taken from each retailer's own store
- * locator. Re-check them if a partnership changes.
+ * locator or from public pharmacy directories. Re-check them if a partnership
+ * changes.
  *
- * TODO (clinic staff): the partner list also names "ShopRite" with no branch.
- * There are several ShopRite pharmacies around New Haven and we do not know
- * which one is the partner, so it is deliberately NOT pinned on the map —
- * sending a patient to the wrong store is worse than omitting it. Add it here
- * once you confirm the location.
+ * The ShopRite entry is the East Haven store on Foxon Road, and the Walgreens
+ * is the York Street store beside the medical campus — both confirmed with the
+ * clinic. Their numbers came from public listings rather than the retailers'
+ * own pages, so verify them the next time someone is on the phone with either
+ * counter.
+ *
+ * The North Haven entry is the Dispensary of Hope partner site. Dispensary of
+ * Hope itself is a charitable supplier with no storefront, and this page used
+ * to say so and stop there — which left patients with no idea where to collect
+ * a medication filled through it. The dispensing pharmacy is Yale New Haven
+ * Health's own counter at the North Haven Medical Center, so it belongs on the
+ * map like any other.
  */
 
 export interface PharmacyLocation {
@@ -39,7 +47,7 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "CVS Pharmacy, 123 Church St, New Haven, CT 06510",
     phone: "(203) 498-9442",
     tel: "2034989442",
-    note: "Closest to the clinic. About a 10 minute drive from 800 Howard Ave.",
+    note: "About a 10 minute drive from 800 Howard Ave.",
   },
   {
     name: "Stop & Shop Pharmacy",
@@ -64,6 +72,33 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "Stop & Shop Pharmacy, 370 Hemingway Avenue, East Haven, CT 06512",
     phone: "(203) 468-1113",
     tel: "2034681113",
+  },
+  {
+    name: "Walgreens Pharmacy",
+    branch: "York Street, New Haven",
+    address: "88 York St, New Haven, CT 06511",
+    mapQuery: "Walgreens, 88 York Street, New Haven, CT 06511",
+    phone: "(203) 752-9893",
+    tel: "2037529893",
+    note: "The closest counter to the clinic — walking distance, just up Howard Avenue.",
+  },
+  {
+    name: "ShopRite Pharmacy",
+    branch: "Foxon Road, East Haven",
+    address: "745 Foxon Rd, East Haven, CT 06513",
+    mapQuery: "ShopRite Pharmacy, 745 Foxon Road, East Haven, CT 06513",
+    phone: "(475) 202-5184",
+    tel: "4752025184",
+  },
+  {
+    name: "Yale New Haven Health Pharmacy",
+    branch: "North Haven Medical Center",
+    address: "6 Devine St, North Haven, CT 06473",
+    mapQuery:
+      "Yale New Haven Health Pharmacy, 6 Devine Street, North Haven, CT 06473",
+    phone: "(203) 230-3940",
+    tel: "2032303940",
+    note: "Our Dispensary of Hope partner site. It is in North Haven, a drive from the clinic, so call before you go.",
   },
 ];
 
@@ -177,17 +212,44 @@ export function PharmacyMap() {
         </ul>
       </div>
 
-      {/* Dispensary of Hope is not a walk-in location, so it sits outside the map. */}
-      <div className="mt-6 border border-[#00356b]/15 bg-[#f7f9fc] px-5 py-5 md:px-6 md:py-6">
-        <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[17px] mb-2">
+      {/*
+        Dispensary of Hope is the supplier, not the counter. The name is what
+        appears on the paperwork, so patients need it explained — but the thing
+        they actually need is the address of the pharmacy that fills it, which
+        is the North Haven entry above.
+      */}
+      <div className="mt-6 border border-[#00356b]/15 border-l-4 border-l-[#00356b] bg-[#f7f9fc] px-5 py-5 md:px-6 md:py-6">
+        <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b]/60 text-[11px] uppercase tracking-wide mb-1.5">
+          The program behind some free medications
+        </p>
+        <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[16px] md:text-[18px] mb-2">
           Dispensary of Hope
         </h4>
+        <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mb-3">
+          Dispensary of Hope is a charitable medication supplier, not a store.
+          Manufacturers donate medications to it, and it distributes them
+          through partner pharmacies for uninsured patients at no cost. It
+          carries a lot of what our patients take every day, including
+          medications for blood pressure, cholesterol, diabetes, and stomach
+          conditions.
+        </p>
         <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed">
-          Dispensary of Hope is not a storefront you can visit. It is a
-          charitable medication supplier that ships certain medications to the
-          clinic for us to give you directly. If one of your medications comes
-          through Dispensary of Hope, your care team will tell you and you will
-          pick it up at HAVEN, not at a pharmacy.
+          Locally, those prescriptions are filled at the{" "}
+          <span className="font-semibold">
+            Yale New Haven Health Pharmacy at the North Haven Medical Center, 6
+            Devine Street
+          </span>{" "}
+          — the last entry on the list above. If one of your medications comes
+          through Dispensary of Hope, your care team will tell you, confirm that
+          you qualify, and send the prescription there. Call{" "}
+          <a
+            href="tel:2032303940"
+            className="text-[#00356b] font-semibold hover:underline"
+          >
+            (203) 230-3940
+          </a>{" "}
+          before you make the trip — it is in North Haven, not walking distance
+          from the clinic.
         </p>
       </div>
     </div>

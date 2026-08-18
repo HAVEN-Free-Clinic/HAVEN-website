@@ -1,11 +1,11 @@
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 const yaleNursingLogo = "/images/yale-nursing-logo.png";
 const yalePublicHealthLogo = "/images/yale-public-health-logo.png";
 const yaleMedicineLogo = "/images/yale-medicine-logo.png";
 const ynhhNortheastLogo = "/images/ynhh-northeast-logo.png";
 const ynhhLogo = "/images/ynhh-logo.png";
-const projectAccessLogo = "/images/project-access-logo.png";
 const yaleWordmark = "/images/yale-wordmark.png";
 
 interface Partner {
@@ -21,8 +21,41 @@ const YALE_SCHOOLS: Partner[] = [
 
 const OTHER_PARTNERS: Partner[] = [
   { name: "Yale New Haven Health", logo: ynhhLogo },
-  { name: "Yale New Haven Health – Northeast Medical Group", logo: ynhhNortheastLogo },
-  { name: "Project Access New Haven", logo: projectAccessLogo },
+  {
+    name: "Yale New Haven Health – Northeast Medical Group",
+    logo: ynhhNortheastLogo,
+  },
+];
+
+/*
+ * Community partners without a logo asset in public/images. Rendered as named
+ * cards below the logo row rather than as broken image tiles.
+ */
+const COMMUNITY_PARTNERS = [
+  {
+    name: "Fair Haven Community Health Care",
+    description:
+      "A federally qualified health center and one of the two clinics most HAVEN patients transition to for permanent primary care. We work together on transitions of care, and met this spring to plan deeper collaboration.",
+    href: "https://www.fhchc.org/",
+  },
+  {
+    name: "Cornell Scott-Hill Health Center",
+    description:
+      "A federally qualified health center across Greater New Haven. We partner with its International Clinic, which serves immigrants and newcomers, and with its Street Medicine Team, which reaches patients experiencing housing insecurity.",
+    href: "https://www.cornellscott.org/",
+  },
+  {
+    name: "Integrated Refugee & Immigrant Services (IRIS)",
+    description:
+      "Resettlement and support for refugees and immigrants in Connecticut, and a longstanding route by which community members find their way to HAVEN.",
+    href: "https://irisct.org/",
+  },
+  {
+    name: "Junta for Progressive Action",
+    description:
+      "New Haven's oldest Latino community-based organization, connecting Fair Haven residents to health, legal, and social services.",
+    href: "https://juntainc.org/",
+  },
 ];
 
 interface SteeringMember {
@@ -56,7 +89,7 @@ const STEERING_COMMITTEE: SteeringMember[] = [
     title: "Director of Development for Alumni",
   },
   {
-    name: "Ami Marshall, EdD, APRN, ANP",
+    name: "Ami Marshall, EdD, MSN, APRN, ANP-C",
     title: "Specialty Director for AGPCNP Program",
   },
   {
@@ -136,7 +169,7 @@ export function CommunityPartnersContent() {
           </div>
 
           {/* Other Partners */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-[800px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-[600px] mx-auto">
             {OTHER_PARTNERS.map((partner) => (
               <div
                 key={partner.name}
@@ -150,6 +183,36 @@ export function CommunityPartnersContent() {
                   className="max-w-full max-h-[70px] md:max-h-[90px] object-contain"
                 />
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Community Organizations ── */}
+        <div className="mb-10 md:mb-14">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Community Organizations
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black/70 text-[16px] md:text-[18px] mb-8 max-w-[700px]">
+            Local organizations we work alongside, who send patients our way and
+            who take care of them after us.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+            {COMMUNITY_PARTNERS.map((partner) => (
+              <a
+                key={partner.name}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col p-6 bg-[#f7f9fc] border border-[#00356b]/8 hover:border-[#00356b]/25 hover:shadow-sm transition-all duration-200"
+              >
+                <h3 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2 flex items-start gap-1.5">
+                  {partner.name}
+                  <ExternalLink className="w-4 h-4 shrink-0 mt-1 text-[#00356b]/40 group-hover:text-[#00356b] transition-colors" />
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[15px] leading-relaxed">
+                  {partner.description}
+                </p>
+              </a>
             ))}
           </div>
         </div>

@@ -11,22 +11,33 @@ import { MyChart } from "@/app/components/BrandText";
 const aboutDropdownItems = [
   { label: "About Us", to: "/about" },
   { label: "Our History", to: "/about/history" },
+  { label: "Departments & Operations", to: "/about/operations" },
   { label: "Community Partners", to: "/about/partners" },
   { label: "Leadership Board", to: "/about/leadership" },
   { label: "Goetsch Endowment", to: "/about/endowment" },
+  { label: "Newsletter", to: "/about/newsletter" },
   { label: "News", to: "/about/news" },
 ];
 
+/*
+ * Ordered the way a patient moves through the clinic rather than
+ * alphabetically: the two orientation guides first, then clinical care, then
+ * the departments that pick up where a Saturday visit leaves off.
+ */
 const servicesDropdownItems = [
   { label: "All Services", to: "/services" },
+  { label: "Scope of Care", to: "/services/scope-of-care" },
+  { label: "Navigating Healthcare", to: "/navigating-care" },
   { label: "Patient Care", to: "/services/patient-care" },
   { label: "Behavioral Health", to: "/services/behavioral-health" },
-  { label: "Education", to: "/services/education" },
-  { label: "Social Services", to: "/services/social-services" },
-  { label: "Dental Care", to: "/services/dental" },
-  { label: "Insurance Counseling", to: "/services/debt-insurance" },
-  { label: "Medication", to: "/services/medication" },
   { label: "Referrals", to: "/services/referrals" },
+  { label: "Patient Navigation", to: "/services/patient-navigation" },
+  { label: "The Compass Program", to: "/services/compass" },
+  { label: "Social Services", to: "/services/social-services" },
+  { label: "Insurance Counseling", to: "/services/debt-insurance" },
+  { label: "Medication Access", to: "/services/medication" },
+  { label: "Oral Health Initiative", to: "/services/dental" },
+  { label: "Education", to: "/services/education" },
 ];
 
 interface NavbarProps {

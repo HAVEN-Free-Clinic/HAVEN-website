@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Calendar, Phone, Stethoscope } from "lucide-react";
+import { CLINIC_HOURS } from "@/lib/site";
 
 /* ─── Types ─── */
 
@@ -35,7 +36,7 @@ const HUB_ORIGIN =
 const SCHEDULE_URL = `${HUB_ORIGIN}/api/public/clinic-days?limit=4`;
 
 /** The clinic runs one session a week, at the same hours every week. */
-const DEFAULT_HOURS = "8:30 AM – 12:00 PM";
+const DEFAULT_HOURS = CLINIC_HOURS;
 
 /** The rotating specialty clinics HAVEN runs on select Saturdays. */
 const SPECIALTY_CLINICS = ["Nephrology", "Neurology", "Dermatology"] as const;

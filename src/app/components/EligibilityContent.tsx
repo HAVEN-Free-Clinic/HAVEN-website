@@ -14,109 +14,9 @@ import {
   Heart,
   Baby,
   Stethoscope,
-  Ambulance,
-  Building2,
+  Map,
 } from "lucide-react";
-
-/* ─── Tiers of Care Data ─── */
-
-const CARE_TIERS = [
-  {
-    icon: Ambulance,
-    accent: "red" as const,
-    title: "Emergency Department / 911",
-    tagline: "Life-threatening emergencies",
-    bestFor:
-      "Chest pain, trouble breathing, severe bleeding, signs of a stroke, serious injuries, or any situation that feels life-threatening. For a mental health crisis, call or text 988.",
-    cost: (
-      <>
-        Emergency rooms treat anyone with a medical emergency, regardless of
-        insurance or ability to pay. If you are billed afterward, Yale New Haven
-        Health&apos;s{" "}
-        <span className="font-semibold">Free Care program is charity care</span>:
-        it is open to anyone regardless of income or insurance status, and it
-        works as a good-faith agreement with the health system to cover the cost
-        of your services. Ask about it before you leave, or apply later for a
-        bill you already have.
-      </>
-    ),
-    access:
-      "Call 911 or go to the nearest emergency department. Open 24 hours a day, 7 days a week.",
-  },
-  {
-    icon: Building2,
-    accent: "blue" as const,
-    title: "Community Health Centers",
-    tagline: "Ongoing primary care for everyone",
-    bestFor:
-      "Non-emergency illnesses and regular, ongoing primary care, especially if you have insurance, need care more often than once a week, or aren't eligible for HAVEN.",
-    cost: (
-      <>
-        Centers like Fair Haven Community Health Care and Cornell Scott-Hill
-        Health Center welcome patients regardless of insurance or ability to pay.
-        Both charge on a{" "}
-        <span className="font-semibold">sliding scale based on your income</span>
-        , so what you pay depends on what you earn.
-      </>
-    ),
-    access: (
-      <>
-        Call the health center directly to become a patient and schedule an
-        appointment.
-        <span className="block mt-2">
-          Fair Haven:{" "}
-          <a
-            href="tel:2037777411"
-            className="font-semibold text-[#00356b] underline hover:opacity-80"
-          >
-            (203) 777-7411
-          </a>
-        </span>
-        <span className="block mt-1">
-          Cornell Scott:{" "}
-          <a
-            href="tel:2035033000"
-            className="font-semibold text-[#00356b] underline hover:opacity-80"
-          >
-            (203) 503-3000
-          </a>
-        </span>
-      </>
-    ),
-  },
-  {
-    icon: Heart,
-    accent: "blue" as const,
-    title: "HAVEN Free Clinic",
-    tagline: "Free care for uninsured adults",
-    bestFor:
-      "Free primary care and wraparound support if you're an uninsured adult (18–65) without a current primary care provider who meets our eligibility criteria.",
-    /*
-     * The bridge framing matters as much as the price. Patients arrive thinking
-     * HAVEN is either a one-off walk-in or their doctor for life; it is neither.
-     * Saying so here, in the tier comparison, is the earliest point a patient
-     * can absorb it.
-     */
-    cost: (
-      <>
-        <span className="font-semibold">
-          Free care for uninsured adults, always.
-        </span>{" "}
-        Your visit costs nothing. The only thing we ask you to cover is
-        medications priced under $25, and we waive that if it is a hardship.
-      </>
-    ),
-    access: (
-      <>
-        Check your eligibility above, then reach out to establish care. Our
-        clinic runs on Saturdays. HAVEN is a{" "}
-        <span className="font-semibold">bridge to ongoing care</span>: we treat
-        you now and work with you toward permanent coverage and a weekday primary
-        care provider you keep after us.
-      </>
-    ),
-  },
-];
+import { PartnerClinics } from "@/app/components/PartnerClinics";
 
 /* ─── Criteria Data ─── */
 
@@ -361,11 +261,21 @@ export function EligibilityContent() {
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             HAVEN Free Clinic provides care to uninsured adults in the Greater
             New Haven area. Please review the criteria below to see if you may
-            be eligible for our services.
+            be eligible for our services, or{" "}
+            <Link
+              href="/#catchment-area"
+              className="text-[#00356b] font-semibold underline hover:no-underline"
+            >
+              check whether your town is in our catchment area
+            </Link>
+            .
           </p>
         </div>
 
         {/* Criteria Grid */}
+        <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+          Eligibility Criteria
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 md:mb-14">
           {CRITERIA.map((criterion) => {
             const Icon = criterion.icon;
@@ -395,9 +305,9 @@ export function EligibilityContent() {
 
         {/* Checker section */}
         <div className="mb-10 md:mb-14">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 text-center">
             Check Your Eligibility
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] text-center mb-10 max-w-[600px] mx-auto">
             Answer a few quick questions to find out if you may be eligible for
             care at HAVEN Free Clinic.
@@ -408,69 +318,43 @@ export function EligibilityContent() {
         {/* Divider */}
         <div className="w-full h-px bg-[#00356b]/10 mb-14 md:mb-18" />
 
-        {/* Where to Go for Care */}
+        {/* Where to Go for Care — full guide lives on /navigating-care */}
         <div className="mb-14 md:mb-18">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
             Where to Go for Care
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
-            Knowing where to go can save you time, money, and stress. Here is a
-            quick guide to your options in Greater New Haven, depending on how
-            urgent your needs are.
+            Knowing where to go can save you time, money, and stress. We keep a
+            full guide to the American healthcare system in one place: every
+            level of care from the emergency room to community resources, what
+            each one costs, how Medicaid and charity care actually work in
+            Connecticut, and where HAVEN sits among them.
           </p>
 
-          <div className="space-y-5 md:space-y-6">
-            {CARE_TIERS.map((tier) => {
-              const isEmergency = tier.accent === "red";
-              return (
-                <div
-                  key={tier.title}
-                  className={`bg-[#f7f9fc] border border-[#00356b]/10 border-l-4 p-6 md:p-7 ${
-                    isEmergency ? "border-l-red-400" : "border-l-[#00356b]"
-                  }`}
-                >
-                  <div className="flex items-center gap-3 mb-5">
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${
-                        isEmergency ? "bg-red-100" : "bg-[#00356b]/10"
-                      }`}
-                    >
-                      <tier.icon
-                        className={`w-6 h-6 ${
-                          isEmergency ? "text-red-700" : "text-[#00356b]"
-                        }`}
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[18px] md:text-[21px] leading-tight">
-                        {tier.title}
-                      </h4>
-                      <p className="font-['Poppins',sans-serif] text-[#00356b]/60 text-[13px] md:text-[14px]">
-                        {tier.tagline}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-                    {[
-                      { label: "Best for", value: tier.bestFor },
-                      { label: "Cost", value: tier.cost },
-                      { label: "How to get care", value: tier.access },
-                    ].map((row) => (
-                      <div key={row.label}>
-                        <p className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[12px] uppercase tracking-wide mb-1.5">
-                          {row.label}
-                        </p>
-                        <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
-                          {row.value}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <Link
+            href="/navigating-care"
+            className="group block bg-[#00356b] px-6 md:px-8 py-7 md:py-9 hover:bg-[#00356b]/95 hover:shadow-lg transition-all"
+          >
+            <div className="flex items-start gap-5">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                <Map className="w-6 h-6 md:w-7 md:h-7 text-white" />
+              </div>
+              <div>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-white text-[20px] md:text-[24px] mb-2">
+                  Navigating Healthcare
+                </h3>
+                <p className="font-['Poppins',sans-serif] text-white/85 text-[14px] md:text-[16px] leading-relaxed">
+                  Emergency rooms, urgent care, specialists, primary care,
+                  community health centers, HAVEN, and 211 — what each is for,
+                  what it costs, and how to get in the door.
+                </p>
+                <span className="inline-flex items-center gap-1.5 mt-3 font-['Poppins',sans-serif] font-semibold text-white text-[14px] md:text-[15px] group-hover:gap-2.5 transition-all">
+                  Read the guide
+                  <ChevronRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Divider */}
@@ -478,49 +362,26 @@ export function EligibilityContent() {
 
         {/* Other resources */}
         <div className="mb-14 md:mb-18">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
             If HAVEN Isn&apos;t the Right Fit
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
             If you don&apos;t meet our eligibility criteria, or if you&apos;re
             looking for ongoing primary care, these community health centers in
             the New Haven area welcome patients regardless of insurance status:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 md:mb-14">
-            {[
-              {
-                name: "Fair Haven Community Health Care",
-                description:
-                  "A community health center providing primary, dental, and behavioral health care to all, regardless of insurance or ability to pay.",
-              },
-              {
-                name: "Cornell Scott-Hill Health Center",
-                description:
-                  "A federally qualified health center offering comprehensive medical, dental, and behavioral health services across Greater New Haven.",
-              },
-            ].map((clinic) => (
-              <div
-                key={clinic.name}
-                className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 py-6"
-              >
-                <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2">
-                  {clinic.name}
-                </h4>
-                <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[14px] md:text-[15px] leading-relaxed">
-                  {clinic.description}
-                </p>
-              </div>
-            ))}
+          <div className="mb-12 md:mb-14">
+            <PartnerClinics compact />
           </div>
 
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4">
             Community Partners
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] text-[#00356b]/70 text-[16px] md:text-[18px] leading-relaxed mb-8 max-w-[760px]">
             We work closely with local organizations that help connect community
             members to care at HAVEN and beyond:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
                 abbr: "IRIS",
@@ -529,10 +390,6 @@ export function EligibilityContent() {
               {
                 abbr: "Junta",
                 name: "Junta for Progressive Action",
-              },
-              {
-                abbr: "Project Access",
-                name: "Project Access New Haven",
               },
             ].map((partner) => (
               <div

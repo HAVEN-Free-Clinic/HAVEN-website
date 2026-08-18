@@ -1,4 +1,9 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
-@import './welcome-letter.css';
+/*
+ * welcome-letter.css is imported by WelcomeLetter.tsx itself rather than here,
+ * so it only ships when that component is rendered. The letter is currently
+ * commented out of src/app/page.tsx; re-enabling it there brings the CSS back
+ * with it.
+ */

@@ -3,7 +3,7 @@ import { Compass, ArrowRight } from "lucide-react";
 
 /*
  * Home-page summary of the Compass Program. The full version, including the
- * partner clinics patients transition to, lives in SocialServicesContent.
+ * partner clinics patients transition to, lives at /services/compass.
  */
 
 const STAGES = [
@@ -70,14 +70,14 @@ export function CompassSection() {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link
-                href="/services/social-services#compass"
+                href="/services/compass"
                 className="inline-flex items-center justify-center gap-2 bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#d6e8f7] transition-colors"
               >
                 How Compass works
                 <ArrowRight className="w-4 h-4 shrink-0" />
               </Link>
               <Link
-                href="/services/social-services#after-haven"
+                href="/services/compass#after-haven"
                 className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-white hover:text-[#00356b] transition-colors"
               >
                 Where you go after HAVEN

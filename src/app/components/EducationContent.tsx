@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { BrandText } from "@/app/components/BrandText";
-import { VACCINES } from "@/lib/vaccines";
 
 /* ─── Link Arrow Icon (from Figma SVG) ─── */
 
@@ -144,12 +142,12 @@ export function EducationContent() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-10 lg:py-12">
         <div className="max-w-4xl mx-auto">
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
-            Please note that these pdf handouts provided by the Education
-            Department are simply meant to{" "}
+            The handouts below are meant to{" "}
             <span className="font-medium">
-              supplement and provide more information for access from home
+              supplement your visits, not replace them
             </span>
-            . These handouts are not meant to replace patient visits.{" "}
+            . Ask the Education Department for a printed copy at clinic;
+            downloadable versions are added here as they are finished.{" "}
             <span className="font-medium">
               Patients should continue to seek guidance from their healthcare
               providers
@@ -168,9 +166,9 @@ export function EducationContent() {
       {/* ── Education Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             Education Guides
-          </h3>
+          </h2>
           {educationGuides.map((guide) => (
             <GuideDropdown key={guide.title} title={guide.title} href={guide.href} />
           ))}
@@ -186,79 +184,23 @@ export function EducationContent() {
       {/* ── Vaccine Education ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             Vaccine Education
-          </h3>
-          <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed space-y-5">
-            <p>
-              Vaccines are one of the safest, most effective ways to prevent
-              serious illness. They help your immune system recognize and fight
-              specific infections before you ever get sick. HAVEN offers several
-              routine and preventive vaccines in clinic to help protect your
-              health.{" "}
-              <span className="font-medium">
-                Vaccine availability varies. Please ask your provider about what
-                is currently in stock.
-              </span>
-            </p>
-          </div>
-
-          <div className="bg-[#00356b]/5 border-l-4 border-[#00356b] p-4 md:p-5 mt-6 font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
-            <p>
-              <span className="font-semibold text-[#00356b]">
-                You must be an established HAVEN patient to receive a vaccine.
-              </span>{" "}
-              Vaccines are offered as part of your ongoing care at the clinic. We
-              are not able to provide standalone or walk-in vaccine-only visits.
-              If you are not yet a patient,{" "}
-              <Link
-                href="/eligibility"
-                className="text-[#00356b] underline hover:text-[#00356b]/70"
-              >
-                see our eligibility information
-              </Link>{" "}
-              to establish care first.
-            </p>
-          </div>
-
-          <div className="mt-7">
-            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
-              Vaccines Available at HAVEN
-            </h4>
-            <ul className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed list-disc pl-6 space-y-2">
-              {VACCINES.map((vaccine) => (
-                <li key={vaccine}>
-                  <BrandText>{vaccine}</BrandText>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-7">
-            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
-              COVID-19 &amp; Flu Vaccines
-            </h4>
-            <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed">
-              <span className="font-semibold">
-                HAVEN does not carry COVID-19 or flu vaccines.
-              </span>{" "}
-              We are not able to give you either one at the clinic. Visit{" "}
-              <a
-                href="https://www.vaccines.gov"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
-              >
-                vaccines.gov
-              </a>{" "}
-              to find a location near you that offers them.
-            </p>
-          </div>
-
-          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed mt-7">
-            If you are interested in receiving a vaccine or have questions about
-            which vaccines you may need, please ask your provider.
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
+            Vaccines are one of the safest, most effective ways to prevent
+            serious illness, and we are glad to talk them through with you at
+            any visit. The full list of what HAVEN stocks, who is eligible, and
+            where to go for the COVID-19 and flu shots we do not carry lives on
+            the Patient Care page.
           </p>
+          <Link
+            href="/services/patient-care"
+            className="inline-flex items-center gap-2 mt-5 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[17px] hover:gap-3 transition-all"
+          >
+            Vaccines at HAVEN
+            <LinkArrow />
+          </Link>
         </div>
       </div>
 
@@ -271,9 +213,9 @@ export function EducationContent() {
       {/* ── How-To Guides ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             How-To Guides
-          </h3>
+          </h2>
           {howToGuides.map((guide) => (
             <GuideDropdown key={guide.title} title={guide.title} href={guide.href} />
           ))}

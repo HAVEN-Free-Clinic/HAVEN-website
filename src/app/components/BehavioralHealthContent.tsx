@@ -106,9 +106,10 @@ export function BehavioralHealthContent() {
               build skills to support their well-being.
             </p>
             <p className="font-medium text-[#00356b] border-l-4 border-[#00356b] pl-5">
-              Our department does not provide treatment. Instead, we connect
-              patients with trusted partner clinics in the community for
-              long-term mental health care.
+              We do not provide ongoing therapy, psychiatric medication
+              management, or crisis care. What we do is screen, educate, build
+              coping skills with you, and connect you with trusted partner
+              clinics in the community for long-term mental health treatment.
             </p>
           </div>
         </div>
@@ -144,9 +145,9 @@ export function BehavioralHealthContent() {
             <div className="w-12 h-12 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
               <Brain className="w-6 h-6 text-[#00356b]" />
             </div>
-            <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
+            <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px]">
               What We Offer
-            </h3>
+            </h2>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
             {SERVICES.map((service) => (
@@ -200,10 +201,10 @@ export function BehavioralHealthContent() {
             </h3>
           </div>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
-            Because we do not provide treatment directly, we refer patients to
-            partner clinics in the community for ongoing mental health care. You
-            do not have to wait for us to make the referral. You can contact
-            either of these yourself.
+            Because ongoing treatment is outside what we provide, we refer
+            patients to partner clinics in the community for it. You do not have
+            to wait for us to make the referral. You can contact either of these
+            yourself.
           </p>
 
           <div className="space-y-6 md:space-y-8">

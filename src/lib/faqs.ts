@@ -12,6 +12,11 @@
  */
 
 import { catchmentSentence } from "@/lib/catchment";
+import {
+  CLINIC_HOURS_SENTENCE,
+  COST_SHARING_SUMMARY,
+  WALK_IN_CUTOFF,
+} from "@/lib/site";
 
 export interface FaqEntry {
   question: string;
@@ -39,11 +44,13 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "Do you take walk-ins?",
     answer:
-      "We offer both scheduled appointments and limited walk-in availability. Scheduled patients are always seen first. Walk-ins are welcome on a first come, first served basis but are only accepted until 10:30 AM, after which we cannot guarantee availability for that day. To secure your spot and reduce wait times, call (203) 200-0673 to schedule in advance.",
+      "We offer both scheduled appointments and limited walk-in availability. Scheduled patients are always seen first. Walk-ins are welcome on a first come, first served basis but are only accepted until " +
+      `${WALK_IN_CUTOFF}, after which we cannot guarantee availability for that day. ` +
+      "To secure your spot and reduce wait times, call (203) 200-0673 to schedule in advance.",
   },
   {
     question: "When is the clinic open?",
-    answer: "Saturdays, 8:30 AM to 12:00 PM.",
+    answer: `${CLINIC_HOURS_SENTENCE}.`,
   },
   {
     question: "Where is the clinic located?",
@@ -53,7 +60,8 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "Do I have to pay for anything?",
     answer:
-      "Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, though these depend on eligibility and availability. For medications, HAVEN has a cost-sharing policy: patients cover medications priced under $25, while medications at or above $25 are provided at no cost. No patient is ever denied a medication due to inability to pay, and waivers are available for financial hardship.",
+      "Visits at HAVEN are always free. Some patients also qualify for free specialty referrals through our free care partnerships, though these depend on eligibility and availability. " +
+      `For medications, HAVEN has a cost-sharing policy. ${COST_SHARING_SUMMARY}`,
   },
   {
     question: "What should I bring to my visit?",
@@ -73,7 +81,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "What is the Compass Program?",
     answer:
-      "The Compass Program is HAVEN's signature 3-to-5-year care navigation program. Beyond managing your health today, we work with you to understand your conditions, connect you with community resources and specialists, and build a roadmap toward permanent healthcare coverage and a long-term primary care provider.",
+      "The Compass Program is HAVEN's signature three-to-five-year care navigation program. Beyond managing your health today, we work with you to understand your conditions, connect you with community resources and specialists, and build a roadmap toward permanent healthcare coverage and a long-term primary care provider.",
   },
   {
     question: "What if I don't speak English?",

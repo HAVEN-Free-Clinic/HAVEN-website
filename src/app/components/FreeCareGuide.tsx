@@ -15,6 +15,13 @@ import {
   Building2,
   Phone,
 } from "lucide-react";
+import {
+  FREE_CARE_PROCESSING,
+  FREE_CARE_TERM,
+  YNHH_BILLING,
+  MDIC_CONTACT,
+} from "@/lib/free-care";
+import { CLINIC_HOURS, CLINIC_HOURS_SENTENCE } from "@/lib/site";
 
 /* ─────────────────────────── Data ─────────────────────────── */
 
@@ -48,7 +55,7 @@ const FORM_STEPS: FormStep[] = [
       { name: "Street address, City, State, Zip code", required: true, what: "Write your current home address. If you stay with someone else, use their address. YNHH will mail your approval letter here. Make sure it is correct.", example: "123 Grand Ave, New Haven, CT 06511", tip: "If your mailing address is different from where you live, note both." },
       { name: "Date of birth", required: true, what: "Write your birth date in MM/DD/YYYY format.", example: "03/15/1980" },
       { name: "Telephone number", required: true, what: "A number where YNHH can reach you. If you don’t have a personal phone, write a number of someone who can give you a message.", example: "(203) 555-0100", tip: "YNHH may call you to verify information or inform you of your decision." },
-      { name: "Medical record number", required: false, what: "This is a number assigned by YNHH when you receive care there. You can find it on any YNHH bill, discharge papers, or by calling 855-547-4584. If you don’t have it, leave it blank. It is optional.", example: "MRN: 1234567", tip: "Check the top of any YNHH bill. The MRN is usually printed there." },
+      { name: "Medical record number", required: false, what: `This is a number assigned by YNHH when you receive care there. You can find it on any YNHH bill, discharge papers, or by calling ${YNHH_BILLING.phone}. If you don’t have it, leave it blank. It is optional.`, example: "MRN: 1234567", tip: "Check the top of any YNHH bill. The MRN is usually printed there." },
     ],
   },
   {
@@ -85,7 +92,7 @@ const FORM_STEPS: FormStep[] = [
     intro:
       "Answer honestly. Having some insurance does not automatically disqualify you. YNHH needs to know what coverage exists so they can coordinate benefits correctly.",
     fields: [
-      { name: "Are you covered by any health insurance?", required: true, what: "Answer YES or NO. This includes Medicare, Medicaid/HUSKY, any employer insurance, or coverage from another country. If you are not sure, call HAVEN at 203-200-0673 and we will help you figure it out.", example: "If you have HUSKY: YES. If no coverage at all: NO.", tip: "Even if your insurance has lapsed or doesn’t cover what you need, you may still qualify for Free Care to cover the remaining balance." },
+      { name: "Are you covered by any health insurance?", required: true, what: `Answer YES or NO. This includes Medicare, Medicaid/HUSKY, any employer insurance, or coverage from another country. If you are not sure, call HAVEN at ${MDIC_CONTACT.phone} and we will help you figure it out.`, example: "If you have HUSKY: YES. If no coverage at all: NO.", tip: "Even if your insurance has lapsed or doesn’t cover what you need, you may still qualify for Free Care to cover the remaining balance." },
       { name: "Policy holder, insurer, policy number", required: false, what: "If you answered YES to having insurance, fill in these details. Your insurance card has all three pieces of information.", example: "Policy holder: Maria García | Insurer: Anthem | Policy No.: XYZ123456", tip: "Your policy number is on the front of your insurance card." },
       { name: "Health Savings Account (HSA), Question 4a", required: true, what: "Answer YES or NO. An HSA is a special savings account some employers offer to help pay medical costs. Most people do not have one. If you are not sure, answer NO.", tip: "If your employer has never mentioned an HSA, you almost certainly don’t have one." },
     ],
@@ -122,28 +129,28 @@ const POI_CARDS = [
   { icon: Banknote, situation: "Paid by check or direct deposit", doc: "2 recent pay stubs", detail: "Must be from the past 6 months. Get them from your employer or your bank app. Both stubs must show your name and the pay amount." },
   { icon: Coins, situation: "Paid in cash by employer", doc: "Letter from your employer", detail: "Your employer writes a letter confirming your pay. Use the template below. Fill in the blanks and have your employer sign it." },
   { icon: Home, situation: "Supported by family or a friend", doc: "Letter from the person supporting you", detail: "The person supporting you writes a letter confirming what they give you monthly. Use the template below." },
-  { icon: ClipboardList, situation: "Unemployed with no income", doc: "Letter from financial supporter", detail: "If no one supports you and you have no income, bring a letter saying so. HAVEN’s MDIC team can help you write this. Call us at 203-200-0673." },
+  { icon: ClipboardList, situation: "Unemployed with no income", doc: "Letter from financial supporter", detail: `If no one supports you and you have no income, bring a letter saying so. HAVEN’s MDIC team can help you write this. Call us at ${MDIC_CONTACT.phone}.` },
   { icon: Landmark, situation: "Receiving Social Security or disability", doc: "SSA award letter or benefit statement", detail: "Get this from SSA.gov or the letter Social Security mailed you. Must show your benefit amount. Call 800-772-1213 if you need a copy." },
   { icon: Briefcase, situation: "Self-employed", doc: "Most recent tax return (Schedule C)", detail: "Use your federal tax return Schedule C. If you don’t file taxes, a letter from yourself stating your earnings is acceptable. MDIC team can help." },
 ];
 
 const SUBMIT_CARDS = [
-  { icon: Mailbox, title: "Mail it", desc: "Print, complete, sign, and mail your application with proof of income attached. Allow 2–3 weeks for processing.", detail: "Yale New Haven Health\nSBO, Attn: Financial Assistance\nPO Box 1403\nNew Haven, CT 06505" },
+  { icon: Mailbox, title: "Mail it", desc: `Print, complete, sign, and mail your application with proof of income attached. Allow ${FREE_CARE_PROCESSING} for processing.`, detail: "Yale New Haven Health\nSBO, Attn: Financial Assistance\nPO Box 1403\nNew Haven, CT 06505" },
   { icon: Mail, title: "Email proof of income", desc: "Send photos or scans of your proof of income documents directly to the HAVEN billing team, who will submit with your application.", detail: "hfc.billing@yale.edu" },
-  { icon: Building2, title: "Bring it to HAVEN", desc: "Come to HAVEN clinic any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will review your application, catch any errors, and submit for you.", detail: "Saturdays 8:30 AM – 12:00 PM\nHAVEN Free Clinic\nNew Haven, CT" },
-  { icon: Phone, title: "Call YNHH directly", desc: "If you have questions about your application status, a specific bill, or need help, call YNHH’s financial assistance line directly.", detail: "855-547-4584\nYNHH Financial Assistance" },
+  { icon: Building2, title: "Bring it to HAVEN", desc: `Come to HAVEN clinic any Saturday, ${CLINIC_HOURS}. Our MDIC team will review your application, catch any errors, and submit for you.`, detail: `${CLINIC_HOURS_SENTENCE}\nHAVEN Free Clinic\nNew Haven, CT` },
+  { icon: Phone, title: "Call YNHH directly", desc: "For your application status, a specific bill, or an account question, call YNHH directly — they hold your account and HAVEN does not.", detail: `${YNHH_BILLING.phone}\nYNHH Patient Financial Services` },
 ];
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
-  { q: "Can I apply even if I already have a large hospital bill?", a: <>Yes, <strong>absolutely apply.</strong> Free Care can be applied retroactively to bills you already have. Bring the bill to HAVEN’s MDIC team or call YNHH at 855-547-4584. Do not wait. The sooner you apply, the better your chances of having the bill covered or reduced.</> },
+  { q: "Can I apply even if I already have a large hospital bill?", a: <>Yes, <strong>absolutely apply.</strong> Free Care can be applied retroactively to bills you already have. Bring the bill to HAVEN’s MDIC team or call YNHH at {YNHH_BILLING.phone}. Do not wait. The sooner you apply, the better your chances of having the bill covered or reduced.</> },
   { q: "I don’t have legal immigration status. Can I still apply?", a: <><strong>Yes.</strong> The Free Care application explicitly states that non-citizens are welcome to apply. Immigration status is not a disqualifying factor for this program. Your information is protected.</> },
   { q: "What if YNHH denies my application?", a: "Contact HAVEN’s MDIC team immediately. We can help you understand the reason for denial, correct any errors on the application, and determine whether to appeal. Denials are sometimes due to missing documentation, not ineligibility." },
   { q: "Does applying for Free Care affect my credit score?", a: 'YNHH may request your credit report as part of the application (you agreed to this in Section 5). However, this is a "soft pull" for assistance purposes. It does not affect your credit score the way a loan application would.' },
   { q: "What if my income changes after I am approved?", a: "You are required to tell YNHH if your income or situation changes significantly. This is stated in Section 5. If your income increases substantially, your Free Care level may be adjusted or discontinued." },
-  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: "Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at 203-200-0673. We will help you find a solution." },
-  { q: "How will I know if I am approved?", a: "YNHH will mail you a determination letter. Processing usually takes 2–4 weeks. If you haven’t heard anything after 4 weeks, call 855-547-4584 to check your status. Keep the approval letter. You will need to show it at future YNHH appointments." },
+  { q: "I was paid in cash and don’t have pay stubs. What do I do?", a: `Use the employer letter template in the Proof of Income section of this guide. Have your employer fill it in, sign it, and attach it to your application. If your employer refuses or you cannot reach them, call HAVEN at ${MDIC_CONTACT.phone}. We will help you find a solution.` },
+  { q: "How will I know if I am approved?", a: `YNHH will mail you a determination letter. Processing usually takes ${FREE_CARE_PROCESSING}, and staff may call you along the way to verify something on your application — answer numbers you do not recognize during this period. If you have not heard anything once that window has passed, call ${YNHH_BILLING.phone} to check your status. Keep the approval letter. You will need to show it at future YNHH appointments.` },
   { q: "Does Free Care cover care at Fair Haven Community Health or other clinics?", a: <><strong>No.</strong> Free Care only applies to Yale New Haven Health facilities: Yale New Haven Hospital, Bridgeport Hospital, Greenwich Hospital, and affiliated YNHH practices. It does not cover care at Fair Haven, Cornell Scott, or other non-YNHH locations.</> },
-  { q: "What if I need help filling out the form?", a: "Come to HAVEN any Saturday between 8:30 AM and 12:00 PM. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at (203) 200-0673." },
+  { q: "What if I need help filling out the form?", a: `Come to HAVEN any Saturday, ${CLINIC_HOURS}. Our MDIC team will sit with you, review your application, help you gather proof of income, and submit it for you. You can also call us at ${MDIC_CONTACT.phone} or email ${MDIC_CONTACT.email}.` },
 ];
 
 /* ─────────────────────────── Helpers ─────────────────────────── */
@@ -258,7 +265,7 @@ export function FreeCareGuide() {
           </p>
           <p className="font-['Poppins',sans-serif] text-black/50 text-[13px] md:text-[14px] mt-2">
             Need the form itself? Download it above, ask HAVEN&apos;s MDIC team at
-            any Saturday clinic, or call YNHH at <strong>855-547-4584</strong>.
+            any Saturday clinic, or call YNHH at <strong>{YNHH_BILLING.phone}</strong>.
           </p>
 
           <div className="mt-8 space-y-4">
@@ -424,7 +431,7 @@ export function FreeCareGuide() {
             <span className="font-bold">Submitting your proof of income:</span>{" "}
             email photos or scans to{" "}
             <a href="mailto:hfc.billing@yale.edu" className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors">hfc.billing@yale.edu</a>,
-            or drop it off at HAVEN any Saturday, 8:30 AM – 12:00 PM.
+            or drop it off at HAVEN any Saturday, {CLINIC_HOURS}.
           </div>
         </div>
       </div>
@@ -453,13 +460,34 @@ export function FreeCareGuide() {
             ))}
           </div>
 
-          <div className={`${CALLOUT} mt-6`}>
-            <span className="font-bold">After you submit:</span> processing
-            usually takes 2–4 weeks. YNHH will contact you by mail or phone with
-            your decision. If you are approved, keep your approval letter safe.
-            You will need it at future YNHH appointments. If you are denied,
-            contact HAVEN&apos;s MDIC team; we can help you understand why and
-            whether to appeal.
+          <div className={`${CALLOUT} mt-6 space-y-3`}>
+            <p>
+              <span className="font-bold">After you submit:</span> processing
+              usually takes{" "}
+              <span className="font-bold">{FREE_CARE_PROCESSING}</span>. YNHH
+              will contact you by mail or phone with your decision. If you are
+              approved, keep your approval letter safe — you will need it at
+              future YNHH appointments. If you are denied, contact
+              HAVEN&apos;s MDIC team; we can help you understand why and whether
+              to appeal.
+            </p>
+            <p>
+              <span className="font-bold">
+                Expect a call, and pick it up.
+              </span>{" "}
+              YNHH staff often phone applicants to verify income, household
+              size, or an address, or to ask for a document they could not read.
+              A missed call is one of the most common reasons an application
+              sits. Answer unknown numbers while you are waiting, keep an eye on
+              your mail, and if you miss one, call{" "}
+              <a
+                href={`tel:${YNHH_BILLING.tel}`}
+                className="text-[#00356b] underline hover:text-[#00356b]/70 transition-colors"
+              >
+                {YNHH_BILLING.phone}
+              </a>{" "}
+              back rather than waiting for them to try again.
+            </p>
           </div>
         </div>
       </div>
@@ -470,16 +498,30 @@ export function FreeCareGuide() {
       <div className={`${SECTION} py-12 md:py-16`}>
         <div className={INNER}>
           <h3 className={TITLE}>Renewing your coverage</h3>
-          <div className={CALLOUT}>
-            <span className="font-bold">
-              Free Care expires. You must renew about every 6 months.
-            </span>{" "}
-            It is not a one-time approval. If you miss your renewal window, your
-            coverage lapses, even in the middle of treatment. When you apply
-            through HAVEN, our MDIC team tracks your renewal date and reminds you
-            when it is time. Renewals are the best time to file on your own using
-            this guide. The process is the same, and you already have everything
-            you need.
+          <div className={`${CALLOUT} space-y-3`}>
+            <p>
+              <span className="font-bold">
+                Free Care expires. You must renew about every {FREE_CARE_TERM}.
+              </span>{" "}
+              It is not a one-time approval. If you miss your renewal window,
+              your coverage lapses, even in the middle of treatment. Renewal
+              takes the same {FREE_CARE_PROCESSING} to process as a first
+              application, so start it early rather than on the day it runs out.
+              When you apply through HAVEN, our MDIC team tracks your renewal
+              date and reminds you when it is time.
+            </p>
+            <p>
+              <span className="font-bold">
+                Try the renewal yourself first.
+              </span>{" "}
+              You have done this once already, the form is identical, and you
+              have the documents. Fill in what you can, gather your proof of
+              income, and bring it to a Saturday clinic for us to check before
+              it goes in. Getting to the point where you can renew your own
+              coverage without us is the whole idea — and if you get stuck on a
+              single line, that is exactly what we are here for. Nobody expects
+              you to do it alone.
+            </p>
           </div>
         </div>
       </div>
@@ -516,21 +558,6 @@ export function FreeCareGuide() {
         </div>
       </div>
 
-      {/* ── Help Bar ── */}
-      <div className="w-full bg-[#00356b]/5 border-y border-[#00356b]/15">
-        <div className={`${SECTION} py-5`}>
-          <div className={`${INNER} flex flex-col md:flex-row md:items-center md:justify-between gap-3`}>
-            <p className="font-['Poppins',sans-serif] font-medium text-[#00356b] text-[14px] md:text-[15px]">
-              Need help with your Free Care application? HAVEN&apos;s MDIC team is here every Saturday.
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <a href="tel:2032000673" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Phone className="w-4 h-4" /> <strong>203-200-0673</strong></a>
-              <a href="mailto:hfc.billing@yale.edu" className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><Mail className="w-4 h-4" /> <strong>hfc.billing@yale.edu</strong></a>
-              <span className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] text-[#00356b] text-[14px]"><strong>Saturdays 8:30 AM – 12:00 PM</strong></span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

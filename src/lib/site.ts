@@ -5,8 +5,9 @@ import type { Metadata } from "next";
  *
  * These values feed three things that must never disagree: the <head> metadata
  * (canonical URLs, Open Graph), the sitemap, and the JSON-LD structured data
- * that search engines read to build the local-business panel. When the phone
- * number or the hours change, change them here and in Footer.tsx together.
+ * that search engines read to build the local-business panel, and the display
+ * helpers below that every page renders. When the phone number or the hours
+ * change, this file is the only edit.
  */
 
 /** Production origin. No trailing slash — every helper below appends one. */
@@ -46,6 +47,50 @@ export const CLINIC = {
   /** The clinic runs one session a week. */
   hours: { day: "Saturday", opens: "08:30", closes: "12:00" },
 } as const;
+
+/*
+ * Display-ready forms of the facts above.
+ *
+ * The same opening hours were written out by hand in seven different formats
+ * ("8:30am - 12:00pm", "8:30 AM – 12:00 PM", "8:30am to 12:00pm", "8:30am–12:00pm"…)
+ * across the footer, the home page, the FAQ and the Free Care guide. Same fact,
+ * so it should render the same way everywhere; import these instead of typing
+ * the time again.
+ */
+
+/** e.g. "8:30 AM – 12:00 PM" */
+export const CLINIC_HOURS = "8:30 AM – 12:00 PM";
+
+/**
+ * When walk-ins stop being taken.
+ *
+ * Scheduled patients are always seen first; walk-ins are first come, first
+ * served up to this time. Stated on the FAQ, in the Visitor Guide, and in the
+ * scope of care, so it lives here.
+ */
+export const WALK_IN_CUTOFF = "10:30 AM";
+
+/** e.g. "Saturdays, 8:30 AM – 12:00 PM" */
+export const CLINIC_HOURS_SENTENCE = `Saturdays, ${CLINIC_HOURS}`;
+
+/**
+ * The medication cost-sharing rule in one sentence.
+ *
+ * The full policy lives at /services/medication#cost-sharing. This is the
+ * summary the home page, the eligibility page, the visitor guide, the FAQ and
+ * the healthcare guide each used to write out in their own words — same rule,
+ * five slightly different phrasings, and the waiver condition drifted between
+ * "on request" and "for financial hardship".
+ */
+export const COST_SHARING_SUMMARY =
+  "Patients cover medications priced under $25; medications at or above $25 are free. We waive the charge for financial hardship, and no patient is ever denied a medication for inability to pay.";
+
+/** Street address as lines, for a footer or contact block. */
+export const CLINIC_ADDRESS_LINES = [
+  CLINIC.address.building,
+  CLINIC.address.street,
+  `${CLINIC.address.city}, ${CLINIC.address.state} ${CLINIC.address.zip}`,
+] as const;
 
 /** Absolute URL for a route path such as "/services". */
 export function absoluteUrl(path: string): string {

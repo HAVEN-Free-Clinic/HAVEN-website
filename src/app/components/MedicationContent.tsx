@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { X, PhoneCall, Wallet } from "lucide-react";
+import { X, PhoneCall, Wallet, Truck, ExternalLink } from "lucide-react";
 import { PharmacyMap } from "@/app/components/PharmacyMap";
 import { MyChart } from "@/app/components/BrandText";
 
@@ -133,9 +133,9 @@ export function MedicationContent() {
               <Wallet className="w-5 h-5 text-[#00356b]" />
             </div>
             <div>
-              <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2">
+              <h2 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px] mb-2">
                 What you may be asked to pay
-              </h3>
+              </h2>
               <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
                 Your visit is free. Medications are too, with one exception: if a
                 medication costs{" "}
@@ -175,9 +175,16 @@ export function MedicationContent() {
         className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12"
       >
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
             Where to Pick Up Your Medication
-          </h3>
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black/70 text-[15px] md:text-[17px] leading-relaxed mb-6">
+            Most prescriptions go to one of our partner pharmacies. Some are
+            filled free through the Dispensary of Hope program at the North
+            Haven pharmacy, and some are cheaper by mail. Your care team will
+            tell you which applies to each of your medications, so you never
+            have to guess where to go.
+          </p>
 
           {/* Call-your-pharmacy PSA */}
           <div className="bg-[#00356b] px-6 md:px-8 py-6 md:py-7 mb-8 md:mb-10 flex items-start gap-4 md:gap-5">
@@ -185,28 +192,33 @@ export function MedicationContent() {
               <PhoneCall className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h4 className="font-['Poppins',sans-serif] font-semibold text-white text-[17px] md:text-[19px] mb-2">
+              <h3 className="font-['Poppins',sans-serif] font-semibold text-white text-[17px] md:text-[19px] mb-2">
                 Call your pharmacy before you run out
-              </h4>
+              </h3>
               <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
                 Most refills can be handled by the pharmacy in one phone call,
-                without waiting for Saturday. Find your pharmacy on the map
-                below, tap the number, and ask whether you have refills left. If
-                they say no, then call us.
+                without waiting for Saturday. Find your pharmacy on the{" "}
+                <a href="#pharmacy-map" className="underline hover:no-underline">
+                  map below
+                </a>
+                , tap the number, and ask whether you have refills left. If they
+                say no, then call us.
               </p>
             </div>
           </div>
 
-          <PharmacyMap />
+          <div id="pharmacy-map" className="scroll-mt-32">
+            <PharmacyMap />
+          </div>
 
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] mt-8 md:mt-10">
-            <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+            <h3 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
               Pickup Instructions
-            </h4>
+            </h3>
             <p className="leading-relaxed">
               Your prescription should be ready at the pharmacy we assigned you
-              about 3 days after your clinic visit. Call ahead before you make
-              the trip.
+              within about 3 business days of your clinic visit. Call ahead
+              before you make the trip.
             </p>
           </div>
         </div>
@@ -221,9 +233,9 @@ export function MedicationContent() {
       {/* ── Requesting a Medication Refill ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
             Requesting a Medication Refill
-          </h3>
+          </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
             Running low on a medication? Follow these two steps to request a
             refill. Please allow <span className="font-semibold">3 to 5 business
@@ -237,9 +249,9 @@ export function MedicationContent() {
                 1
               </div>
               <div>
-                <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
+                <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
                   Check with your pharmacy first
-                </h4>
+                </h3>
                 <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
                   Call your pharmacy to find out whether any refills remain on
                   your current prescription. Pharmacies can often process a refill
@@ -253,9 +265,9 @@ export function MedicationContent() {
                 2
               </div>
               <div>
-                <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
+                <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-2">
                   Contact HAVEN if no refills are available
-                </h4>
+                </h3>
                 <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
                   If your pharmacy confirms there are no refills remaining, give
                   us a call at{" "}
@@ -306,15 +318,69 @@ export function MedicationContent() {
         </div>
       </div>
 
+      {/* ── Mail order ── */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
+            Low-Cost Mail Order
+          </h2>
+          <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
+            Getting to a pharmacy counter is its own barrier. For medications you
+            take every month, our pharmacy team can often route your prescription
+            through a mail-order service instead, delivered to your door.
+          </p>
+
+          <div className="bg-[#f7f9fc] border border-[#00356b]/15 border-l-4 border-l-[#00356b] p-6 md:p-7">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                <Truck className="w-5 h-5 text-[#00356b]" />
+              </div>
+              <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[17px] md:text-[19px]">
+                Cost Plus Drugs
+              </h3>
+            </div>
+            <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-4">
+              A mail-order pharmacy that charges the manufacturer&apos;s cost
+              plus a fixed markup, with no insurance and no middlemen. It carries
+              more than 2,000 generic medications and ships nationwide, and for
+              many common prescriptions it is dramatically cheaper than a retail
+              counter.
+            </p>
+            <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed mb-4">
+              Ask your care team whether one of your medications is available
+              this way. It is not right for everything — you cannot use it for a
+              medication you need today, and not every drug is stocked — but for
+              a maintenance prescription it can be the difference between filling
+              it and skipping it.
+            </p>
+            <a
+              href="https://costplusdrugs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[15px] md:text-[16px] underline hover:no-underline"
+            >
+              costplusdrugs.com
+              <ExternalLink className="w-4 h-4 shrink-0" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mt-8 md:mt-10">
+        <div className="max-w-4xl mx-auto">
+          <Divider />
+        </div>
+      </div>
+
       {/* ── Medication Cost-Sharing ── */}
       <div
         id="cost-sharing"
         className="scroll-mt-24 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12"
       >
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
             Medication Cost-Sharing
-          </h3>
+          </h2>
 
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
             <p className="leading-relaxed">
@@ -325,9 +391,9 @@ export function MedicationContent() {
             </p>
 
             <div className="bg-[#f7f9fc] border border-[#00356b]/10 px-6 md:px-8 py-6 md:py-8">
-              <h4 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
+              <h3 className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[18px] md:text-[20px] mb-4">
                 Under this policy:
-              </h4>
+              </h3>
               <ul className="list-disc pl-6 md:pl-7 space-y-2.5 leading-relaxed text-[15px] md:text-[17px]">
                 <li>
                   Patients are responsible for covering the cost of medications
@@ -354,9 +420,9 @@ export function MedicationContent() {
             </div>
 
             <div>
-              <h4 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
+              <h3 className="font-['Poppins',sans-serif] font-normal text-[#00356b] text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] mb-3 md:mb-4">
                 Why This Matters
-              </h4>
+              </h3>
               <p className="leading-relaxed mb-4">
                 Cost-sharing models are a common and proven approach among free
                 and charitable clinics. By asking patients who are able to
@@ -373,9 +439,12 @@ export function MedicationContent() {
             <p className="text-[#00356b] leading-relaxed">
               Have questions about this policy or need to request a waiver? Please
               speak with your care team or send us a Care Message through{" "}
-              <a href="/mychart" className="underline hover:text-[#00356b]/70 transition-colors">
+              <Link
+                href="/mychart"
+                className="underline hover:text-[#00356b]/70 transition-colors"
+              >
                 <MyChart />
-              </a>
+              </Link>
               .
             </p>
           </div>
@@ -391,9 +460,9 @@ export function MedicationContent() {
       {/* ── Pharmaceutical Assistance Program ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
+          <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
             Pharmaceutical Assistance Program
-          </h3>
+          </h2>
 
           <div className="font-['Poppins',sans-serif] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
             <p className="text-black leading-relaxed">

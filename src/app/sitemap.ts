@@ -26,11 +26,23 @@ const ROUTES: Route[] = [
   { path: "/eligibility", priority: 0.9, changeFrequency: "monthly" },
   { path: "/visitor-guide", priority: 0.9, changeFrequency: "monthly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/navigating-care", priority: 0.8, changeFrequency: "monthly" },
   { path: "/faqs", priority: 0.8, changeFrequency: "monthly" },
   { path: "/mychart", priority: 0.7, changeFrequency: "yearly" },
 
   // Individual service lines.
+  {
+    path: "/services/scope-of-care",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
   { path: "/services/patient-care", priority: 0.7, changeFrequency: "yearly" },
+  { path: "/services/compass", priority: 0.7, changeFrequency: "yearly" },
+  {
+    path: "/services/patient-navigation",
+    priority: 0.7,
+    changeFrequency: "yearly",
+  },
   { path: "/services/medication", priority: 0.7, changeFrequency: "yearly" },
   {
     path: "/services/behavioral-health",
@@ -59,6 +71,8 @@ const ROUTES: Route[] = [
   { path: "/about/history", priority: 0.5, changeFrequency: "yearly" },
   { path: "/about/leadership", priority: 0.5, changeFrequency: "monthly" },
   { path: "/about/partners", priority: 0.5, changeFrequency: "yearly" },
+  { path: "/about/operations", priority: 0.6, changeFrequency: "yearly" },
+  { path: "/about/newsletter", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about/news", priority: 0.5, changeFrequency: "monthly" },
   { path: "/about/endowment", priority: 0.4, changeFrequency: "yearly" },
   { path: "/milestones", priority: 0.5, changeFrequency: "yearly" },
