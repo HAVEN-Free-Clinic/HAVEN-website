@@ -114,7 +114,8 @@ export function Footer() {
         {/* Design credit */}
         <div className="mt-6 pt-6 border-t border-white/20 text-center">
           <p className="font-['Poppins',sans-serif] text-white/80 text-[14px] md:text-[15px] leading-relaxed max-w-[620px] mx-auto">
-            This site was designed in collaboration with{" "}
+            This site was built under the leadership of Antigone Antonakakis,
+            Jack Carney, and Melody Jiang, in collaboration with{" "}
             <a
               href="https://www.dfayale.org/"
               target="_blank"
