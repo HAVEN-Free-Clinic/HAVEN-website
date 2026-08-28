@@ -86,7 +86,7 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
         name: "Vaccines",
         role: "Routine and preventive immunizations for established patients.",
         detail:
-          "Vaccines are administered by licensed clinicians during your visit, with a coordinator handling schedules, state compliance paperwork, and cold storage. Vaccines are part of ongoing care at HAVEN rather than a standalone service, and availability varies.",
+          "Vaccines are administered by licensed clinicians during your visit, who confirm each vaccine is right for you and answer questions as they go. A coordinator handles the documentation, state compliance, and scheduling the follow-up doses of any vaccine series. Vaccines are part of ongoing care at HAVEN rather than a standalone service, and availability varies.",
         href: "/services/patient-care",
       },
     ],
