@@ -5,6 +5,7 @@ import {
   ClipboardCheck,
   HandHeart,
   ExternalLink,
+  FileText,
   Gift,
   Megaphone,
   Mail,
@@ -27,6 +28,12 @@ const APPLICATIONS_OPEN = "Friday, August 28th, 2026 at 12:00 AM EDT";
 const APPLICATIONS_CLOSE = "Saturday, September 12th, 2026 at 11:59 PM EDT";
 const APPLICATIONS_PER_TERM = "750+";
 
+/*
+ * The department descriptions PDF stands in for /about/operations during the
+ * coming-soon build, where that route is not part of the export.
+ */
+const DEPARTMENT_DESCRIPTIONS_PDF = "/docs/haven-department-descriptions.pdf";
+
 const WHAT_WE_LOOK_FOR = [
   "Commitment and reliability",
   "Passion for serving underserved communities",
@@ -37,7 +44,7 @@ const WHAT_WE_LOOK_FOR = [
 const RECRUITMENT_TIMELINE = [
   {
     label: "Applications open",
-    description: `Applications open ${APPLICATIONS_OPEN} for the upcoming fall term.`,
+    description: `Applications opened ${APPLICATIONS_OPEN} for the fall term and close ${APPLICATIONS_CLOSE}.`,
   },
   {
     label: "Review Period",
@@ -78,7 +85,17 @@ const VOLUNTEER_ROLES = [
   },
 ];
 
-export function GetInvolvedContent() {
+/*
+ * `comingSoon` renders the variant used by the coming-soon build, where
+ * /get-involved is the only route that exists. Both "See every department"
+ * links point at /about/operations, which that export does not contain, so
+ * they give way to the department descriptions PDF.
+ */
+export function GetInvolvedContent({
+  comingSoon = false,
+}: {
+  comingSoon?: boolean;
+}) {
   return (
     <section className="bg-white w-full">
       {/* ── Intro Block ── */}
@@ -99,12 +116,14 @@ export function GetInvolvedContent() {
               Ways to volunteer
               <ArrowRight className="w-4 h-4" />
             </a>
-            <Link
-              href="/about/operations"
-              className="inline-flex items-center gap-2 border-2 border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#00356b]/5 transition-colors duration-200"
-            >
-              See every department
-            </Link>
+            {!comingSoon && (
+              <Link
+                href="/about/operations"
+                className="inline-flex items-center gap-2 border-2 border-[#00356b] text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#00356b]/5 transition-colors duration-200"
+              >
+                See every department
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -123,8 +142,8 @@ export function GetInvolvedContent() {
               Fall Volunteer Recruitment 2026
             </h2>
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-3">
-              Applications for Fall 2026 volunteer positions open{" "}
-              <span className="font-bold">{APPLICATIONS_OPEN}</span>. We welcome{" "}
+              Applications for Fall 2026 volunteer positions are{" "}
+              <span className="font-bold">open now</span>. We welcome{" "}
               <span className="font-bold">
                 students across all health professions and programs, graduate
                 students, and college students
@@ -165,6 +184,20 @@ export function GetInvolvedContent() {
                 </span>
                 <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-[#00356b]" />
               </a>
+
+              {comingSoon && (
+                <a
+                  href={DEPARTMENT_DESCRIPTIONS_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-white/15 transition-colors"
+                >
+                  <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[22px]">
+                    Department Descriptions
+                  </span>
+                  <FileText className="w-5 h-5 md:w-6 md:h-6 text-white shrink-0" />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -299,12 +332,23 @@ export function GetInvolvedContent() {
             </p>
             <p>
               Curious what the departments actually do?{" "}
-              <Link
-                href="/about/operations"
-                className="text-[#00356b] font-semibold underline hover:no-underline"
-              >
-                Every one of them is described here
-              </Link>
+              {comingSoon ? (
+                <a
+                  href={DEPARTMENT_DESCRIPTIONS_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00356b] font-semibold underline hover:no-underline"
+                >
+                  Every one of them is described here
+                </a>
+              ) : (
+                <Link
+                  href="/about/operations"
+                  className="text-[#00356b] font-semibold underline hover:no-underline"
+                >
+                  Every one of them is described here
+                </Link>
+              )}
               .
             </p>
           </div>
@@ -395,8 +439,8 @@ export function GetInvolvedContent() {
             <span className="font-semibold text-[#00356b]">
               Interested in volunteering?
             </span>{" "}
-            Applications for our Fall 2026 cycle open {APPLICATIONS_OPEN} and
-            close {APPLICATIONS_CLOSE}.
+            Applications for our Fall 2026 cycle are open now and close{" "}
+            {APPLICATIONS_CLOSE}.
           </p>
         </div>
       </div>
@@ -501,13 +545,25 @@ export function GetInvolvedContent() {
                 together.
               </p>
             </div>
-            <Link
-              href="/about/operations"
-              className="group inline-flex items-center gap-2 mt-8 bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#d6e8f7] transition-colors"
-            >
-              See every department they staff
-              <ArrowRight className="w-4 h-4 shrink-0" />
-            </Link>
+            {comingSoon ? (
+              <a
+                href={DEPARTMENT_DESCRIPTIONS_PDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 mt-8 bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#d6e8f7] transition-colors"
+              >
+                See the departments they staff
+                <FileText className="w-4 h-4 shrink-0" />
+              </a>
+            ) : (
+              <Link
+                href="/about/operations"
+                className="group inline-flex items-center gap-2 mt-8 bg-white text-[#00356b] font-['Poppins',sans-serif] font-semibold text-[15px] md:text-[16px] px-7 py-3.5 hover:bg-[#d6e8f7] transition-colors"
+              >
+                See every department they staff
+                <ArrowRight className="w-4 h-4 shrink-0" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -105,8 +105,7 @@ export function ComingSoon() {
         {/* Volunteer recruitment note */}
         <p className="mt-8 font-['Poppins',sans-serif] text-[#334155] text-[14px] md:text-[15px] text-center leading-relaxed max-w-xl">
           <span className="font-semibold text-[#00356b]">
-            Fall Volunteer Recruitment 2026 opens Friday, August 28th at 12:00 AM
-            EDT.
+            Fall Volunteer Recruitment 2026 is now open.
           </span>{" "}
           Applications are due Saturday, September 12th at 11:59 PM EDT.{" "}
           <Link
