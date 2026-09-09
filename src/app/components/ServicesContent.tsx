@@ -75,7 +75,7 @@ const resources = [
     to: "/services/medication",
   },
   {
-    label: "Oral Health Initiative",
+    label: "Oral Health",
     description:
       "We do not treat teeth. We triage oral health concerns and coordinate you into community dental care, at no cost to you.",
     icon: Smile,

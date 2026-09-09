@@ -41,23 +41,23 @@ export function DentalContent() {
                 HAVEN does not treat teeth.
               </span>{" "}
               We do not clean, fill, extract, or perform any dental procedure,
-              and we have no dentist on site. The Oral Health Initiative is a
-              coordination department: we ask about your oral health, work out
-              how urgent it is, and get you booked with a community dental
-              provider who does the treating.
+              and we have no dentist on site. Our Oral Health team coordinates
+              instead: we ask about your oral health, work out how urgent it is,
+              and get you booked with a community dental provider who does the
+              treating.
             </p>
           </div>
 
           <h2 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-6 md:mb-8">
-            What the Oral Health Initiative Does
+            What Our Oral Health Team Does
           </h2>
           <div className="space-y-4 md:space-y-5 font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed">
             <p>
               Dental and medical care are split apart in this country by
               insurance, by training, and by the buildings they happen in.
               Patients fall through the middle, and their health suffers for it.
-              The Oral Health Initiative exists to close that gap for our
-              patients, at no cost to you.
+              Our Oral Health team exists to close that gap for our patients, at
+              no cost to you.
             </p>
             <ul className="list-disc pl-8 md:pl-12 space-y-2">
               <li>

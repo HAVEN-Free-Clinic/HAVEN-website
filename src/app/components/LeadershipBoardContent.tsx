@@ -202,7 +202,7 @@ const DEPARTMENTS: Department[] = [
   },
   {
     code: "ORHI",
-    label: "Oral Health Initiative",
+    label: "Oral Health",
     members: [
       { name: "Justin Fan", email: "justin.fan@yale.edu" },
       {

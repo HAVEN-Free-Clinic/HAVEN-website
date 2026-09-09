@@ -197,7 +197,7 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
       },
       {
         slug: "oral-health",
-        name: "Oral Health Initiative",
+        name: "Oral Health",
         role: "Closing the gap between medical and dental care.",
         detail:
           "Dental and medical care are split apart by insurance and by the way the system is built, and patients fall through the middle. The team triages oral health concerns, then coordinates with scheduling, referrals, and insurance counseling to book patients with community dental providers and confirm the appointments actually happen. HAVEN does not perform dental treatment itself.",

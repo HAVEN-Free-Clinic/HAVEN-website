@@ -36,7 +36,7 @@ const servicesDropdownItems = [
   { label: "Social Services", to: "/services/social-services" },
   { label: "Insurance Counseling", to: "/services/debt-insurance" },
   { label: "Medication Access", to: "/services/medication" },
-  { label: "Oral Health Initiative", to: "/services/dental" },
+  { label: "Oral Health", to: "/services/dental" },
   { label: "Education", to: "/services/education" },
 ];
 
