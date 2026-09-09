@@ -1,20 +1,25 @@
 import Link from "next/link";
 import { Phone, MapPin, Heart, SquareParking } from "lucide-react";
+import { CALLBACK_WINDOW } from "@/lib/site";
 
+/*
+ * Step 2 used to read "Visit the Clinic … nothing to pay", which was wrong
+ * twice over: it invited people to turn up before they had an appointment, and
+ * "nothing to pay" is not true once a prescription reaches a pharmacy counter.
+ */
 const steps = [
   {
     number: "1",
     icon: Phone,
     title: "Call Us",
-    description:
-      "Call (203) 200-0673 to schedule. Leave a voicemail and we'll return your call within 24 hours.",
+    description: `Call (203) 200-0673 to schedule. Leave a voicemail and allow at least ${CALLBACK_WINDOW} for a return call.`,
   },
   {
     number: "2",
     icon: MapPin,
-    title: "Visit the Clinic",
+    title: "Come to Your Appointment",
     description:
-      "Come to 800 Howard Avenue, Floor 1, in the Yale Physicians Building. No insurance needed, and nothing to pay.",
+      "Wait until we have booked you a time, then come to 800 Howard Avenue, Floor 1, in the Yale Physicians Building. No insurance needed. Your visit is free, though you may be asked to help cover a medication at the pharmacy.",
   },
   {
     number: "3",

@@ -178,8 +178,8 @@ const DEPARTMENTS: Department[] = [
     ],
   },
   {
-    code: "LABR",
-    label: "Laboratory",
+    code: "PHLO",
+    label: "Phlebotomy",
     members: [
       { name: "Amanda Girod", email: "amanda.girod@yale.edu" },
       {
@@ -248,7 +248,7 @@ const DEPARTMENTS: Department[] = [
   },
   {
     code: "PHAM",
-    label: "Pharmacy",
+    label: "Medication Access",
     members: [
       { name: "Matthew Liu", email: "matt.liu@yale.edu" },
       {

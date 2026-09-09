@@ -13,6 +13,7 @@
 
 import { catchmentSentence } from "@/lib/catchment";
 import {
+  CALLBACK_WINDOW,
   CLINIC_HOURS_SENTENCE,
   COST_SHARING_SUMMARY,
   WALK_IN_CUTOFF,
@@ -27,14 +28,14 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "Who is eligible to be seen at the clinic?",
     answer:
-      "To be eligible for care at HAVEN Free Clinic you must reside in the Greater New Haven area, be between 18 and 65 years old, have no active medical insurance, and not currently have a primary care provider. Eligible townships include " +
+      "To be eligible for care at HAVEN Free Clinic you must reside in the Greater New Haven area, be between 18 and 65 years old, have no active medical insurance, and not have been seen previously by a local community health clinic. Eligible townships include " +
       `${catchmentSentence()}. ` +
       "Additional criteria may apply and are assessed prior to acceptance.",
   },
   {
     question: "How do I make an appointment?",
     answer:
-      "Call (203) 200-0673 and leave your name and phone number. Someone will return your call within 24 hours. Both English and Spanish speakers are available.",
+      `Call (203) 200-0673 and leave your name and phone number. Please allow at least ${CALLBACK_WINDOW} for a return call. Both English and Spanish speakers are available.`,
   },
   {
     question: "What happens if I miss or need to cancel an appointment?",
@@ -76,7 +77,7 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: "What types of medical conditions can you treat?",
     answer:
-      "As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions including hypertension, high cholesterol, non-insulin-dependent (Type 2) diabetes, asthma and other stable respiratory conditions, common infections and acute illnesses, preventive care and screenings, and medication management for stable chronic conditions. Some conditions fall outside our scope, including insulin-dependent diabetes, active cancer and pregnancy. We do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we will work with you on a warm handoff to the right provider.",
+      "As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions including high blood pressure, high cholesterol, asthma and other stable respiratory conditions, preventive care and screenings, and medication management for stable chronic conditions. We care for diabetes that is treated with pills; if you take insulin injections, or your diabetes has reached the point of needing them, we cannot manage that safely at a clinic open one morning a week, and we will help you get set up with a weekday provider who can. We are also not the place for an illness or injury that needs attention today \u2014 a bad flu, a sprain, a fever that will not wait until Saturday is what urgent care and walk-in clinics are for. Active cancer and pregnancy fall outside our scope, and we do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we will work with you on a warm handoff to the right provider.",
   },
   {
     question: "What is the Compass Program?",

@@ -53,16 +53,7 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
         code: "RHD",
         role: "Sexual and reproductive health for patients of all genders.",
         detail:
-          "Pap smears, breast exams, STI testing, contraception counseling and prescriptions including IUDs and implants, gender-affirming hormone therapy, menopause care, and referrals for mammograms and specialist gynecologic care. A care coordination team handles appointment reminders, results, and the logistics behind every procedure.",
-        href: "/services/patient-care",
-      },
-      {
-        slug: "icdd",
-        name: "Infectious and Chronic Disease Department",
-        code: "ICDD",
-        role: "Conditions that need continuity and long-term follow-up.",
-        detail:
-          "Formerly the Latent Tuberculosis Initiative. ICDD manages latent TB screening and treatment, chronic hypertension, and H. pylori treatment, with the same volunteers seeing the same patients over months. It also screens HAVEN patients across all departments for TB risk.",
+          "Breast exams, STI testing, contraception counseling and prescriptions including IUDs and implants, gender-affirming hormone therapy, menopause care, and referrals for mammograms and specialist gynecologic care. A care coordination team handles appointment reminders, results, and the logistics behind every procedure.",
         href: "/services/patient-care",
       },
       {
@@ -74,11 +65,12 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
         href: "/services/referrals",
       },
       {
-        slug: "lab",
-        name: "Laboratory",
-        role: "On-site specimen collection and diagnostic testing.",
+        slug: "phlebotomy",
+        name: "Phlebotomy",
+        code: "PHLO",
+        role: "Blood draws and specimen collection in clinic.",
         detail:
-          "HAVEN runs a functioning laboratory in clinic. Volunteers draw blood, collect specimens, and package them for processing at the YNHH lab. Every volunteer is trained in venipuncture by a phlebotomist and evaluated before working with patients.",
+          "When your provider orders blood work, Phlebotomy draws it during your visit and sends it to the YNHH lab for processing. Every volunteer is trained in venipuncture by a phlebotomist and evaluated before working with patients.",
         href: "/services/patient-care",
       },
       {
@@ -135,7 +127,7 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
         name: "Interpreting",
         role: "Care in the language you actually speak.",
         detail:
-          "Around 85% of HAVEN patients speak primarily Spanish, and the clinic could not function without interpreters. One interpreter is assigned to each clinical team and stays with the patient through the whole visit, with additional interpreters assigned to Education, Social Services, Referrals, Reproductive Health, Behavioral Health, and the Lab wherever possible.",
+          "Around 85% of HAVEN patients speak primarily Spanish, and the clinic could not function without interpreters. One interpreter is assigned to each clinical team and stays with the patient through the whole visit, with additional interpreters assigned to Education, Social Services, Referrals, Reproductive Health, Behavioral Health, and Phlebotomy wherever possible.",
       },
     ],
   },
@@ -189,11 +181,11 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
         href: "/services/education",
       },
       {
-        slug: "pharmacy",
-        name: "Pharmacy",
+        slug: "medication-access",
+        name: "Medication Access",
         role: "Finding a way for every prescription to actually get filled.",
         detail:
-          "Pharmacy locates affordable options for every medication HAVEN prescribes, dispenses on-site medications and supplies, manages inventory and donated shipments, and delivers medications to patients at home where needed. It also runs the clinic's patient assistance and low-cost mail-order programs.",
+          "Medication Access locates affordable options for every medication HAVEN prescribes, dispenses on-site medications and supplies, manages inventory and donated shipments, and delivers medications to patients at home where needed. It also runs the clinic's patient assistance and low-cost mail-order programs.",
         href: "/services/medication",
       },
       {
@@ -206,10 +198,9 @@ export const DEPARTMENT_GROUPS: DepartmentGroup[] = [
       {
         slug: "oral-health",
         name: "Oral Health Initiative",
-        code: "OHI",
         role: "Closing the gap between medical and dental care.",
         detail:
-          "Dental and medical care are split apart by insurance and by the way the system is built, and patients fall through the middle. OHI triages oral health concerns, then coordinates with scheduling, referrals, and MDIC to book patients with community dental providers and confirm the appointments actually happen. HAVEN does not perform dental treatment itself.",
+          "Dental and medical care are split apart by insurance and by the way the system is built, and patients fall through the middle. The team triages oral health concerns, then coordinates with scheduling, referrals, and insurance counseling to book patients with community dental providers and confirm the appointments actually happen. HAVEN does not perform dental treatment itself.",
         href: "/services/dental",
       },
     ],

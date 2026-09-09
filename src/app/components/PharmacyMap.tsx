@@ -15,11 +15,13 @@ import { MapPin, Phone, ExternalLink } from "lucide-react";
  * locator or from public pharmacy directories. Re-check them if a partnership
  * changes.
  *
- * The ShopRite entry is the East Haven store on Foxon Road, and the Walgreens
- * is the York Street store beside the medical campus — both confirmed with the
- * clinic. Their numbers came from public listings rather than the retailers'
- * own pages, so verify them the next time someone is on the phone with either
- * counter.
+ * The ShopRite entry is the East Haven store on Foxon Road, confirmed with the
+ * clinic. Its number came from a public listing rather than the retailer's own
+ * page, so verify it the next time someone is on the phone with that counter.
+ *
+ * Walgreens on York Street used to be on this list and is not a partner any
+ * more. It was the closest counter to the clinic, so if a patient mentions
+ * walking there, they are working from an old version of this page.
  *
  * The North Haven entry is the Dispensary of Hope partner site. Dispensary of
  * Hope itself is a charitable supplier with no storefront, and this page used
@@ -56,6 +58,7 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "Stop & Shop Pharmacy, 112 Amity Road, New Haven, CT 06515",
     phone: "(203) 389-8863",
     tel: "2033898863",
+    note: "Stop & Shop takes payment at the counter, so bring a way to pay for anything you are covering.",
   },
   {
     name: "Stop & Shop Pharmacy",
@@ -64,6 +67,7 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "Stop & Shop Pharmacy, 460 Elm Street, West Haven, CT 06516",
     phone: "(203) 931-9478",
     tel: "2039319478",
+    note: "Stop & Shop takes payment at the counter, so bring a way to pay for anything you are covering.",
   },
   {
     name: "Stop & Shop Pharmacy",
@@ -72,15 +76,7 @@ const LOCATIONS: PharmacyLocation[] = [
     mapQuery: "Stop & Shop Pharmacy, 370 Hemingway Avenue, East Haven, CT 06512",
     phone: "(203) 468-1113",
     tel: "2034681113",
-  },
-  {
-    name: "Walgreens Pharmacy",
-    branch: "York Street, New Haven",
-    address: "88 York St, New Haven, CT 06511",
-    mapQuery: "Walgreens, 88 York Street, New Haven, CT 06511",
-    phone: "(203) 752-9893",
-    tel: "2037529893",
-    note: "The closest counter to the clinic — walking distance, just up Howard Avenue.",
+    note: "Stop & Shop takes payment at the counter, so bring a way to pay for anything you are covering.",
   },
   {
     name: "ShopRite Pharmacy",
@@ -241,7 +237,19 @@ export function PharmacyMap() {
           </span>{" "}
           — the last entry on the list above. If one of your medications comes
           through Dispensary of Hope, your care team will tell you, confirm that
-          you qualify, and send the prescription there. Call{" "}
+          you qualify, and send the prescription there.
+        </p>
+        <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mt-3">
+          <span className="font-semibold text-[#00356b]">
+            Bring your paperwork with you.
+          </span>{" "}
+          The pharmacy cannot fill a Dispensary of Hope prescription without the
+          documents your care team gives you, and a trip to North Haven without
+          them is a wasted one. If you are not sure what you are meant to have,
+          ask before you leave the clinic.
+        </p>
+        <p className="font-['Poppins',sans-serif] text-black text-[14px] md:text-[16px] leading-relaxed mt-3">
+          Call{" "}
           <a
             href="tel:2032303940"
             className="text-[#00356b] font-semibold hover:underline"

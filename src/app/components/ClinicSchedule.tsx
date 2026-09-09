@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Calendar, Phone, Stethoscope } from "lucide-react";
-import { CLINIC_HOURS } from "@/lib/site";
+import { CALLBACK_WINDOW, CLINIC_HOURS } from "@/lib/site";
 
 /* ─── Types ─── */
 
@@ -38,8 +38,20 @@ const SCHEDULE_URL = `${HUB_ORIGIN}/api/public/clinic-days?limit=4`;
 /** The clinic runs one session a week, at the same hours every week. */
 const DEFAULT_HOURS = CLINIC_HOURS;
 
-/** The rotating specialty clinics HAVEN runs on select Saturdays. */
-const SPECIALTY_CLINICS = ["Nephrology", "Neurology", "Dermatology"] as const;
+/*
+ * The clinics that run alongside primary care on select Saturdays.
+ *
+ * Reproductive Health (RHD) belongs here even though it is a HAVEN department
+ * rather than an outside specialty: the cards below tell patients which
+ * departments are open on a given day, and leaving RHD out of the list made
+ * that answer wrong for anyone waiting on a reproductive health visit.
+ */
+const SPECIALTY_CLINICS = [
+  "Nephrology",
+  "Neurology",
+  "Dermatology",
+  "Reproductive Health (RHD)",
+] as const;
 
 /* ─── Parsing ─── */
 
@@ -209,7 +221,8 @@ export function ClinicSchedule() {
             >
               (203) 200-0673
             </a>{" "}
-            to schedule. Leave a voicemail and expect a callback within 24 hours.
+            to schedule. Leave a voicemail and allow at least {CALLBACK_WINDOW}{" "}
+            for a return call.
           </p>
 
           {loading && (

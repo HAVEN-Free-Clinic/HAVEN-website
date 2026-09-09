@@ -31,6 +31,9 @@ import { PARTNER_CLINICS } from "@/lib/partner-clinics";
 const SECTION = "max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16";
 const INNER = "max-w-4xl mx-auto";
 
+/** How many items each summary column shows before it has to say so. */
+const SUMMARY_LIMIT = 6;
+
 /* ─── Compact summary, for other pages ─── */
 
 export function ScopeSummary() {
@@ -56,7 +59,7 @@ export function ScopeSummary() {
             </h3>
           </div>
           <ul className="space-y-2.5">
-            {SCOPE_PROVIDES_FLAT.slice(0, 6).map((item) => (
+            {SCOPE_PROVIDES_FLAT.slice(0, SUMMARY_LIMIT).map((item) => (
               <li key={item.label} className="flex items-start gap-2.5">
                 <Check
                   className="w-4 h-4 text-[#00356b] shrink-0 mt-1"
@@ -68,6 +71,10 @@ export function ScopeSummary() {
               </li>
             ))}
           </ul>
+          <p className="font-['Poppins',sans-serif] text-black/60 text-[13px] md:text-[14px] leading-relaxed mt-4">
+            {SCOPE_PROVIDES_FLAT.length - SUMMARY_LIMIT} more services are on
+            the full list.
+          </p>
         </div>
 
         <div className="bg-[#f7f9fc] border border-[#00356b]/15 p-6 md:p-7">
@@ -80,7 +87,7 @@ export function ScopeSummary() {
             </h3>
           </div>
           <ul className="space-y-2.5">
-            {SCOPE_OUTSIDE.slice(0, 6).map((item) => (
+            {SCOPE_OUTSIDE.slice(0, SUMMARY_LIMIT).map((item) => (
               <li key={item.label} className="flex items-start gap-2.5">
                 <X
                   className="w-4 h-4 text-red-600 shrink-0 mt-1"
@@ -92,6 +99,20 @@ export function ScopeSummary() {
               </li>
             ))}
           </ul>
+          <p className="font-['Poppins',sans-serif] text-black/70 text-[13px] md:text-[14px] leading-relaxed mt-4">
+            <span className="font-semibold text-[#00356b]">
+              This is not the whole list.
+            </span>{" "}
+            There are {SCOPE_OUTSIDE.length - SUMMARY_LIMIT} more things we
+            cannot do.{" "}
+            <Link
+              href="/services/scope-of-care#outside-our-scope"
+              className="text-[#00356b] font-semibold underline hover:no-underline"
+            >
+              Read all {SCOPE_OUTSIDE.length}
+            </Link>
+            , each with where to go instead.
+          </p>
         </div>
       </div>
 
@@ -224,7 +245,10 @@ export function ScopeOfCareContent() {
       </div>
 
       {/* ── Outside our scope ── */}
-      <div className={`${SECTION} pt-10 md:pt-14 pb-10 md:pb-14`}>
+      <div
+        id="outside-our-scope"
+        className={`scroll-mt-24 ${SECTION} pt-10 md:pt-14 pb-10 md:pb-14`}
+      >
         <div className={INNER}>
           <div className="flex items-center gap-3 mb-4 md:mb-6">
             <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center shrink-0">
@@ -287,10 +311,11 @@ export function ScopeOfCareContent() {
                 <ShieldAlert className="w-5 h-5 text-red-700" />
               </div>
               <h3 className="font-['Poppins',sans-serif] font-bold text-[#00356b] text-[17px] md:text-[18px] mb-2">
-                It is urgent
+                You are sick today
               </h3>
               <p className="font-['Poppins',sans-serif] text-black/75 text-[14px] md:text-[15px] leading-relaxed">
-                Call{" "}
+                For an illness or injury that cannot wait for Saturday, go to an
+                urgent care or walk-in clinic. If it is life-threatening, call{" "}
                 <a href="tel:911" className="font-semibold hover:underline">
                   911
                 </a>{" "}

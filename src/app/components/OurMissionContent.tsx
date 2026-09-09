@@ -101,7 +101,8 @@ export function OurMissionContent() {
               </div>
               <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed">
                 HAVEN Free Clinic provides care to uninsured adults aged 18–65 in
-                the Greater New Haven area who do not have a primary care provider.
+                the Greater New Haven area who have not been seen previously by a
+                local community health clinic.
               </p>
             </div>
 

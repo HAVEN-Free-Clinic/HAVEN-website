@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { MYCHART_URL } from "@/lib/links";
+import { CALLBACK_WINDOW } from "@/lib/site";
 import { BrandText, MyChart } from "@/app/components/BrandText";
 
 
@@ -365,7 +366,7 @@ export function MyChartContent() {
               To set up proxy access, please visit the front desk during your
               next appointment or contact the clinic by calling and leaving a
               voicemail. You will need to complete an authorization form. Please
-              allow up to 24 hours for a return call.
+              allow at least {CALLBACK_WINDOW} for a return call.
             </p>
             <a
               href="tel:2032000673"

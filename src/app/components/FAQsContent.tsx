@@ -5,6 +5,7 @@ import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import { CATCHMENT_TOWNS } from "@/lib/catchment";
 import {
+  CALLBACK_WINDOW,
   CLINIC_HOURS_SENTENCE,
   COST_SHARING_SUMMARY,
   WALK_IN_CUTOFF,
@@ -33,7 +34,9 @@ const faqs: FAQ[] = [
           <li>Reside in the Greater New Haven area</li>
           <li>Be between 18 and 65 years old</li>
           <li>Have no active medical insurance</li>
-          <li>Not currently have a primary care provider</li>
+          <li>
+            Not have been seen previously by a local community health clinic
+          </li>
         </ul>
         <p className="mt-3 mb-2">Eligible areas to be seen include the following townships:</p>
         {/*
@@ -65,7 +68,7 @@ const faqs: FAQ[] = [
         <a href="tel:2032000673" className="text-[#00356b] underline hover:opacity-80">
           (203) 200-0673
         </a>{" "}
-        and leave your name and phone number. Someone will return your call within 24 hours. Both English and Spanish speakers are available.
+        and leave your name and phone number. Please allow at least {CALLBACK_WINDOW} for a return call. Both English and Spanish speakers are available.
       </p>
     ),
   },
@@ -168,10 +171,13 @@ const faqs: FAQ[] = [
     answer: (
       <div>
         <p className="mb-2">
-          As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions, including hypertension, high cholesterol, non-insulin-dependent (Type 2) diabetes, asthma and other stable respiratory conditions, common infections and acute illnesses, preventive care and screenings, and medication management for stable chronic conditions.
+          As a student-run clinic, our care is delivered under physician supervision and focused on conditions we can manage safely. We provide primary care for common and chronic conditions, including high blood pressure, high cholesterol, asthma and other stable respiratory conditions, preventive care and screenings, and medication management for stable chronic conditions.
         </p>
         <p className="mb-2">
-          Some conditions fall outside our scope, including insulin-dependent diabetes, active cancer, and pregnancy. We also do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
+          We care for diabetes that is treated with pills. If you take insulin injections, or your diabetes has reached the point of needing them, we cannot manage that safely at a clinic that is open one morning a week, and we will help you get set up with a weekday provider who can.
+        </p>
+        <p className="mb-2">
+          We are also not the place for an illness or injury that needs attention today. A bad flu, a sprain, a fever that will not wait until Saturday: that is what urgent care and walk-in clinics are for. Active cancer and pregnancy fall outside our scope too, and we do not provide pediatric or HIV/AIDS care. If your needs fall outside what we can treat, we&apos;ll work with you on a warm handoff to the right provider.
         </p>
         <p>
           See our{" "}

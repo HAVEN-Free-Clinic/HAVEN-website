@@ -8,6 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import { PartnerClinics } from "@/app/components/PartnerClinics";
+import { CALLBACK_WINDOW } from "@/lib/site";
 
 /*
  * Compass had been living as a section inside SocialServicesContent, which put
@@ -198,7 +199,8 @@ export function CompassContent() {
               >
                 (203) 200-0673
               </a>{" "}
-              and leave a voicemail. We return calls within 24 hours.
+              and leave a voicemail. Please allow at least {CALLBACK_WINDOW}{" "}
+              for a return call.
             </p>
           </div>
         </div>

@@ -6,7 +6,10 @@ const criteria = [
   { icon: User, text: "Between 18 and 65 years old" },
   { icon: MapPin, text: "Reside in the Greater New Haven area" },
   { icon: ShieldCheck, text: "Currently uninsured" },
-  { icon: Stethoscope, text: "Do not have a primary care provider" },
+  {
+    icon: Stethoscope,
+    text: "Have not been seen previously by a local community health clinic",
+  },
 ];
 
 export function WhoWeServe() {

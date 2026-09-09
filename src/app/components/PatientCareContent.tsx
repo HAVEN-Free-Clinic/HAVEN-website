@@ -69,12 +69,18 @@ const departments: DepartmentData[] = [
           <li>Routine checkups</li>
           <li>Preventive screenings</li>
           <li>Chronic condition management</li>
-          <li>Acute illness care</li>
           <li>Tailored health guidance</li>
         </ul>
         <p>
+          We are open one morning a week, so we are not the place for an illness
+          or injury that needs attention today. For that, an urgent care or
+          walk-in clinic will see you sooner and cost far less than an emergency
+          room.
+        </p>
+        <p>
           Whether you're coming in for an annual physical, managing an ongoing
-          condition, or addressing a new health concern,{" "}
+          condition, or addressing a health concern that can wait for your
+          appointment,{" "}
           <span className="font-medium">
             our primary care team is here to be your first point of contact and
             trusted health advocate.
@@ -129,7 +135,7 @@ const departments: DepartmentData[] = [
         <p className="font-medium">Routine Care</p>
         <ul className="list-disc pl-8 md:pl-12 space-y-1">
           <li>Annual well-visits</li>
-          <li>Pap smears and breast exams</li>
+          <li>Breast exams</li>
           <li>Referrals for mammograms</li>
           <li>Sexual health counseling and testing</li>
         </ul>
@@ -204,23 +210,13 @@ const departments: DepartmentData[] = [
     ),
   },
   {
-    title: "Laboratory",
+    title: "Phlebotomy (PHLO)",
     content: (
       <div className="space-y-4 md:space-y-6">
         <p>
-          Our Lab Services department provides{" "}
-          <span className="font-medium">
-            diagnostic testing
-          </span>{" "}
-          to support patient care, including routine blood work, screenings,
-          infectious disease testing, chronic condition monitoring, and specimen
-          collection.
-        </p>
-        <p>
-          Many specimens are collected in clinic on Saturday by our own lab
-          volunteers, who are trained in venipuncture and supervised before they
-          work with patients. Everything is then processed off site at the Yale
-          New Haven Hospital lab.
+          If your provider orders blood work, we can usually draw it in clinic
+          on the same Saturday. Samples are processed at the Yale New Haven
+          Hospital lab, and your care team goes over the results with you.
         </p>
         <p>
           For anything we cannot collect on the day, your provider will give you
@@ -244,40 +240,6 @@ const departments: DepartmentData[] = [
             during the week rather than on Saturdays.
           </p>
         </div>
-      </div>
-    ),
-  },
-  {
-    title: "Infectious & Chronic Disease Department (ICDD)",
-    content: (
-      <div className="space-y-4 md:space-y-6">
-        <p>
-          The Infectious and Chronic Disease Department (ICDD), formerly the
-          Latent Tuberculosis Initiative (LTBI), oversees care for conditions
-          that benefit from continuity and long-term follow-up. We help our
-          team get to know you over multiple visits, so your care plan can grow
-          with you.
-        </p>
-
-        <p className="font-medium">Conditions We Manage</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>Latent tuberculosis (TB) infection screening and treatment</li>
-          <li>Chronic hypertension management</li>
-          <li>H. pylori treatment</li>
-        </ul>
-
-        <p className="font-medium">What to Expect at an ICDD Visit</p>
-        <ul className="list-disc pl-8 md:pl-12 space-y-1">
-          <li>In-depth health education and counseling</li>
-          <li>Focused physical assessments and review of any new concerns</li>
-          <li>Checks for medication side effects and support for treatment adherence</li>
-          <li>A care plan finalized together with a HAVEN attending physician</li>
-        </ul>
-
-        <p>
-          ICDD also collaborates with other HAVEN departments to screen all
-          patients for tuberculosis risk factors and collect labs as needed.
-        </p>
       </div>
     ),
   },

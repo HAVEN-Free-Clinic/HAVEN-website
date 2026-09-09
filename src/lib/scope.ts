@@ -33,20 +33,17 @@ export const SCOPE_PROVIDES: { group: string; items: ScopeItem[] }[] = [
     items: [
       {
         label: "Primary care visits",
-        detail: "Checkups, acute illness, and physicals",
+        detail: "Checkups, physicals, and ongoing health concerns",
       },
       {
         label: "Chronic disease management",
-        detail: "Diabetes, hypertension, asthma, and high cholesterol",
-      },
-      {
-        label: "Lab testing and vaccines",
         detail:
-          "Routine bloodwork and screenings; vaccines for established patients only",
+          "High blood pressure, high cholesterol, asthma, and diabetes that is treated with pills rather than insulin",
       },
       {
-        label: "Latent TB, H. pylori, and hypertension follow-up",
-        detail: "Through our Infectious and Chronic Disease Department",
+        label: "Lab testing and vaccines for our own patients",
+        detail:
+          "Bloodwork, screenings, and routine vaccines are part of your ongoing care once you are a HAVEN patient. We do not take walk-ins for a lab draw or a vaccine on its own.",
       },
     ],
   },
@@ -54,7 +51,7 @@ export const SCOPE_PROVIDES: { group: string; items: ScopeItem[] }[] = [
     group: "Sexual and reproductive health",
     items: [
       {
-        label: "Pap smears, breast exams, and STI screening",
+        label: "Breast exams and STI screening",
       },
       {
         label: "Contraception and HIV pre-exposure prophylaxis (PrEP)",
@@ -114,7 +111,7 @@ export const SCOPE_PROVIDES: { group: string; items: ScopeItem[] }[] = [
       {
         label: "Low-cost medications through pharmacy partnerships",
         detail:
-          "Medications at or above $25 are free; under $25 we ask you to cover, and we waive that for financial hardship",
+          "You cover medications priced under $25. For anything at or above $25 we screen for your ability to pay and work with you on the cost",
       },
     ],
   },
@@ -128,6 +125,11 @@ export const SCOPE_PROVIDES: { group: string; items: ScopeItem[] }[] = [
  * to hand over the next step at the same time.
  */
 export const SCOPE_OUTSIDE: ScopeItem[] = [
+  {
+    label: "Urgent, same-day illness or injury",
+    detail:
+      "A bad flu, a sprain, a cut, a fever that will not wait until Saturday: that is what urgent care and walk-in clinics are for, and they are far cheaper than an emergency room. We are a weekly primary care clinic, so we are not the place to call when you are sick today.",
+  },
   {
     label: "Emergency or life-threatening care",
     detail:
@@ -144,9 +146,9 @@ export const SCOPE_OUTSIDE: ScopeItem[] = [
       "We do not see patients who are pregnant. We do offer pregnancy testing, and we will connect you with prenatal care right away.",
   },
   {
-    label: "Insulin-dependent or highly complex diabetes management",
+    label: "Diabetes that is treated with insulin",
     detail:
-      "A Saturday clinic cannot safely adjust insulin between visits. We will help you establish with a weekday provider who can.",
+      "If you take insulin injections, or your diabetes has reached the point of needing them, your doses have to be adjusted between visits and we are only open one morning a week. We do care for diabetes treated with pills. Either way, we will help you get set up with a weekday provider who can manage insulin.",
   },
   {
     label: "Surgery, imaging, oncology, and specialist procedures",
@@ -156,7 +158,7 @@ export const SCOPE_OUTSIDE: ScopeItem[] = [
   {
     label: "Direct dental treatment",
     detail:
-      "Our Oral Health Initiative does not clean, fill, or extract teeth. It connects you with community dental providers who do, at no cost to you for the coordination.",
+      "We do not clean, fill, or extract teeth, and we have no dentist on site. We connect you with community dental providers who do, at no cost to you for the coordination.",
   },
   {
     label: "Licensed social work, therapy, or crisis intervention",

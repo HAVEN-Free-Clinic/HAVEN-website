@@ -84,21 +84,17 @@ export function MedicationContent() {
               <div className="w-16 h-px bg-[#00356b]/20 mx-auto" />
               <p className="font-['Poppins',sans-serif] text-black text-[17px] md:text-[20px] leading-relaxed">
                 This patient is a registered{" "}
-                <span className="font-bold text-[#00356b]">HAVEN Free Clinic</span>{" "}
+                <span className="font-bold text-[#00356b]">
+                  HAVEN Free Clinic
+                </span>{" "}
                 patient picking up a prescribed medication.
               </p>
               <p className="font-['Poppins',sans-serif] text-black text-[17px] md:text-[20px] leading-relaxed font-semibold">
-                Please apply the{" "}
-                <span className="text-[#00356b]">HAVEN Payor Plan</span>{" "}
-                to this transaction.
+                For any questions, please call HAVEN at
+                <span className="text-[#00356b]"> 203-200-0673</span>
               </p>
               <div className="w-16 h-px bg-[#00356b]/20 mx-auto" />
-              <p className="font-['Poppins',sans-serif] text-black/60 text-[14px] md:text-[16px]">
-                Questions? Contact HAVEN Pharmacy at{" "}
-                <a href="mailto:haven.free.clinic@yale.edu" className="text-[#00356b] underline">
-                  haven.free.clinic@yale.edu
-                </a>
-              </p>
+              <p className="font-['Poppins',sans-serif] text-black/60 text-[14px] md:text-[16px]"></p>
             </div>
           </div>
         </div>
@@ -137,15 +133,16 @@ export function MedicationContent() {
                 What you may be asked to pay
               </h2>
               <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed">
-                Your visit is free. Medications are too, with one exception: if a
-                medication costs{" "}
+                Your visit is free. Medications are where you may be asked to
+                pay something. If a medication costs{" "}
                 <span className="font-semibold">less than $25</span>, we ask you
-                to cover it at the pharmacy. Anything{" "}
-                <span className="font-semibold">$25 or more</span> is still on
-                us.
+                to cover it at the pharmacy. For anything{" "}
+                <span className="font-semibold">$25 or more</span>, we look at
+                what you are able to afford and work out the cost with you.
               </p>
               <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mt-3">
-                If that is hard to afford, say so. We waive it, and{" "}
+                If paying is hard, say so. That is what the screening is for,
+                and{" "}
                 <span className="font-semibold">
                   no one is ever denied a medication because they cannot pay
                 </span>
@@ -198,7 +195,10 @@ export function MedicationContent() {
               <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed">
                 Most refills can be handled by the pharmacy in one phone call,
                 without waiting for Saturday. Find your pharmacy on the{" "}
-                <a href="#pharmacy-map" className="underline hover:no-underline">
+                <a
+                  href="#pharmacy-map"
+                  className="underline hover:no-underline"
+                >
                   map below
                 </a>
                 , tap the number, and ask whether you have refills left. If they
@@ -217,8 +217,7 @@ export function MedicationContent() {
             </h3>
             <p className="leading-relaxed">
               Your prescription should be ready at the pharmacy we assigned you
-              within about 3 business days of your clinic visit. Call ahead
-              before you make the trip.
+              by the Wednesday after your clinic visit.
             </p>
           </div>
         </div>
@@ -238,9 +237,9 @@ export function MedicationContent() {
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8">
             Running low on a medication? Follow these two steps to request a
-            refill. Please allow <span className="font-semibold">3 to 5 business
-            days</span> before you run out. Last-minute requests may cause delays
-            in your care.
+            refill. Please allow{" "}
+            <span className="font-semibold">3 to 5 business days</span> before
+            you run out. Last-minute requests may cause delays in your care.
           </p>
 
           <div className="space-y-5 md:space-y-6">
@@ -254,8 +253,9 @@ export function MedicationContent() {
                 </h3>
                 <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
                   Call your pharmacy to find out whether any refills remain on
-                  your current prescription. Pharmacies can often process a refill
-                  automatically if one is available, saving you an extra step.
+                  your current prescription. Pharmacies can often process a
+                  refill automatically if one is available, saving you an extra
+                  step.
                 </p>
               </div>
             </div>
@@ -277,10 +277,12 @@ export function MedicationContent() {
                   >
                     (203) 200-0673
                   </a>{" "}
-                  and we will work with your care team to authorize a new refill.
-                  Please have your <span className="font-semibold">medication
-                  name, dosage, and pharmacy information</span> ready when you
-                  call.
+                  and we will work with your care team to authorize a new
+                  refill. Please have your{" "}
+                  <span className="font-semibold">
+                    medication name, dosage, and pharmacy information
+                  </span>{" "}
+                  ready when you call.
                 </p>
               </div>
             </div>
@@ -289,18 +291,18 @@ export function MedicationContent() {
           <div className="mt-8 border-l-4 border-[#00356b] bg-[#00356b]/5 px-5 py-4">
             <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               <span className="font-semibold text-[#00356b]">
-                Please do not wait until you have run out of medication to request
-                a refill.
+                Please do not wait until you have run out of medication to
+                request a refill.
               </span>{" "}
-              Reaching out 3 to 5 business days in advance ensures your care team
-              has enough time to review and approve your request without
+              Reaching out 3 to 5 business days in advance ensures your care
+              team has enough time to review and approve your request without
               interruption to your treatment.
             </p>
           </div>
 
           <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed mt-6">
-            Have a different medical question between visits? Reach our care team
-            through the{" "}
+            Have a different medical question between visits? Reach our care
+            team through the{" "}
             <Link
               href="/visitor-guide#triage-line"
               className="text-[#00356b] font-semibold underline hover:text-[#00356b]/70"
@@ -325,9 +327,9 @@ export function MedicationContent() {
             Low-Cost Mail Order
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-6">
-            Getting to a pharmacy counter is its own barrier. For medications you
-            take every month, our pharmacy team can often route your prescription
-            through a mail-order service instead, delivered to your door.
+            For some medications, a mail-order pharmacy is simply the cheapest
+            way to fill the prescription. Where that is the case, your care team
+            will tell you and set it up.
           </p>
 
           <div className="bg-[#f7f9fc] border border-[#00356b]/15 border-l-4 border-l-[#00356b] p-6 md:p-7">
@@ -341,17 +343,17 @@ export function MedicationContent() {
             </div>
             <p className="font-['Poppins',sans-serif] text-black text-[15px] md:text-[17px] leading-relaxed mb-4">
               A mail-order pharmacy that charges the manufacturer&apos;s cost
-              plus a fixed markup, with no insurance and no middlemen. It carries
-              more than 2,000 generic medications and ships nationwide, and for
-              many common prescriptions it is dramatically cheaper than a retail
-              counter.
+              plus a fixed markup, with no insurance and no middlemen. It
+              carries more than 2,000 generic medications and ships nationwide,
+              and for many common prescriptions it is dramatically cheaper than
+              a retail counter.
             </p>
             <p className="font-['Poppins',sans-serif] text-black/70 text-[14px] md:text-[16px] leading-relaxed mb-4">
               Ask your care team whether one of your medications is available
               this way. It is not right for everything — you cannot use it for a
               medication you need today, and not every drug is stocked — but for
-              a maintenance prescription it can be the difference between filling
-              it and skipping it.
+              a maintenance prescription it can be the difference between
+              filling it and skipping it.
             </p>
             <a
               href="https://costplusdrugs.com"
@@ -385,7 +387,7 @@ export function MedicationContent() {
           <div className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
             <p className="leading-relaxed">
               HAVEN runs on donations and volunteer hours. Like many other free
-              clinics, we now ask patients to help cover some of the cheaper
+              clinics, we ask patients to help cover some of the cheaper
               medications. That is what lets us keep paying for the expensive
               ones and take on more patients.
             </p>
@@ -400,19 +402,23 @@ export function MedicationContent() {
                   priced <span className="font-semibold">under $25</span>.
                 </li>
                 <li>
-                  Medications <span className="font-semibold">at or above $25</span>{" "}
-                  continue to be provided at no cost to the patient.
+                  For medications{" "}
+                  <span className="font-semibold">at or above $25</span>, we
+                  screen for your ability to pay and determine what, if
+                  anything, you contribute. We do not promise these are free to
+                  everyone, because that is not a promise the clinic can keep.
                 </li>
                 <li>
-                  Patients who demonstrate significant financial hardship may
-                  request a <span className="font-semibold">cost-sharing waiver</span>.
-                  Our team will work with you discreetly and compassionately to
-                  assess your situation.
+                  The screening is a short, private conversation about your
+                  circumstances. Patients facing financial hardship may request
+                  a <span className="font-semibold">cost-sharing waiver</span>,
+                  and our team will work with you discreetly and compassionately
+                  to assess your situation.
                 </li>
                 <li>
                   <span className="font-semibold">
-                    No patient will be denied a medication solely due to inability
-                    to pay.
+                    No patient will be denied a medication solely due to
+                    inability to pay.
                   </span>{" "}
                   If cost is a concern, please speak with your care team.
                 </li>
@@ -429,16 +435,22 @@ export function MedicationContent() {
                 contribute a small amount toward lower-cost medications, we can:
               </p>
               <ul className="list-disc pl-6 md:pl-7 space-y-2 leading-relaxed text-[15px] md:text-[17px]">
-                <li>Preserve our donated funds for higher-cost medications and services</li>
+                <li>
+                  Preserve our donated funds for higher-cost medications and
+                  services
+                </li>
                 <li>Expand our capacity to take on more patients</li>
-                <li>Continue investing in programs that support long-term patient outcomes</li>
+                <li>
+                  Continue investing in programs that support long-term patient
+                  outcomes
+                </li>
                 <li>Sustain and grow HAVEN&apos;s presence in the community</li>
               </ul>
             </div>
 
             <p className="text-[#00356b] leading-relaxed">
-              Have questions about this policy or need to request a waiver? Please
-              speak with your care team or send us a Care Message through{" "}
+              Have questions about this policy or need to request a waiver?
+              Please speak with your care team or send us a Care Message through{" "}
               <Link
                 href="/mychart"
                 className="underline hover:text-[#00356b]/70 transition-colors"
@@ -466,10 +478,10 @@ export function MedicationContent() {
 
           <div className="font-['Poppins',sans-serif] text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] space-y-6 md:space-y-8">
             <p className="text-black leading-relaxed">
-              The Pharmaceutical Assistance Program helps eligible patients access
-              medications at no cost through manufacturer patient assistance programs.
-              Our team assists with applications and follow-up to ensure continuity
-              of care.
+              The Pharmaceutical Assistance Program helps eligible patients
+              access medications at no cost through manufacturer patient
+              assistance programs. Our team assists with applications and
+              follow-up to ensure continuity of care.
             </p>
             <p className="text-[#00356b] leading-relaxed">
               Call{" "}

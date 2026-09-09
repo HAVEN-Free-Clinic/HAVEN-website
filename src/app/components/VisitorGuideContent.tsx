@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown, Phone, Voicemail, AlertTriangle } from "lucide-react";
-import { WALK_IN_CUTOFF } from "@/lib/site";
+import { CALLBACK_WINDOW, WALK_IN_CUTOFF } from "@/lib/site";
 
 /* ─── Tabs ─── */
 
@@ -79,8 +79,9 @@ const whatToExpectItems: AccordionItemData[] = [
     content: (
       <ul className="list-disc pl-8 md:pl-12 space-y-2">
         <li>
-          If medications are prescribed, they will typically be available
-          for pickup at our partner pharmacy within 3 business days
+          If medications are prescribed, they will typically be ready for
+          pickup at the pharmacy we assigned you by the Wednesday after your
+          visit
         </li>
         <li>
           Follow-up appointments can be scheduled before you leave or by
@@ -130,9 +131,11 @@ const whatToExpectItems: AccordionItemData[] = [
         </li>
         <li>
           <span className="font-medium">&quot;There is a fee I don&apos;t know about.&quot;</span>{" "}
-          Your visit is free and there are no hidden fees. The one cost we
-          ask patients to cover is medications priced under $25, and we waive
-          that for anyone who cannot afford it
+          Your visit is free and there are no hidden fees. Medications are the
+          one place you may be asked to pay. You cover anything priced under
+          $25, and for medications at or above $25 we screen for your ability
+          to pay and work with you on the cost. No one is ever denied a
+          medication because they cannot pay
         </li>
       </ul>
     ),
@@ -185,9 +188,9 @@ function BookingCancellingPanel() {
         </h3>
         <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[1000px]">
           To book an appointment, call us at (203) 200-0673 and leave a
-          voicemail. Our clinic is not open at all hours, but a staff member
-          will return your call within 24 hours. Please note that we only
-          have appointments on Saturdays.
+          voicemail. Our clinic is not open at all hours, so please allow at
+          least {CALLBACK_WINDOW} for a staff member to return your call. Please
+          note that we only have appointments on Saturdays.
         </p>
       </div>
 

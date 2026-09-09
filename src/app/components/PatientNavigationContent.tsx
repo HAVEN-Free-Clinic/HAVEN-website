@@ -50,7 +50,7 @@ const CAN_DO = [
   "Explain what a diagnosis, a lab result, or a referral actually means",
   "Schedule, reschedule, and confirm your appointments",
   "Track your referrals and tell you where each one stands",
-  "Loop in social services, insurance counseling, or the pharmacy team",
+  "Loop in social services, insurance counseling, or the medication access team",
   "Help you prepare for a specialist visit and tell you what to bring",
   "Follow up after a hospital or emergency department visit",
 ];

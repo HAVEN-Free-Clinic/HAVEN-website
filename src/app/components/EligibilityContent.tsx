@@ -17,6 +17,7 @@ import {
   Map,
 } from "lucide-react";
 import { PartnerClinics } from "@/app/components/PartnerClinics";
+import { CALLBACK_WINDOW } from "@/lib/site";
 
 /* ─── Criteria Data ─── */
 
@@ -36,11 +37,13 @@ const CRITERIA = [
     question: "Are you currently uninsured (no health insurance)?",
   },
   {
-    id: "pcp",
+    id: "prior-care",
     icon: Stethoscope,
-    title: "Primary Care Provider",
-    description: "Do not currently have a primary care provider",
-    question: "Do you currently lack a primary care provider?",
+    title: "Previous Clinic Care",
+    description:
+      "Have not been seen previously by a local community health clinic",
+    question:
+      "Is it true that you have not been seen previously by a local community health clinic?",
   },
   {
     id: "location",
@@ -199,7 +202,7 @@ function EligibilityChecker() {
             <p className="font-['Poppins',sans-serif] text-[#00356b]/80 text-[16px] md:text-[18px] leading-relaxed max-w-[480px]">
               Based on your responses, you appear to meet our eligibility
               criteria. Please call us to schedule an appointment. Leave a
-              voicemail and expect a call back within 24 hours.
+              voicemail and allow at least {CALLBACK_WINDOW} for a return call.
             </p>
             <a
               href="tel:2032000673"
@@ -227,7 +230,8 @@ function EligibilityChecker() {
               Based on your responses, you may not meet all of our current
               eligibility criteria. However, we encourage you to reach out. We
               may still be able to help or connect you with other resources.
-              Leave a voicemail and expect a call back within 24 hours.
+              Leave a voicemail and allow at least {CALLBACK_WINDOW} for a
+              return call.
             </p>
             <a
               href="tel:2032000673"

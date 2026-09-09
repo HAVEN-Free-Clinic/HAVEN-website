@@ -92,6 +92,17 @@ export const WALK_IN_CUTOFF = "10:30 AM";
 export const CLINIC_HOURS_SENTENCE = `Saturdays, ${CLINIC_HOURS}`;
 
 /**
+ * How long a patient should allow for a call back after leaving a voicemail.
+ *
+ * The clinic answers its line on Saturdays and returns calls during the week,
+ * so a 24-hour promise was one the volunteers making those calls could not
+ * keep. Stated on the home page, the FAQ, the eligibility page, the Visitor
+ * Guide, MyChart, Compass and the healthcare guide — every one of which used to
+ * write it out by hand — so it lives here and is imported.
+ */
+export const CALLBACK_WINDOW = "48 hours";
+
+/**
  * The medication cost-sharing rule in one sentence.
  *
  * The full policy lives at /services/medication#cost-sharing. This is the
@@ -101,7 +112,7 @@ export const CLINIC_HOURS_SENTENCE = `Saturdays, ${CLINIC_HOURS}`;
  * "on request" and "for financial hardship".
  */
 export const COST_SHARING_SUMMARY =
-  "Patients cover medications priced under $25; medications at or above $25 are free. We waive the charge for financial hardship, and no patient is ever denied a medication for inability to pay.";
+  "Patients are asked to cover medications priced under $25. For medications at or above $25, we screen for your ability to pay and work with you on the cost. No patient is ever denied a medication because they cannot pay.";
 
 /** Street address as lines, for a footer or contact block. */
 export const CLINIC_ADDRESS_LINES = [

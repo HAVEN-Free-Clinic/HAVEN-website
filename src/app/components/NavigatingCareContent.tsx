@@ -18,6 +18,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { ACCESS_HEALTH_CT_URL } from "@/lib/links";
+import { CALLBACK_WINDOW } from "@/lib/site";
 import { FREE_CARE_TERM } from "@/lib/free-care";
 
 /*
@@ -96,6 +97,26 @@ const LEVELS: Level[] = [
     accent: "blue",
   },
   {
+    id: "primary",
+    tier: "Primary care",
+    title: "Primary care providers",
+    summary:
+      "Your main doctor for everyday health. Manages ongoing conditions, prescriptions, and referrals.",
+    bestFor:
+      "Checkups, chronic conditions like diabetes and high blood pressure, prescription management, preventive screening, and being the person who knows your history.",
+    cost: (
+      <>
+        Depends entirely on where you go. With Medicaid/HUSKY, most primary care
+        is free. At a community health center, fees run on a sliding scale. At
+        HAVEN, it is free.
+      </>
+    ),
+    access:
+      "You establish care with one practice and stay with it. Having a primary care provider is the single thing that makes the rest of the system navigable.",
+    icon: HeartPulse,
+    accent: "blue",
+  },
+  {
     id: "specialist",
     tier: "Specialist",
     title: "Specialist doctors",
@@ -128,26 +149,6 @@ const LEVELS: Level[] = [
       </>
     ),
     icon: Stethoscope,
-    accent: "blue",
-  },
-  {
-    id: "primary",
-    tier: "Primary care",
-    title: "Primary care providers",
-    summary:
-      "Your main doctor for everyday health. Manages ongoing conditions, prescriptions, and referrals.",
-    bestFor:
-      "Checkups, chronic conditions like diabetes and high blood pressure, prescription management, preventive screening, and being the person who knows your history.",
-    cost: (
-      <>
-        Depends entirely on where you go. With Medicaid/HUSKY, most primary care
-        is free. At a community health center, fees run on a sliding scale. At
-        HAVEN, it is free.
-      </>
-    ),
-    access:
-      "You establish care with one practice and stay with it. Having a primary care provider is the single thing that makes the rest of the system navigable.",
-    icon: HeartPulse,
     accent: "blue",
   },
   {
@@ -200,14 +201,16 @@ const LEVELS: Level[] = [
     summary:
       "Free primary care every Saturday. No insurance needed. A bridge to the rest of the system, not a permanent home.",
     bestFor:
-      "Uninsured adults aged 18 to 65 in Greater New Haven who do not have a primary care provider and meet our eligibility criteria.",
+      "Uninsured adults aged 18 to 65 in Greater New Haven who have not been seen previously by a local community health clinic and meet our eligibility criteria.",
     cost: (
       <>
         <span className="font-semibold">
           Free care for uninsured adults, always.
         </span>{" "}
-        Your visit costs nothing. The only thing we ask you to cover is
-        medications priced under $25, and we waive that if it is a hardship.
+        Your visit costs nothing. Medications are the one place you may be asked
+        to pay: you cover anything priced under $25, and for medications at or
+        above $25 we screen for your ability to pay and work with you on the
+        cost. Nobody is ever denied a medication because they cannot pay.
       </>
     ),
     access: (
@@ -225,8 +228,8 @@ const LEVELS: Level[] = [
         >
           (203) 200-0673
         </a>{" "}
-        and leave a voicemail. We call back within 24 hours. Our clinic runs
-        Saturday mornings, and{" "}
+        and leave a voicemail. Please allow at least {CALLBACK_WINDOW} for a
+        return call. Our clinic runs Saturday mornings, and{" "}
         <span className="font-semibold">
           the Compass Program works with you toward permanent coverage and a
           weekday provider you keep after us.
@@ -651,8 +654,9 @@ export function NavigatingCareContent() {
               Where to Go From Here
             </h2>
             <p className="font-['Poppins',sans-serif] text-white/85 text-[15px] md:text-[17px] leading-relaxed mb-8 max-w-[680px]">
-              If you are uninsured, between 18 and 65, and living in Greater New
-              Haven without a primary care provider, start with us.
+              If you are uninsured, between 18 and 65, living in Greater New
+              Haven, and have not been seen before by a local community health
+              clinic, start with us.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link
