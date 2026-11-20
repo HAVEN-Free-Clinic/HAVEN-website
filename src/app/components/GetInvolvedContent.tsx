@@ -29,11 +29,12 @@ const APPLICATIONS_CLOSE = "Tuesday, December 1st, 2026 at 11:59 PM EST";
 const APPLICATIONS_PER_TERM = "750+";
 
 /*
- * Position descriptions for this director cycle. Set this to the PDF's path
- * under /public once the file is added; the banner button and the timeline
- * references only render while it is set.
+ * Position descriptions for this director cycle ("Student Leadership Board
+ * Openings 2026-2027"). The banner button and the timeline references only
+ * render while this is set; set it to null to hide them.
  */
-const DIRECTOR_POSITIONS_PDF: string | null = null;
+const DIRECTOR_POSITIONS_PDF: string | null =
+  "/docs/haven-board-director-positions-2026-2027.pdf";
 
 const DIRECTOR_APPLY_URL =
   "https://apply.havenfreeclinic.org/director-spring-2027-recruitment";
@@ -78,14 +79,19 @@ const RECRUITMENT_TIMELINE = [
   },
 ];
 
-/* Zoom info sessions — applicants must attend one. All run 7:00–8:00 PM. */
+/*
+ * Zoom info sessions — applicants must attend one. All run 7:00–8:00 PM.
+ * Department codes and order follow the position descriptions PDF.
+ */
 const INFO_SESSIONS = [
   {
     label: "Session #1",
     date: "Sunday, November 22",
     zoomUrl:
       "https://yale.zoom.us/j/93320387743?pwd=v9CSRMIjkRRUmQWFZuCvujH2Vi1xrU.1",
-    departments: ["EDUC", "ICDD", "MDIC", "PATS", "QAQI", "SOSE", "SRR", "VADM"],
+    departments: [
+      "EXEC", "EDUC", "ICDD", "MDIC", "PATS", "QAQI", "SOSE", "SRR", "VADM",
+    ],
   },
   {
     label: "Session #2",
@@ -93,8 +99,9 @@ const INFO_SESSIONS = [
     zoomUrl:
       "https://yale.zoom.us/j/94575609635?pwd=nikcLIaKB1bmnQASVpzfQlqMmg3pQF.1",
     departments: [
-      "BHD", "EDUC", "ICDD", "IT", "LCC", "MDIC", "MEDS", "ORHL", "PATS",
-      "PCAR", "PHLO", "QAQI", "REFF", "RHD", "SOSE", "SRR", "VADM",
+      "EXEC", "BVHD", "EDUC", "ICDD", "ITCM", "PNLC", "PNTC", "MDIC", "MEDS",
+      "ORHL", "PATS", "PCAR", "LABR", "QAQI", "REFF", "RHD", "SOSE", "SRR",
+      "VADM",
     ],
   },
   {
@@ -103,8 +110,8 @@ const INFO_SESSIONS = [
     zoomUrl:
       "https://yale.zoom.us/j/91670855264?pwd=a24fwnOcB4Xs9MsJcm2aH20ZAuRN4G.1",
     departments: [
-      "EDUC", "FIND", "ICDD", "LCC", "MDIC", "ORHL", "PATS", "PHLO", "QAQI",
-      "RHD", "SOSE", "SRR", "VADM",
+      "EXEC", "EDUC", "FIND", "ICDD", "PNLC", "PNTC", "MDIC", "ORHL", "PATS",
+      "LABR", "QAQI", "RHD", "SOSE", "SRR", "VADM",
     ],
   },
 ];
