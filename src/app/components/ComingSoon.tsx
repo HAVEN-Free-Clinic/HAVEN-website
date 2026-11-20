@@ -102,17 +102,17 @@ export function ComingSoon() {
           </Link>
         </div>
 
-        {/* Volunteer recruitment note */}
+        {/* Recruitment note */}
         <p className="mt-8 font-['Poppins',sans-serif] text-[#334155] text-[14px] md:text-[15px] text-center leading-relaxed max-w-xl">
           <span className="font-semibold text-[#00356b]">
-            Fall Volunteer Recruitment 2026 is now open.
+            Board Director Recruitment 2027 is now open.
           </span>{" "}
-          Applications are due Saturday, September 12th at 11:59 PM EDT.{" "}
+          Applications are due Tuesday, December 1st at 11:59 PM EST.{" "}
           <Link
             href="/get-involved"
             className="text-[#00356b] font-semibold underline hover:no-underline"
           >
-            See volunteer details
+            See director details
           </Link>
           .
         </p>

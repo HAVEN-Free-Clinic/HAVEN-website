@@ -14,19 +14,29 @@ import {
   Users,
   ShieldCheck,
   CalendarDays,
-  Clock,
+  Video,
 } from "lucide-react";
 import Link from "next/link";
 import { DONATE_URL } from "@/lib/links";
 
 /*
- * Term dates and the application volume in one place — they appeared in the
- * banner, the timeline label and the closing paragraph, and a rollover meant
- * finding all three.
+ * Cycle dates in one place — they appear in the banner, the timeline and the
+ * closing paragraph, and a rollover meant finding all three. The current
+ * cycle is Board Director recruitment (Spring 2027 in the HAVEN Hub).
  */
-const APPLICATIONS_OPEN = "Friday, August 28th, 2026 at 12:00 AM EDT";
-const APPLICATIONS_CLOSE = "Saturday, September 12th, 2026 at 11:59 PM EDT";
+const APPLICATIONS_OPEN = "Friday, November 20th, 2026";
+const APPLICATIONS_CLOSE = "Tuesday, December 1st, 2026 at 11:59 PM EST";
 const APPLICATIONS_PER_TERM = "750+";
+
+/*
+ * Position descriptions for this director cycle. Set this to the PDF's path
+ * under /public once the file is added; the banner button and the timeline
+ * references only render while it is set.
+ */
+const DIRECTOR_POSITIONS_PDF: string | null = null;
+
+const DIRECTOR_APPLY_URL =
+  "https://apply.havenfreeclinic.org/director-spring-2027-recruitment";
 
 /*
  * The department descriptions PDF stands in for /about/operations during the
@@ -44,17 +54,58 @@ const WHAT_WE_LOOK_FOR = [
 const RECRUITMENT_TIMELINE = [
   {
     label: "Applications open",
-    description: `Applications opened ${APPLICATIONS_OPEN} for the fall term and close ${APPLICATIONS_CLOSE}.`,
+    description: `Applications opened ${APPLICATIONS_OPEN} and close ${APPLICATIONS_CLOSE}. No exceptions will be made after this time.`,
   },
   {
-    label: "Review Period",
+    label: "Required info session",
     description:
-      "Our team carefully reviews every application and conducts intentional pairing based on skills, availability, and clinic needs.",
+      "Attend ONE of the Zoom info sessions listed below on November 22nd, 24th, or 29th. Attendance is required for your application to be considered.",
   },
   {
-    label: "Offers & Onboarding",
+    label: "Interviews",
     description:
-      "Selected volunteers are notified and begin training and orientation before their first shift.",
+      "December 4th – December 13th: Interviews with the Executive Director and relevant Departmental Directors.",
+  },
+  {
+    label: "Decisions",
+    description:
+      "Decisions are sent Friday, December 18th. The deadline to accept is Tuesday, December 22nd.",
+  },
+  {
+    label: "Director Training",
+    description:
+      "Mandatory in-person Director Training on Sunday, January 24th, 2027. Please block out the middle half of your day, as this is a critical part of onboarding. All Director positions begin in January 2027.",
+  },
+];
+
+/* Zoom info sessions — applicants must attend one. All run 7:00–8:00 PM. */
+const INFO_SESSIONS = [
+  {
+    label: "Session #1",
+    date: "Sunday, November 22",
+    zoomUrl:
+      "https://yale.zoom.us/j/93320387743?pwd=v9CSRMIjkRRUmQWFZuCvujH2Vi1xrU.1",
+    departments: ["EDUC", "ICDD", "MDIC", "PATS", "QAQI", "SOSE", "SRR", "VADM"],
+  },
+  {
+    label: "Session #2",
+    date: "Tuesday, November 24",
+    zoomUrl:
+      "https://yale.zoom.us/j/94575609635?pwd=nikcLIaKB1bmnQASVpzfQlqMmg3pQF.1",
+    departments: [
+      "BHD", "EDUC", "ICDD", "IT", "LCC", "MDIC", "MEDS", "ORHL", "PATS",
+      "PCAR", "PHLO", "QAQI", "REFF", "RHD", "SOSE", "SRR", "VADM",
+    ],
+  },
+  {
+    label: "Session #3",
+    date: "Sunday, November 29",
+    zoomUrl:
+      "https://yale.zoom.us/j/91670855264?pwd=a24fwnOcB4Xs9MsJcm2aH20ZAuRN4G.1",
+    departments: [
+      "EDUC", "FIND", "ICDD", "LCC", "MDIC", "ORHL", "PATS", "PHLO", "QAQI",
+      "RHD", "SOSE", "SRR", "VADM",
+    ],
   },
 ];
 
@@ -134,36 +185,33 @@ export function GetInvolvedContent({
         </div>
       </div>
 
-      {/* ── Fall Volunteer Recruitment Banner ── */}
+      {/* ── Board Director Recruitment Banner ── */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-10 md:py-14 lg:py-16">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#00356b] px-8 sm:px-12 md:px-16 lg:px-24 py-10 md:py-12 lg:py-14 flex flex-col items-center text-center">
             <h2 className="font-['Merriweather',serif] font-bold text-white text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] mb-4 md:mb-6">
-              Fall Volunteer Recruitment 2026
+              Board Director Recruitment 2027
             </h2>
             <p className="font-['Poppins',sans-serif] text-white text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-3">
-              Applications for Fall 2026 volunteer positions are{" "}
-              <span className="font-bold">open now</span>. We welcome{" "}
-              <span className="font-bold">
-                students across all health professions and programs, graduate
-                students, and college students
-              </span>{" "}
-              who want to serve uninsured adults in Greater New Haven alongside
-              our student-run team.
+              HAVEN Free Clinic is now accepting applications for{" "}
+              <span className="font-bold">Board Director positions</span>. All
+              Director positions begin in{" "}
+              <span className="font-bold">January 2027</span>. Join the next
+              generation of HAVEN leadership.
             </p>
             <p className="font-['Poppins',sans-serif] text-white/90 text-[15px] md:text-[17px] leading-relaxed max-w-[700px] mb-3 border border-white/25 bg-white/10 px-5 py-3.5">
               <span className="font-bold">
-                Volunteers must be Yale-affiliated.
+                All applicants must attend one Zoom info session.
               </span>{" "}
-              We are not able to accept applications from community members
-              without a Yale affiliation. Licensed clinicians interested in
-              volunteering as attendings should see Professional Volunteers
-              below, which follows a separate process.
+              Attendance is required for your application to be considered. See
+              the session dates below. Some positions have specific eligibility
+              requirements listed in the position descriptions.
             </p>
             <p className="font-['Poppins',sans-serif] text-white/80 text-[15px] md:text-[17px] leading-relaxed max-w-[700px] mb-8 md:mb-10">
               Applications due{" "}
               <span className="font-bold text-white">{APPLICATIONS_CLOSE}</span>
-              . Questions? Email us at{" "}
+              . No exceptions will be made after this time. Questions? Email us
+              at{" "}
               <a
                 href="mailto:hfc.recruitment@yale.edu"
                 className="underline hover:text-white/70 transition-colors"
@@ -174,7 +222,7 @@ export function GetInvolvedContent({
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
-                href="https://apply.havenfreeclinic.org"
+                href={DIRECTOR_APPLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-gray-100 transition-colors"
@@ -185,15 +233,15 @@ export function GetInvolvedContent({
                 <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-[#00356b]" />
               </a>
 
-              {comingSoon && (
+              {DIRECTOR_POSITIONS_PDF && (
                 <a
-                  href={DEPARTMENT_DESCRIPTIONS_PDF}
+                  href={DIRECTOR_POSITIONS_PDF}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-white px-6 md:px-8 py-3 md:py-4 flex items-center gap-2 md:gap-3 hover:bg-white/15 transition-colors"
                 >
                   <span className="font-['Poppins',sans-serif] font-bold text-white text-[16px] sm:text-[18px] md:text-[22px]">
-                    Department Descriptions
+                    Position Descriptions
                   </span>
                   <FileText className="w-5 h-5 md:w-6 md:h-6 text-white shrink-0" />
                 </a>
@@ -397,8 +445,8 @@ export function GetInvolvedContent({
             Recruitment Timeline
           </h2>
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mb-8 md:mb-10">
-            Because of the volume and care involved in our selection process,
-            recruitment follows a structured timeline each term:
+            Board Director recruitment follows the timeline below. Please note
+            that the info session and Director Training are both mandatory.
           </p>
 
           <div className="space-y-5 md:space-y-6">
@@ -422,24 +470,94 @@ export function GetInvolvedContent({
             ))}
           </div>
 
+          {/* Info sessions */}
+          <h3 className="font-['Merriweather',serif] font-bold text-[#00356b] text-[19px] sm:text-[21px] md:text-[24px] mt-10 md:mt-12 mb-3">
+            Info Sessions
+          </h3>
+          <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-6">
+            All applicants must attend <span className="font-bold">one</span>{" "}
+            of the following Zoom info sessions. We will run through general
+            director responsibilities, then open department-specific breakout
+            rooms for Q&amp;A. Choose a session where the department you are
+            applying to is represented.
+          </p>
+
+          <div className="space-y-4 md:space-y-5">
+            {INFO_SESSIONS.map((session) => (
+              <div
+                key={session.label}
+                className="flex items-start gap-4 md:gap-5 bg-[#f7f9fc] p-6 md:p-7 border border-[#00356b]/10"
+              >
+                <div className="w-11 h-11 rounded-full bg-[#00356b]/10 flex items-center justify-center shrink-0">
+                  <Video className="w-5 h-5 text-[#00356b]" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-['Merriweather',serif] font-semibold text-[#00356b] text-[17px] sm:text-[19px] md:text-[21px] mb-1">
+                    {session.label}
+                  </h4>
+                  <p className="font-['Poppins',sans-serif] text-black text-[14px] sm:text-[15px] md:text-[16px] mb-3">
+                    {session.date}, 7:00&ndash;8:00 PM &middot;{" "}
+                    <a
+                      href={session.zoomUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Join ${session.label} on Zoom`}
+                      className="inline-flex items-center gap-1 text-[#00356b] font-semibold underline hover:no-underline"
+                    >
+                      Join on Zoom
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </p>
+                  <p className="sr-only">Departments represented:</p>
+                  <ul className="flex flex-wrap gap-2">
+                    {session.departments.map((dept) => (
+                      <li
+                        key={dept}
+                        className="font-['Poppins',sans-serif] font-semibold text-[#00356b] text-[12px] md:text-[13px] bg-white border border-[#00356b]/20 px-2.5 py-1"
+                      >
+                        {dept}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-8 md:mt-10 flex items-start gap-3 md:gap-4 border-l-4 border-[#00356b] bg-[#f7f9fc] p-6 md:p-7">
-            <Clock className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
+            <Mail className="w-6 h-6 text-[#00356b] shrink-0 mt-0.5" />
             <p className="font-['Poppins',sans-serif] text-black text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">
-              We ask that all applicants please be patient during this process.
-              With {APPLICATIONS_PER_TERM} applications to review, we give every candidate the
-              thoughtful consideration they deserve, and that takes time. We
-              appreciate your understanding and your interest in HAVEN&rsquo;s
-              mission. We continue to review applications on a rolling basis even
-              after training begins, so if you do not hear from us right away,
-              your application remains under consideration.
+              If you have questions about specific positions, feel free to reach
+              out directly to the Directors listed in the{" "}
+              {DIRECTOR_POSITIONS_PDF ? (
+                <a
+                  href={DIRECTOR_POSITIONS_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00356b] font-semibold underline hover:no-underline"
+                >
+                  position descriptions
+                </a>
+              ) : (
+                "position descriptions"
+              )}
+              . For general questions, email{" "}
+              <a
+                href="mailto:hfc.recruitment@yale.edu"
+                className="text-[#00356b] font-semibold underline hover:no-underline break-all"
+              >
+                hfc.recruitment@yale.edu
+              </a>
+              . We look forward to reading your applications and welcoming the
+              next generation of HAVEN leadership!
             </p>
           </div>
 
           <p className="font-['Poppins',sans-serif] text-black text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] leading-relaxed mt-8 md:mt-10">
             <span className="font-semibold text-[#00356b]">
-              Interested in volunteering?
+              Interested in leading a department?
             </span>{" "}
-            Applications for our Fall 2026 cycle are open now and close{" "}
+            Board Director applications are open now and close{" "}
             {APPLICATIONS_CLOSE}.
           </p>
         </div>
